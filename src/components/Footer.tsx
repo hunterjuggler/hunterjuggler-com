@@ -2,7 +2,7 @@
 import { Instagram, Facebook, Youtube, Twitter, Mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { toast } from "@/components/ui/sonner";
+import { toast } from "sonner";
 import { useState } from "react";
 
 const Footer = () => {

@@ -17,6 +17,7 @@ interface MotionProps {
   };
   className?: string;
   style?: React.CSSProperties;
+  onClick?: () => void; // Add onClick handler support
 }
 
 export const motion = {
@@ -29,6 +30,7 @@ export const motion = {
     viewport,
     className,
     style,
+    onClick, // Add onClick to the destructured props
     ...props
   }: MotionProps) => {
     const ref = useRef<HTMLDivElement>(null);
@@ -109,6 +111,7 @@ export const motion = {
         ref={ref}
         className={className}
         style={{ ...initialStyles, ...style }}
+        onClick={onClick} // Add onClick handler to the div
         {...props}
       >
         {children}
