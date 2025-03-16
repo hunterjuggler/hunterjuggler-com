@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -39,7 +39,7 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "py-3 bg-background/80 backdrop-blur-lg shadow-sm"
+          ? "py-3 bg-background/90 backdrop-blur-lg shadow-md border-b border-primary/10"
           : "py-5 bg-transparent"
       )}
     >
@@ -47,7 +47,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <NavLink
             to="/"
-            className="text-xl font-display font-bold tracking-tight transition-opacity hover:opacity-90"
+            className="text-xl font-display font-bold tracking-tight transition-opacity hover:opacity-90 red-gradient-text"
           >
             Alex Morgan
           </NavLink>
@@ -61,15 +61,18 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   cn(
                     "nav-link font-medium text-sm transition-colors",
-                    isActive ? "text-accent active" : "text-foreground/80 hover:text-foreground"
+                    isActive ? "text-primary active" : "text-foreground/80 hover:text-foreground"
                   )
                 }
               >
                 {item.name}
               </NavLink>
             ))}
-            <Button asChild className="bg-accent hover:bg-accent/90 text-white">
-              <NavLink to="/booking">Book Now</NavLink>
+            <Button asChild variant="gradient" rounded="pill" className="shine-effect">
+              <NavLink to="/booking" className="flex items-center gap-1">
+                <Sparkles className="h-4 w-4" />
+                Book Now
+              </NavLink>
             </Button>
           </nav>
 
@@ -87,7 +90,7 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          "fixed inset-0 bg-background z-40 md:hidden transition-transform duration-300 ease-in-out pt-20",
+          "fixed inset-0 bg-background/95 backdrop-blur-lg z-40 md:hidden transition-transform duration-300 ease-in-out pt-20",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -99,15 +102,18 @@ const Navbar = () => {
               className={({ isActive }) =>
                 cn(
                   "text-lg font-medium transition-colors",
-                  isActive ? "text-accent" : "text-foreground/80 hover:text-foreground"
+                  isActive ? "text-primary" : "text-foreground/80 hover:text-foreground"
                 )
               }
             >
               {item.name}
             </NavLink>
           ))}
-          <Button asChild className="bg-accent hover:bg-accent/90 text-white mt-4 w-40">
-            <NavLink to="/booking">Book Now</NavLink>
+          <Button asChild variant="gradient" rounded="pill" className="shine-effect mt-4 w-40">
+            <NavLink to="/booking" className="flex items-center justify-center gap-1">
+              <Sparkles className="h-4 w-4" />
+              Book Now
+            </NavLink>
           </Button>
         </nav>
       </div>
