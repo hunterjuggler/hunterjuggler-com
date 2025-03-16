@@ -62,7 +62,6 @@
     background-attachment: fixed;
   }
 
-  /* Remove the static diamonds and replace with parallax diamonds */
   body::before,
   body::after,
   #root::before,
@@ -74,7 +73,6 @@
     scroll-behavior: smooth;
   }
   
-  /* Give section headings more flair */
   h1, h2, h3 {
     position: relative;
     display: inline-block;
@@ -229,7 +227,6 @@
     }
   }
   
-  /* Diamond utilities */
   .diamond-bg {
     position: relative;
   }
@@ -255,7 +252,6 @@
     right: -15px;
   }
   
-  /* Diamond corner decoration */
   .diamond-corner {
     position: relative;
     overflow: hidden;
@@ -283,7 +279,6 @@
     right: -20px;
   }
   
-  /* Glowing text */
   .text-glow {
     text-shadow: 0 0 5px rgba(255, 0, 0, 0.5), 0 0 10px rgba(255, 0, 0, 0.3);
     animation: textPulse 2s infinite alternate;
@@ -299,7 +294,6 @@
   }
 }
 
-/* Page Transition Animation Classes */
 .page-enter {
   opacity: 0;
   transform: translateY(8px);
@@ -322,7 +316,6 @@
   transition: opacity 400ms, transform 400ms;
 }
 
-/* Custom styles for components */
 .nav-link {
   position: relative;
 }
@@ -386,7 +379,6 @@
   pointer-events: none;
 }
 
-/* Diamond decoration for gallery items */
 .gallery-item::after {
   content: '';
   position: absolute;
@@ -424,7 +416,6 @@
   opacity: 0.8;
 }
 
-/* Social icon diamond decoration */
 .social-icon::before {
   content: '';
   position: absolute;
@@ -443,7 +434,6 @@
   opacity: 1;
 }
 
-/* Loading blur animation for images */
 .image-blur-loading {
   position: relative;
   overflow: hidden;
@@ -465,7 +455,6 @@
   }
 }
 
-/* Custom button styling */
 .button-flashy {
   position: relative;
   overflow: hidden;
@@ -498,7 +487,6 @@
   left: 100%;
 }
 
-/* Floating animation */
 @keyframes float {
   0% {
     transform: translateY(0) rotate(45deg);
@@ -511,7 +499,6 @@
   }
 }
 
-/* Pulse subtle animation */
 @keyframes pulse-subtle {
   0%, 100% {
     opacity: 1;
@@ -523,7 +510,6 @@
   }
 }
 
-/* Apply diamond decorations to cards */
 .card {
   position: relative;
   overflow: hidden;
@@ -550,5 +536,7 @@
   right: -12px;
 }
 
-/* Par
-
+.parallax-layer {
+  will-change: transform;
+  transform-style: preserve-3d;
+}
