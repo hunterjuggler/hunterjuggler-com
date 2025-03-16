@@ -1,0 +1,267 @@
+
+import { useState } from "react";
+import BlurImage from "@/components/BlurImage";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { motion } from "@/lib/motion";
+import { Play } from "lucide-react";
+
+// Gallery items
+const performances = [
+  {
+    id: 1,
+    title: "Aerial Silk Performance",
+    category: "images",
+    thumbnail: "https://images.unsplash.com/photo-1564119923066-cb68c681ebd2?q=80&w=1974&auto=format&fit=crop",
+    fullImage: "https://images.unsplash.com/photo-1564119923066-cb68c681ebd2?q=80&w=1974&auto=format&fit=crop",
+    description: "An enchanting aerial silk performance at the International Arts Festival",
+  },
+  {
+    id: 2,
+    title: "Fire Dancing",
+    category: "images",
+    thumbnail: "https://images.unsplash.com/photo-1599204606395-ede983886ce8?q=80&w=1974&auto=format&fit=crop",
+    fullImage: "https://images.unsplash.com/photo-1599204606395-ede983886ce8?q=80&w=1974&auto=format&fit=crop",
+    description: "A mesmerizing fire dancing routine that captivated the audience",
+  },
+  {
+    id: 3,
+    title: "Juggling Act",
+    category: "images",
+    thumbnail: "https://images.unsplash.com/photo-1522079185018-1766e5689e74?q=80&w=1974&auto=format&fit=crop",
+    fullImage: "https://images.unsplash.com/photo-1522079185018-1766e5689e74?q=80&w=1974&auto=format&fit=crop",
+    description: "A technical juggling routine combining precision and artistic expression",
+  },
+  {
+    id: 4,
+    title: "Acrobatic Display",
+    category: "images",
+    thumbnail: "https://images.unsplash.com/photo-1587219872855-8f3194ffc505?q=80&w=1974&auto=format&fit=crop",
+    fullImage: "https://images.unsplash.com/photo-1587219872855-8f3194ffc505?q=80&w=1974&auto=format&fit=crop",
+    description: "A showcase of balance and strength in this acrobatic performance",
+  },
+  {
+    id: 5,
+    title: "Stage Performance",
+    category: "images",
+    thumbnail: "https://images.unsplash.com/photo-1594285799155-d1d298e3df37?q=80&w=1974&auto=format&fit=crop",
+    fullImage: "https://images.unsplash.com/photo-1594285799155-d1d298e3df37?q=80&w=1974&auto=format&fit=crop",
+    description: "A dynamic stage performance combining multiple disciplines",
+  },
+  {
+    id: 6,
+    title: "Character Work",
+    category: "images",
+    thumbnail: "https://images.unsplash.com/photo-1508921108053-9f757ead871c?q=80&w=1974&auto=format&fit=crop",
+    fullImage: "https://images.unsplash.com/photo-1508921108053-9f757ead871c?q=80&w=1974&auto=format&fit=crop",
+    description: "Character-based performance exploring theatrical elements",
+  },
+  {
+    id: 7,
+    title: "Fire and Light Show",
+    category: "videos",
+    thumbnail: "https://images.unsplash.com/photo-1446743050395-1a21eef78944?q=80&w=1974&auto=format&fit=crop",
+    videoUrl: "https://www.youtube.com/embed/YE7VzlLtp-4",
+    description: "A stunning display of fire manipulation and light effects",
+  },
+  {
+    id: 8,
+    title: "Juggling Performance",
+    category: "videos",
+    thumbnail: "https://images.unsplash.com/photo-1615264208436-5116830e25f7?q=80&w=1974&auto=format&fit=crop",
+    videoUrl: "https://www.youtube.com/embed/YE7VzlLtp-4",
+    description: "A complex juggling routine with multiple objects",
+  },
+  {
+    id: 9,
+    title: "Aerial Performance",
+    category: "videos",
+    thumbnail: "https://images.unsplash.com/photo-1549057446-9f5c6ac91a04?q=80&w=1974&auto=format&fit=crop",
+    videoUrl: "https://www.youtube.com/embed/YE7VzlLtp-4",
+    description: "A breathtaking aerial performance showcasing grace and strength",
+  },
+];
+
+const GalleryPage = () => {
+  const [selectedItem, setSelectedItem] = useState<any | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = (item: any) => {
+    setSelectedItem(item);
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  return (
+    <div className="pt-20 w-full">
+      {/* Hero Section */}
+      <section className="py-16 md:py-24 bg-secondary">
+        <div className="container mx-auto px-4 md:px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="text-3xl md:text-5xl font-display font-bold mb-6">
+              Performance Gallery
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Browse through a collection of images and videos showcasing performances from various 
+              events, festivals, and venues around the world.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 md:px-6">
+          <Tabs defaultValue="all" className="w-full">
+            <TabsList className="mx-auto mb-10 flex justify-center">
+              <TabsTrigger value="all">All Works</TabsTrigger>
+              <TabsTrigger value="images">Images</TabsTrigger>
+              <TabsTrigger value="videos">Videos</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="all" className="mt-0">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {performances.map((item, index) => (
+                  <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.05 }}
+                    viewport={{ once: true }}
+                    className="gallery-item rounded-lg overflow-hidden shadow-md"
+                    onClick={() => openModal(item)}
+                  >
+                    <div className="relative">
+                      <BlurImage
+                        src={item.thumbnail}
+                        alt={item.title}
+                        aspectRatio="video"
+                      />
+                      {item.category === "videos" && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                          <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-lg flex items-center justify-center">
+                            <Play className="w-6 h-6 text-white" />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="images" className="mt-0">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {performances
+                  .filter((item) => item.category === "images")
+                  .map((item, index) => (
+                    <motion.div
+                      key={item.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.05 }}
+                      viewport={{ once: true }}
+                      className="gallery-item rounded-lg overflow-hidden shadow-md"
+                      onClick={() => openModal(item)}
+                    >
+                      <BlurImage
+                        src={item.thumbnail}
+                        alt={item.title}
+                        aspectRatio="video"
+                      />
+                      <div className="p-4">
+                        <h3 className="font-semibold">{item.title}</h3>
+                        <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="videos" className="mt-0">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {performances
+                  .filter((item) => item.category === "videos")
+                  .map((item, index) => (
+                    <motion.div
+                      key={item.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.05 }}
+                      viewport={{ once: true }}
+                      className="gallery-item rounded-lg overflow-hidden shadow-md"
+                      onClick={() => openModal(item)}
+                    >
+                      <div className="relative">
+                        <BlurImage
+                          src={item.thumbnail}
+                          alt={item.title}
+                          aspectRatio="video"
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                          <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-lg flex items-center justify-center">
+                            <Play className="w-6 h-6 text-white" />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-semibold">{item.title}</h3>
+                        <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+              </div>
+            </TabsContent>
+          </Tabs>
+        </div>
+      </section>
+
+      {/* Media Modal */}
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogContent className="max-w-3xl p-0 bg-background overflow-hidden">
+          {selectedItem && (
+            <div>
+              {selectedItem.category === "images" ? (
+                <div className="p-1">
+                  <BlurImage
+                    src={selectedItem.fullImage}
+                    alt={selectedItem.title}
+                    className="w-full rounded-lg"
+                    aspectRatio="video"
+                  />
+                </div>
+              ) : (
+                <div className="relative pb-[56.25%] h-0 overflow-hidden">
+                  <iframe
+                    src={selectedItem.videoUrl}
+                    title={selectedItem.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute top-0 left-0 w-full h-full"
+                  ></iframe>
+                </div>
+              )}
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">{selectedItem.title}</h3>
+                <p className="text-muted-foreground">{selectedItem.description}</p>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+};
+
+export default GalleryPage;
