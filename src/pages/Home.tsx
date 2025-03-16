@@ -1,5 +1,4 @@
-
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight, Star, Award, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import BlurImage from "@/components/BlurImage";
@@ -21,6 +20,30 @@ const highlights = [
     description: "Dazzling displays with fire that create unforgettable visual spectacles.",
     icon: "🔥",
   },
+];
+
+const accolades = [
+  {
+    title: "Best Solo Performer",
+    organization: "International Circus Festival",
+    year: "2023",
+    description: "Recognized for outstanding technical precision and artistic innovation.",
+    icon: <Trophy className="w-8 h-8 text-accent" />
+  },
+  {
+    title: "Excellence in Fire Arts",
+    organization: "Global Performance Awards",
+    year: "2022",
+    description: "Awarded for pioneering new techniques in fire manipulation performances.",
+    icon: <Award className="w-8 h-8 text-accent" />
+  },
+  {
+    title: "Artist of the Year",
+    organization: "National Arts Foundation",
+    year: "2021",
+    description: "Celebrated for contributions to contemporary circus arts and community outreach.",
+    icon: <Star className="w-8 h-8 text-accent" />
+  }
 ];
 
 const testimonials = [
@@ -108,6 +131,36 @@ const HomePage = () => {
                 <div className="text-3xl mb-4">{highlight.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{highlight.title}</h3>
                 <p className="text-muted-foreground">{highlight.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Accolades Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-16">
+            <span className="text-accent font-medium">Recognition & Awards</span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mt-2">Accolades</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {accolades.map((accolade, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-2xl p-8 shadow-md border border-accent/10 hover:shadow-lg transition-all duration-300"
+              >
+                <div className="mb-4 flex items-center justify-center w-16 h-16 rounded-full bg-accent/10">
+                  {accolade.icon}
+                </div>
+                <h3 className="text-xl font-semibold mb-1">{accolade.title}</h3>
+                <p className="text-sm text-accent mb-2">{accolade.organization}, {accolade.year}</p>
+                <p className="text-muted-foreground">{accolade.description}</p>
               </motion.div>
             ))}
           </div>
