@@ -69,7 +69,7 @@ const Navbar = () => {
               </NavLink>
             ))}
             <Button asChild className="bg-accent hover:bg-accent/90 text-white">
-              <NavLink to="/contact">Book Now</NavLink>
+              <NavLink to="/booking">Book Now</NavLink>
             </Button>
           </nav>
 
@@ -107,7 +107,7 @@ const Navbar = () => {
             </NavLink>
           ))}
           <Button asChild className="bg-accent hover:bg-accent/90 text-white mt-4 w-40">
-            <NavLink to="/contact">Book Now</NavLink>
+            <NavLink to="/booking">Book Now</NavLink>
           </Button>
         </nav>
       </div>
