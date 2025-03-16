@@ -75,13 +75,10 @@ const HomePage = () => {
             <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mb-8">Shows | Festivals | Events</p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg" className="rounded-full">
-                <Link to="/gallery">Explore Performances</Link>
+                
               </Button>
               <Button asChild variant="outline" size="lg" className="rounded-full group">
-                <Link to="/contact">
-                  Book a Show
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+                
               </Button>
             </div>
           </motion.div>
