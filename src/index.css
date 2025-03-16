@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -63,54 +62,12 @@
     background-attachment: fixed;
   }
 
-  /* Diamond decorations throughout the site */
+  /* Remove the static diamonds and replace with parallax diamonds */
   body::before,
-  body::after {
-    content: '';
-    position: fixed;
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, rgba(255,0,0,0.7), rgba(255,255,255,0.7));
-    transform: rotate(45deg);
-    z-index: -1;
-    animation: float 6s ease-in-out infinite;
-  }
-
-  body::before {
-    top: 20%;
-    left: 5%;
-    animation-delay: 0s;
-  }
-
-  body::after {
-    bottom: 20%;
-    right: 5%;
-    animation-delay: 3s;
-  }
-
-  /* Add more diamonds */
+  body::after,
   #root::before,
   #root::after {
-    content: '';
-    position: fixed;
-    width: 30px;
-    height: 30px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,0,0,0.3));
-    transform: rotate(45deg);
-    z-index: -1;
-    animation: float 7s ease-in-out infinite;
-  }
-
-  #root::before {
-    top: 60%;
-    left: 10%;
-    animation-delay: 1s;
-  }
-
-  #root::after {
-    top: 30%;
-    right: 10%;
-    animation-delay: 2s;
+    content: none;
   }
 
   html {
@@ -592,3 +549,6 @@
   bottom: -12px;
   right: -12px;
 }
+
+/* Par
+

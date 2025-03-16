@@ -20,6 +20,7 @@ const badgeVariants = cva(
         glow: "border-transparent bg-primary text-primary-foreground shadow-[0_0_15px_rgba(255,0,0,0.8)] animate-pulse-subtle",
         diamond: "relative border-2 border-primary bg-white text-primary before:absolute before:content-[''] before:w-2 before:h-2 before:bg-primary before:rotate-45 before:-left-1 before:top-1/2 before:-translate-y-1/2 after:absolute after:content-[''] after:w-2 after:h-2 after:bg-primary after:rotate-45 after:-right-1 after:top-1/2 after:-translate-y-1/2",
         neon: "border-2 border-primary text-primary bg-black shadow-[0_0_10px_rgba(255,0,0,0.5),inset_0_0_5px_rgba(255,0,0,0.3)]",
+        parallax: "relative border-2 border-primary bg-white text-primary shadow-[0_0_10px_rgba(255,0,0,0.3)] hover:shadow-[0_0_15px_rgba(255,0,0,0.5)] transition-all duration-300",
       },
     },
     defaultVariants: {

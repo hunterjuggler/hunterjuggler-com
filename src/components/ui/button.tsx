@@ -24,6 +24,7 @@ const buttonVariants = cva(
         'outline-gradient': "border-2 border-transparent bg-background red-gradient-border hover:bg-accent/5",
         'diamond': "bg-white text-primary relative overflow-hidden border-2 border-primary hover:text-white hover:bg-primary transition-all duration-500 before:content-[''] before:absolute before:w-8 before:h-8 before:rotate-45 before:bg-primary/20 before:-left-4 before:-top-4 after:content-[''] after:absolute after:w-8 after:h-8 after:rotate-45 after:bg-primary/20 after:-right-4 after:-bottom-4",
         'neon': "bg-black text-white border-2 border-primary shadow-[0_0_20px_rgba(255,0,0,0.8),inset_0_0_10px_rgba(255,0,0,0.5)] hover:shadow-[0_0_30px_rgba(255,0,0,1),inset_0_0_15px_rgba(255,0,0,0.8)] transition-all duration-300",
+        'parallax': "relative bg-white text-primary border-2 border-primary hover:bg-primary hover:text-white transition-all duration-300 before:content-[''] before:absolute before:w-full before:h-full before:bg-primary/10 before:top-0 before:left-0 before:transform before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition-transform before:duration-300",
       },
       size: {
         default: "h-10 px-5 py-2",

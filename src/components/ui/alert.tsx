@@ -21,6 +21,8 @@ const alertVariants = cva(
           "border-primary bg-white text-primary relative overflow-hidden before:absolute before:content-[''] before:w-16 before:h-16 before:bg-primary/10 before:rotate-45 before:-left-8 before:-top-8 after:absolute after:content-[''] after:w-16 after:h-16 after:bg-primary/10 after:rotate-45 after:-right-8 after:-bottom-8",
         neon:
           "border-2 border-primary bg-black text-primary shadow-[0_0_20px_rgba(255,0,0,0.5),inset_0_0_5px_rgba(255,0,0,0.3)]",
+        parallax:
+          "border-2 border-primary/50 bg-white/90 text-primary backdrop-blur-sm shadow-md hover:shadow-[0_10px_25px_rgba(255,0,0,0.2)] transition-all duration-500 relative overflow-hidden before:absolute before:content-[''] before:w-20 before:h-20 before:bg-primary/5 before:rotate-45 before:-left-10 before:-top-10 after:absolute after:content-[''] after:w-20 after:h-20 after:bg-primary/5 after:rotate-45 after:-right-10 after:-bottom-10",
       },
     },
     defaultVariants: {
