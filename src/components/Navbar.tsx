@@ -49,7 +49,7 @@ const Navbar = () => {
             to="/"
             className="text-xl font-display font-bold tracking-tight transition-opacity hover:opacity-90 red-gradient-text"
           >
-            Alex Morgan
+            Hunter Way
           </NavLink>
 
           {/* Desktop Navigation */}

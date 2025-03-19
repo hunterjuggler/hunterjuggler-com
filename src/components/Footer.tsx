@@ -1,4 +1,3 @@
-
 import { Instagram, Facebook, Youtube, Twitter, Mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -25,7 +24,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <h3 className="text-xl font-display font-bold mb-4">Alex Morgan</h3>
+            <h3 className="text-xl font-display font-bold mb-4">Hunter Way</h3>
             <p className="text-muted-foreground max-w-sm">
               Professional performing artist with a decade of experience in acrobatics,
               juggling, and captivating stage performances.
@@ -73,11 +72,11 @@ const Footer = () => {
               </a>
             </div>
             <a 
-              href="mailto:contact@alexmorgan.com" 
+              href="mailto:hunterjuggler@gmail.com" 
               className="flex items-center text-sm text-foreground/80 hover:text-accent transition-colors"
             >
               <Mail size={16} className="mr-2" />
-              contact@alexmorgan.com
+              hunterjuggler@gmail.com
             </a>
           </div>
 
@@ -100,7 +99,7 @@ const Footer = () => {
 
         <div className="border-t border-border/40 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Alex Morgan. All rights reserved.
+            © {new Date().getFullYear()} Hunter Way. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">

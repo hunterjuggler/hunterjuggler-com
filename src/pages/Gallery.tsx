@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import BlurImage from "@/components/BlurImage";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -119,47 +118,11 @@ const GalleryPage = () => {
       {/* Gallery Section */}
       <section className="py-16">
         <div className="container mx-auto px-4 md:px-6">
-          <Tabs defaultValue="all" className="w-full">
+          <Tabs defaultValue="images" className="w-full">
             <TabsList className="mx-auto mb-10 flex justify-center">
-              <TabsTrigger value="all">All Works</TabsTrigger>
               <TabsTrigger value="images">Images</TabsTrigger>
               <TabsTrigger value="videos">Videos</TabsTrigger>
             </TabsList>
-            
-            <TabsContent value="all" className="mt-0">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {performances.map((item, index) => (
-                  <motion.div
-                    key={item.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.05 }}
-                    viewport={{ once: true }}
-                    className="gallery-item rounded-lg overflow-hidden shadow-md"
-                    onClick={() => openModal(item)}
-                  >
-                    <div className="relative">
-                      <BlurImage
-                        src={item.thumbnail}
-                        alt={item.title}
-                        aspectRatio="video"
-                      />
-                      {item.category === "videos" && (
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                          <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-lg flex items-center justify-center">
-                            <Play className="w-6 h-6 text-white" />
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                    <div className="p-4">
-                      <h3 className="font-semibold">{item.title}</h3>
-                      <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </TabsContent>
             
             <TabsContent value="images" className="mt-0">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

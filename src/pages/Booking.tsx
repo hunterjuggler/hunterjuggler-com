@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Calendar, Clock, MapPin, Users, DollarSign, Music, Send } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -22,6 +21,7 @@ const BookingPage = () => {
     eventLocation: "",
     venueType: "",
     audienceSize: "",
+    stageSize: "", // New stage size field
     performanceDuration: "60",
     performanceType: "standard",
     specialRequests: "",
@@ -31,7 +31,6 @@ const BookingPage = () => {
     stageRequirements: false,
     accommodationNeeded: false,
     transportationNeeded: false,
-    budgetRange: "",
     referralSource: "",
     agreeToTerms: false
   });
@@ -75,6 +74,7 @@ const BookingPage = () => {
         eventLocation: "",
         venueType: "",
         audienceSize: "",
+        stageSize: "",
         performanceDuration: "60",
         performanceType: "standard",
         specialRequests: "",
@@ -84,7 +84,6 @@ const BookingPage = () => {
         stageRequirements: false,
         accommodationNeeded: false,
         transportationNeeded: false,
-        budgetRange: "",
         referralSource: "",
         agreeToTerms: false
       });
@@ -153,8 +152,8 @@ const BookingPage = () => {
                         <Music size={16} />
                       </span>
                       <div>
-                        <p className="font-medium">Interactive Experience</p>
-                        <p className="text-sm text-muted-foreground">Performance with audience participation elements</p>
+                        <p className="font-medium">Roaming Entertainment / Ambience</p>
+                        <p className="text-sm text-muted-foreground">Wandering performance that creates atmosphere throughout your venue</p>
                       </div>
                     </li>
                   </ul>
@@ -336,6 +335,20 @@ const BookingPage = () => {
                     </div>
                     
                     <div className="space-y-2">
+                      <Label htmlFor="stageSize">Stage or Performance Area Size *</Label>
+                      <Input
+                        id="stageSize"
+                        name="stageSize"
+                        placeholder="Dimensions (e.g., 10ft x 12ft)"
+                        value={formData.stageSize}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
                       <Label htmlFor="performanceDuration">Performance Duration</Label>
                       <Select
                         value={formData.performanceDuration}
@@ -375,8 +388,8 @@ const BookingPage = () => {
                         <Label htmlFor="custom" className="cursor-pointer">Custom Show</Label>
                       </div>
                       <div className="flex items-center space-x-2 border p-3 rounded-md">
-                        <RadioGroupItem value="interactive" id="interactive" />
-                        <Label htmlFor="interactive" className="cursor-pointer">Interactive Experience</Label>
+                        <RadioGroupItem value="roaming" id="roaming" />
+                        <Label htmlFor="roaming" className="cursor-pointer">Roaming Entertainment / Ambience</Label>
                       </div>
                     </RadioGroup>
                   </div>
@@ -484,29 +497,6 @@ const BookingPage = () => {
                 
                 <div className="space-y-6">
                   <h3 className="text-xl font-semibold border-b pb-2">Additional Information</h3>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="budgetRange">Budget Range</Label>
-                    <div className="relative">
-                      <DollarSign className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Select
-                        value={formData.budgetRange}
-                        onValueChange={(value) => handleSelectChange("budgetRange", value)}
-                      >
-                        <SelectTrigger className="pl-10">
-                          <SelectValue placeholder="Select your budget range" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="1000-3000">$1,000 - $3,000</SelectItem>
-                          <SelectItem value="3000-5000">$3,000 - $5,000</SelectItem>
-                          <SelectItem value="5000-10000">$5,000 - $10,000</SelectItem>
-                          <SelectItem value="10000-15000">$10,000 - $15,000</SelectItem>
-                          <SelectItem value="15000+">$15,000+</SelectItem>
-                          <SelectItem value="flexible">Flexible/To be discussed</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
                   
                   <div className="space-y-2">
                     <Label htmlFor="referralSource">How did you hear about me?</Label>

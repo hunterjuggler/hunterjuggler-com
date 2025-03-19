@@ -60,7 +60,7 @@ const AboutPage = () => {
                 The Journey Behind the Performance
               </h1>
               <p className="text-muted-foreground mb-4">
-                I'm Alex Morgan, a professional performing artist with over a decade of experience
+                I'm Hunter Way, a professional performing artist with over a decade of experience
                 specializing in acrobatics, juggling, and fire performances. My journey began
                 with a fascination for movement and a desire to create experiences that inspire wonder.
               </p>
@@ -81,33 +81,12 @@ const AboutPage = () => {
                 <div className="absolute -inset-4 md:-inset-8 rounded-2xl bg-accent/5 -z-10"></div>
                 <BlurImage
                   src="https://images.unsplash.com/photo-1622367536944-4872bb438ed6?q=80&w=1974&auto=format&fit=crop"
-                  alt="Alex Morgan portrait"
+                  alt="Hunter Way portrait"
                   className="rounded-xl shadow-lg"
                   aspectRatio="portrait"
                 />
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Philosophy Section */}
-      <section className="py-16 bg-secondary">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-              My Performance Philosophy
-            </h2>
-            <p className="text-lg text-muted-foreground mb-6">
-              I believe that performance art is about creating connections – between 
-              artist and audience, between the physical and emotional, between tradition and innovation.
-            </p>
-            <p className="text-lg text-muted-foreground">
-              Every show is an opportunity to transcend the ordinary and create 
-              moments that stay with the audience long after the final bow. My approach 
-              combines technical precision with authentic emotional expression to deliver 
-              performances that are both spectacular and moving.
-            </p>
           </div>
         </div>
       </section>
@@ -178,73 +157,6 @@ const AboutPage = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Training Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <span className="text-accent font-medium">Training & Education</span>
-              <h2 className="text-3xl md:text-4xl font-display font-bold mt-2 mb-6">
-                The Foundation of Excellence
-              </h2>
-              <p className="text-muted-foreground mb-4">
-                My formal training began at the National School of Circus Arts, where I 
-                studied under master performers from around the world. This foundation in 
-                classical techniques provided the platform for my career.
-              </p>
-              <p className="text-muted-foreground mb-4">
-                I continued my education with specialized training in physical theater in 
-                Paris and completed advanced certifications in various movement disciplines. 
-                My approach to continuous learning keeps my performances fresh and innovative.
-              </p>
-              <p className="text-muted-foreground">
-                Today, I regularly participate in masterclasses and workshops to expand my 
-                repertoire and refine my craft, believing that a performing artist's education 
-                never truly ends.
-              </p>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-2 gap-4"
-            >
-              <BlurImage
-                src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6a3?q=80&w=1974&auto=format&fit=crop"
-                alt="Aerial training"
-                className="rounded-lg shadow-md"
-                aspectRatio="square"
-              />
-              <BlurImage
-                src="https://images.unsplash.com/photo-1519925610903-381054cc2a1c?q=80&w=1974&auto=format&fit=crop"
-                alt="Fire performance training"
-                className="rounded-lg shadow-md translate-y-8"
-                aspectRatio="square"
-              />
-              <BlurImage
-                src="https://images.unsplash.com/photo-1584120073944-012801588295?q=80&w=1974&auto=format&fit=crop"
-                alt="Juggling practice"
-                className="rounded-lg shadow-md translate-y-4"
-                aspectRatio="square"
-              />
-              <BlurImage
-                src="https://images.unsplash.com/photo-1483117451344-12a4932947ba?q=80&w=1974&auto=format&fit=crop"
-                alt="Physical theater training"
-                className="rounded-lg shadow-md"
-                aspectRatio="square"
-              />
-            </motion.div>
           </div>
         </div>
       </section>

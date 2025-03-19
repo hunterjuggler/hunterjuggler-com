@@ -1,46 +1,16 @@
+
 import { ArrowRight, Star, Award, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import BlurImage from "@/components/BlurImage";
 import { motion } from "@/lib/motion";
-const highlights = [{
-  title: "Acrobatics",
-  description: "Breathtaking feats of balance, strength, and flexibility that captivate audiences.",
-  icon: "🤸‍♂️"
-}, {
-  title: "Juggling",
-  description: "Masterful manipulation of objects, from classic balls to flaming torches.",
-  icon: "🎭"
-}, {
-  title: "Fire Performance",
-  description: "Dazzling displays with fire that create unforgettable visual spectacles.",
-  icon: "🔥"
-}];
-const accolades = [{
-  title: "Best Solo Performer",
-  organization: "International Circus Festival",
-  year: "2023",
-  description: "Recognized for outstanding technical precision and artistic innovation.",
-  icon: <Trophy className="w-8 h-8 text-accent" />
-}, {
-  title: "Excellence in Fire Arts",
-  organization: "Global Performance Awards",
-  year: "2022",
-  description: "Awarded for pioneering new techniques in fire manipulation performances.",
-  icon: <Award className="w-8 h-8 text-accent" />
-}, {
-  title: "Artist of the Year",
-  organization: "National Arts Foundation",
-  year: "2021",
-  description: "Celebrated for contributions to contemporary circus arts and community outreach.",
-  icon: <Star className="w-8 h-8 text-accent" />
-}];
+
 const testimonials = [{
-  quote: "Alex's performance was the highlight of our corporate event. The audience was completely mesmerized!",
+  quote: "Hunter's performance was the highlight of our corporate event. The audience was completely mesmerized!",
   author: "Sarah Johnson",
   company: "Tech Innovations Inc."
 }, {
-  quote: "Working with Alex was a dream. Professional, punctual, and the performance exceeded all expectations.",
+  quote: "Working with Hunter was a dream. Professional, punctual, and the performance exceeded all expectations.",
   author: "Michael Chen",
   company: "Global Events"
 }, {
@@ -48,12 +18,13 @@ const testimonials = [{
   author: "Diana Rodriguez",
   company: "Festival Director"
 }];
+
 const HomePage = () => {
   return <div className="w-full overflow-hidden">
       {/* Hero Section */}
       <section className="relative min-h-[100vh] flex items-center">
         <div className="absolute inset-0 z-0">
-          <BlurImage src="https://images.unsplash.com/photo-1595531175927-169ca1a12af1?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Alex Morgan performing" className="w-full h-full object-cover hero-mask" />
+          <BlurImage src="https://images.unsplash.com/photo-1595531175927-169ca1a12af1?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Hunter Way performing" className="w-full h-full object-cover hero-mask" />
           <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
         </div>
         
@@ -72,77 +43,19 @@ const HomePage = () => {
               International Performing Artist
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-shadow-md mb-6">Hunter Way</h1>
-            <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mb-8">Shows | Festivals | Events</p>
+            <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mb-8">Shows | Festivals | Events</p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg" className="rounded-full">
-                
+                <Link to="/gallery">Explore Performances</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="rounded-full group">
-                
+                <Link to="/contact">
+                  Book a Show
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
               </Button>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Highlights Section */}
-      <section className="py-20 bg-secondary">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-16">
-            <span className="text-accent font-medium">Skills & Specialties</span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold mt-2">Performance Highlights</h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {highlights.map((highlight, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.5,
-            delay: index * 0.1
-          }} viewport={{
-            once: true
-          }} className="bg-background rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300">
-                <div className="text-3xl mb-4">{highlight.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{highlight.title}</h3>
-                <p className="text-muted-foreground">{highlight.description}</p>
-              </motion.div>)}
-          </div>
-        </div>
-      </section>
-
-      {/* Accolades Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-16">
-            <span className="text-accent font-medium">Recognition & Awards</span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold mt-2">Accolades</h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {accolades.map((accolade, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.5,
-            delay: index * 0.1
-          }} viewport={{
-            once: true
-          }} className="bg-white rounded-2xl p-8 shadow-md border border-accent/10 hover:shadow-lg transition-all duration-300">
-                <div className="mb-4 flex items-center justify-center w-16 h-16 rounded-full bg-accent/10">
-                  {accolade.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-1">{accolade.title}</h3>
-                <p className="text-sm text-accent mb-2">{accolade.organization}, {accolade.year}</p>
-                <p className="text-muted-foreground">{accolade.description}</p>
-              </motion.div>)}
-          </div>
         </div>
       </section>
 
@@ -189,7 +102,7 @@ const HomePage = () => {
           }} viewport={{
             once: true
           }} className="rounded-2xl overflow-hidden shadow-xl">
-              <BlurImage src="https://images.unsplash.com/photo-1599904215055-716eb956d604?q=80&w=1974&auto=format&fit=crop" alt="Alex Morgan performing" aspectRatio="portrait" className="w-full h-full object-cover" />
+              <BlurImage src="https://images.unsplash.com/photo-1599904215055-716eb956d604?q=80&w=1974&auto=format&fit=crop" alt="Hunter Way performing" aspectRatio="portrait" className="w-full h-full object-cover" />
             </motion.div>
           </div>
         </div>
