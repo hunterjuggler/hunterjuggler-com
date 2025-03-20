@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -84,13 +85,13 @@
   .lg\:text-4xl::before, .lg\:text-5xl::before, .lg\:text-6xl::before {
     content: '';
     position: absolute;
-    width: 10px; /* Skinnier */
-    height: 20px; /* Taller aspect ratio, like playing cards */
+    width: 12px; /* Slightly wider */
+    height: 24px; /* Taller aspect ratio, like playing cards */
     background: rgba(255, 0, 0, 0.9); /* Brighter and bolder */
     transform: rotate(0deg); /* Straighten diamonds */
-    left: -25px;
+    left: -30px; /* More space between diamond and text */
     top: 50%;
-    margin-top: -10px;
+    margin-top: -12px;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Perfect diamond shape */
   }
   
@@ -99,13 +100,13 @@
   .lg\:text-4xl::after, .lg\:text-5xl::after, .lg\:text-6xl::after {
     content: '';
     position: absolute;
-    width: 10px; /* Skinnier */
-    height: 20px; /* Taller aspect ratio, like playing cards */
+    width: 12px; /* Slightly wider */
+    height: 24px; /* Taller aspect ratio, like playing cards */
     background: rgba(255, 0, 0, 0.9); /* Brighter and bolder */
     transform: rotate(0deg); /* Straighten diamonds */
-    right: -25px;
+    right: -30px; /* More space between diamond and text */
     top: 50%;
-    margin-top: -10px;
+    margin-top: -12px;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Perfect diamond shape */
   }
 }

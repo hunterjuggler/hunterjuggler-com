@@ -64,7 +64,7 @@ const HomePage = () => {
           </motion.div>
         </div>
       </section>
-
+      
       {/* Featured Image Section */}
       <section className="py-20 bg-black/20">
         <div className="container mx-auto px-4 md:px-6">
@@ -93,7 +93,7 @@ const HomePage = () => {
                 creating moments that resonate long after the show ends.
               </p>
               
-              {/* Media mentions - Updated text */}
+              {/* Media mentions - Updated format */}
               <div className="flex flex-col gap-2 mb-8">
                 <div className="flex items-center gap-2">
                   <Diamond size={16} className="text-accent" />
@@ -101,7 +101,7 @@ const HomePage = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Diamond size={16} className="text-accent" />
-                  <p className="font-medium">As seen on bbc.com, Guardian.com, Dailymail.com</p>
+                  <p className="font-medium">As seen on BBC, Guardian, Dailymail</p>
                 </div>
               </div>
               
