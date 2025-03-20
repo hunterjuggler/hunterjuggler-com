@@ -2,11 +2,38 @@
 import { Award, Briefcase, GraduationCap, Users } from "lucide-react";
 import BlurImage from "@/components/BlurImage";
 import { motion } from "@/lib/motion";
+import { useEffect } from "react";
 
+// Define skill data with images
 const skills = [
-  "Acrobatics", "Juggling", "Fire Performance", 
-  "Aerial Arts", "Dance", "Physical Comedy", 
-  "Stage Combat", "Stilt Walking", "Object Manipulation"
+  { 
+    name: "Juggling", 
+    image: "https://images.unsplash.com/photo-1541904845547-0eaf866de232?q=80&w=1976&auto=format&fit=crop" 
+  },
+  { 
+    name: "Unicycling", 
+    image: "https://images.unsplash.com/photo-1576856497337-4f2be24683a4?q=80&w=1976&auto=format&fit=crop" 
+  },
+  { 
+    name: "Fire Performance", 
+    image: "https://images.unsplash.com/photo-1600252278397-5fe47c86d3aa?q=80&w=1974&auto=format&fit=crop" 
+  },
+  { 
+    name: "Ball Spinning", 
+    image: "https://images.unsplash.com/photo-1587899897871-776c11929eb0?q=80&w=1974&auto=format&fit=crop" 
+  },
+  { 
+    name: "Comedy", 
+    image: "https://images.unsplash.com/photo-1527224857830-43a7acc85260?q=80&w=1974&auto=format&fit=crop" 
+  },
+  { 
+    name: "Balancing", 
+    image: "https://images.unsplash.com/photo-1584466977773-e625c37cdd50?q=80&w=1974&auto=format&fit=crop" 
+  },
+  { 
+    name: "LED Performance", 
+    image: "https://images.unsplash.com/photo-1637419850431-0dd1956fbb37?q=80&w=1974&auto=format&fit=crop" 
+  }
 ];
 
 const timeline = [
@@ -43,10 +70,15 @@ const timeline = [
 ];
 
 const AboutPage = () => {
+  // Add scroll to top effect when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <div className="pt-20 w-full">
       {/* Hero Section */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-black/20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -92,7 +124,7 @@ const AboutPage = () => {
       </section>
 
       {/* Skills Section */}
-      <section className="py-16">
+      <section className="py-16 bg-black/30">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
@@ -103,7 +135,7 @@ const AboutPage = () => {
             </p>
           </div>
           
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {skills.map((skill, index) => (
               <motion.div
                 key={index}
@@ -111,9 +143,20 @@ const AboutPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium"
+                className="relative group overflow-hidden rounded-xl bg-black/40 border border-white/10"
               >
-                {skill}
+                <div className="aspect-square overflow-hidden">
+                  <img 
+                    src={skill.image} 
+                    alt={skill.name} 
+                    className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" 
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end">
+                  <div className="p-4 w-full">
+                    <h3 className="text-xl font-semibold text-white">{skill.name}</h3>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -121,7 +164,7 @@ const AboutPage = () => {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-black/20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
@@ -147,7 +190,7 @@ const AboutPage = () => {
                     {item.icon}
                   </div>
                   {index !== timeline.length - 1 && (
-                    <div className="w-px h-full bg-border mt-3"></div>
+                    <div className="w-px h-full bg-white/10 mt-3"></div>
                   )}
                 </div>
                 <div className="pt-1.5">

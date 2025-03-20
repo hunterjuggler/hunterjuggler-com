@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -6,44 +7,35 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%; /* Black */
-    --foreground: 0 0% 100%; /* White */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 5%; /* Dark gray for cards */
-    --card-foreground: 0 0% 100%; /* White text */
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
 
     --popover: 0 0% 5%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 355 85% 50%; /* Vibrant red */
-    --primary-foreground: 0 0% 100%;
+    --primary: 355 85% 40%; /* Vibrant red */
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 0 0% 10%; /* Dark gray for secondary elements */
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 98%;
 
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 70%;
 
     --accent: 355 85% 50%; /* Brighter version of primary */
-    --accent-foreground: 0 0% 100%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 355 85% 50%;
+    --ring: 355 85% 40%;
 
     --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 5%;
-    --sidebar-foreground: 0 0% 80%;
-    --sidebar-primary: 355 85% 50%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 10%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 355 85% 50%;
   }
 
   * {
@@ -55,14 +47,53 @@
   body {
     @apply bg-background text-foreground font-sans;
     overflow-x: hidden;
+    position: relative;
     background-image: 
-      radial-gradient(circle at 100% 0%, rgba(255, 0, 0, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 0% 100%, rgba(255, 0, 0, 0.15) 0%, transparent 50%);
+      radial-gradient(circle at 100% 0%, rgba(255, 0, 0, 0.2) 0%, transparent 50%),
+      radial-gradient(circle at 0% 100%, rgba(255, 0, 0, 0.2) 0%, transparent 50%);
     background-attachment: fixed;
+  }
+
+  /* Remove the static diamonds and replace with parallax diamonds */
+  body::before,
+  body::after,
+  #root::before,
+  #root::after {
+    content: none;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+  
+  /* Give section headings more flair */
+  h1, h2, h3 {
+    position: relative;
+    display: inline-block;
+  }
+  
+  h1::before, h2::before, h3::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 0, 0, 0.2);
+    transform: rotate(45deg);
+    left: -30px;
+    top: 50%;
+    margin-top: -10px;
+  }
+  
+  h1::after, h2::after, h3::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 0, 0, 0.2);
+    transform: rotate(45deg);
+    right: -30px;
+    top: 50%;
+    margin-top: -10px;
   }
 }
 
@@ -92,7 +123,7 @@
   }
   
   .glass-effect {
-    @apply bg-white/70 backdrop-blur-lg border border-white/20;
+    @apply bg-black/70 backdrop-blur-lg border border-white/20;
   }
   
   .glass-effect-dark {
@@ -122,11 +153,11 @@
     background: linear-gradient(
       to right,
       rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0.5) 50%,
       rgba(255, 255, 255, 0) 100%
     );
     transform: rotate(30deg);
-    animation: shine 3s infinite;
+    animation: shine 2s infinite;
   }
   
   @keyframes shine {
@@ -156,6 +187,16 @@
     mask-composite: exclude;
     -webkit-mask-composite: xor;
     padding: 2px;
+    animation: borderGlow 2s infinite alternate;
+  }
+  
+  @keyframes borderGlow {
+    0% {
+      filter: drop-shadow(0 0 2px rgba(255,0,0,0.5));
+    }
+    100% {
+      filter: drop-shadow(0 0 8px rgba(255,0,0,0.8));
+    }
   }
   
   .clip-path-slant {
@@ -163,9 +204,9 @@
   }
   
   .animated-bg {
-    background: linear-gradient(-45deg, hsl(var(--primary)/10%), hsl(var(--accent)/5%), rgba(255,255,255,0.5), hsl(var(--accent)/5%));
+    background: linear-gradient(-45deg, hsl(var(--primary)/15%), hsl(var(--accent)/10%), rgba(255,255,255,0.8), hsl(var(--accent)/10%));
     background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
+    animation: gradient 10s ease infinite;
   }
   
   @keyframes gradient {
@@ -177,6 +218,75 @@
     }
     100% {
       background-position: 0% 50%;
+    }
+  }
+  
+  /* Diamond utilities */
+  .diamond-bg {
+    position: relative;
+  }
+  
+  .diamond-bg::before,
+  .diamond-bg::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, rgba(255,0,0,0.2), rgba(255,255,255,0.3));
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+  
+  .diamond-bg::before {
+    top: -15px;
+    left: -15px;
+  }
+  
+  .diamond-bg::after {
+    bottom: -15px;
+    right: -15px;
+  }
+  
+  /* Diamond corner decoration */
+  .diamond-corner {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .diamond-corner::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 0, 0, 0.2);
+    transform: rotate(45deg);
+    top: -20px;
+    left: -20px;
+  }
+  
+  .diamond-corner::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 0, 0, 0.2);
+    transform: rotate(45deg);
+    bottom: -20px;
+    right: -20px;
+  }
+  
+  /* Glowing text */
+  .text-glow {
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5), 0 0 10px rgba(255, 0, 0, 0.3);
+    animation: textPulse 2s infinite alternate;
+  }
+  
+  @keyframes textPulse {
+    0% {
+      text-shadow: 0 0 5px rgba(255, 0, 0, 0.5), 0 0 10px rgba(255, 0, 0, 0.3);
+    }
+    100% {
+      text-shadow: 0 0 8px rgba(255, 0, 0, 0.8), 0 0 15px rgba(255, 0, 0, 0.5);
     }
   }
 }
@@ -220,6 +330,7 @@
   background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
   transform-origin: bottom right;
   transition: transform 0.3s ease-out;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
 }
 
 .nav-link:hover::after {
@@ -239,8 +350,8 @@
 }
 
 .gallery-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(255, 0, 0, 0.2);
 }
 
 .gallery-item img {
@@ -248,7 +359,7 @@
 }
 
 .gallery-item:hover img {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .gallery-item::before {
@@ -261,28 +372,67 @@
   background: linear-gradient(
     to bottom,
     transparent 70%,
-    rgba(var(--primary), 0.1) 100%
+    rgba(255, 0, 0, 0.2) 100%
   );
   z-index: 1;
   pointer-events: none;
 }
 
+/* Diamond decoration for gallery items */
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 0, 0, 0.2);
+  transform: rotate(45deg);
+  top: -15px;
+  right: -15px;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.gallery-item:hover::after {
+  background: rgba(255, 0, 0, 0.4);
+}
+
 .contact-input {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
 }
 
 .contact-input:focus {
   border-color: hsl(var(--accent));
-  box-shadow: 0 0 0 2px hsla(var(--accent), 0.2);
+  box-shadow: 0 0 0 2px hsla(var(--accent), 0.2), 0 0 10px rgba(255, 0, 0, 0.3);
 }
 
 .social-icon {
   transition: transform 0.3s ease, opacity 0.3s ease;
+  position: relative;
 }
 
 .social-icon:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.1);
   opacity: 0.8;
+}
+
+/* Social icon diamond decoration */
+.social-icon::before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: rgba(255, 0, 0, 0.2);
+  transform: rotate(45deg);
+  top: -5px;
+  left: -5px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.social-icon:hover::before {
+  opacity: 1;
 }
 
 /* Loading blur animation for images */
@@ -311,13 +461,13 @@
 .button-flashy {
   position: relative;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
 .button-flashy:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.2);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
 }
 
 .button-flashy::before {
@@ -330,7 +480,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.4),
     transparent
   );
   transition: 0.5s;
@@ -338,4 +488,91 @@
 
 .button-flashy:hover::before {
   left: 100%;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(45deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(45deg);
+  }
+  100% {
+    transform: translateY(0) rotate(45deg);
+  }
+}
+
+/* Pulse subtle animation */
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+/* Apply diamond decorations to cards */
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before,
+.card::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: rgba(255, 0, 0, 0.1);
+  transform: rotate(45deg);
+  z-index: 0;
+}
+
+.card::before {
+  top: -12px;
+  left: -12px;
+}
+
+.card::after {
+  bottom: -12px;
+  right: -12px;
+}
+
+/* Parallax Diamonds - This section is for the parallax diamond effects */
+.parallax-diamond {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.3), rgba(255, 255, 255, 0.1));
+  transform: rotate(45deg);
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(0.5px);
+  transition: all 0.3s ease;
+}
+
+.parallax-diamond.large {
+  width: 100px;
+  height: 100px;
+  opacity: 0.15;
+  filter: blur(2px);
+}
+
+.parallax-diamond.glowing {
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.6), rgba(255, 255, 255, 0.3));
+  animation: diamondGlow 2s infinite alternate;
+}
+
+@keyframes diamondGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+  }
 }

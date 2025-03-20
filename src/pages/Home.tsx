@@ -1,9 +1,10 @@
 
-import { ArrowRight, Star, Award, Trophy } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import BlurImage from "@/components/BlurImage";
 import { motion } from "@/lib/motion";
+import { useEffect } from "react";
 
 const testimonials = [{
   quote: "Hunter's performance was the highlight of our corporate event. The audience was completely mesmerized!",
@@ -20,12 +21,18 @@ const testimonials = [{
 }];
 
 const HomePage = () => {
-  return <div className="w-full overflow-hidden">
+  // Add scroll to top effect when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
+  return (
+    <div className="w-full overflow-hidden">
       {/* Hero Section */}
       <section className="relative min-h-[100vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <BlurImage src="https://images.unsplash.com/photo-1595531175927-169ca1a12af1?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Hunter Way performing" className="w-full h-full object-cover hero-mask" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
         </div>
         
         <div className="container relative z-10 mx-auto px-4 pt-20 md:px-6">
@@ -49,7 +56,7 @@ const HomePage = () => {
                 <Link to="/gallery">Explore Performances</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="rounded-full group">
-                <Link to="/contact">
+                <Link to="/booking">
                   Book a Show
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
@@ -60,7 +67,7 @@ const HomePage = () => {
       </section>
 
       {/* Featured Image Section */}
-      <section className="py-20">
+      <section className="py-20 bg-black/20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div initial={{
@@ -109,7 +116,7 @@ const HomePage = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-accent/5">
+      <section className="py-20 bg-black/30">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
             <span className="text-accent font-medium">Client Testimonials</span>
@@ -128,7 +135,7 @@ const HomePage = () => {
             delay: index * 0.1
           }} viewport={{
             once: true
-          }} className="bg-background rounded-2xl p-8 shadow-sm">
+          }} className="bg-black/40 rounded-2xl p-8 shadow-sm border border-white/10">
                 <div className="flex text-accent mb-4">
                   {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
                 </div>
@@ -143,7 +150,7 @@ const HomePage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20">
+      <section className="py-20 bg-black/20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
@@ -154,11 +161,13 @@ const HomePage = () => {
               let's collaborate to create a performance that will leave your audience amazed.
             </p>
             <Button asChild size="lg" className="rounded-full">
-              <Link to="/contact">Get in Touch</Link>
+              <Link to="/booking">Get in Touch</Link>
             </Button>
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default HomePage;

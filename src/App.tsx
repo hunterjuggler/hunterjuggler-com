@@ -4,7 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { AnimatePresence } from "./components/AnimatePresence";
 import Layout from "./components/Layout";
 import Loading from "./components/Loading";
@@ -18,6 +18,16 @@ const BookingPage = lazy(() => import("./pages/Booking"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  
+  return null;
+};
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -68,6 +78,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <AnimatedRoutes />
       </BrowserRouter>
     </TooltipProvider>

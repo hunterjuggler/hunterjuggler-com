@@ -1,13 +1,14 @@
-import { useState } from "react";
-import { Calendar, Mail, MapPin, Phone, Send } from "lucide-react";
+
+import { useState, useEffect } from "react";
+import { Calendar, Mail, MapPin, Send } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import { motion } from "@/lib/motion";
+
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -15,26 +16,31 @@ const ContactPage = () => {
     phone: "",
     eventType: "corporate",
     date: "",
-    message: "",
-    budget: ""
+    message: ""
   });
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // Add scroll to top effect when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const {
-      name,
-      value
-    } = e.target;
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
+  
   const handleSelectChange = (name: string, value: string) => {
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
+  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -48,48 +54,41 @@ const ContactPage = () => {
         phone: "",
         eventType: "corporate",
         date: "",
-        message: "",
-        budget: ""
+        message: ""
       });
       setIsSubmitting(false);
     }, 1500);
   };
-  return <div className="pt-20 w-full">
+  
+  return (
+    <div className="pt-20 w-full">
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-secondary">
+      <section className="py-16 md:py-24 bg-black/40">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <motion.div initial={{
-          opacity: 0,
-          y: 20
-        }} animate={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          duration: 0.6
-        }}>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             <h1 className="text-3xl md:text-5xl font-display font-bold mb-6">
               Let's Create Something Extraordinary
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Whether you're planning an event or have a performance inquiry, I'd love to hear from you.
+              Whether you have questions or just want to say hello, I'd love to hear from you.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-16">
+      <section className="py-16 bg-black/20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12">
-            <motion.div initial={{
-            opacity: 0,
-            x: -20
-          }} animate={{
-            opacity: 1,
-            x: 0
-          }} transition={{
-            duration: 0.6
-          }}>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
               <h2 className="text-2xl md:text-3xl font-display font-bold mb-6">
                 Get in Touch
               </h2>
@@ -102,8 +101,6 @@ const ContactPage = () => {
                     <p className="text-muted-foreground">hunterjuggler@gmail.com</p>
                   </div>
                 </div>
-                
-                
                 
                 <div className="flex items-start space-x-4">
                   <MapPin className="w-5 h-5 text-accent mt-1" />
@@ -123,7 +120,7 @@ const ContactPage = () => {
                 </div>
               </div>
               
-              <div className="bg-accent/5 p-6 rounded-lg">
+              <div className="bg-black/40 p-6 rounded-lg border border-white/10">
                 <h3 className="font-semibold mb-3">Performance Types</h3>
                 <ul className="space-y-2 text-muted-foreground">
                   <li>• Corporate Events & Galas</li>
@@ -135,59 +132,90 @@ const ContactPage = () => {
               </div>
             </motion.div>
             
-            <motion.div initial={{
-            opacity: 0,
-            x: 20
-          }} animate={{
-            opacity: 1,
-            x: 0
-          }} transition={{
-            duration: 0.6
-          }}>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
               <h2 className="text-2xl md:text-3xl font-display font-bold mb-6">
-                Booking Inquiry
+                Send a Message
               </h2>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6 bg-black/30 p-8 rounded-xl shadow-sm border border-white/10">
                 <div className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">Name</Label>
-                      <Input id="name" name="name" placeholder="Your name" className="contact-input" value={formData.name} onChange={handleChange} required />
+                      <Input 
+                        id="name" 
+                        name="name" 
+                        placeholder="Your name" 
+                        className="contact-input" 
+                        value={formData.name} 
+                        onChange={handleChange} 
+                        required 
+                      />
                     </div>
                     
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
-                      <Input id="email" name="email" type="email" placeholder="Your email" className="contact-input" value={formData.email} onChange={handleChange} required />
+                      <Input 
+                        id="email" 
+                        name="email" 
+                        type="email" 
+                        placeholder="Your email" 
+                        className="contact-input" 
+                        value={formData.email} 
+                        onChange={handleChange} 
+                        required 
+                      />
                     </div>
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone</Label>
-                      <Input id="phone" name="phone" placeholder="Your phone number" className="contact-input" value={formData.phone} onChange={handleChange} />
+                      <Input 
+                        id="phone" 
+                        name="phone" 
+                        placeholder="Your phone number" 
+                        className="contact-input" 
+                        value={formData.phone} 
+                        onChange={handleChange} 
+                      />
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="date">Event Date</Label>
-                      <Input id="date" name="date" type="date" className="contact-input" value={formData.date} onChange={handleChange} />
+                      <Label htmlFor="date">Event Date (if applicable)</Label>
+                      <Input 
+                        id="date" 
+                        name="date" 
+                        type="date" 
+                        className="contact-input" 
+                        value={formData.date} 
+                        onChange={handleChange} 
+                      />
                     </div>
                   </div>
                   
                   <div className="space-y-2">
-                    <Label>Event Type</Label>
-                    <RadioGroup value={formData.eventType} onValueChange={value => handleSelectChange("eventType", value)} className="flex flex-wrap gap-4 pt-2">
+                    <Label>Reason for Contact</Label>
+                    <RadioGroup 
+                      value={formData.eventType} 
+                      onValueChange={value => handleSelectChange("eventType", value)} 
+                      className="flex flex-wrap gap-4 pt-2"
+                    >
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="corporate" id="corporate" />
-                        <Label htmlFor="corporate" className="cursor-pointer">Corporate</Label>
+                        <Label htmlFor="corporate" className="cursor-pointer">General Inquiry</Label>
                       </div>
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="festival" id="festival" />
-                        <Label htmlFor="festival" className="cursor-pointer">Festival</Label>
+                        <Label htmlFor="festival" className="cursor-pointer">Media Request</Label>
                       </div>
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="private" id="private" />
-                        <Label htmlFor="private" className="cursor-pointer">Private Event</Label>
+                        <Label htmlFor="private" className="cursor-pointer">Collaboration</Label>
                       </div>
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="other" id="other" />
@@ -197,34 +225,31 @@ const ContactPage = () => {
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="budget">Budget Range</Label>
-                    <Select value={formData.budget} onValueChange={value => handleSelectChange("budget", value)}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select a budget range" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="1000-3000">$1,000 - $3,000</SelectItem>
-                        <SelectItem value="3000-5000">$3,000 - $5,000</SelectItem>
-                        <SelectItem value="5000-10000">$5,000 - $10,000</SelectItem>
-                        <SelectItem value="10000+">$10,000+</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  
-                  <div className="space-y-2">
                     <Label htmlFor="message">Message</Label>
-                    <Textarea id="message" name="message" placeholder="Tell me about your event and performance needs..." className="contact-input min-h-[120px]" value={formData.message} onChange={handleChange} required />
+                    <Textarea 
+                      id="message" 
+                      name="message" 
+                      placeholder="How can I help you?" 
+                      className="contact-input min-h-[120px]" 
+                      value={formData.message} 
+                      onChange={handleChange} 
+                      required 
+                    />
                   </div>
                 </div>
                 
                 <Button type="submit" className="w-full" disabled={isSubmitting}>
-                  {isSubmitting ? <span className="flex items-center">
+                  {isSubmitting ? (
+                    <span className="flex items-center">
                       Sending
                       <span className="ml-2 animate-pulse">...</span>
-                    </span> : <span className="flex items-center">
+                    </span>
+                  ) : (
+                    <span className="flex items-center">
                       Send Message
                       <Send className="ml-2 h-4 w-4" />
-                    </span>}
+                    </span>
+                  )}
                 </Button>
               </form>
             </motion.div>
@@ -233,24 +258,20 @@ const ContactPage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-black/30">
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-2xl md:text-3xl font-display font-bold mb-8 text-center">
             Frequently Asked Questions
           </h2>
           
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <motion.div initial={{
-            opacity: 0,
-            y: 10
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.4
-          }} viewport={{
-            once: true
-          }} className="bg-background rounded-lg p-6 shadow-sm">
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              viewport={{ once: true }}
+              className="bg-black/30 rounded-lg p-6 shadow-sm border border-white/10"
+            >
               <h3 className="font-semibold mb-3">How far in advance should I book?</h3>
               <p className="text-muted-foreground">
                 I recommend booking 6-8 weeks in advance for most events, and 3-6 months for major
@@ -258,18 +279,13 @@ const ContactPage = () => {
               </p>
             </motion.div>
             
-            <motion.div initial={{
-            opacity: 0,
-            y: 10
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.4,
-            delay: 0.1
-          }} viewport={{
-            once: true
-          }} className="bg-background rounded-lg p-6 shadow-sm">
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-black/30 rounded-lg p-6 shadow-sm border border-white/10"
+            >
               <h3 className="font-semibold mb-3">Do you travel for performances?</h3>
               <p className="text-muted-foreground">
                 Yes, I perform at events worldwide. Travel expenses are typically added to the
@@ -277,18 +293,13 @@ const ContactPage = () => {
               </p>
             </motion.div>
             
-            <motion.div initial={{
-            opacity: 0,
-            y: 10
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.4,
-            delay: 0.2
-          }} viewport={{
-            once: true
-          }} className="bg-background rounded-lg p-6 shadow-sm">
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-black/30 rounded-lg p-6 shadow-sm border border-white/10"
+            >
               <h3 className="font-semibold mb-3">What technical requirements do you have?</h3>
               <p className="text-muted-foreground">
                 Technical requirements vary by performance type. Once we discuss your event, I'll
@@ -296,18 +307,13 @@ const ContactPage = () => {
               </p>
             </motion.div>
             
-            <motion.div initial={{
-            opacity: 0,
-            y: 10
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.4,
-            delay: 0.3
-          }} viewport={{
-            once: true
-          }} className="bg-background rounded-lg p-6 shadow-sm">
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-black/30 rounded-lg p-6 shadow-sm border border-white/10"
+            >
               <h3 className="font-semibold mb-3">Can you customize performances?</h3>
               <p className="text-muted-foreground">
                 Absolutely! I enjoy creating customized performances that align with event themes,
@@ -317,6 +323,8 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default ContactPage;

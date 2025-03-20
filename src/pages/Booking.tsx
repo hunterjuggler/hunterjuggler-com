@@ -1,5 +1,6 @@
+
 import { useState } from "react";
-import { Calendar, Clock, MapPin, Users, DollarSign, Music, Send } from "lucide-react";
+import { Calendar, Clock, MapPin, Users, DollarSign, Music, Send, VolumeX } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -21,16 +22,13 @@ const BookingPage = () => {
     eventLocation: "",
     venueType: "",
     audienceSize: "",
-    stageSize: "", // New stage size field
+    stageSize: "", 
+    ceilingHeight: "",
     performanceDuration: "60",
     performanceType: "standard",
     specialRequests: "",
-    techRequirements: false,
-    lightingRequirements: false,
-    soundRequirements: false,
-    stageRequirements: false,
-    accommodationNeeded: false,
-    transportationNeeded: false,
+    soundSystemProvided: false,
+    soundSystemType: "",
     referralSource: "",
     agreeToTerms: false
   });
@@ -75,15 +73,12 @@ const BookingPage = () => {
         venueType: "",
         audienceSize: "",
         stageSize: "",
+        ceilingHeight: "",
         performanceDuration: "60",
         performanceType: "standard",
         specialRequests: "",
-        techRequirements: false,
-        lightingRequirements: false,
-        soundRequirements: false,
-        stageRequirements: false,
-        accommodationNeeded: false,
-        transportationNeeded: false,
+        soundSystemProvided: false,
+        soundSystemType: "",
         referralSource: "",
         agreeToTerms: false
       });
@@ -94,7 +89,7 @@ const BookingPage = () => {
   return (
     <div className="pt-20 w-full">
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-accent/10">
+      <section className="py-16 md:py-24 bg-black/30">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -112,7 +107,7 @@ const BookingPage = () => {
       </section>
 
       {/* Booking Form Section */}
-      <section className="py-16">
+      <section className="py-16 bg-black/20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-3 gap-12">
             <motion.div
@@ -126,7 +121,7 @@ const BookingPage = () => {
               </h2>
               
               <div className="space-y-6 mb-8">
-                <div className="p-6 bg-secondary rounded-lg">
+                <div className="p-6 bg-black/40 rounded-lg">
                   <h3 className="font-semibold text-lg mb-4">Performance Types</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start">
@@ -159,7 +154,7 @@ const BookingPage = () => {
                   </ul>
                 </div>
                 
-                <div className="p-6 bg-secondary rounded-lg">
+                <div className="p-6 bg-black/40 rounded-lg">
                   <h3 className="font-semibold text-lg mb-4">Planning Timeline</h3>
                   <p className="text-sm text-muted-foreground mb-4">
                     For the best experience, I recommend booking:
@@ -188,9 +183,9 @@ const BookingPage = () => {
               transition={{ duration: 0.6 }}
               className="lg:col-span-2"
             >
-              <form onSubmit={handleSubmit} className="space-y-8 bg-background p-8 rounded-xl shadow-sm border border-border/50">
+              <form onSubmit={handleSubmit} className="space-y-8 bg-black/30 p-8 rounded-xl shadow-sm border border-white/10">
                 <div className="space-y-6">
-                  <h3 className="text-xl font-semibold border-b pb-2">Contact Information</h3>
+                  <h3 className="text-xl font-semibold border-b border-white/20 pb-2">Contact Information</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">Full Name *</Label>
@@ -245,7 +240,7 @@ const BookingPage = () => {
                 </div>
                 
                 <div className="space-y-6">
-                  <h3 className="text-xl font-semibold border-b pb-2">Event Details</h3>
+                  <h3 className="text-xl font-semibold border-b border-white/20 pb-2">Event Details</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="eventDate">Event Date *</Label>
@@ -333,14 +328,28 @@ const BookingPage = () => {
                         />
                       </div>
                     </div>
-                    
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="stageSize">Stage or Performance Area Size *</Label>
+                      <Label htmlFor="stageSize">Estimated Stage/Performance Area Dimensions *</Label>
                       <Input
                         id="stageSize"
                         name="stageSize"
-                        placeholder="Dimensions (e.g., 10ft x 12ft)"
+                        placeholder="Dimensions (meters or feet)"
                         value={formData.stageSize}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="ceilingHeight">Ceiling Height *</Label>
+                      <Input
+                        id="ceilingHeight"
+                        name="ceilingHeight"
+                        placeholder="Height (meters or feet)"
+                        value={formData.ceilingHeight}
                         onChange={handleChange}
                         required
                       />
@@ -370,7 +379,7 @@ const BookingPage = () => {
                 </div>
                 
                 <div className="space-y-6">
-                  <h3 className="text-xl font-semibold border-b pb-2">Performance Details</h3>
+                  <h3 className="text-xl font-semibold border-b border-white/20 pb-2">Performance Details</h3>
                   
                   <div className="space-y-4">
                     <Label>Performance Type</Label>
@@ -379,15 +388,15 @@ const BookingPage = () => {
                       onValueChange={(value) => handleSelectChange("performanceType", value)}
                       className="grid grid-cols-1 md:grid-cols-3 gap-4"
                     >
-                      <div className="flex items-center space-x-2 border p-3 rounded-md">
+                      <div className="flex items-center space-x-2 border border-white/10 p-3 rounded-md bg-black/30">
                         <RadioGroupItem value="standard" id="standard" />
                         <Label htmlFor="standard" className="cursor-pointer">Standard Show</Label>
                       </div>
-                      <div className="flex items-center space-x-2 border p-3 rounded-md">
+                      <div className="flex items-center space-x-2 border border-white/10 p-3 rounded-md bg-black/30">
                         <RadioGroupItem value="custom" id="custom" />
                         <Label htmlFor="custom" className="cursor-pointer">Custom Show</Label>
                       </div>
-                      <div className="flex items-center space-x-2 border p-3 rounded-md">
+                      <div className="flex items-center space-x-2 border border-white/10 p-3 rounded-md bg-black/30">
                         <RadioGroupItem value="roaming" id="roaming" />
                         <Label htmlFor="roaming" className="cursor-pointer">Roaming Entertainment / Ambience</Label>
                       </div>
@@ -406,97 +415,37 @@ const BookingPage = () => {
                     />
                   </div>
                   
-                  <div className="space-y-3">
-                    <Label>Technical Requirements (check all that apply)</Label>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      <div className="flex items-center space-x-2">
-                        <Checkbox
-                          id="techRequirements"
-                          checked={formData.techRequirements}
-                          onCheckedChange={(checked) => 
-                            handleCheckboxChange("techRequirements", checked as boolean)
-                          }
-                        />
-                        <Label htmlFor="techRequirements" className="cursor-pointer">
-                          Need technical specifications
-                        </Label>
-                      </div>
-                      
-                      <div className="flex items-center space-x-2">
-                        <Checkbox
-                          id="lightingRequirements"
-                          checked={formData.lightingRequirements}
-                          onCheckedChange={(checked) => 
-                            handleCheckboxChange("lightingRequirements", checked as boolean)
-                          }
-                        />
-                        <Label htmlFor="lightingRequirements" className="cursor-pointer">
-                          Special lighting needed
-                        </Label>
-                      </div>
-                      
-                      <div className="flex items-center space-x-2">
-                        <Checkbox
-                          id="soundRequirements"
-                          checked={formData.soundRequirements}
-                          onCheckedChange={(checked) => 
-                            handleCheckboxChange("soundRequirements", checked as boolean)
-                          }
-                        />
-                        <Label htmlFor="soundRequirements" className="cursor-pointer">
-                          Sound system needed
-                        </Label>
-                      </div>
-                      
-                      <div className="flex items-center space-x-2">
-                        <Checkbox
-                          id="stageRequirements"
-                          checked={formData.stageRequirements}
-                          onCheckedChange={(checked) => 
-                            handleCheckboxChange("stageRequirements", checked as boolean)
-                          }
-                        />
-                        <Label htmlFor="stageRequirements" className="cursor-pointer">
-                          Stage requirements
-                        </Label>
-                      </div>
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-2">
+                      <Checkbox
+                        id="soundSystemProvided"
+                        checked={formData.soundSystemProvided}
+                        onCheckedChange={(checked) => 
+                          handleCheckboxChange("soundSystemProvided", checked as boolean)
+                        }
+                      />
+                      <Label htmlFor="soundSystemProvided" className="cursor-pointer">
+                        Sound system provided
+                      </Label>
                     </div>
-                  </div>
-                  
-                  <div className="space-y-3">
-                    <Label>Additional Services</Label>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      <div className="flex items-center space-x-2">
-                        <Checkbox
-                          id="accommodationNeeded"
-                          checked={formData.accommodationNeeded}
-                          onCheckedChange={(checked) => 
-                            handleCheckboxChange("accommodationNeeded", checked as boolean)
-                          }
+                    
+                    {formData.soundSystemProvided && (
+                      <div className="ml-6 space-y-2">
+                        <Label htmlFor="soundSystemType">What kind of sound system?</Label>
+                        <Input
+                          id="soundSystemType"
+                          name="soundSystemType"
+                          placeholder="Describe your sound system"
+                          value={formData.soundSystemType}
+                          onChange={handleChange}
                         />
-                        <Label htmlFor="accommodationNeeded" className="cursor-pointer">
-                          Accommodation needed
-                        </Label>
                       </div>
-                      
-                      <div className="flex items-center space-x-2">
-                        <Checkbox
-                          id="transportationNeeded"
-                          checked={formData.transportationNeeded}
-                          onCheckedChange={(checked) => 
-                            handleCheckboxChange("transportationNeeded", checked as boolean)
-                          }
-                        />
-                        <Label htmlFor="transportationNeeded" className="cursor-pointer">
-                          Transportation needed
-                        </Label>
-                      </div>
-                    </div>
+                    )}
                   </div>
                 </div>
                 
                 <div className="space-y-6">
-                  <h3 className="text-xl font-semibold border-b pb-2">Additional Information</h3>
+                  <h3 className="text-xl font-semibold border-b border-white/20 pb-2">Additional Information</h3>
                   
                   <div className="space-y-2">
                     <Label htmlFor="referralSource">How did you hear about me?</Label>

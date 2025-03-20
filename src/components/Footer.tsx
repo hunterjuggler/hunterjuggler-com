@@ -1,4 +1,5 @@
-import { Instagram, Facebook, Youtube, Twitter, Mail } from "lucide-react";
+
+import { Instagram, Youtube, Mail, TikTok } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -20,7 +21,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-secondary py-16">
+    <footer className="bg-black/30 py-16">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
@@ -44,13 +45,13 @@ const Footer = () => {
                 <Instagram size={20} />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://tiktok.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-icon text-foreground/80 hover:text-accent"
-                aria-label="Facebook"
+                aria-label="TikTok"
               >
-                <Facebook size={20} />
+                <TikTok size={20} />
               </a>
               <a
                 href="https://youtube.com"
@@ -60,15 +61,6 @@ const Footer = () => {
                 aria-label="YouTube"
               >
                 <Youtube size={20} />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon text-foreground/80 hover:text-accent"
-                aria-label="Twitter"
-              >
-                <Twitter size={20} />
               </a>
             </div>
             <a 
@@ -86,7 +78,7 @@ const Footer = () => {
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="contact-input bg-background/50"
+                className="contact-input bg-black/30"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -97,7 +89,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-border/40 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Hunter Way. All rights reserved.
           </p>
