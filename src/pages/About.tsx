@@ -1,4 +1,3 @@
-
 import { Globe, Award, Star, Clock, Music, Diamond } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -109,18 +108,6 @@ const AboutPage = () => {
                 Over the past decade, I've had the privilege of performing for audiences around the world,
                 honing my skills and developing a unique style that blends technical precision with artistic expression.
               </p>
-              
-              {/* Media mentions */}
-              <div className="flex flex-col gap-3 mb-8">
-                <div className="flex items-center gap-2">
-                  <Diamond size={16} className="text-accent" />
-                  <p className="font-medium">10 Million+ views on YouTube</p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Diamond size={16} className="text-accent" />
-                  <p className="font-medium">As seen on BBC, Guardian, Daily Mail</p>
-                </div>
-              </div>
             </motion.div>
             
             <motion.div initial={{

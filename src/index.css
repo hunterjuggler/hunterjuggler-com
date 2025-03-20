@@ -71,28 +71,42 @@
     display: inline-block;
   }
   
-  h1::before, h2::before, h3::before {
-    content: '';
-    position: absolute;
-    width: 12px; /* Skinnier */
-    height: 18px; /* Taller aspect ratio, like playing cards */
-    background: rgba(255, 0, 0, 0.7); /* Brighter */
-    transform: rotate(45deg);
-    left: -25px;
-    top: 50%;
-    margin-top: -9px;
+  /* Reset default diamond decorations */
+  h1::before, h1::after, 
+  h2::before, h2::after, 
+  h3::before, h3::after {
+    content: none;
   }
   
-  h1::after, h2::after, h3::after {
+  /* Only apply diamonds to text-4xl and larger */
+  .text-4xl::before, .text-5xl::before, .text-6xl::before,
+  .md\:text-4xl::before, .md\:text-5xl::before, .md\:text-6xl::before,
+  .lg\:text-4xl::before, .lg\:text-5xl::before, .lg\:text-6xl::before {
     content: '';
     position: absolute;
-    width: 12px; /* Skinnier */
-    height: 18px; /* Taller aspect ratio, like playing cards */
-    background: rgba(255, 0, 0, 0.7); /* Brighter */
-    transform: rotate(45deg);
+    width: 10px; /* Skinnier */
+    height: 20px; /* Taller aspect ratio, like playing cards */
+    background: rgba(255, 0, 0, 0.9); /* Brighter and bolder */
+    transform: rotate(0deg); /* Straighten diamonds */
+    left: -25px;
+    top: 50%;
+    margin-top: -10px;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Perfect diamond shape */
+  }
+  
+  .text-4xl::after, .text-5xl::after, .text-6xl::after,
+  .md\:text-4xl::after, .md\:text-5xl::after, .md\:text-6xl::after,
+  .lg\:text-4xl::after, .lg\:text-5xl::after, .lg\:text-6xl::after {
+    content: '';
+    position: absolute;
+    width: 10px; /* Skinnier */
+    height: 20px; /* Taller aspect ratio, like playing cards */
+    background: rgba(255, 0, 0, 0.9); /* Brighter and bolder */
+    transform: rotate(0deg); /* Straighten diamonds */
     right: -25px;
     top: 50%;
-    margin-top: -9px;
+    margin-top: -10px;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Perfect diamond shape */
   }
 }
 
