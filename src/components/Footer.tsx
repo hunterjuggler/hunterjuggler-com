@@ -1,5 +1,5 @@
 
-import { Instagram, Youtube, Mail, TikTok } from "lucide-react";
+import { Instagram, Youtube, Mail, Music } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -51,7 +51,7 @@ const Footer = () => {
                 className="social-icon text-foreground/80 hover:text-accent"
                 aria-label="TikTok"
               >
-                <TikTok size={20} />
+                <Music size={20} />
               </a>
               <a
                 href="https://youtube.com"
