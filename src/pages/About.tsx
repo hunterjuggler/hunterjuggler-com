@@ -1,4 +1,5 @@
-import { Globe, Award, Star, Clock, Users } from "lucide-react";
+
+import { Globe, Award, Star, Clock, Music, Diamond } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import BlurImage from "@/components/BlurImage";
@@ -17,9 +18,9 @@ const specializedSkills = [
     image: "https://images.unsplash.com/photo-1541278553099-ac0fd0449e1c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3"
   },
   {
-    name: "Fire",
-    description: "Mesmerizing fire manipulation including poi, staff, and other fire props.",
-    image: "https://images.unsplash.com/photo-1629263048865-c8660c06a5c2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3"
+    name: "Balancing",
+    description: "Impressive feats of balance using various props and techniques.",
+    image: "https://images.unsplash.com/photo-1599447292180-45fd84092ef4?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3"
   },
   {
     name: "Ball Spinning",
@@ -32,9 +33,19 @@ const specializedSkills = [
     image: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3"
   },
   {
-    name: "Balancing",
-    description: "Impressive feats of balance using various props and techniques.",
-    image: "https://images.unsplash.com/photo-1599447292180-45fd84092ef4?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3"
+    name: "Audience Participation",
+    description: "Interactive elements that involve and engage the audience throughout the show.",
+    image: "https://images.unsplash.com/photo-1457131760772-7017c6180f05?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3"
+  },
+  {
+    name: "Fire",
+    description: "Mesmerizing fire manipulation including poi, staff, and other fire props.",
+    image: "https://images.unsplash.com/photo-1629263048865-c8660c06a5c2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3"
+  },
+  {
+    name: "LED",
+    description: "Stunning visual displays using cutting-edge LED technology and light manipulation.",
+    image: "https://images.unsplash.com/photo-1621799754526-a0d52c49fad5?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3"
   }
 ];
 
@@ -98,6 +109,18 @@ const AboutPage = () => {
                 Over the past decade, I've had the privilege of performing for audiences around the world,
                 honing my skills and developing a unique style that blends technical precision with artistic expression.
               </p>
+              
+              {/* Media mentions */}
+              <div className="flex flex-col gap-3 mb-8">
+                <div className="flex items-center gap-2">
+                  <Diamond size={16} className="text-accent" />
+                  <p className="font-medium">10 Million+ views on YouTube</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Diamond size={16} className="text-accent" />
+                  <p className="font-medium">As seen on BBC, Guardian, Daily Mail</p>
+                </div>
+              </div>
             </motion.div>
             
             <motion.div initial={{
@@ -260,9 +283,73 @@ const AboutPage = () => {
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               Let's discuss how I can create a memorable and captivating performance for your audience.
             </p>
-            <Button asChild size="lg" className="rounded-full">
-              <Link to="/contact">Get in Touch</Link>
-            </Button>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button asChild size="lg" className="rounded-full">
+                <Link to="/booking">Book Now</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="rounded-full">
+                <Link to="/contact">Get in Touch</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Newspaper Clippings Section */}
+      <section className="py-20 bg-black/20">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Press Coverage</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Selected media appearances and reviews
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="bg-black/40 rounded-xl overflow-hidden shadow-md"
+            >
+              <BlurImage
+                src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1974&auto=format&fit=crop"
+                alt="Newspaper clipping 1"
+                aspectRatio="video"
+                className="w-full"
+              />
+            </motion.div>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-black/40 rounded-xl overflow-hidden shadow-md"
+            >
+              <BlurImage
+                src="https://images.unsplash.com/photo-1584810359583-96fc3448beaa?q=80&w=1974&auto=format&fit=crop"
+                alt="Newspaper clipping 2"
+                aspectRatio="video"
+                className="w-full"
+              />
+            </motion.div>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-black/40 rounded-xl overflow-hidden shadow-md"
+            >
+              <BlurImage
+                src="https://images.unsplash.com/photo-1589366025815-a718a38a67b1?q=80&w=1974&auto=format&fit=crop"
+                alt="Newspaper clipping 3"
+                aspectRatio="video"
+                className="w-full"
+              />
+            </motion.div>
           </div>
         </div>
       </section>

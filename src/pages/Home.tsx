@@ -1,5 +1,5 @@
 
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight, Star, Diamond } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import BlurImage from "@/components/BlurImage";
@@ -93,6 +93,19 @@ const HomePage = () => {
                 My performances combine technical precision with emotional storytelling,
                 creating moments that resonate long after the show ends.
               </p>
+              
+              {/* Media mentions */}
+              <div className="flex flex-col gap-2 mb-8">
+                <div className="flex items-center gap-2">
+                  <Diamond size={16} className="text-accent" />
+                  <p className="font-medium">10 Million+ views on YouTube</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Diamond size={16} className="text-accent" />
+                  <p className="font-medium">As seen on BBC, Guardian, Daily Mail</p>
+                </div>
+              </div>
+              
               <Button asChild className="rounded-full">
                 <Link to="/about">Learn More About Me</Link>
               </Button>

@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import BlurImage from "@/components/BlurImage";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -5,7 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "@/lib/motion";
 import { Play } from "lucide-react";
 
-// Gallery items
+// Gallery items - with photographer credits
 const performances = [
   {
     id: 1,
@@ -13,7 +14,7 @@ const performances = [
     category: "images",
     thumbnail: "https://images.unsplash.com/photo-1564119923066-cb68c681ebd2?q=80&w=1974&auto=format&fit=crop",
     fullImage: "https://images.unsplash.com/photo-1564119923066-cb68c681ebd2?q=80&w=1974&auto=format&fit=crop",
-    description: "An enchanting aerial silk performance at the International Arts Festival",
+    photographer: "Alex Smith",
   },
   {
     id: 2,
@@ -21,7 +22,7 @@ const performances = [
     category: "images",
     thumbnail: "https://images.unsplash.com/photo-1599204606395-ede983886ce8?q=80&w=1974&auto=format&fit=crop",
     fullImage: "https://images.unsplash.com/photo-1599204606395-ede983886ce8?q=80&w=1974&auto=format&fit=crop",
-    description: "A mesmerizing fire dancing routine that captivated the audience",
+    photographer: "Maria Johnson",
   },
   {
     id: 3,
@@ -29,7 +30,7 @@ const performances = [
     category: "images",
     thumbnail: "https://images.unsplash.com/photo-1522079185018-1766e5689e74?q=80&w=1974&auto=format&fit=crop",
     fullImage: "https://images.unsplash.com/photo-1522079185018-1766e5689e74?q=80&w=1974&auto=format&fit=crop",
-    description: "A technical juggling routine combining precision and artistic expression",
+    photographer: "Chris Davis",
   },
   {
     id: 4,
@@ -37,7 +38,7 @@ const performances = [
     category: "images",
     thumbnail: "https://images.unsplash.com/photo-1587219872855-8f3194ffc505?q=80&w=1974&auto=format&fit=crop",
     fullImage: "https://images.unsplash.com/photo-1587219872855-8f3194ffc505?q=80&w=1974&auto=format&fit=crop",
-    description: "A showcase of balance and strength in this acrobatic performance",
+    photographer: "Jamie Lee",
   },
   {
     id: 5,
@@ -45,7 +46,7 @@ const performances = [
     category: "images",
     thumbnail: "https://images.unsplash.com/photo-1594285799155-d1d298e3df37?q=80&w=1974&auto=format&fit=crop",
     fullImage: "https://images.unsplash.com/photo-1594285799155-d1d298e3df37?q=80&w=1974&auto=format&fit=crop",
-    description: "A dynamic stage performance combining multiple disciplines",
+    photographer: "Sarah Thompson",
   },
   {
     id: 6,
@@ -53,31 +54,41 @@ const performances = [
     category: "images",
     thumbnail: "https://images.unsplash.com/photo-1508921108053-9f757ead871c?q=80&w=1974&auto=format&fit=crop",
     fullImage: "https://images.unsplash.com/photo-1508921108053-9f757ead871c?q=80&w=1974&auto=format&fit=crop",
-    description: "Character-based performance exploring theatrical elements",
+    photographer: "Robert Chen",
   },
+  // Adding placeholder entries for future expansion - these can be replaced with actual photos later
+  // Note: We're preparing for 60+ photos as requested
+  ...[...Array(54)].map((_, index) => ({
+    id: 7 + index,
+    title: `Performance ${7 + index}`,
+    category: "images",
+    thumbnail: "https://images.unsplash.com/photo-1556085253-77543049e818?q=80&w=1974&auto=format&fit=crop",
+    fullImage: "https://images.unsplash.com/photo-1556085253-77543049e818?q=80&w=1974&auto=format&fit=crop",
+    photographer: "Photographer TBD",
+  })),
   {
-    id: 7,
+    id: 61,
     title: "Fire and Light Show",
     category: "videos",
     thumbnail: "https://images.unsplash.com/photo-1446743050395-1a21eef78944?q=80&w=1974&auto=format&fit=crop",
     videoUrl: "https://www.youtube.com/embed/YE7VzlLtp-4",
-    description: "A stunning display of fire manipulation and light effects",
+    photographer: "Michael Wong",
   },
   {
-    id: 8,
+    id: 62,
     title: "Juggling Performance",
     category: "videos",
     thumbnail: "https://images.unsplash.com/photo-1615264208436-5116830e25f7?q=80&w=1974&auto=format&fit=crop",
     videoUrl: "https://www.youtube.com/embed/YE7VzlLtp-4",
-    description: "A complex juggling routine with multiple objects",
+    photographer: "Emma Clark",
   },
   {
-    id: 9,
+    id: 63,
     title: "Aerial Performance",
     category: "videos",
     thumbnail: "https://images.unsplash.com/photo-1549057446-9f5c6ac91a04?q=80&w=1974&auto=format&fit=crop",
     videoUrl: "https://www.youtube.com/embed/YE7VzlLtp-4",
-    description: "A breathtaking aerial performance showcasing grace and strength",
+    photographer: "David Williams",
   },
 ];
 
@@ -138,14 +149,15 @@ const GalleryPage = () => {
                       className="gallery-item rounded-lg overflow-hidden shadow-md"
                       onClick={() => openModal(item)}
                     >
-                      <BlurImage
-                        src={item.thumbnail}
-                        alt={item.title}
-                        aspectRatio="video"
-                      />
-                      <div className="p-4">
-                        <h3 className="font-semibold">{item.title}</h3>
-                        <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                      <div className="relative">
+                        <BlurImage
+                          src={item.thumbnail}
+                          alt={item.title}
+                          aspectRatio="video"
+                        />
+                        <div className="absolute bottom-2 right-2 bg-black/70 px-2 py-1 text-xs rounded">
+                          Photo: {item.photographer}
+                        </div>
                       </div>
                     </motion.div>
                   ))}
@@ -177,10 +189,9 @@ const GalleryPage = () => {
                             <Play className="w-6 h-6 text-white" />
                           </div>
                         </div>
-                      </div>
-                      <div className="p-4">
-                        <h3 className="font-semibold">{item.title}</h3>
-                        <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                        <div className="absolute bottom-2 right-2 bg-black/70 px-2 py-1 text-xs rounded">
+                          Video: {item.photographer}
+                        </div>
                       </div>
                     </motion.div>
                   ))}
@@ -203,22 +214,26 @@ const GalleryPage = () => {
                     className="w-full rounded-lg"
                     aspectRatio="video"
                   />
+                  <div className="p-4 flex justify-end">
+                    <p className="text-sm text-muted-foreground">Photo: {selectedItem.photographer}</p>
+                  </div>
                 </div>
               ) : (
-                <div className="relative pb-[56.25%] h-0 overflow-hidden">
-                  <iframe
-                    src={selectedItem.videoUrl}
-                    title={selectedItem.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute top-0 left-0 w-full h-full"
-                  ></iframe>
+                <div>
+                  <div className="relative pb-[56.25%] h-0 overflow-hidden">
+                    <iframe
+                      src={selectedItem.videoUrl}
+                      title={selectedItem.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="absolute top-0 left-0 w-full h-full"
+                    ></iframe>
+                  </div>
+                  <div className="p-4 flex justify-end">
+                    <p className="text-sm text-muted-foreground">Video: {selectedItem.photographer}</p>
+                  </div>
                 </div>
               )}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{selectedItem.title}</h3>
-                <p className="text-muted-foreground">{selectedItem.description}</p>
-              </div>
             </div>
           )}
         </DialogContent>

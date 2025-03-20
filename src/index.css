@@ -48,8 +48,8 @@
     overflow-x: hidden;
     position: relative;
     background-image: 
-      radial-gradient(circle at 100% 0%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 0% 100%, rgba(255, 0, 0, 0.1) 0%, transparent 50%);
+      radial-gradient(circle at 100% 0%, rgba(255, 0, 0, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 0% 100%, rgba(255, 0, 0, 0.05) 0%, transparent 50%);
     background-attachment: fixed;
   }
 
@@ -65,7 +65,7 @@
     scroll-behavior: smooth;
   }
   
-  /* Give section headings more flair with narrower, brighter diamonds */
+  /* Updated skinnier, brighter diamonds for titles only */
   h1, h2, h3 {
     position: relative;
     display: inline-block;
@@ -74,25 +74,25 @@
   h1::before, h2::before, h3::before {
     content: '';
     position: absolute;
-    width: 15px; /* Narrower */
-    height: 15px; /* Narrower */
-    background: rgba(255, 0, 0, 0.4); /* Brighter */
+    width: 12px; /* Skinnier */
+    height: 18px; /* Taller aspect ratio, like playing cards */
+    background: rgba(255, 0, 0, 0.7); /* Brighter */
     transform: rotate(45deg);
     left: -25px;
     top: 50%;
-    margin-top: -7.5px;
+    margin-top: -9px;
   }
   
   h1::after, h2::after, h3::after {
     content: '';
     position: absolute;
-    width: 15px; /* Narrower */
-    height: 15px; /* Narrower */
-    background: rgba(255, 0, 0, 0.4); /* Brighter */
+    width: 12px; /* Skinnier */
+    height: 18px; /* Taller aspect ratio, like playing cards */
+    background: rgba(255, 0, 0, 0.7); /* Brighter */
     transform: rotate(45deg);
     right: -25px;
     top: 50%;
-    margin-top: -7.5px;
+    margin-top: -9px;
   }
 }
 
@@ -220,58 +220,24 @@
     }
   }
   
-  /* Diamond utilities */
+  /* Diamond utilities - removing from body, keeping only for section headings */
   .diamond-bg {
     position: relative;
   }
-  
+
   .diamond-bg::before,
   .diamond-bg::after {
-    content: '';
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background: linear-gradient(135deg, rgba(255,0,0,0.2), rgba(255,255,255,0.3));
-    transform: rotate(45deg);
-    z-index: -1;
+    content: none; /* Disabling diamonds in backgrounds */
   }
-  
-  .diamond-bg::before {
-    top: -15px;
-    left: -15px;
-  }
-  
-  .diamond-bg::after {
-    bottom: -15px;
-    right: -15px;
-  }
-  
-  /* Diamond corner decoration */
+
   .diamond-corner {
     position: relative;
     overflow: hidden;
   }
-  
-  .diamond-corner::before {
-    content: '';
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 0, 0, 0.2);
-    transform: rotate(45deg);
-    top: -20px;
-    left: -20px;
-  }
-  
+
+  .diamond-corner::before, 
   .diamond-corner::after {
-    content: '';
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 0, 0, 0.2);
-    transform: rotate(45deg);
-    bottom: -20px;
-    right: -20px;
+    content: none; /* Disabling corner diamonds */
   }
   
   /* Glowing text */
@@ -377,22 +343,9 @@
   pointer-events: none;
 }
 
-/* Diamond decoration for gallery items */
+/* Remove diamond decoration for gallery items */
 .gallery-item::after {
-  content: '';
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background: rgba(255, 0, 0, 0.2);
-  transform: rotate(45deg);
-  top: -15px;
-  right: -15px;
-  z-index: 2;
-  transition: all 0.3s ease;
-}
-
-.gallery-item:hover::after {
-  background: rgba(255, 0, 0, 0.4);
+  content: none;
 }
 
 .contact-input {
