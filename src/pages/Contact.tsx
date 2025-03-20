@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Calendar, Mail, MapPin, Phone, Send } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -9,7 +8,6 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import { motion } from "@/lib/motion";
-
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -18,24 +16,29 @@ const ContactPage = () => {
     eventType: "corporate",
     date: "",
     message: "",
-    budget: "",
+    budget: ""
   });
-  
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const {
+      name,
+      value
+    } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-
   const handleSelectChange = (name: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       toast.success("Thank you for your message! I'll get back to you soon.");
@@ -46,22 +49,24 @@ const ContactPage = () => {
         eventType: "corporate",
         date: "",
         message: "",
-        budget: "",
+        budget: ""
       });
       setIsSubmitting(false);
     }, 1500);
   };
-
-  return (
-    <div className="pt-20 w-full">
+  return <div className="pt-20 w-full">
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.6
+        }}>
             <h1 className="text-3xl md:text-5xl font-display font-bold mb-6">
               Let's Create Something Extraordinary
             </h1>
@@ -76,11 +81,15 @@ const ContactPage = () => {
       <section className="py-16">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: -20
+          }} animate={{
+            opacity: 1,
+            x: 0
+          }} transition={{
+            duration: 0.6
+          }}>
               <h2 className="text-2xl md:text-3xl font-display font-bold mb-6">
                 Get in Touch
               </h2>
@@ -90,17 +99,11 @@ const ContactPage = () => {
                   <Mail className="w-5 h-5 text-accent mt-1" />
                   <div>
                     <h3 className="font-medium">Email</h3>
-                    <p className="text-muted-foreground">contact@alexmorgan.com</p>
+                    <p className="text-muted-foreground">hunterjuggler@gmail.com</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-4">
-                  <Phone className="w-5 h-5 text-accent mt-1" />
-                  <div>
-                    <h3 className="font-medium">Phone</h3>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                  </div>
-                </div>
+                
                 
                 <div className="flex items-start space-x-4">
                   <MapPin className="w-5 h-5 text-accent mt-1" />
@@ -132,11 +135,15 @@ const ContactPage = () => {
               </div>
             </motion.div>
             
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: 20
+          }} animate={{
+            opacity: 1,
+            x: 0
+          }} transition={{
+            duration: 0.6
+          }}>
               <h2 className="text-2xl md:text-3xl font-display font-bold mb-6">
                 Booking Inquiry
               </h2>
@@ -146,65 +153,30 @@ const ContactPage = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">Name</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        placeholder="Your name"
-                        className="contact-input"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                      />
+                      <Input id="name" name="name" placeholder="Your name" className="contact-input" value={formData.name} onChange={handleChange} required />
                     </div>
                     
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="Your email"
-                        className="contact-input"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                      />
+                      <Input id="email" name="email" type="email" placeholder="Your email" className="contact-input" value={formData.email} onChange={handleChange} required />
                     </div>
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone</Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        placeholder="Your phone number"
-                        className="contact-input"
-                        value={formData.phone}
-                        onChange={handleChange}
-                      />
+                      <Input id="phone" name="phone" placeholder="Your phone number" className="contact-input" value={formData.phone} onChange={handleChange} />
                     </div>
                     
                     <div className="space-y-2">
                       <Label htmlFor="date">Event Date</Label>
-                      <Input
-                        id="date"
-                        name="date"
-                        type="date"
-                        className="contact-input"
-                        value={formData.date}
-                        onChange={handleChange}
-                      />
+                      <Input id="date" name="date" type="date" className="contact-input" value={formData.date} onChange={handleChange} />
                     </div>
                   </div>
                   
                   <div className="space-y-2">
                     <Label>Event Type</Label>
-                    <RadioGroup
-                      value={formData.eventType}
-                      onValueChange={(value) => handleSelectChange("eventType", value)}
-                      className="flex flex-wrap gap-4 pt-2"
-                    >
+                    <RadioGroup value={formData.eventType} onValueChange={value => handleSelectChange("eventType", value)} className="flex flex-wrap gap-4 pt-2">
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="corporate" id="corporate" />
                         <Label htmlFor="corporate" className="cursor-pointer">Corporate</Label>
@@ -226,10 +198,7 @@ const ContactPage = () => {
                   
                   <div className="space-y-2">
                     <Label htmlFor="budget">Budget Range</Label>
-                    <Select
-                      value={formData.budget}
-                      onValueChange={(value) => handleSelectChange("budget", value)}
-                    >
+                    <Select value={formData.budget} onValueChange={value => handleSelectChange("budget", value)}>
                       <SelectTrigger>
                         <SelectValue placeholder="Select a budget range" />
                       </SelectTrigger>
@@ -244,34 +213,18 @@ const ContactPage = () => {
                   
                   <div className="space-y-2">
                     <Label htmlFor="message">Message</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="Tell me about your event and performance needs..."
-                      className="contact-input min-h-[120px]"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                    />
+                    <Textarea id="message" name="message" placeholder="Tell me about your event and performance needs..." className="contact-input min-h-[120px]" value={formData.message} onChange={handleChange} required />
                   </div>
                 </div>
                 
-                <Button
-                  type="submit"
-                  className="w-full"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <span className="flex items-center">
+                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? <span className="flex items-center">
                       Sending
                       <span className="ml-2 animate-pulse">...</span>
-                    </span>
-                  ) : (
-                    <span className="flex items-center">
+                    </span> : <span className="flex items-center">
                       Send Message
                       <Send className="ml-2 h-4 w-4" />
-                    </span>
-                  )}
+                    </span>}
                 </Button>
               </form>
             </motion.div>
@@ -287,13 +240,17 @@ const ContactPage = () => {
           </h2>
           
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              viewport={{ once: true }}
-              className="bg-background rounded-lg p-6 shadow-sm"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 10
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.4
+          }} viewport={{
+            once: true
+          }} className="bg-background rounded-lg p-6 shadow-sm">
               <h3 className="font-semibold mb-3">How far in advance should I book?</h3>
               <p className="text-muted-foreground">
                 I recommend booking 6-8 weeks in advance for most events, and 3-6 months for major
@@ -301,13 +258,18 @@ const ContactPage = () => {
               </p>
             </motion.div>
             
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-background rounded-lg p-6 shadow-sm"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 10
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.4,
+            delay: 0.1
+          }} viewport={{
+            once: true
+          }} className="bg-background rounded-lg p-6 shadow-sm">
               <h3 className="font-semibold mb-3">Do you travel for performances?</h3>
               <p className="text-muted-foreground">
                 Yes, I perform at events worldwide. Travel expenses are typically added to the
@@ -315,13 +277,18 @@ const ContactPage = () => {
               </p>
             </motion.div>
             
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-background rounded-lg p-6 shadow-sm"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 10
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.4,
+            delay: 0.2
+          }} viewport={{
+            once: true
+          }} className="bg-background rounded-lg p-6 shadow-sm">
               <h3 className="font-semibold mb-3">What technical requirements do you have?</h3>
               <p className="text-muted-foreground">
                 Technical requirements vary by performance type. Once we discuss your event, I'll
@@ -329,13 +296,18 @@ const ContactPage = () => {
               </p>
             </motion.div>
             
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="bg-background rounded-lg p-6 shadow-sm"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 10
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.4,
+            delay: 0.3
+          }} viewport={{
+            once: true
+          }} className="bg-background rounded-lg p-6 shadow-sm">
               <h3 className="font-semibold mb-3">Can you customize performances?</h3>
               <p className="text-muted-foreground">
                 Absolutely! I enjoy creating customized performances that align with event themes,
@@ -345,8 +317,6 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default ContactPage;
