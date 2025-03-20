@@ -160,9 +160,14 @@ const HomePage = () => {
               Whether you're planning a corporate event, festival, or private celebration,
               let's collaborate to create a performance that will leave your audience amazed.
             </p>
-            <Button asChild size="lg" className="rounded-full">
-              <Link to="/booking">Get in Touch</Link>
-            </Button>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button asChild size="lg" className="rounded-full">
+                <Link to="/booking">Book Now</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="rounded-full">
+                <Link to="/contact">Get in Touch</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
