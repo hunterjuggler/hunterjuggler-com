@@ -1,4 +1,3 @@
-
 import { Globe, Award, Star, Clock, Music, Diamond } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -252,65 +251,6 @@ const AboutPage = () => {
               <p className="text-muted-foreground text-xs text-center">
                 Custom performances tailored to your theme.
               </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Newspaper Clippings Section */}
-      <section className="py-16 bg-black/20">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-3">Press Coverage</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Selected media appearances and reviews
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="bg-black/40 rounded-xl overflow-hidden shadow-md"
-            >
-              <BlurImage
-                src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1974&auto=format&fit=crop"
-                alt="Newspaper clipping 1"
-                aspectRatio="video"
-                className="w-full"
-              />
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-black/40 rounded-xl overflow-hidden shadow-md"
-            >
-              <BlurImage
-                src="https://images.unsplash.com/photo-1584810359583-96fc3448beaa?q=80&w=1974&auto=format&fit=crop"
-                alt="Newspaper clipping 2"
-                aspectRatio="video"
-                className="w-full"
-              />
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-black/40 rounded-xl overflow-hidden shadow-md"
-            >
-              <BlurImage
-                src="https://images.unsplash.com/photo-1589366025815-a718a38a67b1?q=80&w=1974&auto=format&fit=crop"
-                alt="Newspaper clipping 3"
-                aspectRatio="video"
-                className="w-full"
-              />
             </motion.div>
           </div>
         </div>

@@ -1,4 +1,3 @@
-
 import { ArrowRight, Star, Diamond } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -108,16 +107,16 @@ const HomePage = () => {
               
               {/* Media mentions - Updated format and standardized size */}
               <div className="flex flex-col gap-2 mb-8">
-                <div className="flex items-center gap-2">
-                  <Diamond size={16} className="text-accent" />
+                <div className="flex items-center gap-4">
+                  <Diamond size={20} className="text-accent" />
                   <p className="font-medium">10 Million+ views - Youtube</p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Diamond size={16} className="text-accent" />
+                <div className="flex items-center gap-4">
+                  <Diamond size={20} className="text-accent" />
                   <p className="font-medium">As seen on BBC, Guardian, Dailymail</p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Diamond size={16} className="text-accent" />
+                <div className="flex items-center gap-4">
+                  <Diamond size={20} className="text-accent" />
                   <p className="font-medium">Internationally performed over 1000 shows in 8 countries and counting</p>
                 </div>
               </div>
@@ -140,38 +139,6 @@ const HomePage = () => {
           }} className="rounded-2xl overflow-hidden shadow-xl">
               <BlurImage src="https://images.unsplash.com/photo-1599904215055-716eb956d604?q=80&w=1974&auto=format&fit=crop" alt="Hunter Way performing" aspectRatio="portrait" className="w-full h-full object-cover" />
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Collage Section */}
-      <section className="py-20 bg-black/10">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
-            <span className="text-accent font-medium">Specialized Skills</span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold mt-2 mb-6">Performance Repertoire</h2>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="relative group rounded-xl overflow-hidden aspect-square"
-              >
-                <BlurImage 
-                  src={skill.image} 
-                  alt={skill.name} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
-                  <h3 className="text-lg font-medium text-white">{skill.name}</h3>
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
