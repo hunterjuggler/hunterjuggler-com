@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -7,23 +6,23 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 5%;
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 5%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
 
     --primary: 355 85% 40%; /* Vibrant red */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 0 0% 10%;
+    --secondary: 0 0% 15%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 75%;
 
     --accent: 355 85% 50%; /* Brighter version of primary */
     --accent-foreground: 0 0% 98%;
@@ -31,8 +30,8 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
     --ring: 355 85% 40%;
 
     --radius: 0.75rem;
@@ -54,60 +53,23 @@
     background-attachment: fixed;
   }
 
-  /* Remove the static diamonds and parallax diamonds */
+  /* Remove all diamond decorations */
   body::before,
   body::after,
   #root::before,
-  #root::after {
+  #root::after,
+  h1::before, h1::after, 
+  h2::before, h2::after, 
+  h3::before, h3::after,
+  .text-4xl::before, .text-5xl::before, .text-6xl::before,
+  .md\:text-4xl::before, .md\:text-5xl::before, .md\:text-6xl::before,
+  .text-4xl::after, .text-5xl::after, .text-6xl::after,
+  .md\:text-4xl::after, .md\:text-5xl::after, .md\:text-6xl::after {
     content: none;
   }
 
   html {
     scroll-behavior: smooth;
-  }
-  
-  /* Updated skinnier, brighter diamonds for titles only */
-  h1, h2, h3 {
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* Reset default diamond decorations */
-  h1::before, h1::after, 
-  h2::before, h2::after, 
-  h3::before, h3::after {
-    content: none;
-  }
-  
-  /* Only apply diamonds to text-4xl and larger */
-  .text-4xl::before, .text-5xl::before, .text-6xl::before,
-  .md\:text-4xl::before, .md\:text-5xl::before, .md\:text-6xl::before,
-  .lg\:text-4xl::before, .lg\:text-5xl::before, .lg\:text-6xl::before {
-    content: '';
-    position: absolute;
-    width: 12px; /* Slightly wider */
-    height: 24px; /* Taller aspect ratio, like playing cards */
-    background: rgba(255, 0, 0, 0.9); /* Brighter and bolder */
-    transform: rotate(0deg); /* Straighten diamonds */
-    left: -30px; /* More space between diamond and text */
-    top: 50%;
-    margin-top: -12px;
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Perfect diamond shape */
-  }
-  
-  .text-4xl::after, .text-5xl::after, .text-6xl::after,
-  .md\:text-4xl::after, .md\:text-5xl::after, .md\:text-6xl::after,
-  .lg\:text-4xl::after, .lg\:text-5xl::after, .lg\:text-6xl::after {
-    content: '';
-    position: absolute;
-    width: 12px; /* Slightly wider */
-    height: 24px; /* Taller aspect ratio, like playing cards */
-    background: rgba(255, 0, 0, 0.9); /* Brighter and bolder */
-    transform: rotate(0deg); /* Straighten diamonds */
-    right: -30px; /* More space between diamond and text */
-    top: 50%;
-    margin-top: -12px;
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Perfect diamond shape */
   }
 }
 
@@ -495,6 +457,26 @@
 }
 
 /* Remove Parallax Diamonds section */
+.parallax-diamond {
+  display: none;
+}
+
+/* Removing all diamond decorations from the remainder of the file */
+.social-icon::before {
+  content: none;
+}
+
+.diamond-bg::before,
+.diamond-bg::after,
+.diamond-corner::before, 
+.diamond-corner::after,
+.card::before,
+.card::after,
+.gallery-item::after {
+  content: none;
+}
+
+/* Also remove the parallax diamond section */
 .parallax-diamond {
   display: none;
 }

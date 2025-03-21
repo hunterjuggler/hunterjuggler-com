@@ -126,7 +126,7 @@ const GalleryPage = () => {
         </div>
       </section>
 
-      {/* Gallery Section - Updated to 3 columns */}
+      {/* Gallery Section - Ensuring 3 columns */}
       <section className="py-16">
         <div className="container mx-auto px-4 md:px-6">
           <Tabs defaultValue="images" className="w-full">
