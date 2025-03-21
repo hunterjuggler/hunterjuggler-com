@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -6,22 +7,22 @@
 
 @layer base {
   :root {
-    --background: 0 0% 5%;
+    --background: 0 0% 15%; /* Changed to dark grey color */
     --foreground: 0 0% 98%;
 
-    --card: 0 0% 10%;
+    --card: 0 0% 18%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 10%;
+    --popover: 0 0% 18%;
     --popover-foreground: 0 0% 98%;
 
     --primary: 355 85% 40%; /* Vibrant red */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 0 0% 15%;
+    --secondary: 0 0% 20%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 20%;
+    --muted: 0 0% 25%;
     --muted-foreground: 0 0% 75%;
 
     --accent: 355 85% 50%; /* Brighter version of primary */
@@ -30,8 +31,8 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 25%;
-    --input: 0 0% 25%;
+    --border: 0 0% 30%;
+    --input: 0 0% 30%;
     --ring: 355 85% 40%;
 
     --radius: 0.75rem;

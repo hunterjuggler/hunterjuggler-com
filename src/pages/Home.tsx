@@ -1,3 +1,4 @@
+
 import { ArrowRight, Star, Diamond } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -105,18 +106,18 @@ const HomePage = () => {
                 creating moments that resonate long after the show ends.
               </p>
               
-              {/* Media mentions - Updated format and standardized size */}
+              {/* Media mentions - Updated with consistent sizing */}
               <div className="flex flex-col gap-2 mb-8">
                 <div className="flex items-center gap-4">
-                  <Diamond size={20} className="text-accent" />
+                  <Diamond size={20} className="text-accent flex-shrink-0" />
                   <p className="font-medium">10 Million+ views - Youtube</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <Diamond size={20} className="text-accent" />
+                  <Diamond size={20} className="text-accent flex-shrink-0" />
                   <p className="font-medium">As seen on BBC, Guardian, Dailymail</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <Diamond size={20} className="text-accent" />
+                  <Diamond size={20} className="text-accent flex-shrink-0" />
                   <p className="font-medium">Internationally performed over 1000 shows in 8 countries and counting</p>
                 </div>
               </div>
