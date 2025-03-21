@@ -106,7 +106,7 @@ const HomePage = () => {
                 creating moments that resonate long after the show ends.
               </p>
               
-              {/* Media mentions - Updated format and added new bullet point */}
+              {/* Media mentions - Updated format and standardized size */}
               <div className="flex flex-col gap-2 mb-8">
                 <div className="flex items-center gap-2">
                   <Diamond size={16} className="text-accent" />

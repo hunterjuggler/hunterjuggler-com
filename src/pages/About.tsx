@@ -1,3 +1,4 @@
+
 import { Globe, Award, Star, Clock, Music, Diamond } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -127,10 +128,10 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Specialized Skills Section */}
-      <section className="py-20 bg-black/30">
+      {/* Specialized Skills Section - Made smaller and more compact */}
+      <section className="py-12 bg-black/30">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <motion.div 
               initial={{ opacity: 0, y: 20 }} 
               whileInView={{ opacity: 1, y: 0 }} 
@@ -138,33 +139,30 @@ const AboutPage = () => {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Specialized Skills</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                A comprehensive toolkit of abilities that creates unique and captivating performances.
+              <p className="text-muted-foreground max-w-2xl mx-auto mb-4">
+                A comprehensive toolkit of abilities for captivating performances.
               </p>
             </motion.div>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-4 gap-4">
             {specializedSkills.map((skill, index) => (
               <motion.div 
                 key={index} 
-                initial={{ opacity: 0, y: 20 }} 
+                initial={{ opacity: 0, y: 10 }} 
                 whileInView={{ opacity: 1, y: 0 }} 
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="bg-black/40 rounded-xl overflow-hidden border border-white/10 group hover:border-accent/40 transition-all duration-300"
+                className="bg-black/40 rounded-lg overflow-hidden border border-white/10 group hover:border-accent/40 transition-all duration-300"
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-32 overflow-hidden">
                   <BlurImage
                     src={skill.image}
                     alt={skill.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-                  <h3 className="absolute bottom-4 left-4 text-xl font-display font-bold">{skill.name}</h3>
-                </div>
-                <div className="p-4">
-                  <p className="text-muted-foreground">{skill.description}</p>
+                  <h3 className="absolute bottom-2 left-3 text-sm font-bold">{skill.name}</h3>
                 </div>
               </motion.div>
             ))}
@@ -173,9 +171,9 @@ const AboutPage = () => {
       </section>
 
       {/* Client Types Section */}
-      <section className="py-20 bg-black/20">
+      <section className="py-16 bg-black/20">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10">
             <motion.div 
               initial={{ opacity: 0, y: 20 }} 
               whileInView={{ opacity: 1, y: 0 }} 
@@ -186,25 +184,24 @@ const AboutPage = () => {
                 My Diverse Clientele
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                I've had the pleasure of working with a wide range of clients, each with unique needs and
-                expectations.
+                I've had the pleasure of working with a wide range of clients, each with unique needs.
               </p>
             </motion.div>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }} 
               whileInView={{ opacity: 1, scale: 1 }} 
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-black/40 rounded-xl p-6 shadow-sm border border-white/10"
+              className="bg-black/40 rounded-xl p-5 shadow-sm border border-white/10"
             >
-              <div className="flex items-center justify-center h-16 mb-4">
-                <Globe className="w-8 h-8 text-accent" />
+              <div className="flex items-center justify-center h-14 mb-3">
+                <Globe className="w-7 h-7 text-accent" />
               </div>
-              <h3 className="font-semibold text-lg mb-2 text-center">International Festivals</h3>
-              <p className="text-muted-foreground text-sm text-center">
+              <h3 className="font-semibold text-base mb-1 text-center">International Festivals</h3>
+              <p className="text-muted-foreground text-xs text-center">
                 Bringing artistry to global celebrations.
               </p>
             </motion.div>
@@ -214,13 +211,13 @@ const AboutPage = () => {
               whileInView={{ opacity: 1, scale: 1 }} 
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
-              className="bg-black/40 rounded-xl p-6 shadow-sm border border-white/10"
+              className="bg-black/40 rounded-xl p-5 shadow-sm border border-white/10"
             >
-              <div className="flex items-center justify-center h-16 mb-4">
-                <Award className="w-8 h-8 text-accent" />
+              <div className="flex items-center justify-center h-14 mb-3">
+                <Award className="w-7 h-7 text-accent" />
               </div>
-              <h3 className="font-semibold text-lg mb-2 text-center">Corporate Events</h3>
-              <p className="text-muted-foreground text-sm text-center">
+              <h3 className="font-semibold text-base mb-1 text-center">Corporate Events</h3>
+              <p className="text-muted-foreground text-xs text-center">
                 Elevating corporate gatherings with unique performances.
               </p>
             </motion.div>
@@ -230,13 +227,13 @@ const AboutPage = () => {
               whileInView={{ opacity: 1, scale: 1 }} 
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-black/40 rounded-xl p-6 shadow-sm border border-white/10"
+              className="bg-black/40 rounded-xl p-5 shadow-sm border border-white/10"
             >
-              <div className="flex items-center justify-center h-16 mb-4">
-                <Star className="w-8 h-8 text-accent" />
+              <div className="flex items-center justify-center h-14 mb-3">
+                <Star className="w-7 h-7 text-accent" />
               </div>
-              <h3 className="font-semibold text-lg mb-2 text-center">Private Celebrations</h3>
-              <p className="text-muted-foreground text-sm text-center">
+              <h3 className="font-semibold text-base mb-1 text-center">Private Celebrations</h3>
+              <p className="text-muted-foreground text-xs text-center">
                 Making personal milestones unforgettable.
               </p>
             </motion.div>
@@ -246,13 +243,13 @@ const AboutPage = () => {
               whileInView={{ opacity: 1, scale: 1 }} 
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true }}
-              className="bg-black/40 rounded-xl p-6 shadow-sm border border-white/10"
+              className="bg-black/40 rounded-xl p-5 shadow-sm border border-white/10"
             >
-              <div className="flex items-center justify-center h-16 mb-4">
-                <Clock className="w-8 h-8 text-accent" />
+              <div className="flex items-center justify-center h-14 mb-3">
+                <Clock className="w-7 h-7 text-accent" />
               </div>
-              <h3 className="font-semibold text-lg mb-2 text-center">Themed Events</h3>
-              <p className="text-muted-foreground text-sm text-center">
+              <h3 className="font-semibold text-base mb-1 text-center">Themed Events</h3>
+              <p className="text-muted-foreground text-xs text-center">
                 Custom performances tailored to your theme.
               </p>
             </motion.div>
@@ -260,39 +257,17 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-black/30">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-              Ready to Bring Your Event to Life?
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Let's discuss how I can create a memorable and captivating performance for your audience.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild size="lg" className="rounded-full">
-                <Link to="/booking">Book Now</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="rounded-full">
-                <Link to="/contact">Get in Touch</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Newspaper Clippings Section */}
-      <section className="py-20 bg-black/20">
+      <section className="py-16 bg-black/20">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Press Coverage</h2>
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-3">Press Coverage</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Selected media appearances and reviews
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -337,6 +312,28 @@ const AboutPage = () => {
                 className="w-full"
               />
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action - Moved below Press Coverage */}
+      <section className="py-16 bg-black/30">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+              Ready to Bring Your Event to Life?
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Let's discuss how I can create a memorable and captivating performance for your audience.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button asChild size="lg" className="rounded-full">
+                <Link to="/booking">Book Now</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="rounded-full">
+                <Link to="/contact">Get in Touch</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
