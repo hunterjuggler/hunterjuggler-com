@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BlurImage from "@/components/BlurImage";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -126,11 +126,60 @@ const performances = [
   },
 ];
 
-const GalleryPage = () => {
-  const [selectedItem, setSelectedItem] = useState<any | null>(null);
-  const [isOpen, setIsOpen] = useState(false);
+interface GalleryItem {
+  id: number;
+  title: string;
+  category: string;
+  thumbnail: string;
+  fullImage?: string;
+  videoUrl?: string;
+  photographer: string;
+  orientation?: 'portrait' | 'landscape';  // Add orientation property
+}
 
-  const openModal = (item: any) => {
+const GalleryPage = () => {
+  const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [processedItems, setProcessedItems] = useState<GalleryItem[]>([]);
+
+  // Detect image orientation for all items
+  useEffect(() => {
+    const checkOrientation = async () => {
+      const processed = await Promise.all(
+        performances.map((item) => {
+          return new Promise<GalleryItem>((resolve) => {
+            if (item.category === "images") {
+              const img = new Image();
+              img.onload = () => {
+                const isPortrait = img.height > img.width;
+                resolve({
+                  ...item,
+                  orientation: isPortrait ? "portrait" : "landscape"
+                });
+              };
+              img.onerror = () => {
+                resolve({
+                  ...item,
+                  orientation: "landscape" // Default to landscape on error
+                });
+              };
+              img.src = item.thumbnail;
+            } else {
+              resolve({
+                ...item,
+                orientation: "landscape" // Videos default to landscape
+              });
+            }
+          });
+        })
+      );
+      setProcessedItems(processed);
+    };
+
+    checkOrientation();
+  }, []);
+
+  const openModal = (item: GalleryItem) => {
     setSelectedItem(item);
     setIsOpen(true);
   };
@@ -160,7 +209,7 @@ const GalleryPage = () => {
         </div>
       </section>
 
-      {/* Gallery Section - Ensuring 3 columns */}
+      {/* Gallery Section - Ensuring proper orientation display */}
       <section className="py-16">
         <div className="container mx-auto px-4 md:px-6">
           <Tabs defaultValue="images" className="w-full">
@@ -170,8 +219,8 @@ const GalleryPage = () => {
             </TabsList>
             
             <TabsContent value="images" className="mt-0">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {performances
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
+                {processedItems
                   .filter((item) => item.category === "images")
                   .map((item, index) => (
                     <motion.div
@@ -180,14 +229,17 @@ const GalleryPage = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.05 }}
                       viewport={{ once: true }}
-                      className="gallery-item rounded-lg overflow-hidden shadow-md"
+                      className={`gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer ${
+                        item.orientation === "portrait" ? "sm:row-span-2" : ""
+                      }`}
                       onClick={() => openModal(item)}
                     >
-                      <div className="relative">
+                      <div className="relative h-full">
                         <BlurImage
                           src={item.thumbnail}
                           alt={item.title}
-                          aspectRatio="video"
+                          aspectRatio={item.orientation === "portrait" ? "portrait" : "video"}
+                          className="h-full"
                         />
                         <div className="absolute bottom-2 right-2 bg-black/70 px-2 py-1 text-xs rounded">
                           Photo: {item.photographer}
@@ -200,7 +252,7 @@ const GalleryPage = () => {
             
             <TabsContent value="videos" className="mt-0">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {performances
+                {processedItems
                   .filter((item) => item.category === "videos")
                   .map((item, index) => (
                     <motion.div
@@ -209,7 +261,7 @@ const GalleryPage = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.05 }}
                       viewport={{ once: true }}
-                      className="gallery-item rounded-lg overflow-hidden shadow-md"
+                      className="gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer"
                       onClick={() => openModal(item)}
                     >
                       <div className="relative">
@@ -243,10 +295,10 @@ const GalleryPage = () => {
               {selectedItem.category === "images" ? (
                 <div className="p-1">
                   <BlurImage
-                    src={selectedItem.fullImage}
+                    src={selectedItem.fullImage || selectedItem.thumbnail}
                     alt={selectedItem.title}
                     className="w-full rounded-lg"
-                    aspectRatio="video"
+                    aspectRatio={selectedItem.orientation === "portrait" ? "portrait" : "video"}
                   />
                   <div className="p-4 flex justify-end">
                     <p className="text-sm text-muted-foreground">Photo: {selectedItem.photographer}</p>
