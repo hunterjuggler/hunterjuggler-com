@@ -219,7 +219,7 @@ const GalleryPage = () => {
             </TabsList>
             
             <TabsContent value="images" className="mt-0">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto">
                 {processedItems
                   .filter((item) => item.category === "images")
                   .map((item, index) => (
@@ -238,8 +238,9 @@ const GalleryPage = () => {
                         <BlurImage
                           src={item.thumbnail}
                           alt={item.title}
-                          aspectRatio={item.orientation === "portrait" ? "portrait" : "video"}
-                          className="h-full"
+                          aspectRatio={item.orientation === "portrait" ? "auto" : "auto"}
+                          objectFit="contain"
+                          className="h-full p-2 bg-black/10"
                         />
                         <div className="absolute bottom-2 right-2 bg-black/70 px-2 py-1 text-xs rounded">
                           Photo: {item.photographer}
@@ -269,6 +270,8 @@ const GalleryPage = () => {
                           src={item.thumbnail}
                           alt={item.title}
                           aspectRatio="video"
+                          objectFit="contain"
+                          className="p-2 bg-black/10"
                         />
                         <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                           <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-lg flex items-center justify-center">
@@ -289,18 +292,22 @@ const GalleryPage = () => {
 
       {/* Media Modal */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="max-w-3xl p-0 bg-background overflow-hidden">
+        <DialogContent className="max-w-5xl p-1 bg-background overflow-hidden">
           {selectedItem && (
             <div>
               {selectedItem.category === "images" ? (
                 <div className="p-1">
-                  <BlurImage
-                    src={selectedItem.fullImage || selectedItem.thumbnail}
-                    alt={selectedItem.title}
-                    className="w-full rounded-lg"
-                    aspectRatio={selectedItem.orientation === "portrait" ? "portrait" : "video"}
-                  />
-                  <div className="p-4 flex justify-end">
+                  <div className="max-h-[80vh] flex items-center justify-center bg-black/5 rounded-lg">
+                    <BlurImage
+                      src={selectedItem.fullImage || selectedItem.thumbnail}
+                      alt={selectedItem.title}
+                      objectFit="contain"
+                      className="max-h-[75vh] max-w-full rounded-lg"
+                      aspectRatio="auto"
+                    />
+                  </div>
+                  <div className="p-4 flex justify-between items-center">
+                    <h3 className="text-lg font-medium">{selectedItem.title}</h3>
                     <p className="text-sm text-muted-foreground">Photo: {selectedItem.photographer}</p>
                   </div>
                 </div>
@@ -315,7 +322,8 @@ const GalleryPage = () => {
                       className="absolute top-0 left-0 w-full h-full"
                     ></iframe>
                   </div>
-                  <div className="p-4 flex justify-end">
+                  <div className="p-4 flex justify-between items-center">
+                    <h3 className="text-lg font-medium">{selectedItem.title}</h3>
                     <p className="text-sm text-muted-foreground">Video: {selectedItem.photographer}</p>
                   </div>
                 </div>
