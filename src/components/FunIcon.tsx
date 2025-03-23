@@ -78,10 +78,21 @@ const FunIcon: React.FC<FunIconProps> = ({ name, className = "" }) => {
   return (
     <motion.div 
       className={`${className} flex items-center justify-center`}
-      whileHover={{ scale: 1.1, rotate: 5 }}
+      animate={{ scale: 1 }}
       transition={{ 
         duration: 0.3, 
         ease: "easeInOut" 
+      }}
+      style={{ 
+        cursor: 'pointer',
+        transition: 'transform 0.3s ease-in-out'
+      }}
+      onClick={() => {
+        const element = document.activeElement as HTMLElement;
+        if (element) element.style.transform = 'scale(1.1) rotate(5deg)';
+        setTimeout(() => {
+          if (element) element.style.transform = 'scale(1)';
+        }, 300);
       }}
     >
       {getIcon()}
