@@ -1,7 +1,8 @@
 
 import { useEffect, useState } from "react";
-import { Star } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "@/lib/motion";
+import { Button } from "@/components/ui/button";
 
 interface Testimonial {
   quote: string;
@@ -17,21 +18,42 @@ interface RotatingTestimonialsProps {
 const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimonialsProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const goToNext = () => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+      setIsTransitioning(false);
+    }, 500);
+  };
+
+  const goToPrevious = () => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+      );
+      setIsTransitioning(false);
+    }, 500);
+  };
 
   useEffect(() => {
+    if (isPaused) return;
+    
     const timer = setInterval(() => {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-        setIsTransitioning(false);
-      }, 500); // Wait for exit animation to complete
+      goToNext();
     }, interval);
 
     return () => clearInterval(timer);
-  }, [testimonials.length, interval]);
+  }, [testimonials.length, interval, isPaused]);
 
   return (
-    <div className="max-w-4xl mx-auto relative min-h-[200px]">
+    <div 
+      className="max-w-4xl mx-auto relative min-h-[200px]"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       <motion.div
         key={currentIndex}
         initial={{ opacity: 0, y: 20 }}
@@ -55,7 +77,13 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
           {testimonials.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => {
+                setIsTransitioning(true);
+                setTimeout(() => {
+                  setCurrentIndex(index);
+                  setIsTransitioning(false);
+                }, 500);
+              }}
               className={`w-2 h-2 rounded-full ${
                 index === currentIndex ? "bg-accent" : "bg-white/20"
               }`}
@@ -64,6 +92,27 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
           ))}
         </div>
       </motion.div>
+      
+      {/* Navigation arrows */}
+      <Button 
+        variant="outline"
+        size="icon"
+        className="absolute top-1/2 -left-12 transform -translate-y-1/2 rounded-full bg-white/80 border-accent text-black hover:bg-white"
+        onClick={goToPrevious}
+        aria-label="Previous testimonial"
+      >
+        <ChevronLeft className="h-5 w-5" />
+      </Button>
+      
+      <Button 
+        variant="outline"
+        size="icon"
+        className="absolute top-1/2 -right-12 transform -translate-y-1/2 rounded-full bg-white/80 border-accent text-black hover:bg-white"
+        onClick={goToNext}
+        aria-label="Next testimonial"
+      >
+        <ChevronRight className="h-5 w-5" />
+      </Button>
     </div>
   );
 };

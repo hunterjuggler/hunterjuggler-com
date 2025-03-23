@@ -1,3 +1,4 @@
+
 import React from "react";
 import { motion } from "@/lib/motion";
 
@@ -16,7 +17,7 @@ const FunIcon: React.FC<FunIconProps> = ({ name, className = "" }) => {
                   style={{ 
                     strokeDasharray: "70",
                     strokeDashoffset: "0", 
-                    animation: "dash 3s linear infinite",
+                    animation: "dash 8s linear infinite",
                     filter: "url(#rough)"
                   }} />
             <defs>
@@ -44,17 +45,16 @@ const FunIcon: React.FC<FunIconProps> = ({ name, className = "" }) => {
         );
       case "diamond":
         return (
-          <svg viewBox="0 0 24 24" className={`w-full h-full ${className}`} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M16 2H8l-4 8 8 12 8-12-4-8z" style={{ 
-              strokeDasharray: "70",
-              strokeDashoffset: "0", 
-              animation: "dash 3s linear infinite",
-              filter: "url(#rough)"
-            }} />
+          <svg viewBox="0 0 24 24" className={`w-full h-full ${className}`} fill="currentColor" stroke="currentColor" strokeWidth="1">
+            <path d="M12 2L20 12L12 22L4 12L12 2z" 
+              style={{ 
+                animation: "pulse-subtle 8s ease-in-out infinite",
+                filter: "url(#rough)"
+              }} />
             <defs>
-              <filter id="rough" x="-20%" y="-20%" width="140%" height="140%">
-                <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" result="noise"/>
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="1" />
+              <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="1" result="noise"/>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.7" />
               </filter>
             </defs>
           </svg>

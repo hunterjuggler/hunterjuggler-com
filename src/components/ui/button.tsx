@@ -6,22 +6,22 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 button-flashy",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/20",
+        default: "bg-white text-black border-2 border-accent hover:bg-accent/10 shadow-md custom-button",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-md shadow-destructive/20",
         outline:
-          "border-2 border-input bg-background hover:bg-accent/10 hover:text-accent-foreground hover:border-accent",
+          "border-2 border-accent bg-white text-black hover:bg-accent/10 custom-button",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent/10 hover:text-accent",
         link: "text-primary underline-offset-4 hover:underline",
-        gradient: "bg-gradient-to-r from-primary to-red-400 text-primary-foreground hover:from-primary/90 hover:to-red-400/90 shadow-md shadow-primary/20",
-        glowing: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-[0_0_15px_rgba(255,0,0,0.5)]",
-        'outline-gradient': "border-2 border-transparent bg-background red-gradient-border hover:bg-accent/5",
+        gradient: "bg-white text-black border-2 border-accent hover:bg-accent/10 shadow-md custom-button",
+        glowing: "bg-white text-black border-2 border-accent shadow-[0_0_15px_rgba(255,0,0,0.5)] hover:bg-accent/10 custom-button",
+        'outline-gradient': "border-2 border-accent bg-white text-black hover:bg-accent/5 custom-button",
       },
       size: {
         default: "h-10 px-5 py-2",
