@@ -1,3 +1,4 @@
+
 import { ArrowRight, Star, Diamond, FileDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -6,6 +7,10 @@ import { motion } from "@/lib/motion";
 import { useEffect } from "react";
 import PressKit from "@/components/PressKit";
 import { Helmet } from "react-helmet-async";
+import RotatingTestimonials from "@/components/RotatingTestimonials";
+import SocialMediaFeed from "@/components/SocialMediaFeed";
+import FunIcon from "@/components/FunIcon";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 const testimonials = [{
   quote: "Hunter's performance was the highlight of our corporate event. The audience was completely mesmerized!",
@@ -19,21 +24,29 @@ const testimonials = [{
   quote: "The combination of skill, artistry, and stage presence is something I've rarely seen in my 20 years in this industry.",
   author: "Diana Rodriguez",
   company: "Festival Director"
+}, {
+  quote: "Hunter had our entire team laughing and amazed throughout the show. Definitely booking again!",
+  author: "James Wilson",
+  company: "Marketing Solutions Corp."
+}, {
+  quote: "Not just a performer, but a true entertainer who connects with the audience on a personal level.",
+  author: "Emma Thompson",
+  company: "Luxury Resorts International"
 }];
 
 // Specialized skills with imagery
 const skills = [
-  { name: "Juggling", image: "https://images.unsplash.com/photo-1624556110854-e6b6f371fedd?q=80&w=1974&auto=format&fit=crop" },
-  { name: "Unicycling", image: "https://images.unsplash.com/photo-1604154976984-2c029e372f1a?q=80&w=1974&auto=format&fit=crop" },
-  { name: "Balancing", image: "https://images.unsplash.com/photo-1599828586774-997f16e5280e?q=80&w=1974&auto=format&fit=crop" },
-  { name: "Ball Spinning", image: "https://images.unsplash.com/photo-1564119204587-6c1782b66f7f?q=80&w=1974&auto=format&fit=crop" },
-  { name: "Comedy", image: "https://images.unsplash.com/photo-1527224538127-2104bb71c51b?q=80&w=1974&auto=format&fit=crop" },
-  { name: "Audience Participation", image: "https://images.unsplash.com/photo-1545128485-c400ce7b23d2?q=80&w=1974&auto=format&fit=crop" },
-  { name: "Fire", image: "https://images.unsplash.com/photo-1599204606395-ede983886ce8?q=80&w=1974&auto=format&fit=crop" },
-  { name: "LED", image: "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?q=80&w=1974&auto=format&fit=crop" }
+  { name: "Juggling", image: "https://images.unsplash.com/photo-1624556110854-e6b6f371fedd?q=80&w=1974&auto=format&fit=crop", icon: "juggle" },
+  { name: "Unicycling", image: "https://images.unsplash.com/photo-1604154976984-2c029e372f1a?q=80&w=1974&auto=format&fit=crop", icon: "unicycle" },
+  { name: "Balancing", image: "https://images.unsplash.com/photo-1599828586774-997f16e5280e?q=80&w=1974&auto=format&fit=crop", icon: "star" },
+  { name: "Ball Spinning", image: "https://images.unsplash.com/photo-1564119204587-6c1782b66f7f?q=80&w=1974&auto=format&fit=crop", icon: "juggle" },
+  { name: "Comedy", image: "https://images.unsplash.com/photo-1527224538127-2104bb71c51b?q=80&w=1974&auto=format&fit=crop", icon: "star" },
+  { name: "Audience Participation", image: "https://images.unsplash.com/photo-1545128485-c400ce7b23d2?q=80&w=1974&auto=format&fit=crop", icon: "star" },
+  { name: "Fire", image: "https://images.unsplash.com/photo-1599204606395-ede983886ce8?q=80&w=1974&auto=format&fit=crop", icon: "fire" },
+  { name: "LED", image: "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?q=80&w=1974&auto=format&fit=crop", icon: "fire" }
 ];
 
-// Press clippings
+// Press clippings - more subtle presentation
 const pressClippings = [
   {
     id: 1,
@@ -52,6 +65,37 @@ const pressClippings = [
     image: "https://images.unsplash.com/photo-1585241936939-be4099591252?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=3",
     title: "Top 10 Performers to Watch This Year",
     source: "The Daily Telegraph"
+  }
+];
+
+// Social media posts
+const socialPosts = [
+  {
+    id: "yt1",
+    platform: "youtube",
+    thumbnail: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=1974&auto=format&fit=crop",
+    title: "Extreme Juggling Challenge - 7 Balls on a Unicycle!",
+    likes: 15430,
+    comments: 342,
+    url: "https://youtube.com"
+  },
+  {
+    id: "tt1",
+    platform: "tiktok",
+    thumbnail: "https://images.unsplash.com/photo-1571499614603-a21c196e1a9c?q=80&w=1974&auto=format&fit=crop",
+    title: "When the audience volunteer drops the juggling ball 😂",
+    likes: 43200,
+    comments: 1230,
+    url: "https://tiktok.com"
+  },
+  {
+    id: "yt2",
+    platform: "youtube",
+    thumbnail: "https://images.unsplash.com/photo-1578377375341-c2e54cb62eac?q=80&w=1974&auto=format&fit=crop",
+    title: "Fire Juggling Gone Wrong (but not really) - Corporate Show Highlights",
+    likes: 8720,
+    comments: 456,
+    url: "https://youtube.com"
   }
 ];
 
@@ -135,23 +179,23 @@ const HomePage = () => {
                 creating moments that resonate long after the show ends.
               </p>
               
-              {/* Media mentions - Consistent sizing with fixed width */}
+              {/* Media mentions - Now with fun icons */}
               <div className="flex flex-col gap-4 mb-8">
                 <div className="flex items-center gap-4">
-                  <div className="w-6 h-6 flex-shrink-0 flex items-center justify-center">
-                    <Diamond size={20} className="text-accent" />
+                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
+                    <FunIcon name="star" className="text-accent" />
                   </div>
                   <p className="font-medium">10 Million+ views - Youtube</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-6 h-6 flex-shrink-0 flex items-center justify-center">
-                    <Diamond size={20} className="text-accent" />
+                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
+                    <FunIcon name="star" className="text-accent" />
                   </div>
                   <p className="font-medium">As seen on BBC, Guardian, Dailymail</p>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-6 h-6 flex-shrink-0 flex items-center justify-center">
-                    <Diamond size={20} className="text-accent" />
+                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
+                    <FunIcon name="juggle" className="text-accent" />
                   </div>
                   <p className="font-medium">Internationally performed over 1000 shows in 8 countries and counting</p>
                 </div>
@@ -179,36 +223,41 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Press Mentions & Press Kit - Subtle integration */}
-      <section className="py-16 bg-black/10">
+      {/* Press Mentions & Press Kit - More subtle integration */}
+      <section className="py-10 bg-black/5">
         <div className="container mx-auto px-4 md:px-6">
+          <div className="mb-6">
+            <p className="text-sm text-accent/90 uppercase tracking-wider font-medium">Featured In</p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             <div className="md:col-span-8">
-              <h3 className="text-2xl font-display font-bold mb-6">Featured In</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {pressClippings.map((item) => (
-                  <motion.div
-                    key={item.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: item.id * 0.1 }}
-                    viewport={{ once: true }}
-                    className="bg-black/5 backdrop-blur-sm rounded-lg overflow-hidden"
-                  >
-                    <BlurImage
-                      src={item.image}
-                      alt={item.title}
-                      aspectRatio="video"
-                      className="w-full"
-                      noBg={true}
-                    />
-                    <div className="p-3">
-                      <p className="text-xs text-accent/90 font-medium mb-1">{item.source}</p>
-                      <p className="text-sm line-clamp-2">{item.title}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+              <Carousel
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                className="w-full"
+              >
+                <CarouselContent>
+                  {pressClippings.map((item) => (
+                    <CarouselItem key={item.id} className="basis-1/1 sm:basis-1/2 md:basis-1/3">
+                      <div className="bg-black/5 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-black/10 transition-colors">
+                        <BlurImage
+                          src={item.image}
+                          alt={item.title}
+                          aspectRatio="video"
+                          className="w-full"
+                          noBg={true}
+                        />
+                        <div className="p-3">
+                          <p className="text-xs text-accent/90 font-medium mb-1">{item.source}</p>
+                          <p className="text-sm line-clamp-2">{item.title}</p>
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
             </div>
             
             <div className="md:col-span-4">
@@ -218,7 +267,35 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Social Media Feed Section */}
+      <section className="py-16 bg-black/15">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-12">
+            <span className="text-accent font-medium">Follow Along</span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mt-2 mb-3">Latest Videos & Posts</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Check out my latest adventures and performances across social media
+            </p>
+          </div>
+          
+          <SocialMediaFeed posts={socialPosts} />
+          
+          <div className="flex justify-center mt-10">
+            <Button asChild variant="outline" className="rounded-full">
+              <a 
+                href="https://youtube.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                See More <ArrowRight size={16} />
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section with Auto-Rotating Testimonials */}
       <section className="py-20 bg-black/20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
@@ -226,27 +303,7 @@ const HomePage = () => {
             <h2 className="text-3xl md:text-4xl font-display font-bold mt-2">What People Say</h2>
           </div>
           
-          <div className="max-w-4xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <motion.div 
-                key={index} 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-black/30 rounded-2xl p-8 shadow-sm border border-white/10 mb-6"
-              >
-                <div className="flex text-accent mb-4">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
-                </div>
-                <p className="text-foreground/90 mb-6 italic text-lg">"{testimonial.quote}"</p>
-                <div>
-                  <p className="font-medium">{testimonial.author}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.company}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <RotatingTestimonials testimonials={testimonials} interval={7000} />
         </div>
       </section>
 
