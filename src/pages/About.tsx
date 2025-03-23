@@ -143,7 +143,7 @@ const AboutPage = () => {
               <BlurImage 
                 src="https://images.unsplash.com/photo-1543345207-0c8b8c87e2f3?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3" 
                 alt="Hunter Way show performance" 
-                aspectRatio="landscape" 
+                aspectRatio="wide" 
                 className="w-full h-full object-cover" 
               />
             </motion.div>

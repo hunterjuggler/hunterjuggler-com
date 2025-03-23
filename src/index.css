@@ -5,16 +5,16 @@
 
 @layer base {
   :root {
-    --background: 240 10% 8%;
+    --background: 240 10% 12%;
     --foreground: 0 0% 98%;
 
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
 
-    --popover: 240 10% 8%;
+    --popover: 240 10% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --card: 240 10% 8%;
+    --card: 240 10% 12%;
     --card-foreground: 0 0% 98%;
 
     --border: 240 3.7% 15.9%;
@@ -26,7 +26,7 @@
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
 
-    --accent: 0 85% 50%;
+    --accent: 0 100% 50%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -119,14 +119,10 @@
 }
 
 .custom-button {
-  background-color: white;
-  color: black;
-  border: 2px solid hsl(var(--accent));
   transition: all 0.3s ease;
 }
 
 .custom-button:hover {
-  background-color: hsl(var(--accent)/10);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(255, 0, 0, 0.15);
 }
@@ -139,4 +135,8 @@
 
 .footer-social-icon:hover {
   transform: scale(1.2);
+}
+
+.bg-gradient-to-center {
+  background: radial-gradient(circle, white 50%, hsl(var(--accent)/20) 100%);
 }

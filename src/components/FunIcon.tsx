@@ -45,18 +45,11 @@ const FunIcon: React.FC<FunIconProps> = ({ name, className = "" }) => {
         );
       case "diamond":
         return (
-          <svg viewBox="0 0 24 24" className={`w-full h-full ${className}`} fill="currentColor" stroke="currentColor" strokeWidth="1">
-            <path d="M12 2L20 12L12 22L4 12L12 2z" 
+          <svg viewBox="0 0 24 24" className={`w-full h-full ${className}`} fill="currentColor" stroke="none">
+            <path d="M12 2L19 12L12 22L5 12L12 2z" 
               style={{ 
-                animation: "pulse-subtle 8s ease-in-out infinite",
-                filter: "url(#rough)"
+                animation: "pulse-subtle 12s ease-in-out infinite",
               }} />
-            <defs>
-              <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
-                <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="1" result="noise"/>
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.7" />
-              </filter>
-            </defs>
           </svg>
         );
       case "unicycle":
@@ -100,15 +93,7 @@ const FunIcon: React.FC<FunIconProps> = ({ name, className = "" }) => {
         ease: "easeInOut" 
       }}
       style={{ 
-        cursor: 'pointer',
-        transition: 'transform 0.3s ease-in-out'
-      }}
-      onClick={() => {
-        const element = document.activeElement as HTMLElement;
-        if (element) element.style.transform = 'scale(1.1) rotate(5deg)';
-        setTimeout(() => {
-          if (element) element.style.transform = 'scale(1)';
-        }, 300);
+        pointerEvents: 'none' // Prevent any click interactions
       }}
     >
       {getIcon()}

@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, TouchEvent } from "react";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
@@ -19,8 +19,15 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Minimum swipe distance (in px) to trigger navigation
+  const minSwipeDistance = 50;
 
   const goToNext = () => {
+    if (isTransitioning) return;
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
@@ -29,6 +36,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
   };
 
   const goToPrevious = () => {
+    if (isTransitioning) return;
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => 
@@ -36,6 +44,29 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
       );
       setIsTransitioning(false);
     }, 500);
+  };
+
+  const onTouchStart = (e: TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe) {
+      goToNext();
+    } else if (isRightSwipe) {
+      goToPrevious();
+    }
   };
 
   useEffect(() => {
@@ -46,13 +77,17 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
     }, interval);
 
     return () => clearInterval(timer);
-  }, [testimonials.length, interval, isPaused]);
+  }, [testimonials.length, interval, isPaused, isTransitioning]);
 
   return (
     <div 
+      ref={containerRef}
       className="max-w-4xl mx-auto relative min-h-[200px]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
     >
       <motion.div
         key={currentIndex}
@@ -97,7 +132,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
       <Button 
         variant="outline"
         size="icon"
-        className="absolute top-1/2 -left-12 transform -translate-y-1/2 rounded-full bg-white/80 border-accent text-black hover:bg-white"
+        className="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 rounded-full bg-white/80 border-accent text-black hover:bg-white"
         onClick={goToPrevious}
         aria-label="Previous testimonial"
       >
@@ -107,7 +142,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
       <Button 
         variant="outline"
         size="icon"
-        className="absolute top-1/2 -right-12 transform -translate-y-1/2 rounded-full bg-white/80 border-accent text-black hover:bg-white"
+        className="absolute top-1/2 -right-4 md:-right-12 transform -translate-y-1/2 rounded-full bg-white/80 border-accent text-black hover:bg-white"
         onClick={goToNext}
         aria-label="Next testimonial"
       >

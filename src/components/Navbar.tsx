@@ -94,22 +94,28 @@ const Navbar = () => {
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <nav className="flex flex-col items-center justify-center h-full space-y-8">
+        <nav className="flex flex-col items-center justify-center h-full space-y-6">
           {navItems.map((item) => (
-            <NavLink
+            <Button
               key={item.path}
-              to={item.path}
-              className={({ isActive }) =>
-                cn(
-                  "text-lg font-medium transition-colors",
-                  isActive ? "text-primary" : "text-foreground/80 hover:text-foreground"
-                )
-              }
+              asChild
+              variant="outline"
+              size="lg"
+              className="w-40"
             >
-              {item.name}
-            </NavLink>
+              <NavLink
+                to={item.path}
+                className={({ isActive }) =>
+                  cn(
+                    isActive ? "border-accent text-black" : "text-black"
+                  )
+                }
+              >
+                {item.name}
+              </NavLink>
+            </Button>
           ))}
-          <Button asChild variant="gradient" rounded="pill" className="shine-effect mt-4 w-40">
+          <Button asChild variant="gradient" rounded="pill" size="lg" className="shine-effect mt-4 w-40">
             <NavLink to="/booking" className="flex items-center justify-center gap-1">
               <Sparkles className="h-4 w-4" />
               Book Now
