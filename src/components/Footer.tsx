@@ -1,27 +1,22 @@
-
 import { Instagram, Youtube, Mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useState } from "react";
-
 const Footer = () => {
   const [email, setEmail] = useState("");
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) {
       toast.error("Please enter your email");
       return;
     }
-    
+
     // In a real app, we would submit to a backend
     toast.success("Thank you for subscribing!");
     setEmail("");
   };
-
-  return (
-    <footer className="bg-black/30 py-16">
+  return <footer className="bg-black/30 py-16">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
@@ -34,30 +29,15 @@ const Footer = () => {
 
           <div>
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
-            <div className="flex space-x-4 mb-6">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon text-foreground/80 hover:text-accent"
-                aria-label="Instagram"
-              >
+            <div className="flex space-x-4 mb-6 px-0 mx-0">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon text-foreground/80 hover:text-accent" aria-label="Instagram">
                 <Instagram size={20} />
               </a>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon text-foreground/80 hover:text-accent"
-                aria-label="YouTube"
-              >
-                <Youtube size={20} />
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon text-foreground/80 hover:text-accent" aria-label="YouTube">
+                <Youtube size={20} className="px-0 mx-[19px]" />
               </a>
             </div>
-            <a 
-              href="mailto:hunterjuggler@gmail.com" 
-              className="flex items-center text-sm text-foreground/80 hover:text-accent transition-colors"
-            >
+            <a href="mailto:hunterjuggler@gmail.com" className="flex items-center text-sm text-foreground/80 hover:text-accent transition-colors">
               <Mail size={16} className="mr-2" />
               hunterjuggler@gmail.com
             </a>
@@ -66,13 +46,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Subscribe to Newsletter</h4>
             <form onSubmit={handleSubmit} className="space-y-3">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="contact-input bg-black/30"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
+              <Input type="email" placeholder="Enter your email" className="contact-input bg-black/30" value={email} onChange={e => setEmail(e.target.value)} />
               <Button type="submit" className="w-full" variant="gradient" rounded="pill">
                 Subscribe
               </Button>
@@ -94,8 +68,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
