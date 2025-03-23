@@ -1,7 +1,16 @@
 
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Index = () => {
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    // Redirect to home page since we're using Home as our main page
+    navigate("/");
+  }, [navigate]);
+
   return (
     <>
       <Helmet>

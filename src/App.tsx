@@ -3,12 +3,11 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { Suspense, lazy, useEffect } from "react";
-import { AnimatePresence } from "./components/AnimatePresence";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Suspense, lazy } from "react";
+import { HelmetProvider } from "react-helmet-async";
 import Layout from "./components/Layout";
 import Loading from "./components/Loading";
-import { HelmetProvider } from "react-helmet-async";
 
 // Lazy load pages for better performance
 const HomePage = lazy(() => import("./pages/Home"));
@@ -20,59 +19,6 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
-  
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  
-  return null;
-};
-
-const AnimatedRoutes = () => {
-  const location = useLocation();
-  
-  return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Layout />}>
-          <Route index element={
-            <Suspense fallback={<Loading />}>
-              <HomePage />
-            </Suspense>
-          } />
-          <Route path="about" element={
-            <Suspense fallback={<Loading />}>
-              <AboutPage />
-            </Suspense>
-          } />
-          <Route path="gallery" element={
-            <Suspense fallback={<Loading />}>
-              <GalleryPage />
-            </Suspense>
-          } />
-          <Route path="contact" element={
-            <Suspense fallback={<Loading />}>
-              <ContactPage />
-            </Suspense>
-          } />
-          <Route path="booking" element={
-            <Suspense fallback={<Loading />}>
-              <BookingPage />
-            </Suspense>
-          } />
-          <Route path="*" element={
-            <Suspense fallback={<Loading />}>
-              <NotFound />
-            </Suspense>
-          } />
-        </Route>
-      </Routes>
-    </AnimatePresence>
-  );
-};
-
 const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
@@ -80,8 +26,18 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <ScrollToTop />
-          <AnimatedRoutes />
+          <Layout>
+            <Suspense fallback={<Loading />}>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/gallery" element={<GalleryPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/booking" element={<BookingPage />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </Layout>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
