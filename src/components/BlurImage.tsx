@@ -9,6 +9,7 @@ interface BlurImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
   aspectRatio?: 'square' | 'video' | 'portrait' | 'wide' | 'auto';
   objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
+  noBg?: boolean;
 }
 
 const aspectRatioClasses = {
@@ -25,6 +26,7 @@ const BlurImage = ({
   className, 
   aspectRatio = 'auto',
   objectFit = 'cover',
+  noBg = false,
   ...props 
 }: BlurImageProps) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -53,7 +55,8 @@ const BlurImage = ({
           objectFit === 'cover' ? 'object-cover' : 
           objectFit === 'contain' ? 'object-contain' : 
           objectFit === 'fill' ? 'object-fill' : 
-          objectFit === 'none' ? 'object-none' : 'object-scale-down'
+          objectFit === 'none' ? 'object-none' : 'object-scale-down',
+          noBg ? '' : 'bg-black/10'
         )}
         onLoad={() => setIsLoading(false)}
         onError={() => {

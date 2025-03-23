@@ -8,6 +8,7 @@ import { Suspense, lazy, useEffect } from "react";
 import { AnimatePresence } from "./components/AnimatePresence";
 import Layout from "./components/Layout";
 import Loading from "./components/Loading";
+import { HelmetProvider } from "react-helmet-async";
 
 // Lazy load pages for better performance
 const HomePage = lazy(() => import("./pages/Home"));
@@ -73,16 +74,18 @@ const AnimatedRoutes = () => {
 };
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <AnimatedRoutes />
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <AnimatedRoutes />
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;

@@ -1,9 +1,11 @@
-import { ArrowRight, Star, Diamond } from "lucide-react";
+import { ArrowRight, Star, Diamond, FileDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import BlurImage from "@/components/BlurImage";
 import { motion } from "@/lib/motion";
 import { useEffect } from "react";
+import PressKit from "@/components/PressKit";
+import { Helmet } from "react-helmet-async";
 
 const testimonials = [{
   quote: "Hunter's performance was the highlight of our corporate event. The audience was completely mesmerized!",
@@ -31,6 +33,28 @@ const skills = [
   { name: "LED", image: "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?q=80&w=1974&auto=format&fit=crop" }
 ];
 
+// Press clippings
+const pressClippings = [
+  {
+    id: 1,
+    image: "https://images.unsplash.com/photo-1585241936939-be4099591252?q=80&w=1974&auto=format&fit=crop",
+    title: "Hunter Way Amazes Crowd at International Festival",
+    source: "Entertainment Weekly"
+  },
+  {
+    id: 2,
+    image: "https://images.unsplash.com/photo-1585241936939-be4099591252?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=2",
+    title: "The Art of Balance: Interview with Hunter Way",
+    source: "Performance Arts Magazine"
+  },
+  {
+    id: 3,
+    image: "https://images.unsplash.com/photo-1585241936939-be4099591252?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=3",
+    title: "Top 10 Performers to Watch This Year",
+    source: "The Daily Telegraph"
+  }
+];
+
 const HomePage = () => {
   // Add scroll to top effect when component mounts
   useEffect(() => {
@@ -39,6 +63,12 @@ const HomePage = () => {
   
   return (
     <div className="w-full overflow-hidden">
+      <Helmet>
+        <title>Hunter Way | Professional Comedy Juggler & Unicyclist for Events</title>
+        <meta name="description" content="Hunter Way - Professional comedy juggler and unicyclist available for corporate events, festivals, and private celebrations. Book now for your next event!" />
+        <meta name="keywords" content="comedy juggler for hire, professional juggler for events, circus performer for hire, unicyclist entertainer for events, festival entertainment, variety show performer, corporate event juggler, cruise ship entertainer for hire, family-friendly comedy act" />
+      </Helmet>
+      
       {/* Hero Section - More breathing space */}
       <section className="relative min-h-[100vh] flex items-center">
         <div className="absolute inset-0 z-0">
@@ -149,7 +179,46 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Testimonials Section - Reorganized */}
+      {/* Press Mentions & Press Kit - Subtle integration */}
+      <section className="py-16 bg-black/10">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+            <div className="md:col-span-8">
+              <h3 className="text-2xl font-display font-bold mb-6">Featured In</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {pressClippings.map((item) => (
+                  <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: item.id * 0.1 }}
+                    viewport={{ once: true }}
+                    className="bg-black/5 backdrop-blur-sm rounded-lg overflow-hidden"
+                  >
+                    <BlurImage
+                      src={item.image}
+                      alt={item.title}
+                      aspectRatio="video"
+                      className="w-full"
+                      noBg={true}
+                    />
+                    <div className="p-3">
+                      <p className="text-xs text-accent/90 font-medium mb-1">{item.source}</p>
+                      <p className="text-sm line-clamp-2">{item.title}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="md:col-span-4">
+              <PressKit />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
       <section className="py-20 bg-black/20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
@@ -175,37 +244,6 @@ const HomePage = () => {
                   <p className="font-medium">{testimonial.author}</p>
                   <p className="text-sm text-muted-foreground">{testimonial.company}</p>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Press Coverage Section - New section */}
-      <section className="py-16 bg-black/10">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-10">
-            <span className="text-accent font-medium">Press Coverage</span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold mt-2">Featured In</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {[1, 2, 3].map((item) => (
-              <motion.div
-                key={item}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: item * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10"
-              >
-                <BlurImage
-                  src={`https://images.unsplash.com/photo-1585241936939-be4099591252?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=${item}`}
-                  alt="Newspaper clipping"
-                  aspectRatio="video"
-                  className="w-full rounded-md mb-3"
-                />
-                <p className="text-sm text-accent font-medium">Press Coverage {item}</p>
               </motion.div>
             ))}
           </div>

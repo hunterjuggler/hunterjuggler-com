@@ -5,6 +5,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "@/lib/motion";
 import { Play } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 // Gallery items - with photographer credits
 const performances = [
@@ -190,6 +191,12 @@ const GalleryPage = () => {
 
   return (
     <div className="pt-20 w-full">
+      <Helmet>
+        <title>Performance Gallery | Hunter Way - Professional Comedy Juggler & Unicyclist</title>
+        <meta name="description" content="Browse stunning performances by Hunter Way, professional comedy juggler and unicyclist. Available for hire for corporate events, festivals, and private celebrations." />
+        <meta name="keywords" content="professional comedy juggler, unicyclist entertainer for events, circus performer for hire, festival entertainment, corporate event juggler" />
+      </Helmet>
+      
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4 md:px-6 text-center">
@@ -240,7 +247,8 @@ const GalleryPage = () => {
                           alt={item.title}
                           aspectRatio={item.orientation === "portrait" ? "auto" : "auto"}
                           objectFit="contain"
-                          className="h-full p-2 bg-black/10"
+                          className="h-full"
+                          noBg={true}
                         />
                         <div className="absolute bottom-2 right-2 bg-black/70 px-2 py-1 text-xs rounded">
                           Photo: {item.photographer}
@@ -271,7 +279,7 @@ const GalleryPage = () => {
                           alt={item.title}
                           aspectRatio="video"
                           objectFit="contain"
-                          className="p-2 bg-black/10"
+                          noBg={true}
                         />
                         <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                           <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-lg flex items-center justify-center">
@@ -297,13 +305,14 @@ const GalleryPage = () => {
             <div>
               {selectedItem.category === "images" ? (
                 <div className="p-1">
-                  <div className="max-h-[80vh] flex items-center justify-center bg-black/5 rounded-lg">
+                  <div className="max-h-[80vh] flex items-center justify-center">
                     <BlurImage
                       src={selectedItem.fullImage || selectedItem.thumbnail}
                       alt={selectedItem.title}
                       objectFit="contain"
                       className="max-h-[75vh] max-w-full rounded-lg"
                       aspectRatio="auto"
+                      noBg={true}
                     />
                   </div>
                   <div className="p-4 flex justify-between items-center">
