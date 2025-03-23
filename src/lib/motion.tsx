@@ -5,11 +5,13 @@ interface MotionProps {
   children: React.ReactNode;
   initial?: Record<string, any>;
   animate?: Record<string, any>;
+  exit?: Record<string, any>; // Add exit property
   whileInView?: Record<string, any>;
   transition?: {
     duration?: number;
     delay?: number;
     ease?: string;
+    // Remove the type property that's causing the error
   };
   viewport?: {
     once?: boolean;
@@ -17,7 +19,7 @@ interface MotionProps {
   };
   className?: string;
   style?: React.CSSProperties;
-  onClick?: () => void; // Add onClick handler support
+  onClick?: () => void;
 }
 
 export const motion = {
@@ -25,12 +27,13 @@ export const motion = {
     children,
     initial,
     animate,
+    exit, // Add exit prop
     whileInView,
     transition,
     viewport,
     className,
     style,
-    onClick, // Add onClick to the destructured props
+    onClick,
     ...props
   }: MotionProps) => {
     const ref = useRef<HTMLDivElement>(null);
@@ -111,11 +114,16 @@ export const motion = {
         ref={ref}
         className={className}
         style={{ ...initialStyles, ...style }}
-        onClick={onClick} // Add onClick handler to the div
+        onClick={onClick}
         {...props}
       >
         {children}
       </div>
     );
   },
+};
+
+// Create a simpler version of AnimatePresence that just renders children
+export const AnimatePresence = ({ children }: { children: React.ReactNode; mode?: "sync" | "wait" }) => {
+  return <>{children}</>;
 };

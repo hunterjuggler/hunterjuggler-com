@@ -1,4 +1,3 @@
-
 import { ArrowRight, Star, Diamond, FileDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -72,7 +71,7 @@ const pressClippings = [
 const socialPosts = [
   {
     id: "yt1",
-    platform: "youtube",
+    platform: "youtube" as const,
     thumbnail: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=1974&auto=format&fit=crop",
     title: "Extreme Juggling Challenge - 7 Balls on a Unicycle!",
     likes: 15430,
@@ -81,7 +80,7 @@ const socialPosts = [
   },
   {
     id: "tt1",
-    platform: "tiktok",
+    platform: "tiktok" as const,
     thumbnail: "https://images.unsplash.com/photo-1571499614603-a21c196e1a9c?q=80&w=1974&auto=format&fit=crop",
     title: "When the audience volunteer drops the juggling ball 😂",
     likes: 43200,
@@ -90,7 +89,7 @@ const socialPosts = [
   },
   {
     id: "yt2",
-    platform: "youtube",
+    platform: "youtube" as const,
     thumbnail: "https://images.unsplash.com/photo-1578377375341-c2e54cb62eac?q=80&w=1974&auto=format&fit=crop",
     title: "Fire Juggling Gone Wrong (but not really) - Corporate Show Highlights",
     likes: 8720,
