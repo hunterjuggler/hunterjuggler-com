@@ -1,3 +1,4 @@
+
 import { ArrowRight, Star, Diamond, FileDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -37,10 +38,10 @@ const testimonials = [{
 const skills = [
   { name: "Juggling", image: "https://images.unsplash.com/photo-1624556110854-e6b6f371fedd?q=80&w=1974&auto=format&fit=crop", icon: "juggle" },
   { name: "Unicycling", image: "https://images.unsplash.com/photo-1604154976984-2c029e372f1a?q=80&w=1974&auto=format&fit=crop", icon: "unicycle" },
-  { name: "Balancing", image: "https://images.unsplash.com/photo-1599828586774-997f16e5280e?q=80&w=1974&auto=format&fit=crop", icon: "star" },
+  { name: "Balancing", image: "https://images.unsplash.com/photo-1599828586774-997f16e5280e?q=80&w=1974&auto=format&fit=crop", icon: "diamond" },
   { name: "Ball Spinning", image: "https://images.unsplash.com/photo-1564119204587-6c1782b66f7f?q=80&w=1974&auto=format&fit=crop", icon: "juggle" },
-  { name: "Comedy", image: "https://images.unsplash.com/photo-1527224538127-2104bb71c51b?q=80&w=1974&auto=format&fit=crop", icon: "star" },
-  { name: "Audience Participation", image: "https://images.unsplash.com/photo-1545128485-c400ce7b23d2?q=80&w=1974&auto=format&fit=crop", icon: "star" },
+  { name: "Comedy", image: "https://images.unsplash.com/photo-1527224538127-2104bb71c51b?q=80&w=1974&auto=format&fit=crop", icon: "diamond" },
+  { name: "Audience Participation", image: "https://images.unsplash.com/photo-1545128485-c400ce7b23d2?q=80&w=1974&auto=format&fit=crop", icon: "diamond" },
   { name: "Fire", image: "https://images.unsplash.com/photo-1599204606395-ede983886ce8?q=80&w=1974&auto=format&fit=crop", icon: "fire" },
   { name: "LED", image: "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?q=80&w=1974&auto=format&fit=crop", icon: "fire" }
 ];
@@ -79,13 +80,13 @@ const socialPosts = [
     url: "https://youtube.com"
   },
   {
-    id: "tt1",
-    platform: "tiktok" as const,
-    thumbnail: "https://images.unsplash.com/photo-1571499614603-a21c196e1a9c?q=80&w=1974&auto=format&fit=crop",
-    title: "When the audience volunteer drops the juggling ball 😂",
-    likes: 43200,
-    comments: 1230,
-    url: "https://tiktok.com"
+    id: "yt3",
+    platform: "youtube" as const,
+    thumbnail: "https://images.unsplash.com/photo-1599904215055-716eb956d604?q=80&w=1974&auto=format&fit=crop",
+    title: "Backstage Preparation - Getting Ready for the Big Show",
+    likes: 9870,
+    comments: 526,
+    url: "https://youtube.com"
   },
   {
     id: "yt2",
@@ -136,10 +137,10 @@ const HomePage = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-shadow-md mb-10">Hunter Way</h1>
             <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mb-12">Shows | Festivals | Events</p>
             <div className="flex flex-wrap gap-4">
-              <Button asChild size="lg" className="rounded-full">
+              <Button asChild size="lg" variant="gradient" rounded="pill" className="shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all duration-300">
                 <Link to="/gallery">Explore Performances</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="rounded-full group">
+              <Button asChild variant="outline" size="lg" rounded="pill" className="group border-2 hover:border-accent">
                 <Link to="/booking">
                   Book a Show
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -178,29 +179,29 @@ const HomePage = () => {
                 creating moments that resonate long after the show ends.
               </p>
               
-              {/* Media mentions - Now with fun icons */}
+              {/* Media mentions - Now with diamond icons */}
               <div className="flex flex-col gap-4 mb-8">
                 <div className="flex items-center gap-4">
                   <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
-                    <FunIcon name="star" className="text-accent" />
+                    <FunIcon name="diamond" className="text-accent" />
                   </div>
                   <p className="font-medium">10 Million+ views - Youtube</p>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
-                    <FunIcon name="star" className="text-accent" />
+                    <FunIcon name="diamond" className="text-accent" />
                   </div>
                   <p className="font-medium">As seen on BBC, Guardian, Dailymail</p>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
-                    <FunIcon name="juggle" className="text-accent" />
+                    <FunIcon name="diamond" className="text-accent" />
                   </div>
                   <p className="font-medium">Internationally performed over 1000 shows in 8 countries and counting</p>
                 </div>
               </div>
               
-              <Button asChild className="rounded-full">
+              <Button asChild className="rounded-full shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all duration-300" variant="gradient">
                 <Link to="/about">Learn More About Me</Link>
               </Button>
             </motion.div>
@@ -271,23 +272,23 @@ const HomePage = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <span className="text-accent font-medium">Follow Along</span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold mt-2 mb-3">Latest Videos & Posts</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mt-2 mb-3">Latest Videos</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Check out my latest adventures and performances across social media
+              Check out my latest performances on YouTube
             </p>
           </div>
           
           <SocialMediaFeed posts={socialPosts} />
           
           <div className="flex justify-center mt-10">
-            <Button asChild variant="outline" className="rounded-full">
+            <Button asChild variant="outline" rounded="pill" className="group border-2 hover:border-accent">
               <a 
                 href="https://youtube.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
               >
-                See More <ArrowRight size={16} />
+                See More <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
           </div>
@@ -318,10 +319,10 @@ const HomePage = () => {
               let's collaborate to create a performance that will leave your audience amazed.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild size="lg" className="rounded-full">
+              <Button asChild size="lg" variant="gradient" rounded="pill" className="shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all duration-300">
                 <Link to="/booking">Book Now</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="rounded-full">
+              <Button asChild variant="outline" size="lg" rounded="pill" className="group border-2 hover:border-accent">
                 <Link to="/contact">Get in Touch</Link>
               </Button>
             </div>

@@ -1,11 +1,11 @@
 
 import { motion } from "@/lib/motion";
 import BlurImage from "@/components/BlurImage";
-import { Music, Youtube, Heart, MessageCircle } from "lucide-react";
+import { Youtube, Heart, MessageCircle } from "lucide-react";
 
 interface SocialPost {
   id: string;
-  platform: "youtube" | "tiktok";
+  platform: "youtube";
   thumbnail: string;
   title: string;
   likes: number;
@@ -22,8 +22,6 @@ const SocialMediaFeed = ({ posts }: SocialMediaFeedProps) => {
     switch (platform) {
       case "youtube":
         return <Youtube size={20} className="text-red-500" />;
-      case "tiktok":
-        return <Music size={20} className="text-foreground" />;
       default:
         return null;
     }
@@ -51,7 +49,7 @@ const SocialMediaFeed = ({ posts }: SocialMediaFeedProps) => {
             />
             <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1 flex items-center space-x-1">
               {getPlatformIcon(post.platform)}
-              <span className="text-xs font-medium">{post.platform === "youtube" ? "YouTube" : "TikTok"}</span>
+              <span className="text-xs font-medium">YouTube</span>
             </div>
           </div>
           <div className="p-4">

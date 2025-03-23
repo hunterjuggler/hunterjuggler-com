@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "@/lib/motion";
 
@@ -35,6 +34,23 @@ const FunIcon: React.FC<FunIconProps> = ({ name, className = "" }) => {
             <circle cx="16" cy="6" r="3" style={{ filter: "url(#rough)" }} />
             <circle cx="12" cy="16" r="3" style={{ filter: "url(#rough)" }} />
             <path d="M8 8 L12 16 M12 16 L16 6 M16 6 L8 8" style={{ filter: "url(#rough)" }} />
+            <defs>
+              <filter id="rough" x="-20%" y="-20%" width="140%" height="140%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" result="noise"/>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="1" />
+              </filter>
+            </defs>
+          </svg>
+        );
+      case "diamond":
+        return (
+          <svg viewBox="0 0 24 24" className={`w-full h-full ${className}`} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M16 2H8l-4 8 8 12 8-12-4-8z" style={{ 
+              strokeDasharray: "70",
+              strokeDashoffset: "0", 
+              animation: "dash 3s linear infinite",
+              filter: "url(#rough)"
+            }} />
             <defs>
               <filter id="rough" x="-20%" y="-20%" width="140%" height="140%">
                 <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" result="noise"/>

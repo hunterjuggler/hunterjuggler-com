@@ -1,5 +1,5 @@
 
-import { Instagram, Youtube, Mail, Music } from "lucide-react";
+import { Instagram, Youtube, Mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -45,15 +45,6 @@ const Footer = () => {
                 <Instagram size={20} />
               </a>
               <a
-                href="https://tiktok.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon text-foreground/80 hover:text-accent"
-                aria-label="TikTok"
-              >
-                <Music size={20} />
-              </a>
-              <a
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -82,7 +73,7 @@ const Footer = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full" variant="gradient" rounded="pill">
                 Subscribe
               </Button>
             </form>
