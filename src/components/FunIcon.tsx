@@ -79,7 +79,10 @@ const FunIcon: React.FC<FunIconProps> = ({ name, className = "" }) => {
     <motion.div 
       className={`${className} flex items-center justify-center`}
       whileHover={{ scale: 1.1, rotate: 5 }}
-      transition={{ stiffness: 500, damping: 10 }}
+      transition={{ 
+        duration: 0.3, 
+        ease: "easeInOut" 
+      }}
     >
       {getIcon()}
     </motion.div>
