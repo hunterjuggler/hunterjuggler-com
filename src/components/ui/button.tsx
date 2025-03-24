@@ -10,18 +10,18 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gradient-to-center from-accent to-white text-black border-2 border-accent shadow-md custom-button",
+        default: "bg-radial-gradient from-accent to-white text-black border-2 border-accent shadow-md custom-button",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-md shadow-destructive/20",
         outline:
-          "border-2 border-accent bg-gradient-to-center from-accent/20 to-white text-black hover:bg-accent/10 custom-button",
+          "border-2 border-accent bg-radial-gradient from-accent/20 to-white text-black hover:bg-accent/10 custom-button",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent/10 hover:text-accent",
         link: "text-primary underline-offset-4 hover:underline",
-        gradient: "bg-gradient-to-center from-accent to-white text-black border-2 border-accent shadow-md custom-button",
-        glowing: "bg-gradient-to-center from-accent/20 to-white text-black border-2 border-accent shadow-[0_0_15px_rgba(255,0,0,0.5)] custom-button",
-        'outline-gradient': "border-2 border-accent bg-gradient-to-center from-accent/10 to-white text-black custom-button",
+        gradient: "bg-radial-gradient from-accent to-white text-black border-2 border-accent shadow-md custom-button",
+        glowing: "bg-radial-gradient from-accent/20 to-white text-black border-2 border-accent shadow-[0_0_15px_rgba(255,0,0,0.5)] custom-button",
+        'outline-gradient': "border-2 border-accent bg-radial-gradient from-accent/10 to-white text-black custom-button",
       },
       size: {
         default: "h-10 px-5 py-2",

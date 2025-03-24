@@ -68,7 +68,7 @@ const Navbar = () => {
                 {item.name}
               </NavLink>
             ))}
-            <Button asChild variant="gradient" rounded="pill" className="shine-effect">
+            <Button asChild variant="gradient" rounded="pill" className="shine-effect shimmer-animation">
               <NavLink to="/booking" className="flex items-center gap-1">
                 <Sparkles className="h-4 w-4" />
                 Book Now
@@ -99,7 +99,7 @@ const Navbar = () => {
             <Button
               key={item.path}
               asChild
-              variant="outline"
+              variant="gradient"
               size="lg"
               className="w-40"
             >
@@ -115,7 +115,7 @@ const Navbar = () => {
               </NavLink>
             </Button>
           ))}
-          <Button asChild variant="gradient" rounded="pill" size="lg" className="shine-effect mt-4 w-40">
+          <Button asChild variant="gradient" rounded="pill" size="lg" className="shine-effect shimmer-animation mt-4 w-40">
             <NavLink to="/booking" className="flex items-center justify-center gap-1">
               <Sparkles className="h-4 w-4" />
               Book Now
