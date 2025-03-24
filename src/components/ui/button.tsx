@@ -10,18 +10,18 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-radial-gradient from-accent to-white text-black border-2 border-accent shadow-md custom-button",
+        default: "bg-radial-gradient from-accent to-white text-black border-2 border-accent shadow-[0_6px_12px_rgba(255,0,0,0.3)] hover:shadow-[0_8px_15px_rgba(255,0,0,0.4)] hover:translate-y-[-2px] active:translate-y-[1px] active:shadow-[0_2px_5px_rgba(255,0,0,0.2)] custom-button",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-md shadow-destructive/20",
         outline:
-          "border-2 border-accent bg-radial-gradient from-accent/20 to-white text-black hover:bg-accent/10 custom-button",
+          "border-2 border-accent bg-radial-gradient from-accent/20 to-white text-black hover:bg-accent/10 shadow-[0_6px_12px_rgba(255,0,0,0.2)] hover:shadow-[0_8px_15px_rgba(255,0,0,0.3)] hover:translate-y-[-2px] active:translate-y-[1px] active:shadow-[0_2px_5px_rgba(255,0,0,0.15)] custom-button",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-md hover:shadow-lg",
         ghost: "hover:bg-accent/10 hover:text-accent",
         link: "text-primary underline-offset-4 hover:underline",
-        gradient: "bg-radial-gradient from-accent to-white text-black border-2 border-accent shadow-md custom-button",
-        glowing: "bg-radial-gradient from-accent/20 to-white text-black border-2 border-accent shadow-[0_0_15px_rgba(255,0,0,0.5)] custom-button",
-        'outline-gradient': "border-2 border-accent bg-radial-gradient from-accent/10 to-white text-black custom-button",
+        gradient: "bg-radial-gradient from-accent to-white text-black border-2 border-accent shadow-[0_6px_12px_rgba(255,0,0,0.3)] hover:shadow-[0_8px_15px_rgba(255,0,0,0.4)] hover:translate-y-[-2px] active:translate-y-[1px] active:shadow-[0_2px_5px_rgba(255,0,0,0.2)] custom-button",
+        glowing: "bg-radial-gradient from-accent/20 to-white text-black border-2 border-accent shadow-[0_0_15px_rgba(255,0,0,0.5),0_6px_12px_rgba(255,0,0,0.3)] hover:shadow-[0_0_20px_rgba(255,0,0,0.6),0_8px_15px_rgba(255,0,0,0.4)] hover:translate-y-[-2px] active:translate-y-[1px] active:shadow-[0_0_10px_rgba(255,0,0,0.4),0_2px_5px_rgba(255,0,0,0.2)] custom-button",
+        'outline-gradient': "border-2 border-accent bg-radial-gradient from-accent/10 to-white text-black shadow-[0_6px_12px_rgba(255,0,0,0.2)] hover:shadow-[0_8px_15px_rgba(255,0,0,0.3)] hover:translate-y-[-2px] active:translate-y-[1px] active:shadow-[0_2px_5px_rgba(255,0,0,0.15)] custom-button",
       },
       size: {
         default: "h-10 px-5 py-2",

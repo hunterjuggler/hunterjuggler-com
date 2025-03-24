@@ -68,7 +68,7 @@ const Navbar = () => {
                 {item.name}
               </NavLink>
             ))}
-            <Button asChild variant="gradient" rounded="pill" className="shine-effect shimmer-animation">
+            <Button asChild variant="glowing" rounded="pill" className="shine-effect shimmer-animation">
               <NavLink to="/booking" className="flex items-center gap-1">
                 <Sparkles className="h-4 w-4" />
                 Book Now
@@ -94,20 +94,20 @@ const Navbar = () => {
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <nav className="flex flex-col items-center justify-center h-full space-y-6">
+        <nav className="flex flex-col items-center justify-center h-full space-y-4 pb-16 px-6 overflow-y-auto">
           {navItems.map((item) => (
             <Button
               key={item.path}
               asChild
               variant="gradient"
               size="lg"
-              className="w-40"
+              className="w-full max-w-xs"
             >
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
                   cn(
-                    isActive ? "border-accent text-black" : "text-black"
+                    isActive ? "font-bold" : ""
                   )
                 }
               >
@@ -115,7 +115,13 @@ const Navbar = () => {
               </NavLink>
             </Button>
           ))}
-          <Button asChild variant="gradient" rounded="pill" size="lg" className="shine-effect shimmer-animation mt-4 w-40">
+          <Button 
+            asChild 
+            variant="glowing" 
+            rounded="pill" 
+            size="lg" 
+            className="shine-effect shimmer-animation mt-4 w-full max-w-xs"
+          >
             <NavLink to="/booking" className="flex items-center justify-center gap-1">
               <Sparkles className="h-4 w-4" />
               Book Now

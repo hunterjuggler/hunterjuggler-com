@@ -119,12 +119,19 @@
 }
 
 .custom-button {
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: perspective(1px) translateZ(0);
+  position: relative;
 }
 
 .custom-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(255, 0, 0, 0.15);
+}
+
+.custom-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(255, 0, 0, 0.1);
 }
 
 .footer-social-icon {
@@ -176,4 +183,21 @@
   background-size: 200% 100%;
   pointer-events: none;
   animation: shimmer 3s infinite;
+}
+
+/* 3D button enhancement */
+.button-3d {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(255, 0, 0, 0.25);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.button-3d:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(255, 0, 0, 0.4);
+}
+
+.button-3d:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(255, 0, 0, 0.3);
 }
