@@ -142,7 +142,7 @@
 }
 
 .bg-radial-gradient {
-  background: radial-gradient(circle, white 50%, hsl(var(--accent)) 200%);
+  background: radial-gradient(circle at center, white 0%, hsl(var(--accent)) 100%);
 }
 
 /* Shimmer animation for the Book Now button */

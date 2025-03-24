@@ -91,8 +91,8 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
     >
       <motion.div
         key={currentIndex}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: isTransitioning ? 0 : 1, y: isTransitioning ? -20 : 0 }}
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: isTransitioning ? 0 : 1, x: isTransitioning ? 20 : 0 }}
         transition={{ duration: 0.5 }}
         className="bg-black/30 rounded-2xl p-8 shadow-sm border border-white/10"
       >
