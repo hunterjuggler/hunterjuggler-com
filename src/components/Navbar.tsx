@@ -68,7 +68,7 @@ const Navbar = () => {
                 {item.name}
               </NavLink>
             ))}
-            <Button asChild variant="glowing" rounded="pill" className="shine-effect shimmer-animation">
+            <Button asChild variant="gradient" rounded="pill" className="shine-effect shimmer-animation shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125]">
               <NavLink to="/booking" className="flex items-center gap-1">
                 <Sparkles className="h-4 w-4" />
                 Book Now
@@ -87,26 +87,27 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation - Updated to fixed position that covers the screen */}
       <div
         className={cn(
-          "fixed inset-0 bg-background/95 backdrop-blur-lg z-40 md:hidden transition-transform duration-300 ease-in-out pt-20",
+          "fixed inset-0 bg-background/95 backdrop-blur-lg z-40 md:hidden transition-transform duration-300 ease-in-out overflow-auto pt-20",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <nav className="flex flex-col items-center justify-center h-full space-y-4 pb-16 px-6 overflow-y-auto">
+        <nav className="flex flex-col items-center space-y-4 p-4">
           {navItems.map((item) => (
             <Button
               key={item.path}
               asChild
               variant="gradient"
-              size="lg"
-              className="w-full max-w-xs"
+              rounded="pill"
+              className="w-full max-w-xs shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125]"
             >
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
                   cn(
+                    "w-full py-3 text-center",
                     isActive ? "font-bold" : ""
                   )
                 }
@@ -117,12 +118,11 @@ const Navbar = () => {
           ))}
           <Button 
             asChild 
-            variant="glowing" 
-            rounded="pill" 
-            size="lg" 
-            className="shine-effect shimmer-animation mt-4 w-full max-w-xs"
+            variant="gradient" 
+            rounded="pill"
+            className="w-full max-w-xs shine-effect shimmer-animation mt-4 shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125]"
           >
-            <NavLink to="/booking" className="flex items-center justify-center gap-1">
+            <NavLink to="/booking" className="flex items-center justify-center gap-1 py-3">
               <Sparkles className="h-4 w-4" />
               Book Now
             </NavLink>

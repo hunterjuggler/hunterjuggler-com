@@ -119,19 +119,25 @@
 }
 
 .custom-button {
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transform: perspective(1px) translateZ(0);
-  position: relative;
+  transition: all 0.15s;
+  font-family: -apple-system, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.24px;
+  outline: none;
+  appearance: none;
+  box-sizing: border-box;
 }
 
-.custom-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.15);
+.scale-1125 {
+  transform: scale(1.125);
 }
 
-.custom-button:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px 6px rgba(255, 0, 0, 0.1);
+.scale-1025 {
+  transform: scale(1.025);
+}
+
+.shadow-orange {
+  box-shadow: #FF6314 0 -6px 8px inset;
 }
 
 .footer-social-icon {
@@ -200,4 +206,48 @@
 .button-3d:active {
   transform: translateY(-1px);
   box-shadow: 0 3px 8px rgba(255, 0, 0, 0.3);
+}
+
+/* Button-73 style */
+.button-73 {
+  appearance: none;
+  background-color: #FFFFFF;
+  border-radius: 40em;
+  border-style: none;
+  box-shadow: #ADCFFF 0 -12px 6px inset;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -.24px;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.3rem;
+  quotes: auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-73:hover {
+  background-color: #FFC229;
+  box-shadow: #FF6314 0 -6px 8px inset;
+  transform: scale(1.125);
+}
+
+.button-73:active {
+  transform: scale(1.025);
+}
+
+@media (min-width: 768px) {
+  .button-73 {
+    font-size: 1.5rem;
+    padding: .75rem 2rem;
+  }
 }

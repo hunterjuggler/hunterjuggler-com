@@ -10,18 +10,18 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-radial-gradient from-accent to-white text-black border-2 border-accent shadow-[0_6px_12px_rgba(255,0,0,0.3)] hover:shadow-[0_8px_15px_rgba(255,0,0,0.4)] hover:translate-y-[-2px] active:translate-y-[1px] active:shadow-[0_2px_5px_rgba(255,0,0,0.2)] custom-button",
+        default: "bg-radial-gradient from-white to-accent font-bold text-black border-style-none box-shadow-inset appearance-none transition-all hover:scale-1125 hover:bg-amber-300 hover:shadow-orange active:scale-1025 custom-button",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-md shadow-destructive/20",
         outline:
-          "border-2 border-accent bg-radial-gradient from-accent/20 to-white text-black hover:bg-accent/10 shadow-[0_6px_12px_rgba(255,0,0,0.2)] hover:shadow-[0_8px_15px_rgba(255,0,0,0.3)] hover:translate-y-[-2px] active:translate-y-[1px] active:shadow-[0_2px_5px_rgba(255,0,0,0.15)] custom-button",
+          "border-2 border-accent bg-radial-gradient from-white to-accent/20 text-black hover:bg-accent/10 shadow-[0_-12px_6px_inset_#ADCFFF] hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125] active:scale-[1.025] transition-all custom-button",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-md hover:shadow-lg",
         ghost: "hover:bg-accent/10 hover:text-accent",
         link: "text-primary underline-offset-4 hover:underline",
-        gradient: "bg-radial-gradient from-accent to-white text-black border-2 border-accent shadow-[0_6px_12px_rgba(255,0,0,0.3)] hover:shadow-[0_8px_15px_rgba(255,0,0,0.4)] hover:translate-y-[-2px] active:translate-y-[1px] active:shadow-[0_2px_5px_rgba(255,0,0,0.2)] custom-button",
-        glowing: "bg-radial-gradient from-accent/20 to-white text-black border-2 border-accent shadow-[0_0_15px_rgba(255,0,0,0.5),0_6px_12px_rgba(255,0,0,0.3)] hover:shadow-[0_0_20px_rgba(255,0,0,0.6),0_8px_15px_rgba(255,0,0,0.4)] hover:translate-y-[-2px] active:translate-y-[1px] active:shadow-[0_0_10px_rgba(255,0,0,0.4),0_2px_5px_rgba(255,0,0,0.2)] custom-button",
-        'outline-gradient': "border-2 border-accent bg-radial-gradient from-accent/10 to-white text-black shadow-[0_6px_12px_rgba(255,0,0,0.2)] hover:shadow-[0_8px_15px_rgba(255,0,0,0.3)] hover:translate-y-[-2px] active:translate-y-[1px] active:shadow-[0_2px_5px_rgba(255,0,0,0.15)] custom-button",
+        gradient: "bg-radial-gradient from-white to-accent font-bold text-black appearance-none shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125] active:scale-[1.025] transition-all custom-button",
+        glowing: "bg-radial-gradient from-white to-accent/20 font-bold text-black appearance-none shadow-[0_-12px_6px_inset_#ADCFFF,0_0_15px_rgba(255,0,0,0.5)] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314,0_0_20px_rgba(255,0,0,0.6)] hover:scale-[1.125] active:scale-[1.025] transition-all custom-button",
+        'outline-gradient': "bg-radial-gradient from-white to-accent/10 font-bold text-black appearance-none shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125] active:scale-[1.025] transition-all custom-button",
       },
       size: {
         default: "h-10 px-5 py-2",
@@ -34,7 +34,7 @@ const buttonVariants = cva(
         default: "rounded-md",
         full: "rounded-full",
         none: "rounded-none",
-        pill: "rounded-3xl",
+        pill: "rounded-[40em]",
         slant: "clip-path-slant",
       }
     },

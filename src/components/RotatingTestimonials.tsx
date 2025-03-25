@@ -91,8 +91,8 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
     >
       <motion.div
         key={currentIndex}
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: isTransitioning ? 0 : 1, x: isTransitioning ? 20 : 0 }}
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: isTransitioning ? 0 : 1, x: isTransitioning ? 50 : 0 }}
         transition={{ duration: 0.5 }}
         className="bg-black/30 rounded-2xl p-8 shadow-sm border border-white/10"
       >
@@ -128,11 +128,12 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
         </div>
       </motion.div>
       
-      {/* Navigation arrows */}
+      {/* Navigation arrows - positioned on both sides */}
       <Button 
-        variant="outline"
+        variant="gradient"
         size="icon"
-        className="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 rounded-full bg-white/80 border-accent text-black hover:bg-white"
+        rounded="pill"
+        className="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125] z-10"
         onClick={goToPrevious}
         aria-label="Previous testimonial"
       >
@@ -140,9 +141,10 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
       </Button>
       
       <Button 
-        variant="outline"
+        variant="gradient"
         size="icon"
-        className="absolute top-1/2 -right-4 md:-right-12 transform -translate-y-1/2 rounded-full bg-white/80 border-accent text-black hover:bg-white"
+        rounded="pill"
+        className="absolute top-1/2 -right-4 md:-right-12 transform -translate-y-1/2 shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125] z-10"
         onClick={goToNext}
         aria-label="Next testimonial"
       >
