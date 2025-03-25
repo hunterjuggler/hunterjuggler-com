@@ -10,18 +10,18 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-radial-gradient from-white to-accent font-bold text-black border-style-none box-shadow-inset appearance-none transition-all hover:scale-1125 hover:bg-amber-300 hover:shadow-orange active:scale-1025 custom-button",
+        default: "bg-gradient-to-center from-white to-white/60 font-bold text-black border-style-none box-shadow-inset appearance-none transition-all hover:scale-1125 hover:bg-amber-300 hover:shadow-white active:scale-1025 custom-button",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-md shadow-destructive/20",
         outline:
-          "border-2 border-accent bg-radial-gradient from-white to-accent/20 text-black hover:bg-accent/10 shadow-[0_-12px_6px_inset_#ADCFFF] hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125] active:scale-[1.025] transition-all custom-button",
+          "border-2 border-white bg-gradient-to-center from-white to-white/20 text-black hover:bg-white/10 shadow-[0_-12px_6px_inset_#ADCFFF] hover:shadow-[0_-6px_8px_inset_#FFFFFF] hover:scale-[1.125] active:scale-[1.025] transition-all custom-button",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-md hover:shadow-lg",
-        ghost: "hover:bg-accent/10 hover:text-accent",
+        ghost: "hover:bg-white/10 hover:text-white",
         link: "text-primary underline-offset-4 hover:underline",
-        gradient: "bg-radial-gradient from-white to-accent font-bold text-black appearance-none shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125] active:scale-[1.025] transition-all custom-button",
-        glowing: "bg-radial-gradient from-white to-accent/20 font-bold text-black appearance-none shadow-[0_-12px_6px_inset_#ADCFFF,0_0_15px_rgba(255,0,0,0.5)] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314,0_0_20px_rgba(255,0,0,0.6)] hover:scale-[1.125] active:scale-[1.025] transition-all custom-button",
-        'outline-gradient': "bg-radial-gradient from-white to-accent/10 font-bold text-black appearance-none shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125] active:scale-[1.025] transition-all custom-button",
+        gradient: "bg-gradient-to-center from-white to-white/60 font-bold text-black appearance-none shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FFFFFF] hover:scale-[1.125] active:scale-[1.025] transition-all custom-button",
+        glowing: "bg-gradient-to-center from-white to-white/20 font-bold text-black appearance-none shadow-[0_-12px_6px_inset_#ADCFFF,0_0_15px_rgba(255,255,255,0.5)] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FFFFFF,0_0_20px_rgba(255,255,255,0.6)] hover:scale-[1.125] active:scale-[1.025] transition-all custom-button",
+        'outline-gradient': "bg-gradient-to-center from-white to-white/10 font-bold text-black appearance-none shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FFFFFF] hover:scale-[1.125] active:scale-[1.025] transition-all custom-button",
       },
       size: {
         default: "h-10 px-5 py-2",
