@@ -5,7 +5,6 @@ import BioSection from "@/components/about/BioSection";
 import ShowSection from "@/components/about/ShowSection";
 import SkillsSection from "@/components/about/SkillsSection";
 import TestimonialsSection from "@/components/about/TestimonialsSection";
-import ClientsSection from "@/components/about/ClientsSection";
 import CallToAction from "@/components/about/CallToAction";
 
 const AboutPage = () => {
@@ -21,7 +20,6 @@ const AboutPage = () => {
       <ShowSection />
       <SkillsSection />
       <TestimonialsSection />
-      <ClientsSection />
       <CallToAction />
     </div>
   );

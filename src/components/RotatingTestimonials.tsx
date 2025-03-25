@@ -133,7 +133,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
         variant="gradient"
         size="icon"
         rounded="pill"
-        className="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125] z-10"
+        className="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 shadow-[0_-12px_6px_inset_#FF6314] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125] z-10"
         onClick={goToPrevious}
         aria-label="Previous testimonial"
       >
@@ -144,7 +144,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
         variant="gradient"
         size="icon"
         rounded="pill"
-        className="absolute top-1/2 -right-4 md:-right-12 transform -translate-y-1/2 shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125] z-10"
+        className="absolute top-1/2 -right-4 md:-right-12 transform -translate-y-1/2 shadow-[0_-12px_6px_inset_#FF6314] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125] z-10"
         onClick={goToNext}
         aria-label="Next testimonial"
       >
