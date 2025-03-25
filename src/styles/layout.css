@@ -1,0 +1,62 @@
+
+.hero-mask {
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.9) 70%, rgba(0, 0, 0, 0));
+}
+
+.text-shadow-md {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Fun, hand-drawn effects */
+.fun-border {
+  position: relative;
+}
+
+.fun-border::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border: 2px solid currentColor;
+  border-radius: inherit;
+  filter: url(#rough);
+  z-index: -1;
+}
+
+.contact-input {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.contact-input:focus {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.social-icon {
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 0 transparent);
+}
+
+.social-icon:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 5px currentColor);
+}
+
+.footer-social-icon {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.footer-social-icon:hover {
+  transform: scale(1.2);
+}
+
+.bg-gradient-to-center {
+  background: radial-gradient(circle, white 50%, hsl(var(--accent)/20) 100%);
+}
+
+.bg-radial-gradient {
+  background: radial-gradient(circle at center, white 0%, hsl(var(--accent)) 100%);
+}
