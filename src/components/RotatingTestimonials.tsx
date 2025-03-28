@@ -21,6 +21,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
   const [isPaused, setIsPaused] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [direction, setDirection] = useState<"left" | "right">("right");
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Minimum swipe distance (in px) to trigger navigation
@@ -28,6 +29,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
 
   const goToNext = () => {
     if (isTransitioning) return;
+    setDirection("right");
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
@@ -37,6 +39,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
 
   const goToPrevious = () => {
     if (isTransitioning) return;
+    setDirection("left");
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => 
@@ -91,12 +94,12 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
     >
       <motion.div
         key={currentIndex}
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: isTransitioning ? 0 : 1, x: isTransitioning ? 50 : 0 }}
+        initial={{ opacity: 0, x: direction === "right" ? -50 : 50 }}
+        animate={{ opacity: isTransitioning ? 0 : 1, x: isTransitioning ? (direction === "right" ? 50 : -50) : 0 }}
         transition={{ duration: 0.5 }}
         className="bg-black/30 rounded-2xl p-8 shadow-sm border border-white/10"
       >
-        <div className="flex text-accent mb-4">
+        <div className="flex text-[#ff4742] mb-4">
           {[...Array(5)].map((_, i) => (
             <Star key={i} size={16} fill="currentColor" />
           ))}
@@ -113,6 +116,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
             <button
               key={index}
               onClick={() => {
+                setDirection(index > currentIndex ? "right" : "left");
                 setIsTransitioning(true);
                 setTimeout(() => {
                   setCurrentIndex(index);
@@ -120,7 +124,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
                 }, 500);
               }}
               className={`w-2 h-2 rounded-full ${
-                index === currentIndex ? "bg-accent" : "bg-white/20"
+                index === currentIndex ? "bg-[#ff4742]" : "bg-white/20"
               }`}
               aria-label={`View testimonial ${index + 1}`}
             />
@@ -133,7 +137,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
         variant="gradient"
         size="icon"
         rounded="pill"
-        className="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 shadow-[0_-12px_6px_inset_#FF6314] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125] z-10"
+        className="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 shadow-[0_-12px_6px_inset_#ff4742] hover:bg-transparent hover:shadow-[0_-6px_8px_inset_#ff4742] hover:scale-[1.125] z-10"
         onClick={goToPrevious}
         aria-label="Previous testimonial"
       >
@@ -144,7 +148,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
         variant="gradient"
         size="icon"
         rounded="pill"
-        className="absolute top-1/2 -right-4 md:-right-12 transform -translate-y-1/2 shadow-[0_-12px_6px_inset_#FF6314] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125] z-10"
+        className="absolute top-1/2 -right-4 md:-right-12 transform -translate-y-1/2 shadow-[0_-12px_6px_inset_#ff4742] hover:bg-transparent hover:shadow-[0_-6px_8px_inset_#ff4742] hover:scale-[1.125] z-10"
         onClick={goToNext}
         aria-label="Next testimonial"
       >

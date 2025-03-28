@@ -40,7 +40,7 @@ const SocialSection: React.FC = () => {
     <section className="py-16 bg-black/15">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <span className="text-accent font-medium">Follow Along</span>
+          <span className="text-[#ff4742] font-medium">Follow Along</span>
           <h2 className="text-3xl md:text-4xl font-display font-bold mt-2 mb-3">Latest Videos</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Check out my latest performances on YouTube
@@ -50,14 +50,14 @@ const SocialSection: React.FC = () => {
         <SocialMediaFeed posts={socialPosts} />
         
         <div className="flex justify-center mt-10">
-          <Button asChild variant="outline" rounded="pill" className="group border-2 hover:border-accent">
+          <Button asChild variant="outline" rounded="pill" className="group border-2 hover:border-[#ff4742]">
             <a 
               href="https://youtube.com" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2"
             >
-              See More <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              See More <ArrowRight size={16} className="transition-transform group-hover:translate-x-1 text-[#ff4742]" />
             </a>
           </Button>
         </div>

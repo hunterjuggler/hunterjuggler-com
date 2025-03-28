@@ -17,7 +17,7 @@ const AboutSection: React.FC = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <span className="text-accent font-medium">About Me</span>
+            <span className="text-[#ff4742] font-medium">About Me</span>
             <h2 className="text-3xl md:text-4xl font-display font-bold mt-2 mb-6">
               Bringing Art to Life Through Movement
             </h2>
@@ -34,25 +34,25 @@ const AboutSection: React.FC = () => {
             <div className="flex flex-col gap-4 mb-8">
               <div className="flex items-center gap-4">
                 <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
-                  <FunIcon name="diamond" className="text-accent" />
+                  <FunIcon name="diamond" className="text-[#ff4742]" />
                 </div>
                 <p className="font-medium">10 Million+ views - Youtube</p>
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
-                  <FunIcon name="diamond" className="text-accent" />
+                  <FunIcon name="diamond" className="text-[#ff4742]" />
                 </div>
                 <p className="font-medium">As seen on BBC, Guardian, Dailymail</p>
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
-                  <FunIcon name="diamond" className="text-accent" />
+                  <FunIcon name="diamond" className="text-[#ff4742]" />
                 </div>
                 <p className="font-medium">Internationally performed over 1000 shows in 8 countries and counting</p>
               </div>
             </div>
             
-            <Button asChild className="rounded-full shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all duration-300" variant="gradient">
+            <Button asChild className="rounded-full shadow-lg shadow-[#ff4742]/20 hover:shadow-[#ff4742]/40 transition-all duration-300" variant="gradient">
               <Link to="/about">Learn More About Me</Link>
             </Button>
           </motion.div>
