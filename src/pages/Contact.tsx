@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Calendar, Mail, MapPin, Send } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -94,7 +95,7 @@ const ContactPage = () => {
               
               <div className="space-y-6 mb-8">
                 <div className="flex items-start space-x-4">
-                  <Mail className="w-5 h-5 text-accent mt-1" />
+                  <Mail className="w-5 h-5 text-[#ff4742] mt-1" />
                   <div>
                     <h3 className="font-medium">Email</h3>
                     <p className="text-muted-foreground">hunterjuggler@gmail.com</p>
@@ -102,7 +103,7 @@ const ContactPage = () => {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <MapPin className="w-5 h-5 text-accent mt-1" />
+                  <MapPin className="w-5 h-5 text-[#ff4742] mt-1" />
                   <div>
                     <h3 className="font-medium">Based in</h3>
                     <p className="text-muted-foreground">Los Angeles, CA</p>
@@ -111,7 +112,7 @@ const ContactPage = () => {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <Calendar className="w-5 h-5 text-accent mt-1" />
+                  <Calendar className="w-5 h-5 text-[#ff4742] mt-1" />
                   <div>
                     <h3 className="font-medium">Booking Timeline</h3>
                     <p className="text-muted-foreground">Please contact at least 6-8 weeks in advance for event bookings</p>
@@ -246,7 +247,7 @@ const ContactPage = () => {
                   ) : (
                     <span className="flex items-center">
                       Send Message
-                      <Send className="ml-2 h-4 w-4" />
+                      <Send className="ml-2 h-4 w-4 text-white" />
                     </span>
                   )}
                 </Button>

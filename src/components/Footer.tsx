@@ -33,14 +33,14 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <div className="flex space-x-6 mb-6 px-0 mx-0">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="footer-social-icon text-foreground/80 hover:text-accent" aria-label="Instagram">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="footer-social-icon text-[#ff4742] hover:text-accent" aria-label="Instagram">
                 <Instagram size={28} />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="footer-social-icon text-foreground/80 hover:text-accent" aria-label="YouTube">
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="footer-social-icon text-[#ff4742] hover:text-accent" aria-label="YouTube">
                 <Youtube size={28} />
               </a>
             </div>
-            <a href="mailto:hunterjuggler@gmail.com" className="flex items-center text-base text-foreground/80 hover:text-accent transition-colors">
+            <a href="mailto:hunterjuggler@gmail.com" className="flex items-center text-base text-[#ff4742] hover:text-accent transition-colors">
               <Mail size={22} className="mr-2" />
               hunterjuggler@gmail.com
             </a>
