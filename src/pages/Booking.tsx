@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Calendar, Clock, MapPin, Users, DollarSign, Music, Send, VolumeX } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -10,7 +9,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { motion } from "@/lib/motion";
-
 const BookingPage = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -22,7 +20,7 @@ const BookingPage = () => {
     eventLocation: "",
     venueType: "",
     audienceSize: "",
-    stageSize: "", 
+    stageSize: "",
     ceilingHeight: "",
     performanceDuration: "60",
     performanceType: "standard",
@@ -32,32 +30,37 @@ const BookingPage = () => {
     referralSource: "",
     agreeToTerms: false
   });
-  
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const {
+      name,
+      value
+    } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-
   const handleSelectChange = (name: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-
   const handleCheckboxChange = (name: string, checked: boolean) => {
-    setFormData((prev) => ({ ...prev, [name]: checked }));
+    setFormData(prev => ({
+      ...prev,
+      [name]: checked
+    }));
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!formData.agreeToTerms) {
       toast.error("Please agree to the terms and conditions");
       return;
     }
-    
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       toast.success("Thank you for your booking request! I'll review your details and get back to you within 48 hours.");
@@ -85,17 +88,19 @@ const BookingPage = () => {
       setIsSubmitting(false);
     }, 1500);
   };
-
-  return (
-    <div className="pt-20 w-full">
+  return <div className="pt-20 w-full">
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-black/30">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.6
+        }}>
             <h1 className="text-3xl md:text-5xl font-display font-bold mb-6">
               Book a Performance
             </h1>
@@ -110,12 +115,15 @@ const BookingPage = () => {
       <section className="py-16 bg-black/20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-3 gap-12">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-1"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: -20
+          }} animate={{
+            opacity: 1,
+            x: 0
+          }} transition={{
+            duration: 0.6
+          }} className="lg:col-span-1">
               <h2 className="text-2xl md:text-3xl font-display font-bold mb-6">
                 Booking Information
               </h2>
@@ -177,64 +185,39 @@ const BookingPage = () => {
               </div>
             </motion.div>
             
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-2"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.6
+          }} className="lg:col-span-2">
               <form onSubmit={handleSubmit} className="space-y-8 bg-black/30 p-8 rounded-xl shadow-sm border border-white/10">
                 <div className="space-y-6">
                   <h3 className="text-xl font-semibold border-b border-white/20 pb-2">Contact Information</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">Full Name *</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        placeholder="Your name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                      />
+                      <Input id="name" name="name" placeholder="Your name" value={formData.name} onChange={handleChange} required />
                     </div>
                     
                     <div className="space-y-2">
                       <Label htmlFor="email">Email *</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="Your email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                      />
+                      <Input id="email" name="email" type="email" placeholder="Your email" value={formData.email} onChange={handleChange} required />
                     </div>
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone *</Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        placeholder="Your phone number"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
-                      />
+                      <Input id="phone" name="phone" placeholder="Your phone number" value={formData.phone} onChange={handleChange} required />
                     </div>
                     
                     <div className="space-y-2">
                       <Label htmlFor="organization">Organization/Company</Label>
-                      <Input
-                        id="organization"
-                        name="organization"
-                        placeholder="Your organization (if applicable)"
-                        value={formData.organization}
-                        onChange={handleChange}
-                      />
+                      <Input id="organization" name="organization" placeholder="Your organization (if applicable)" value={formData.organization} onChange={handleChange} />
                     </div>
                   </div>
                 </div>
@@ -246,15 +229,7 @@ const BookingPage = () => {
                       <Label htmlFor="eventDate">Event Date *</Label>
                       <div className="relative">
                         <Calendar className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                        <Input
-                          id="eventDate"
-                          name="eventDate"
-                          type="date"
-                          className="pl-10"
-                          value={formData.eventDate}
-                          onChange={handleChange}
-                          required
-                        />
+                        <Input id="eventDate" name="eventDate" type="date" className="pl-10" value={formData.eventDate} onChange={handleChange} required />
                       </div>
                     </div>
                     
@@ -262,15 +237,7 @@ const BookingPage = () => {
                       <Label htmlFor="eventTime">Event Time *</Label>
                       <div className="relative">
                         <Clock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                        <Input
-                          id="eventTime"
-                          name="eventTime"
-                          type="time"
-                          className="pl-10"
-                          value={formData.eventTime}
-                          onChange={handleChange}
-                          required
-                        />
+                        <Input id="eventTime" name="eventTime" type="time" className="pl-10" value={formData.eventTime} onChange={handleChange} required />
                       </div>
                     </div>
                   </div>
@@ -280,24 +247,13 @@ const BookingPage = () => {
                       <Label htmlFor="eventLocation">Event Location *</Label>
                       <div className="relative">
                         <MapPin className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                        <Input
-                          id="eventLocation"
-                          name="eventLocation"
-                          placeholder="City, State/Country"
-                          className="pl-10"
-                          value={formData.eventLocation}
-                          onChange={handleChange}
-                          required
-                        />
+                        <Input id="eventLocation" name="eventLocation" placeholder="City, State/Country" className="pl-10" value={formData.eventLocation} onChange={handleChange} required />
                       </div>
                     </div>
                     
                     <div className="space-y-2">
                       <Label htmlFor="venueType">Venue Type</Label>
-                      <Select
-                        value={formData.venueType}
-                        onValueChange={(value) => handleSelectChange("venueType", value)}
-                      >
+                      <Select value={formData.venueType} onValueChange={value => handleSelectChange("venueType", value)}>
                         <SelectTrigger>
                           <SelectValue placeholder="Select venue type" />
                         </SelectTrigger>
@@ -318,14 +274,7 @@ const BookingPage = () => {
                       <Label htmlFor="audienceSize">Estimated Audience Size</Label>
                       <div className="relative">
                         <Users className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                        <Input
-                          id="audienceSize"
-                          name="audienceSize"
-                          placeholder="Number of attendees"
-                          className="pl-10"
-                          value={formData.audienceSize}
-                          onChange={handleChange}
-                        />
+                        <Input id="audienceSize" name="audienceSize" placeholder="Number of attendees" className="pl-10" value={formData.audienceSize} onChange={handleChange} />
                       </div>
                     </div>
                   </div>
@@ -333,36 +282,19 @@ const BookingPage = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="stageSize">Estimated Stage/Performance Area Dimensions *</Label>
-                      <Input
-                        id="stageSize"
-                        name="stageSize"
-                        placeholder="Dimensions (meters or feet)"
-                        value={formData.stageSize}
-                        onChange={handleChange}
-                        required
-                      />
+                      <Input id="stageSize" name="stageSize" placeholder="Dimensions (meters or feet)" value={formData.stageSize} onChange={handleChange} required />
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="ceilingHeight">Ceiling Height *</Label>
-                      <Input
-                        id="ceilingHeight"
-                        name="ceilingHeight"
-                        placeholder="Height (meters or feet)"
-                        value={formData.ceilingHeight}
-                        onChange={handleChange}
-                        required
-                      />
+                      <Label htmlFor="ceilingHeight">Estimated Ceiling Height *</Label>
+                      <Input id="ceilingHeight" name="ceilingHeight" placeholder="Height (meters or feet)" value={formData.ceilingHeight} onChange={handleChange} required />
                     </div>
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="performanceDuration">Performance Duration</Label>
-                      <Select
-                        value={formData.performanceDuration}
-                        onValueChange={(value) => handleSelectChange("performanceDuration", value)}
-                      >
+                      <Select value={formData.performanceDuration} onValueChange={value => handleSelectChange("performanceDuration", value)}>
                         <SelectTrigger>
                           <SelectValue placeholder="Select duration" />
                         </SelectTrigger>
@@ -383,11 +315,7 @@ const BookingPage = () => {
                   
                   <div className="space-y-4">
                     <Label>Performance Type</Label>
-                    <RadioGroup
-                      value={formData.performanceType}
-                      onValueChange={(value) => handleSelectChange("performanceType", value)}
-                      className="grid grid-cols-1 md:grid-cols-3 gap-4"
-                    >
+                    <RadioGroup value={formData.performanceType} onValueChange={value => handleSelectChange("performanceType", value)} className="grid grid-cols-1 md:grid-cols-3 gap-4">
                       <div className="flex items-center space-x-2 border border-white/10 p-3 rounded-md bg-black/30">
                         <RadioGroupItem value="standard" id="standard" />
                         <Label htmlFor="standard" className="cursor-pointer">Standard Show</Label>
@@ -405,42 +333,21 @@ const BookingPage = () => {
                   
                   <div className="space-y-2">
                     <Label htmlFor="specialRequests">Special Requests or Theme</Label>
-                    <Textarea
-                      id="specialRequests"
-                      name="specialRequests"
-                      placeholder="Describe any specific themes, acts, or elements you'd like included in the performance"
-                      className="min-h-[100px]"
-                      value={formData.specialRequests}
-                      onChange={handleChange}
-                    />
+                    <Textarea id="specialRequests" name="specialRequests" placeholder="Describe any specific themes, acts, or elements you'd like included in the performance" className="min-h-[100px]" value={formData.specialRequests} onChange={handleChange} />
                   </div>
                   
                   <div className="space-y-4">
                     <div className="flex items-center space-x-2">
-                      <Checkbox
-                        id="soundSystemProvided"
-                        checked={formData.soundSystemProvided}
-                        onCheckedChange={(checked) => 
-                          handleCheckboxChange("soundSystemProvided", checked as boolean)
-                        }
-                      />
+                      <Checkbox id="soundSystemProvided" checked={formData.soundSystemProvided} onCheckedChange={checked => handleCheckboxChange("soundSystemProvided", checked as boolean)} />
                       <Label htmlFor="soundSystemProvided" className="cursor-pointer">
                         Sound system provided
                       </Label>
                     </div>
                     
-                    {formData.soundSystemProvided && (
-                      <div className="ml-6 space-y-2">
+                    {formData.soundSystemProvided && <div className="ml-6 space-y-2">
                         <Label htmlFor="soundSystemType">What kind of sound system?</Label>
-                        <Input
-                          id="soundSystemType"
-                          name="soundSystemType"
-                          placeholder="Describe your sound system"
-                          value={formData.soundSystemType}
-                          onChange={handleChange}
-                        />
-                      </div>
-                    )}
+                        <Input id="soundSystemType" name="soundSystemType" placeholder="Describe your sound system" value={formData.soundSystemType} onChange={handleChange} />
+                      </div>}
                   </div>
                 </div>
                 
@@ -449,10 +356,7 @@ const BookingPage = () => {
                   
                   <div className="space-y-2">
                     <Label htmlFor="referralSource">How did you hear about me?</Label>
-                    <Select
-                      value={formData.referralSource}
-                      onValueChange={(value) => handleSelectChange("referralSource", value)}
-                    >
+                    <Select value={formData.referralSource} onValueChange={value => handleSelectChange("referralSource", value)}>
                       <SelectTrigger>
                         <SelectValue placeholder="Select an option" />
                       </SelectTrigger>
@@ -468,14 +372,7 @@ const BookingPage = () => {
                   </div>
                   
                   <div className="flex items-start space-x-2 pt-4">
-                    <Checkbox
-                      id="agreeToTerms"
-                      checked={formData.agreeToTerms}
-                      onCheckedChange={(checked) => 
-                        handleCheckboxChange("agreeToTerms", checked as boolean)
-                      }
-                      className="mt-1"
-                    />
+                    <Checkbox id="agreeToTerms" checked={formData.agreeToTerms} onCheckedChange={checked => handleCheckboxChange("agreeToTerms", checked as boolean)} className="mt-1" />
                     <Label htmlFor="agreeToTerms" className="text-sm cursor-pointer">
                       I understand that this is a booking inquiry and not a confirmed booking. 
                       A final quote will be provided after reviewing the details, and a contract 
@@ -484,30 +381,20 @@ const BookingPage = () => {
                   </div>
                 </div>
                 
-                <Button
-                  type="submit"
-                  className="w-full"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <span className="flex items-center">
+                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? <span className="flex items-center">
                       Submitting Request
                       <span className="ml-2 animate-pulse">...</span>
-                    </span>
-                  ) : (
-                    <span className="flex items-center">
+                    </span> : <span className="flex items-center">
                       Submit Booking Request
                       <Send className="ml-2 h-4 w-4" />
-                    </span>
-                  )}
+                    </span>}
                 </Button>
               </form>
             </motion.div>
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default BookingPage;
