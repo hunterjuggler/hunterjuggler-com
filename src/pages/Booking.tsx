@@ -1,5 +1,6 @@
+
 import { useState } from "react";
-import { Calendar, Clock, MapPin, Users, DollarSign, Music, Send, VolumeX } from "lucide-react";
+import { Calendar, Clock, MapPin, Users, DollarSign, Theatrical, Send, VolumeX } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -9,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { motion } from "@/lib/motion";
+
 const BookingPage = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -30,29 +32,31 @@ const BookingPage = () => {
     referralSource: "",
     agreeToTerms: false
   });
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const {
-      name,
-      value
-    } = e.target;
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
+  
   const handleSelectChange = (name: string, value: string) => {
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
+  
   const handleCheckboxChange = (name: string, checked: boolean) => {
     setFormData(prev => ({
       ...prev,
       [name]: checked
     }));
   };
+  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.agreeToTerms) {
@@ -88,6 +92,7 @@ const BookingPage = () => {
       setIsSubmitting(false);
     }, 1500);
   };
+  
   return <div className="pt-20 w-full">
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-black/30">
@@ -133,8 +138,8 @@ const BookingPage = () => {
                   <h3 className="font-semibold text-lg mb-4">Performance Types</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start">
-                      <span className="bg-accent/20 p-1 rounded text-accent mr-3 mt-0.5">
-                        <Music size={16} />
+                      <span className="bg-accent/20 p-1 rounded text-[#ff4742] mr-3 mt-0.5">
+                        <Theatrical size={16} />
                       </span>
                       <div>
                         <p className="font-medium">Standard Performance</p>
@@ -142,8 +147,8 @@ const BookingPage = () => {
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <span className="bg-accent/20 p-1 rounded text-accent mr-3 mt-0.5">
-                        <Music size={16} />
+                      <span className="bg-accent/20 p-1 rounded text-[#ff4742] mr-3 mt-0.5">
+                        <Theatrical size={16} />
                       </span>
                       <div>
                         <p className="font-medium">Custom Show</p>
@@ -151,8 +156,8 @@ const BookingPage = () => {
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <span className="bg-accent/20 p-1 rounded text-accent mr-3 mt-0.5">
-                        <Music size={16} />
+                      <span className="bg-accent/20 p-1 rounded text-[#ff4742] mr-3 mt-0.5">
+                        <Theatrical size={16} />
                       </span>
                       <div>
                         <p className="font-medium">Roaming Entertainment / Ambience</p>
@@ -169,15 +174,15 @@ const BookingPage = () => {
                   </p>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-center gap-2">
-                      <Clock size={16} className="text-accent" />
+                      <Clock size={16} className="text-[#ff4742]" />
                       <span>At least 6-8 weeks in advance for standard shows</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <Clock size={16} className="text-accent" />
+                      <Clock size={16} className="text-[#ff4742]" />
                       <span>3-6 months for custom performances</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <Clock size={16} className="text-accent" />
+                      <Clock size={16} className="text-[#ff4742]" />
                       <span>6+ months for international bookings</span>
                     </li>
                   </ul>
@@ -397,4 +402,5 @@ const BookingPage = () => {
       </section>
     </div>;
 };
+
 export default BookingPage;
