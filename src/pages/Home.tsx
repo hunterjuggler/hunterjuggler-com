@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import HeroSection from "@/components/home/HeroSection";
 import AboutSection from "@/components/home/AboutSection";
-import PressSection from "@/components/home/PressSection";
 import SocialSection from "@/components/home/SocialSection";
 import ClientsSection from "@/components/about/ClientsSection";
 import CallToAction from "@/components/home/CallToAction";
@@ -24,7 +23,6 @@ const HomePage = () => {
       
       <HeroSection />
       <AboutSection />
-      <PressSection />
       <SocialSection />
       <ClientsSection />
       <CallToAction />
