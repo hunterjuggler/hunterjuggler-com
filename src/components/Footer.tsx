@@ -1,10 +1,8 @@
-
 import { Instagram, Youtube, Mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useState } from "react";
-
 const Footer = () => {
   const [email, setEmail] = useState("");
   const handleSubmit = (e: React.FormEvent) => {
@@ -18,7 +16,6 @@ const Footer = () => {
     toast.success("Thank you for subscribing!");
     setEmail("");
   };
-  
   return <footer className="bg-black/30 py-16">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid gap-10 md:grid-cols-3">
@@ -41,7 +38,7 @@ const Footer = () => {
               </a>
             </div>
             <a href="mailto:hunterjuggler@gmail.com" className="flex items-center text-base text-[#ff4742] hover:text-accent transition-colors">
-              <Mail size={22} className="mr-2" />
+              <Mail size={22} className="mr-2 my-px py-[2px] mx-0 px-px" />
               hunterjuggler@gmail.com
             </a>
           </div>
@@ -73,5 +70,4 @@ const Footer = () => {
       </div>
     </footer>;
 };
-
 export default Footer;
