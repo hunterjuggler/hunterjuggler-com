@@ -7,49 +7,53 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { toast } from "sonner";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+
+// Validation schema
+const contactFormSchema = z.object({
+  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
+  email: z.string().email({ message: "Please enter a valid email address" }),
+  phone: z.string().optional(),
+  eventType: z.enum(["corporate", "festival", "private", "other"]),
+  date: z.string().optional(),
+  message: z.string().min(10, { message: "Message must be at least 10 characters" }),
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    eventType: "corporate",
-    date: "",
-    message: ""
-  });
-  
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      eventType: "corporate",
+      date: "",
+      message: ""
+    },
+  });
   
-  const handleSelectChange = (name: string, value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-  
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = (values: ContactFormValues) => {
     setIsSubmitting(true);
 
     // Simulate form submission
     setTimeout(() => {
       toast.success("Thank you for your message! I'll get back to you soon.");
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        eventType: "corporate",
-        date: "",
-        message: ""
-      });
+      // Reset form after successful submission
+      form.reset();
       setIsSubmitting(false);
     }, 1500);
   };
@@ -60,117 +64,155 @@ const ContactForm = () => {
         Send a Message
       </h2>
       
-      <form onSubmit={handleSubmit} className="space-y-6 bg-black/30 p-8 rounded-xl shadow-sm border border-white/10">
-        <div className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="name">Name</Label>
-              <Input 
-                id="name" 
-                name="name" 
-                placeholder="Your name" 
-                className="contact-input" 
-                value={formData.name} 
-                onChange={handleChange} 
-                required 
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 bg-black/30 p-8 rounded-xl shadow-sm border border-white/10">
+          <div className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Name</FormLabel>
+                    <FormControl>
+                      <Input 
+                        placeholder="Your name" 
+                        className="contact-input" 
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input 
+                        type="email" 
+                        placeholder="Your email" 
+                        className="contact-input" 
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
             </div>
             
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input 
-                id="email" 
-                name="email" 
-                type="email" 
-                placeholder="Your email" 
-                className="contact-input" 
-                value={formData.email} 
-                onChange={handleChange} 
-                required 
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <FormField
+                control={form.control}
+                name="phone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Phone</FormLabel>
+                    <FormControl>
+                      <Input 
+                        placeholder="Your phone number" 
+                        className="contact-input" 
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="phone">Phone</Label>
-              <Input 
-                id="phone" 
-                name="phone" 
-                placeholder="Your phone number" 
-                className="contact-input" 
-                value={formData.phone} 
-                onChange={handleChange} 
+              
+              <FormField
+                control={form.control}
+                name="date"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Event Date (if applicable)</FormLabel>
+                    <FormControl>
+                      <Input 
+                        type="date" 
+                        className="contact-input" 
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
             </div>
             
-            <div className="space-y-2">
-              <Label htmlFor="date">Event Date (if applicable)</Label>
-              <Input 
-                id="date" 
-                name="date" 
-                type="date" 
-                className="contact-input" 
-                value={formData.date} 
-                onChange={handleChange} 
-              />
-            </div>
-          </div>
-          
-          <div className="space-y-2">
-            <Label>Reason for Contact</Label>
-            <RadioGroup 
-              value={formData.eventType} 
-              onValueChange={value => handleSelectChange("eventType", value)} 
-              className="flex flex-wrap gap-4 pt-2"
-            >
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="corporate" id="corporate" />
-                <Label htmlFor="corporate" className="cursor-pointer">General Inquiry</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="festival" id="festival" />
-                <Label htmlFor="festival" className="cursor-pointer">Media Request</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="private" id="private" />
-                <Label htmlFor="private" className="cursor-pointer">Collaboration</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="other" id="other" />
-                <Label htmlFor="other" className="cursor-pointer">Other</Label>
-              </div>
-            </RadioGroup>
-          </div>
-          
-          <div className="space-y-2">
-            <Label htmlFor="message">Message</Label>
-            <Textarea 
-              id="message" 
-              name="message" 
-              placeholder="How can I help you?" 
-              className="contact-input min-h-[120px]" 
-              value={formData.message} 
-              onChange={handleChange} 
-              required 
+            <FormField
+              control={form.control}
+              name="eventType"
+              render={({ field }) => (
+                <FormItem className="space-y-2">
+                  <FormLabel>Reason for Contact</FormLabel>
+                  <FormControl>
+                    <RadioGroup 
+                      onValueChange={field.onChange} 
+                      defaultValue={field.value} 
+                      className="flex flex-wrap gap-4 pt-2"
+                    >
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="corporate" id="corporate" />
+                        <Label htmlFor="corporate" className="cursor-pointer">General Inquiry</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="festival" id="festival" />
+                        <Label htmlFor="festival" className="cursor-pointer">Media Request</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="private" id="private" />
+                        <Label htmlFor="private" className="cursor-pointer">Collaboration</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="other" id="other" />
+                        <Label htmlFor="other" className="cursor-pointer">Other</Label>
+                      </div>
+                    </RadioGroup>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Message</FormLabel>
+                  <FormControl>
+                    <Textarea 
+                      placeholder="How can I help you?" 
+                      className="contact-input min-h-[120px]" 
+                      {...field} 
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
           </div>
-        </div>
-        
-        <Button type="submit" className="w-full" disabled={isSubmitting}>
-          {isSubmitting ? (
-            <span className="flex items-center">
-              Sending
-              <span className="ml-2 animate-pulse">...</span>
-            </span>
-          ) : (
-            <span className="flex items-center">
-              Send Message
-              <Send className="ml-2 h-4 w-4 text-white" />
-            </span>
-          )}
-        </Button>
-      </form>
+          
+          <Button type="submit" className="w-full" disabled={isSubmitting}>
+            {isSubmitting ? (
+              <span className="flex items-center">
+                Sending
+                <span className="ml-2 animate-pulse">...</span>
+              </span>
+            ) : (
+              <span className="flex items-center">
+                Send Message
+                <Send className="ml-2 h-4 w-4 text-white" />
+              </span>
+            )}
+          </Button>
+        </form>
+      </Form>
     </div>
   );
 };
