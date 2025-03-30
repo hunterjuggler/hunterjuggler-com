@@ -1,0 +1,25 @@
+
+import { motion } from "@/lib/motion";
+
+const BookingHero = () => {
+  return (
+    <section className="py-16 md:py-24 bg-black/30">
+      <div className="container mx-auto px-4 md:px-6 text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className="text-3xl md:text-5xl font-display font-bold mb-6">
+            Book a Performance
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Fill out the form below with your event details, and I'll create a custom performance that will leave your audience amazed.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default BookingHero;
