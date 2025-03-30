@@ -1,6 +1,5 @@
-
 import { useState } from "react";
-import { Calendar, Clock, MapPin, Users, DollarSign, Theatrical, Send, VolumeX } from "lucide-react";
+import { Calendar, Clock, MapPin, Users, DollarSign, Theater, Send, VolumeX } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -139,7 +138,7 @@ const BookingPage = () => {
                   <ul className="space-y-3">
                     <li className="flex items-start">
                       <span className="bg-accent/20 p-1 rounded text-[#ff4742] mr-3 mt-0.5">
-                        <Theatrical size={16} />
+                        <Theater size={16} />
                       </span>
                       <div>
                         <p className="font-medium">Standard Performance</p>
@@ -148,7 +147,7 @@ const BookingPage = () => {
                     </li>
                     <li className="flex items-start">
                       <span className="bg-accent/20 p-1 rounded text-[#ff4742] mr-3 mt-0.5">
-                        <Theatrical size={16} />
+                        <Theater size={16} />
                       </span>
                       <div>
                         <p className="font-medium">Custom Show</p>
@@ -157,7 +156,7 @@ const BookingPage = () => {
                     </li>
                     <li className="flex items-start">
                       <span className="bg-accent/20 p-1 rounded text-[#ff4742] mr-3 mt-0.5">
-                        <Theatrical size={16} />
+                        <Theater size={16} />
                       </span>
                       <div>
                         <p className="font-medium">Roaming Entertainment / Ambience</p>
