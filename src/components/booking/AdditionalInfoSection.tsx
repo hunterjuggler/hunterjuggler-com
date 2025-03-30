@@ -1,59 +1,82 @@
 
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+  FormDescription
+} from "@/components/ui/form";
+import { 
+  Select, 
+  SelectContent, 
+  SelectItem, 
+  SelectTrigger, 
+  SelectValue 
+} from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 
 interface AdditionalInfoSectionProps {
-  formData: {
-    referralSource: string;
-    agreeToTerms: boolean;
-  };
-  handleSelectChange: (name: string, value: string) => void;
-  handleCheckboxChange: (name: string, checked: boolean) => void;
+  form: any;
 }
 
-const AdditionalInfoSection = ({ 
-  formData, 
-  handleSelectChange, 
-  handleCheckboxChange 
-}: AdditionalInfoSectionProps) => {
+const AdditionalInfoSection = ({ form }: AdditionalInfoSectionProps) => {
   return (
     <div className="space-y-6">
       <h3 className="text-xl font-semibold border-b border-white/20 pb-2">Additional Information</h3>
       
-      <div className="space-y-2">
-        <Label htmlFor="referralSource">How did you hear about me?</Label>
-        <Select 
-          value={formData.referralSource} 
-          onValueChange={value => handleSelectChange("referralSource", value)}
-        >
-          <SelectTrigger>
-            <SelectValue placeholder="Select an option" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="social">Social Media</SelectItem>
-            <SelectItem value="search">Search Engine</SelectItem>
-            <SelectItem value="referral">Personal Referral</SelectItem>
-            <SelectItem value="event">Saw a Live Performance</SelectItem>
-            <SelectItem value="media">Media/Press</SelectItem>
-            <SelectItem value="other">Other</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
+      <FormField
+        control={form.control}
+        name="referralSource"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>How did you hear about me?</FormLabel>
+            <Select 
+              onValueChange={field.onChange} 
+              defaultValue={field.value}
+            >
+              <FormControl>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select an option" />
+                </SelectTrigger>
+              </FormControl>
+              <SelectContent>
+                <SelectItem value="social">Social Media</SelectItem>
+                <SelectItem value="search">Search Engine</SelectItem>
+                <SelectItem value="referral">Personal Referral</SelectItem>
+                <SelectItem value="event">Saw a Live Performance</SelectItem>
+                <SelectItem value="media">Media/Press</SelectItem>
+                <SelectItem value="other">Other</SelectItem>
+              </SelectContent>
+            </Select>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
       
-      <div className="flex items-start space-x-2 pt-4">
-        <Checkbox 
-          id="agreeToTerms" 
-          checked={formData.agreeToTerms} 
-          onCheckedChange={checked => handleCheckboxChange("agreeToTerms", checked as boolean)} 
-          className="mt-1" 
-        />
-        <Label htmlFor="agreeToTerms" className="text-sm cursor-pointer">
-          I understand that this is a booking inquiry and not a confirmed booking. 
-          A final quote will be provided after reviewing the details, and a contract 
-          will be required to secure the booking.
-        </Label>
-      </div>
+      <FormField
+        control={form.control}
+        name="agreeToTerms"
+        render={({ field }) => (
+          <FormItem className="flex flex-row items-start space-x-2 pt-4">
+            <FormControl>
+              <Checkbox 
+                checked={field.value} 
+                onCheckedChange={field.onChange} 
+                className="mt-1" 
+              />
+            </FormControl>
+            <div className="space-y-1 leading-none">
+              <FormLabel className="text-sm cursor-pointer">
+                I understand that this is a booking inquiry and not a confirmed booking. 
+                A final quote will be provided after reviewing the details, and a contract 
+                will be required to secure the booking.
+              </FormLabel>
+              <FormMessage />
+            </div>
+          </FormItem>
+        )}
+      />
     </div>
   );
 };
