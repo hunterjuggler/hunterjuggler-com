@@ -1,7 +1,5 @@
 
 import React from 'react';
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import BlurImage from "@/components/BlurImage";
 import { motion } from "@/lib/motion";
 import FunIcon from "@/components/FunIcon";
@@ -51,10 +49,6 @@ const AboutSection: React.FC = () => {
                 <p className="font-medium">Internationally performed over 1000 shows in 8 countries and counting</p>
               </div>
             </div>
-            
-            <Button asChild className="rounded-full shadow-lg shadow-[#ff4742]/20 hover:shadow-[#ff4742]/40 transition-all duration-300" variant="gradient">
-              <Link to="/about">Learn More About Me</Link>
-            </Button>
           </motion.div>
           
           <motion.div 
