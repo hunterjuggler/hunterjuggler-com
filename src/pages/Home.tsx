@@ -4,11 +4,10 @@ import { Helmet } from "react-helmet-async";
 import HeroSection from "@/components/home/HeroSection";
 import AboutSection from "@/components/home/AboutSection";
 import SocialSection from "@/components/home/SocialSection";
-import ClientsSection from "@/components/about/ClientsSection";
 import CallToAction from "@/components/home/CallToAction";
 import ShowSection from "@/components/about/ShowSection";
 import SkillsSection from "@/components/about/SkillsSection";
-import TestimonialsSection from "@/components/about/TestimonialsSection";
+import CombinedTestimonialsSection from "@/components/home/CombinedTestimonialsSection";
 
 const HomePage = () => {
   // Add scroll to top effect when component mounts
@@ -27,8 +26,7 @@ const HomePage = () => {
       <HeroSection />
       <AboutSection />
       <ShowSection />
-      <ClientsSection />
-      <TestimonialsSection />
+      <CombinedTestimonialsSection />
       <SkillsSection />
       <SocialSection />
       <CallToAction />
