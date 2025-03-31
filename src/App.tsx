@@ -11,7 +11,6 @@ import Loading from "./components/Loading";
 
 // Lazy load pages for better performance
 const HomePage = lazy(() => import("./pages/Home"));
-const AboutPage = lazy(() => import("./pages/About"));
 const GalleryPage = lazy(() => import("./pages/Gallery"));
 const ContactPage = lazy(() => import("./pages/Contact"));
 const BookingPage = lazy(() => import("./pages/Booking"));
@@ -33,12 +32,12 @@ const App = () => {
               <Suspense fallback={<Loading />}>
                 <Routes>
                   <Route path="/" element={<HomePage />} />
-                  <Route path="/about" element={<AboutPage />} />
                   <Route path="/gallery" element={<GalleryPage />} />
                   <Route path="/contact" element={<ContactPage />} />
                   <Route path="/booking" element={<BookingPage />} />
                   <Route path="/press-kit" element={<PressKitPage />} />
                   <Route path="/index" element={<Navigate to="/" replace />} />
+                  <Route path="/about" element={<Navigate to="/" replace />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>

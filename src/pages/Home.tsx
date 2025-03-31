@@ -6,6 +6,10 @@ import AboutSection from "@/components/home/AboutSection";
 import SocialSection from "@/components/home/SocialSection";
 import ClientsSection from "@/components/about/ClientsSection";
 import CallToAction from "@/components/home/CallToAction";
+import ShowSection from "@/components/about/ShowSection";
+import BioSection from "@/components/about/BioSection";
+import SkillsSection from "@/components/about/SkillsSection";
+import TestimonialsSection from "@/components/about/TestimonialsSection";
 
 const HomePage = () => {
   // Add scroll to top effect when component mounts
@@ -23,8 +27,12 @@ const HomePage = () => {
       
       <HeroSection />
       <AboutSection />
-      <SocialSection />
+      <BioSection />
+      <ShowSection />
+      <SkillsSection />
       <ClientsSection />
+      <SocialSection />
+      <TestimonialsSection />
       <CallToAction />
     </div>
   );
