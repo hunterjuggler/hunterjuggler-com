@@ -1,8 +1,9 @@
 
 import { useEffect, useState, useRef, TouchEvent } from "react";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
+import { Star } from "lucide-react";
 
 interface Testimonial {
   quote: string;
@@ -21,7 +22,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
   const [isPaused, setIsPaused] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const [direction, setDirection] = useState<"left" | "right">("left"); // Changed default direction to "left"
+  const [direction, setDirection] = useState<"left" | "right">("left");
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Minimum swipe distance (in px) to trigger navigation
@@ -29,7 +30,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
 
   const goToNext = () => {
     if (isTransitioning) return;
-    setDirection("left"); // Changed to "left" for opposite animation
+    setDirection("left");
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
@@ -39,7 +40,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
 
   const goToPrevious = () => {
     if (isTransitioning) return;
-    setDirection("right"); // Changed to "right" for opposite animation
+    setDirection("right");
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => 
@@ -116,7 +117,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
             <button
               key={index}
               onClick={() => {
-                setDirection(index > currentIndex ? "left" : "right"); // Swapped directions
+                setDirection(index > currentIndex ? "left" : "right");
                 setIsTransitioning(true);
                 setTimeout(() => {
                   setCurrentIndex(index);
