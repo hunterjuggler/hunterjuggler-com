@@ -23,7 +23,7 @@ const HomePage = () => {
         <meta name="keywords" content="comedy juggler for hire, professional juggler for events, circus performer for hire, unicyclist entertainer for events, festival entertainment, variety show performer, corporate event juggler, cruise ship entertainer for hire, family-friendly comedy act" />
       </Helmet>
       
-      <div className="flex flex-col divide-y-0 divide-white/5">
+      <div className="flex flex-col">
         <HeroSection />
         <AboutSection />
         <ShowSection />

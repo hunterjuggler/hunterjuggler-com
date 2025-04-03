@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const CallToAction: React.FC = () => {
   return (
-    <section className="py-20 bg-black/15">
+    <section className="py-20 bg-transparent">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">

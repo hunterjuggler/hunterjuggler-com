@@ -29,7 +29,7 @@ const testimonials = [{
 
 const CombinedTestimonialsSection: React.FC = () => {
   return (
-    <section className="py-20 bg-black/20">
+    <section className="py-20 bg-transparent">
       <div className="container mx-auto px-4 md:px-6">
         {/* Testimonials Section (Larger) */}
         <div className="mb-16">

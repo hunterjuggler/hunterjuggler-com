@@ -37,7 +37,7 @@ const socialPosts = [
 
 const SocialSection: React.FC = () => {
   return (
-    <section className="py-16 bg-black/15">
+    <section className="py-16 bg-transparent">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <span className="text-[#ff4742] font-medium">Follow Along</span>
