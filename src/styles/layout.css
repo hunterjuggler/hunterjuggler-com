@@ -62,7 +62,24 @@
 }
 
 /* Smooth background gradient for the entire page */
-.bg-black\/25 {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.25) 100%);
+.bg-gradient-smooth {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
+  background-attachment: fixed;
 }
 
+/* Remove any potential borders or lines */
+section {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+}
+
+/* Override any background colors in sections */
+section, .bg-transparent {
+  background-color: transparent !important;
+  background-image: none !important;
+}
