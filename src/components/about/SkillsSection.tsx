@@ -72,13 +72,13 @@ const SkillsSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.3, delay: index * 0.05 }}
               viewport={{ once: true }}
-              className="bg-black/40 rounded-lg overflow-hidden border border-white/10 group hover:border-accent/40 transition-all duration-300"
+              className="bg-black/40 rounded-lg overflow-hidden border border-white/10 group hover:border-accent/40 transition-all duration-300 integrated-image-container"
             >
               <div className="relative h-32 overflow-hidden">
                 <BlurImage
                   src={skill.image}
                   alt={skill.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 integrated-image"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
                 <h3 className="absolute bottom-2 left-3 text-sm font-bold">{skill.name}</h3>

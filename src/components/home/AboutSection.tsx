@@ -56,9 +56,9 @@ const AboutSection: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }} 
-            className="rounded-2xl overflow-hidden shadow-xl"
+            className="integrated-image-container rounded-2xl overflow-hidden"
           >
-            <BlurImage src="https://images.unsplash.com/photo-1599904215055-716eb956d604?q=80&w=1974&auto=format&fit=crop" alt="Hunter Way performing" aspectRatio="portrait" className="w-full h-full object-cover" />
+            <BlurImage src="https://images.unsplash.com/photo-1599904215055-716eb956d604?q=80&w=1974&auto=format&fit=crop" alt="Hunter Way performing" aspectRatio="portrait" className="w-full h-full object-cover integrated-image" />
           </motion.div>
         </div>
       </div>

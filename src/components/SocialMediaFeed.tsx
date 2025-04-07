@@ -32,7 +32,7 @@ const SocialMediaFeed = ({ posts }: SocialMediaFeedProps) => {
       {posts.map((post, index) => (
         <motion.div
           key={post.id}
-          className="bg-black/20 backdrop-blur-sm rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer"
+          className="bg-black/20 backdrop-blur-sm rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer integrated-image-container"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -44,7 +44,7 @@ const SocialMediaFeed = ({ posts }: SocialMediaFeedProps) => {
               src={post.thumbnail}
               alt={post.title}
               aspectRatio="video"
-              className="w-full"
+              className="w-full integrated-image"
               noBg={true}
             />
             <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1 flex items-center space-x-1">

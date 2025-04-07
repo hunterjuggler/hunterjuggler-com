@@ -45,12 +45,12 @@ const PressSection: React.FC = () => {
               <CarouselContent>
                 {pressClippings.map((item) => (
                   <CarouselItem key={item.id} className="basis-1/1 sm:basis-1/2 md:basis-1/3">
-                    <div className="bg-black/5 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-black/10 transition-colors">
+                    <div className="bg-black/5 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-black/10 transition-colors integrated-image-container">
                       <BlurImage
                         src={item.image}
                         alt={item.title}
                         aspectRatio="video"
-                        className="w-full"
+                        className="w-full integrated-image"
                         noBg={true}
                       />
                       <div className="p-3">
