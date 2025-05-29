@@ -1,7 +1,8 @@
 
 import BlurImage from "@/components/BlurImage";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { GalleryItem } from "@/types/gallery";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 interface MediaModalProps {
   isOpen: boolean;
@@ -13,6 +14,9 @@ const MediaModal = ({ isOpen, onOpenChange, selectedItem }: MediaModalProps) => 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-5xl p-1 bg-background overflow-hidden">
+        <VisuallyHidden>
+          <DialogTitle>{selectedItem?.title || "Gallery Item"}</DialogTitle>
+        </VisuallyHidden>
         {selectedItem && (
           <div>
             {selectedItem.category === "images" ? (
