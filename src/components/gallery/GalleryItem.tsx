@@ -27,9 +27,8 @@ const GalleryItem = ({ item, index, onClick }: GalleryItemProps) => {
           src={item.thumbnail}
           alt={item.title}
           aspectRatio={item.orientation === "portrait" ? "auto" : "auto"}
-          objectFit="contain"
-          className="h-full"
-          noBg={true}
+          objectFit="cover"
+          className="h-full w-full"
         />
         {item.category === "videos" && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/20">
