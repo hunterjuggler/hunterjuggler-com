@@ -1,4 +1,3 @@
-
 import { GalleryItem } from "@/types/gallery";
 
 export const performances: GalleryItem[] = [
@@ -403,7 +402,6 @@ export const performances: GalleryItem[] = [
     title: "Juggling Performance",
     category: "videos",
     thumbnail: "https://images.unsplash.com/photo-1615264208436-5116830e25f7?q=80&w=1974&auto=format&fit=crop",
-    videoUrl: "https://www.youtube.com/embed/YE7VzlLtp-4",
     videoUrl: "https://www.youtube.com/embed/YE7VzlLtp-4",
     photographer: "Emma Clark",
   },
