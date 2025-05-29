@@ -1,7 +1,8 @@
+
 import { GalleryItem } from "@/types/gallery";
 
 export const performances: GalleryItem[] = [
-  // New uploaded images - placing all at the top
+  // New uploaded images - placing all at the top with correct file paths
   {
     id: 201,
     title: "Hunter Way Street Performance 1",
