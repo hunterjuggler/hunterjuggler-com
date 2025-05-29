@@ -1,4 +1,3 @@
-
 import { GalleryItem } from "@/types/gallery";
 
 export const videos: GalleryItem[] = [
