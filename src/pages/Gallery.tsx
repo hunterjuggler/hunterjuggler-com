@@ -34,10 +34,10 @@ const GalleryPage = () => {
       
       <GalleryHero />
       
-      <section className="py-16">
+      <section className="py-8">
         <div className="container mx-auto px-4 md:px-6">
           <Tabs defaultValue="images" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto mb-12">
+            <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto mb-8">
               <TabsTrigger value="images">Images</TabsTrigger>
               <TabsTrigger value="videos">Videos</TabsTrigger>
             </TabsList>

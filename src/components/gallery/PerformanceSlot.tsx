@@ -12,6 +12,7 @@ interface PerformanceSlotProps {
 
 const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [nextImageIndex, setNextImageIndex] = useState(1);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
@@ -19,16 +20,23 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
 
     const interval = setInterval(() => {
       setIsTransitioning(true);
+      
+      // Update next image index immediately
+      const next = (currentImageIndex + 1) % performance.images.length;
+      setNextImageIndex(next);
+      
+      // After fade duration, update current image
       setTimeout(() => {
-        setCurrentImageIndex((prev) => (prev + 1) % performance.images.length);
+        setCurrentImageIndex(next);
         setIsTransitioning(false);
-      }, 150); // Half of the transition duration
-    }, 3000); // Change image every 3 seconds
+      }, 800); // Slower fade duration
+    }, 4000); // Slower cycle time
 
     return () => clearInterval(interval);
-  }, [performance.images.length]);
+  }, [performance.images.length, currentImageIndex]);
 
   const currentImage = performance.images[currentImageIndex];
+  const nextImage = performance.images[nextImageIndex];
 
   return (
     <motion.div
@@ -40,8 +48,9 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
       onClick={() => onClick(performance)}
     >
       <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+        {/* Current image */}
         <div 
-          className={`absolute inset-0 transition-opacity duration-300 ${
+          className={`absolute inset-0 transition-opacity duration-800 ease-in-out ${
             isTransitioning ? 'opacity-0' : 'opacity-100'
           }`}
         >
@@ -54,7 +63,24 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
           />
         </div>
         
-        {/* Overlay with cycling indicator */}
+        {/* Next image (for smooth transition) */}
+        {performance.images.length > 1 && (
+          <div 
+            className={`absolute inset-0 transition-opacity duration-800 ease-in-out ${
+              isTransitioning ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <BlurImage
+              src={nextImage.thumbnail}
+              alt={nextImage.title}
+              aspectRatio="auto"
+              objectFit="cover"
+              className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+        )}
+        
+        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         
         {/* Image counter dots */}
