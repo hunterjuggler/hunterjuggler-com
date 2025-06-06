@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { performanceCategories } from "@/data/gallery/performanceCategories";
 import { videos } from "@/data/gallery/videos";
-import { PerformanceCategory } from "@/types/gallery";
+import { PerformanceCategory, GalleryItem } from "@/types/gallery";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import GalleryHero from "@/components/gallery/GalleryHero";
 import GalleryGrid from "@/components/gallery/GalleryGrid";
@@ -17,6 +17,11 @@ const GalleryPage = () => {
   const openLightbox = (performance: PerformanceCategory) => {
     setSelectedPerformance(performance);
     setIsLightboxOpen(true);
+  };
+
+  const handleVideoClick = (video: GalleryItem) => {
+    // Handle video click - could open in modal or redirect to video
+    console.log("Video clicked:", video);
   };
 
   return (
@@ -47,7 +52,12 @@ const GalleryPage = () => {
             <TabsContent value="videos" className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {videos.map((video, index) => (
-                  <GalleryItem key={video.id} item={video} index={index} />
+                  <GalleryItem 
+                    key={video.id} 
+                    item={video} 
+                    index={index} 
+                    onClick={handleVideoClick}
+                  />
                 ))}
               </div>
             </TabsContent>
