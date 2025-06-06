@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BlurImage from "@/components/BlurImage";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -16,14 +16,26 @@ interface PerformanceLightboxProps {
 const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceLightboxProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  // Reset to first image when performance changes
+  useEffect(() => {
+    if (performance) {
+      console.log(`Opening lightbox for ${performance.name} with ${performance.images.length} images`);
+      setCurrentImageIndex(0);
+    }
+  }, [performance]);
+
   if (!performance) return null;
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % performance.images.length);
+    const newIndex = (currentImageIndex + 1) % performance.images.length;
+    console.log(`Next image: ${newIndex}`);
+    setCurrentImageIndex(newIndex);
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + performance.images.length) % performance.images.length);
+    const newIndex = (currentImageIndex - 1 + performance.images.length) % performance.images.length;
+    console.log(`Previous image: ${newIndex}`);
+    setCurrentImageIndex(newIndex);
   };
 
   const currentImage = performance.images[currentImageIndex];
@@ -102,7 +114,10 @@ const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceL
                 {performance.images.map((image, index) => (
                   <button
                     key={image.id}
-                    onClick={() => setCurrentImageIndex(index)}
+                    onClick={() => {
+                      console.log(`Clicking thumbnail ${index}`);
+                      setCurrentImageIndex(index);
+                    }}
                     className={`flex-shrink-0 w-16 h-12 rounded overflow-hidden border-2 transition-all ${
                       index === currentImageIndex 
                         ? "border-white" 
