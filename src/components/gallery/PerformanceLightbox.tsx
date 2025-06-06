@@ -95,7 +95,7 @@ const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceL
           </div>
 
           {/* Content */}
-          <div className="flex-1 p-6 pt-20 pb-6">
+          <div className="flex-1 p-6 pt-20 pb-16">
             {viewMode === 'grid' ? (
               // Grid view - show all thumbnails
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 h-full overflow-y-auto">
@@ -151,40 +151,48 @@ const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceL
             )}
           </div>
 
-          {/* Footer for single view */}
-          {viewMode === 'single' && (
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+          {/* Footer */}
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+            {viewMode === 'grid' ? (
+              // Grid view footer - show photographer credit
+              <div className="text-white text-center">
+                {performance.photographer && (
+                  <p className="text-white/80 text-sm">Photography: {performance.photographer}</p>
+                )}
+              </div>
+            ) : (
+              // Single view footer
               <div className="text-white">
                 <h3 className="text-lg font-medium mb-1">{currentImage.title}</h3>
                 <p className="text-white/80 text-sm">Photo: {currentImage.photographer}</p>
+                
+                {/* Thumbnail strip */}
+                {performance.images.length > 1 && (
+                  <div className="flex space-x-2 mt-4 overflow-x-auto">
+                    {performance.images.map((image, index) => (
+                      <button
+                        key={image.id}
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={`flex-shrink-0 w-16 h-12 rounded overflow-hidden border-2 transition-all ${
+                          index === currentImageIndex 
+                            ? "border-white" 
+                            : "border-transparent opacity-60 hover:opacity-80"
+                        }`}
+                      >
+                        <BlurImage
+                          src={image.thumbnail}
+                          alt={image.title}
+                          objectFit="cover"
+                          className="w-full h-full"
+                          aspectRatio="auto"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
-              
-              {/* Thumbnail strip */}
-              {performance.images.length > 1 && (
-                <div className="flex space-x-2 mt-4 overflow-x-auto">
-                  {performance.images.map((image, index) => (
-                    <button
-                      key={image.id}
-                      onClick={() => setCurrentImageIndex(index)}
-                      className={`flex-shrink-0 w-16 h-12 rounded overflow-hidden border-2 transition-all ${
-                        index === currentImageIndex 
-                          ? "border-white" 
-                          : "border-transparent opacity-60 hover:opacity-80"
-                      }`}
-                    >
-                      <BlurImage
-                        src={image.thumbnail}
-                        alt={image.title}
-                        objectFit="cover"
-                        className="w-full h-full"
-                        aspectRatio="auto"
-                      />
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </DialogContent>
     </Dialog>

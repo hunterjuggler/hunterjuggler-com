@@ -16,4 +16,5 @@ export interface PerformanceCategory {
   description: string;
   images: GalleryItem[];
   coverImage: string;
+  photographer?: string;
 }
