@@ -12,26 +12,63 @@ interface PerformanceSlotProps {
 
 const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [nextImageIndex, setNextImageIndex] = useState(1);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [showNext, setShowNext] = useState(false);
+
+  // Preload all images
+  useEffect(() => {
+    if (performance.images.length <= 1) {
+      setImagesLoaded(true);
+      return;
+    }
+
+    const imagePromises = performance.images.map((image) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = image.thumbnail;
+      });
+    });
+
+    Promise.all(imagePromises)
+      .then(() => {
+        console.log(`All images loaded for ${performance.name}`);
+        setImagesLoaded(true);
+      })
+      .catch((error) => {
+        console.error(`Error loading images for ${performance.name}:`, error);
+        setImagesLoaded(true); // Still allow cycling even if some images fail
+      });
+  }, [performance.images, performance.name]);
 
   useEffect(() => {
-    if (performance.images.length <= 1) return;
+    if (!imagesLoaded || performance.images.length <= 1) return;
 
     const interval = setInterval(() => {
-      setIsTransitioning(true);
+      console.log(`Cycling images for ${performance.name}, current: ${currentImageIndex}`);
       
-      // After fade duration, update to next image in sequence and reset transition
+      // Start the crossfade
+      setShowNext(true);
+      
+      // After the fade duration, update the indices
       setTimeout(() => {
-        setCurrentImageIndex((prev) => (prev + 1) % performance.images.length);
-        setIsTransitioning(false);
-      }, 1500); // 1.5 second fade duration
-    }, 8000); // 8 second cycle time - much slower
+        const newCurrentIndex = (currentImageIndex + 1) % performance.images.length;
+        const newNextIndex = (newCurrentIndex + 1) % performance.images.length;
+        
+        setCurrentImageIndex(newCurrentIndex);
+        setNextImageIndex(newNextIndex);
+        setShowNext(false);
+      }, 2000); // 2 second crossfade duration
+      
+    }, 8000); // 8 second total cycle time
 
     return () => clearInterval(interval);
-  }, [performance.images.length]);
+  }, [imagesLoaded, performance.images.length, currentImageIndex, performance.name]);
 
   const currentImage = performance.images[currentImageIndex];
-  const nextImage = performance.images[(currentImageIndex + 1) % performance.images.length];
+  const nextImage = performance.images[nextImageIndex % performance.images.length];
 
   return (
     <motion.div
@@ -43,10 +80,10 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
       onClick={() => onClick(performance)}
     >
       <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-        {/* Current image */}
+        {/* Current image - always visible when not transitioning */}
         <div 
-          className={`absolute inset-0 transition-opacity duration-1500 ease-in-out ${
-            isTransitioning ? 'opacity-0' : 'opacity-100'
+          className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${
+            showNext ? 'opacity-0' : 'opacity-100'
           }`}
         >
           <BlurImage
@@ -58,11 +95,11 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
           />
         </div>
         
-        {/* Next image (for smooth crossfade transition) */}
-        {performance.images.length > 1 && (
+        {/* Next image - fades in during transition */}
+        {performance.images.length > 1 && imagesLoaded && (
           <div 
-            className={`absolute inset-0 transition-opacity duration-1500 ease-in-out ${
-              isTransitioning ? 'opacity-100' : 'opacity-0'
+            className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${
+              showNext ? 'opacity-100' : 'opacity-0'
             }`}
           >
             <BlurImage
