@@ -12,9 +12,8 @@ interface PerformanceSlotProps {
 
 const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [nextImageIndex, setNextImageIndex] = useState(1);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState(false);
-  const [showNext, setShowNext] = useState(false);
 
   // Preload all images
   useEffect(() => {
@@ -39,36 +38,28 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
       })
       .catch((error) => {
         console.error(`Error loading images for ${performance.name}:`, error);
-        setImagesLoaded(true); // Still allow cycling even if some images fail
+        setImagesLoaded(true);
       });
   }, [performance.images, performance.name]);
 
+  // Smooth cycling effect
   useEffect(() => {
     if (!imagesLoaded || performance.images.length <= 1) return;
 
     const interval = setInterval(() => {
-      console.log(`Cycling images for ${performance.name}, current: ${currentImageIndex}`);
+      setIsTransitioning(true);
       
-      // Start the crossfade
-      setShowNext(true);
-      
-      // After the fade duration, update the indices
       setTimeout(() => {
-        const newCurrentIndex = (currentImageIndex + 1) % performance.images.length;
-        const newNextIndex = (newCurrentIndex + 1) % performance.images.length;
-        
-        setCurrentImageIndex(newCurrentIndex);
-        setNextImageIndex(newNextIndex);
-        setShowNext(false);
-      }, 2000); // 2 second crossfade duration
+        setCurrentImageIndex((prev) => (prev + 1) % performance.images.length);
+        setIsTransitioning(false);
+      }, 500); // Half of the transition duration
       
-    }, 8000); // 8 second total cycle time
+    }, 6000); // 6 second total cycle time
 
     return () => clearInterval(interval);
-  }, [imagesLoaded, performance.images.length, currentImageIndex, performance.name]);
+  }, [imagesLoaded, performance.images.length]);
 
   const currentImage = performance.images[currentImageIndex];
-  const nextImage = performance.images[nextImageIndex % performance.images.length];
 
   return (
     <motion.div
@@ -80,37 +71,22 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
       onClick={() => onClick(performance)}
     >
       <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-        {/* Current image - always visible when not transitioning */}
-        <div 
-          className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${
-            showNext ? 'opacity-0' : 'opacity-100'
-          }`}
-        >
-          <BlurImage
-            src={currentImage.thumbnail}
-            alt={currentImage.title}
-            aspectRatio="auto"
-            objectFit="cover"
-            className="h-full w-full transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
-        
-        {/* Next image - fades in during transition */}
-        {performance.images.length > 1 && imagesLoaded && (
+        {/* Main image container with smooth transition */}
+        <div className="relative w-full h-full">
           <div 
-            className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${
-              showNext ? 'opacity-100' : 'opacity-0'
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              isTransitioning ? 'opacity-0' : 'opacity-100'
             }`}
           >
             <BlurImage
-              src={nextImage.thumbnail}
-              alt={nextImage.title}
+              src={currentImage.thumbnail}
+              alt={currentImage.title}
               aspectRatio="auto"
               objectFit="cover"
               className="h-full w-full transition-transform duration-500 group-hover:scale-105"
             />
           </div>
-        )}
+        </div>
         
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -121,7 +97,7 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
             {performance.images.map((_, dotIndex) => (
               <div
                 key={dotIndex}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                className={`w-2 h-2 rounded-full transition-all duration-500 ${
                   dotIndex === currentImageIndex 
                     ? "bg-white scale-110" 
                     : "bg-white/50"
