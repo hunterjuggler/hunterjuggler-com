@@ -51,7 +51,7 @@ const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceL
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-7xl max-h-[95vh] p-0 bg-black border-none">
+      <DialogContent className="max-w-7xl max-h-[95vh] p-0 bg-black border-none [&>button]:hidden">
         <VisuallyHidden>
           <DialogTitle>{performance.name}</DialogTitle>
         </VisuallyHidden>
