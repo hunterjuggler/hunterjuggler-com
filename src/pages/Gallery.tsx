@@ -28,7 +28,7 @@ const GalleryPage = () => {
       
       <GalleryHero />
       
-      <section className="py-[28px]">
+      <section className="py-4">
         <div className="container mx-auto px-4 md:px-6">
           <Tabs defaultValue="images" className="w-full">
             <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto mb-8">

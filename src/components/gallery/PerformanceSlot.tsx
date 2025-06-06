@@ -12,7 +12,6 @@ interface PerformanceSlotProps {
 
 const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [nextImageIndex, setNextImageIndex] = useState(1);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
@@ -21,22 +20,18 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
     const interval = setInterval(() => {
       setIsTransitioning(true);
       
-      // Update next image index immediately
-      const next = (currentImageIndex + 1) % performance.images.length;
-      setNextImageIndex(next);
-      
-      // After fade duration, update current image
+      // After fade duration, update current image and reset transition
       setTimeout(() => {
-        setCurrentImageIndex(next);
+        setCurrentImageIndex((prev) => (prev + 1) % performance.images.length);
         setIsTransitioning(false);
-      }, 800); // Slower fade duration
-    }, 4000); // Slower cycle time
+      }, 1000); // 1 second fade duration
+    }, 5000); // 5 second cycle time
 
     return () => clearInterval(interval);
-  }, [performance.images.length, currentImageIndex]);
+  }, [performance.images.length]);
 
   const currentImage = performance.images[currentImageIndex];
-  const nextImage = performance.images[nextImageIndex];
+  const nextImage = performance.images[(currentImageIndex + 1) % performance.images.length];
 
   return (
     <motion.div
@@ -50,7 +45,7 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
       <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
         {/* Current image */}
         <div 
-          className={`absolute inset-0 transition-opacity duration-800 ease-in-out ${
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
             isTransitioning ? 'opacity-0' : 'opacity-100'
           }`}
         >
@@ -63,10 +58,10 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
           />
         </div>
         
-        {/* Next image (for smooth transition) */}
+        {/* Next image (for smooth crossfade transition) */}
         {performance.images.length > 1 && (
           <div 
-            className={`absolute inset-0 transition-opacity duration-800 ease-in-out ${
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
               isTransitioning ? 'opacity-100' : 'opacity-0'
             }`}
           >
