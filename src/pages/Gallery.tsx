@@ -7,7 +7,7 @@ import { PerformanceCategory, GalleryItem } from "@/types/gallery";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import GalleryHero from "@/components/gallery/GalleryHero";
 import GalleryGrid from "@/components/gallery/GalleryGrid";
-import GalleryItem from "@/components/gallery/GalleryItem";
+import GalleryItemComponent from "@/components/gallery/GalleryItem";
 import PerformanceLightbox from "@/components/gallery/PerformanceLightbox";
 
 const GalleryPage = () => {
@@ -52,7 +52,7 @@ const GalleryPage = () => {
             <TabsContent value="videos" className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {videos.map((video, index) => (
-                  <GalleryItem 
+                  <GalleryItemComponent 
                     key={video.id} 
                     item={video} 
                     index={index} 
