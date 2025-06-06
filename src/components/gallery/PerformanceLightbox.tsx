@@ -95,7 +95,7 @@ const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceL
           </div>
 
           {/* Content */}
-          <div className="flex-1 p-6 pt-20 pb-16">
+          <div className="flex-1 p-6 pt-20 pb-24 min-h-0">
             {viewMode === 'grid' ? (
               // Grid view - show all thumbnails
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 h-full overflow-y-auto">
@@ -116,15 +116,17 @@ const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceL
                 ))}
               </div>
             ) : (
-              // Single view - show current image
-              <div className="flex items-center justify-center h-full">
-                <BlurImage
-                  src={currentImage.fullImage || currentImage.thumbnail}
-                  alt={currentImage.title}
-                  objectFit="contain"
-                  className="max-h-full max-w-full"
-                  aspectRatio="auto"
-                />
+              // Single view - show current image with proper containment
+              <div className="flex items-center justify-center h-full w-full">
+                <div className="relative max-w-full max-h-full flex items-center justify-center">
+                  <BlurImage
+                    src={currentImage.fullImage || currentImage.thumbnail}
+                    alt={currentImage.title}
+                    objectFit="contain"
+                    className="max-h-[calc(95vh-180px)] max-w-full object-contain"
+                    aspectRatio="auto"
+                  />
+                </div>
                 
                 {/* Navigation arrows */}
                 {performance.images.length > 1 && (
