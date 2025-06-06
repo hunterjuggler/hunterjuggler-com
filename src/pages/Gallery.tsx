@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { performanceCategories } from "@/data/gallery/performanceCategories";
@@ -9,23 +8,18 @@ import GalleryHero from "@/components/gallery/GalleryHero";
 import GalleryGrid from "@/components/gallery/GalleryGrid";
 import GalleryItemComponent from "@/components/gallery/GalleryItem";
 import PerformanceLightbox from "@/components/gallery/PerformanceLightbox";
-
 const GalleryPage = () => {
   const [selectedPerformance, setSelectedPerformance] = useState<PerformanceCategory | null>(null);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-
   const openLightbox = (performance: PerformanceCategory) => {
     setSelectedPerformance(performance);
     setIsLightboxOpen(true);
   };
-
   const handleVideoClick = (video: GalleryItem) => {
     // Handle video click - could open in modal or redirect to video
     console.log("Video clicked:", video);
   };
-
-  return (
-    <div className="pt-20 w-full">
+  return <div className="pt-20 w-full">
       <Helmet>
         <title>Performance Gallery | Hunter Way - Professional Comedy Juggler & Unicyclist</title>
         <meta name="description" content="Browse stunning performances by Hunter Way, professional comedy juggler and unicyclist. Available for hire for corporate events, festivals, and private celebrations." />
@@ -34,7 +28,7 @@ const GalleryPage = () => {
       
       <GalleryHero />
       
-      <section className="py-8">
+      <section className="py-[28px]">
         <div className="container mx-auto px-4 md:px-6">
           <Tabs defaultValue="images" className="w-full">
             <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto mb-8">
@@ -43,35 +37,19 @@ const GalleryPage = () => {
             </TabsList>
             
             <TabsContent value="images" className="space-y-8">
-              <GalleryGrid 
-                performances={performanceCategories} 
-                onPerformanceClick={openLightbox} 
-              />
+              <GalleryGrid performances={performanceCategories} onPerformanceClick={openLightbox} />
             </TabsContent>
             
             <TabsContent value="videos" className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {videos.map((video, index) => (
-                  <GalleryItemComponent 
-                    key={video.id} 
-                    item={video} 
-                    index={index} 
-                    onClick={handleVideoClick}
-                  />
-                ))}
+                {videos.map((video, index) => <GalleryItemComponent key={video.id} item={video} index={index} onClick={handleVideoClick} />)}
               </div>
             </TabsContent>
           </Tabs>
         </div>
       </section>
       
-      <PerformanceLightbox 
-        isOpen={isLightboxOpen} 
-        onOpenChange={setIsLightboxOpen} 
-        performance={selectedPerformance} 
-      />
-    </div>
-  );
+      <PerformanceLightbox isOpen={isLightboxOpen} onOpenChange={setIsLightboxOpen} performance={selectedPerformance} />
+    </div>;
 };
-
 export default GalleryPage;
