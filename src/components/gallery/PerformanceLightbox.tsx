@@ -1,11 +1,12 @@
 
-import { useState, useEffect } from "react";
-import BlurImage from "@/components/BlurImage";
+import { useState, useEffect, useCallback } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, X, Grid } from "lucide-react";
 import { PerformanceCategory } from "@/types/gallery";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import LightboxHeader from "./lightbox/LightboxHeader";
+import GridView from "./lightbox/GridView";
+import SingleView from "./lightbox/SingleView";
+import LightboxFooter from "./lightbox/LightboxFooter";
 
 interface PerformanceLightboxProps {
   isOpen: boolean;
@@ -25,6 +26,32 @@ const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceL
       setCurrentImageIndex(0);
     }
   }, [performance]);
+
+  // Navigation functions
+  const nextImage = useCallback(() => {
+    if (!performance) return;
+    const newIndex = (currentImageIndex + 1) % performance.images.length;
+    setCurrentImageIndex(newIndex);
+  }, [currentImageIndex, performance]);
+
+  const prevImage = useCallback(() => {
+    if (!performance) return;
+    const newIndex = (currentImageIndex - 1 + performance.images.length) % performance.images.length;
+    setCurrentImageIndex(newIndex);
+  }, [currentImageIndex, performance]);
+
+  const openSingleView = useCallback((index: number) => {
+    setCurrentImageIndex(index);
+    setViewMode('single');
+  }, []);
+
+  const backToGrid = useCallback(() => {
+    setViewMode('grid');
+  }, []);
+
+  const selectImage = useCallback((index: number) => {
+    setCurrentImageIndex(index);
+  }, []);
 
   // Keyboard navigation
   useEffect(() => {
@@ -62,28 +89,9 @@ const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceL
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen, viewMode, performance]);
+  }, [isOpen, viewMode, performance, nextImage, prevImage, backToGrid, onOpenChange]);
 
   if (!performance) return null;
-
-  const nextImage = () => {
-    const newIndex = (currentImageIndex + 1) % performance.images.length;
-    setCurrentImageIndex(newIndex);
-  };
-
-  const prevImage = () => {
-    const newIndex = (currentImageIndex - 1 + performance.images.length) % performance.images.length;
-    setCurrentImageIndex(newIndex);
-  };
-
-  const openSingleView = (index: number) => {
-    setCurrentImageIndex(index);
-    setViewMode('single');
-  };
-
-  const backToGrid = () => {
-    setViewMode('grid');
-  };
 
   const currentImage = performance.images[currentImageIndex];
 
@@ -95,146 +103,40 @@ const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceL
         </VisuallyHidden>
         
         <div className="relative w-full h-full flex flex-col">
-          {/* Header */}
-          <div className="absolute top-0 left-0 right-0 z-10 bg-gradient-to-b from-black/80 to-transparent p-6">
-            <div className="flex justify-between items-start">
-              <div className="text-white">
-                <h2 className="text-2xl font-bold mb-1">{performance.name}</h2>
-                {viewMode === 'grid' ? (
-                  <p className="text-white/80">{performance.images.length} photos</p>
-                ) : (
-                  <p className="text-white/80">
-                    {currentImageIndex + 1} of {performance.images.length}
-                  </p>
-                )}
-              </div>
-              <div className="flex gap-2">
-                {viewMode === 'single' ? (
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={backToGrid}
-                    className="text-white hover:bg-white/20"
-                  >
-                    <Grid className="h-6 w-6" />
-                  </Button>
-                ) : (
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => onOpenChange(false)}
-                    className="text-white hover:bg-white/20"
-                  >
-                    <X className="h-6 w-6" />
-                  </Button>
-                )}
-              </div>
-            </div>
-          </div>
+          <LightboxHeader
+            performance={performance}
+            viewMode={viewMode}
+            currentImageIndex={currentImageIndex}
+            onClose={() => onOpenChange(false)}
+            onBackToGrid={backToGrid}
+          />
 
-          {/* Content */}
-          <div className="flex-1 pt-20 pb-24 min-h-0 overflow-y-auto">
+          {/* Content - Full scrollable container */}
+          <div className="flex-1 pt-20 pb-24 min-h-0 overflow-y-auto max-h-[calc(95vh-120px)]">
             {viewMode === 'grid' ? (
-              // Grid view - show all thumbnails with scrolling
-              <div className="p-6">
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                  {performance.images.map((image, index) => (
-                    <button
-                      key={image.id}
-                      onClick={() => openSingleView(index)}
-                      className="aspect-square rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-xl"
-                    >
-                      <BlurImage
-                        src={image.thumbnail}
-                        alt={image.title}
-                        objectFit="cover"
-                        className="w-full h-full"
-                        aspectRatio="square"
-                      />
-                    </button>
-                  ))}
-                </div>
-              </div>
+              <GridView 
+                performance={performance} 
+                onImageClick={openSingleView} 
+              />
             ) : (
-              // Single view - show current image with proper containment
-              <div className="flex items-center justify-center h-full w-full px-6">
-                <div className="relative max-w-full max-h-full flex items-center justify-center">
-                  <BlurImage
-                    src={currentImage.fullImage || currentImage.thumbnail}
-                    alt={currentImage.title}
-                    objectFit="contain"
-                    className="max-h-[calc(95vh-200px)] max-w-[calc(100vw-100px)] w-auto h-auto object-contain"
-                    aspectRatio="auto"
-                  />
-                </div>
-                
-                {/* Navigation arrows */}
-                {performance.images.length > 1 && (
-                  <>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12"
-                    >
-                      <ChevronLeft className="h-8 w-8" />
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12"
-                    >
-                      <ChevronRight className="h-8 w-8" />
-                    </Button>
-                  </>
-                )}
-              </div>
+              <SingleView
+                performance={performance}
+                currentImage={currentImage}
+                currentImageIndex={currentImageIndex}
+                onNext={nextImage}
+                onPrev={prevImage}
+                onImageSelect={selectImage}
+              />
             )}
           </div>
 
-          {/* Footer */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-            {viewMode === 'grid' ? (
-              // Grid view footer - show photographer credit
-              <div className="text-white text-center">
-                {performance.photographer && (
-                  <p className="text-white/80 text-sm">Photography: {performance.photographer}</p>
-                )}
-              </div>
-            ) : (
-              // Single view footer
-              <div className="text-white">
-                <h3 className="text-lg font-medium mb-1">{currentImage.title}</h3>
-                <p className="text-white/80 text-sm">Photo: {currentImage.photographer}</p>
-                
-                {/* Thumbnail strip */}
-                {performance.images.length > 1 && (
-                  <div className="flex space-x-2 mt-4 overflow-x-auto">
-                    {performance.images.map((image, index) => (
-                      <button
-                        key={image.id}
-                        onClick={() => setCurrentImageIndex(index)}
-                        className={`flex-shrink-0 w-16 h-12 rounded overflow-hidden border-2 transition-all ${
-                          index === currentImageIndex 
-                            ? "border-white" 
-                            : "border-transparent opacity-60 hover:opacity-80"
-                        }`}
-                      >
-                        <BlurImage
-                          src={image.thumbnail}
-                          alt={image.title}
-                          objectFit="cover"
-                          className="w-full h-full"
-                          aspectRatio="auto"
-                        />
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
+          <LightboxFooter
+            performance={performance}
+            viewMode={viewMode}
+            currentImage={currentImage}
+            currentImageIndex={currentImageIndex}
+            onImageSelect={selectImage}
+          />
         </div>
       </DialogContent>
     </Dialog>
