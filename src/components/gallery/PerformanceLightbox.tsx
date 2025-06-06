@@ -26,6 +26,44 @@ const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceL
     }
   }, [performance]);
 
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (!isOpen || !performance) return;
+
+      switch (event.key) {
+        case 'ArrowLeft':
+          event.preventDefault();
+          if (viewMode === 'single') {
+            prevImage();
+          }
+          break;
+        case 'ArrowRight':
+          event.preventDefault();
+          if (viewMode === 'single') {
+            nextImage();
+          }
+          break;
+        case 'Escape':
+          event.preventDefault();
+          if (viewMode === 'single') {
+            backToGrid();
+          } else {
+            onOpenChange(false);
+          }
+          break;
+      }
+    };
+
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, viewMode, performance]);
+
   if (!performance) return null;
 
   const nextImage = () => {
@@ -51,7 +89,7 @@ const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceL
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-7xl max-h-[95vh] p-0 bg-black border-none [&>button]:hidden">
+      <DialogContent className="max-w-7xl max-h-[95vh] p-0 bg-black border-none [&>button]:hidden overflow-hidden">
         <VisuallyHidden>
           <DialogTitle>{performance.name}</DialogTitle>
         </VisuallyHidden>
@@ -95,35 +133,37 @@ const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceL
           </div>
 
           {/* Content */}
-          <div className="flex-1 p-6 pt-20 pb-24 min-h-0">
+          <div className="flex-1 pt-20 pb-24 min-h-0 overflow-y-auto">
             {viewMode === 'grid' ? (
-              // Grid view - show all thumbnails
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 h-full overflow-y-auto">
-                {performance.images.map((image, index) => (
-                  <button
-                    key={image.id}
-                    onClick={() => openSingleView(index)}
-                    className="aspect-square rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-xl"
-                  >
-                    <BlurImage
-                      src={image.thumbnail}
-                      alt={image.title}
-                      objectFit="cover"
-                      className="w-full h-full"
-                      aspectRatio="square"
-                    />
-                  </button>
-                ))}
+              // Grid view - show all thumbnails with scrolling
+              <div className="p-6">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                  {performance.images.map((image, index) => (
+                    <button
+                      key={image.id}
+                      onClick={() => openSingleView(index)}
+                      className="aspect-square rounded-lg overflow-hidden hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-xl"
+                    >
+                      <BlurImage
+                        src={image.thumbnail}
+                        alt={image.title}
+                        objectFit="cover"
+                        className="w-full h-full"
+                        aspectRatio="square"
+                      />
+                    </button>
+                  ))}
+                </div>
               </div>
             ) : (
               // Single view - show current image with proper containment
-              <div className="flex items-center justify-center h-full w-full">
+              <div className="flex items-center justify-center h-full w-full px-6">
                 <div className="relative max-w-full max-h-full flex items-center justify-center">
                   <BlurImage
                     src={currentImage.fullImage || currentImage.thumbnail}
                     alt={currentImage.title}
                     objectFit="contain"
-                    className="max-h-[calc(95vh-180px)] max-w-full object-contain"
+                    className="max-h-[calc(95vh-200px)] max-w-[calc(100vw-100px)] w-auto h-auto object-contain"
                     aspectRatio="auto"
                   />
                 </div>
