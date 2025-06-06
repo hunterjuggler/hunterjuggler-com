@@ -9,3 +9,11 @@ export interface GalleryItem {
   photographer: string;
   orientation?: 'portrait' | 'landscape';
 }
+
+export interface PerformanceCategory {
+  id: number;
+  name: string;
+  description: string;
+  images: GalleryItem[];
+  coverImage: string;
+}

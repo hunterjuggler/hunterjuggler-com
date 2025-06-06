@@ -1,25 +1,19 @@
 
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { performances } from "@/data/galleryData";
-import { useImageOrientation } from "@/hooks/useImageOrientation";
-import { GalleryItem } from "@/types/gallery";
+import { performanceCategories } from "@/data/gallery/performanceCategories";
+import { PerformanceCategory } from "@/types/gallery";
 import GalleryHero from "@/components/gallery/GalleryHero";
 import GalleryGrid from "@/components/gallery/GalleryGrid";
-import MediaModal from "@/components/gallery/MediaModal";
+import PerformanceLightbox from "@/components/gallery/PerformanceLightbox";
 
 const GalleryPage = () => {
-  const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const processedItems = useImageOrientation(performances);
+  const [selectedPerformance, setSelectedPerformance] = useState<PerformanceCategory | null>(null);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
-  const openModal = (item: GalleryItem) => {
-    setSelectedItem(item);
-    setIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
+  const openLightbox = (performance: PerformanceCategory) => {
+    setSelectedPerformance(performance);
+    setIsLightboxOpen(true);
   };
 
   return (
@@ -31,11 +25,14 @@ const GalleryPage = () => {
       </Helmet>
       
       <GalleryHero />
-      <GalleryGrid items={processedItems} onItemClick={openModal} />
-      <MediaModal 
-        isOpen={isOpen} 
-        onOpenChange={setIsOpen} 
-        selectedItem={selectedItem} 
+      <GalleryGrid 
+        performances={performanceCategories} 
+        onPerformanceClick={openLightbox} 
+      />
+      <PerformanceLightbox 
+        isOpen={isLightboxOpen} 
+        onOpenChange={setIsLightboxOpen} 
+        performance={selectedPerformance} 
       />
     </div>
   );
