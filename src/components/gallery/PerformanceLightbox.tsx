@@ -71,7 +71,7 @@ const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceL
                 )}
               </div>
               <div className="flex gap-2">
-                {viewMode === 'single' && (
+                {viewMode === 'single' ? (
                   <Button
                     variant="ghost"
                     size="icon"
@@ -80,15 +80,16 @@ const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceL
                   >
                     <Grid className="h-6 w-6" />
                   </Button>
+                ) : (
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => onOpenChange(false)}
+                    className="text-white hover:bg-white/20"
+                  >
+                    <X className="h-6 w-6" />
+                  </Button>
                 )}
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => onOpenChange(false)}
-                  className="text-white hover:bg-white/20"
-                >
-                  <X className="h-6 w-6" />
-                </Button>
               </div>
             </div>
           </div>
