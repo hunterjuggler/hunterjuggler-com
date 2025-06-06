@@ -12,12 +12,17 @@ interface PerformanceSlotProps {
 
 const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     if (performance.images.length <= 1) return;
 
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % performance.images.length);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % performance.images.length);
+        setIsTransitioning(false);
+      }, 150); // Half of the transition duration
     }, 3000); // Change image every 3 seconds
 
     return () => clearInterval(interval);
@@ -35,13 +40,19 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
       onClick={() => onClick(performance)}
     >
       <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-        <BlurImage
-          src={currentImage.thumbnail}
-          alt={currentImage.title}
-          aspectRatio="auto"
-          objectFit="cover"
-          className="h-full w-full transition-transform duration-500 group-hover:scale-105"
-        />
+        <div 
+          className={`absolute inset-0 transition-opacity duration-300 ${
+            isTransitioning ? 'opacity-0' : 'opacity-100'
+          }`}
+        >
+          <BlurImage
+            src={currentImage.thumbnail}
+            alt={currentImage.title}
+            aspectRatio="auto"
+            objectFit="cover"
+            className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
         
         {/* Overlay with cycling indicator */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
