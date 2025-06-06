@@ -20,12 +20,12 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
     const interval = setInterval(() => {
       setIsTransitioning(true);
       
-      // After fade duration, update current image and reset transition
+      // After fade duration, update to next image in sequence and reset transition
       setTimeout(() => {
         setCurrentImageIndex((prev) => (prev + 1) % performance.images.length);
         setIsTransitioning(false);
-      }, 1000); // 1 second fade duration
-    }, 5000); // 5 second cycle time
+      }, 1500); // 1.5 second fade duration
+    }, 8000); // 8 second cycle time - much slower
 
     return () => clearInterval(interval);
   }, [performance.images.length]);
@@ -45,7 +45,7 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
       <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
         {/* Current image */}
         <div 
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+          className={`absolute inset-0 transition-opacity duration-1500 ease-in-out ${
             isTransitioning ? 'opacity-0' : 'opacity-100'
           }`}
         >
@@ -61,7 +61,7 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
         {/* Next image (for smooth crossfade transition) */}
         {performance.images.length > 1 && (
           <div 
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            className={`absolute inset-0 transition-opacity duration-1500 ease-in-out ${
               isTransitioning ? 'opacity-100' : 'opacity-0'
             }`}
           >
