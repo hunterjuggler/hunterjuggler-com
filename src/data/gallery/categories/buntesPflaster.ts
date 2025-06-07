@@ -1,0 +1,76 @@
+
+import { PerformanceCategory } from "@/types/gallery";
+
+export const buntesPflaster: PerformanceCategory = {
+  id: 2,
+  name: "Buntes Pflaster - Das Marktredwitzer Straßenfestival",
+  description: "Street performance festival in Marktredwitz, Germany",
+  coverImage: "/lovable-uploads/b51aa999-8b8e-4790-b903-1282b178782f.png",
+  photographer: "Festival Photography",
+  images: [
+    {
+      id: 411,
+      title: "Unicycle Performance in Town Square",
+      category: "images",
+      thumbnail: "/lovable-uploads/b51aa999-8b8e-4790-b903-1282b178782f.png",
+      fullImage: "/lovable-uploads/b51aa999-8b8e-4790-b903-1282b178782f.png",
+      photographer: "Festival Photography",
+    },
+    {
+      id: 401,
+      title: "Street Festival Performance",
+      category: "images",
+      thumbnail: "/lovable-uploads/4dd44159-4c2b-4926-a2f0-32a2062060a2.png",
+      fullImage: "/lovable-uploads/4dd44159-4c2b-4926-a2f0-32a2062060a2.png",
+      photographer: "Festival Photography",
+    },
+    {
+      id: 402,
+      title: "Audience Recording Performance",
+      category: "images",
+      thumbnail: "/lovable-uploads/2bd7a4dc-3f1a-434e-99fa-fa5b8c0e7f18.png",
+      fullImage: "/lovable-uploads/2bd7a4dc-3f1a-434e-99fa-fa5b8c0e7f18.png",
+      photographer: "Festival Photography",
+    },
+    {
+      id: 403,
+      title: "Juggling Performance with Top Hat",
+      category: "images",
+      thumbnail: "/lovable-uploads/077f4cb4-783b-4cd4-980b-2cfcac2577c5.png",
+      fullImage: "/lovable-uploads/077f4cb4-783b-4cd4-980b-2cfcac2577c5.png",
+      photographer: "Festival Photography",
+    },
+    {
+      id: 404,
+      title: "Unicycle Performance on Stage",
+      category: "images",
+      thumbnail: "/lovable-uploads/ddbc042b-d335-4008-acbc-0f8ccc66b163.png",
+      fullImage: "/lovable-uploads/ddbc042b-d335-4008-acbc-0f8ccc66b163.png",
+      photographer: "Festival Photography",
+    },
+    {
+      id: 405,
+      title: "High Unicycle Juggling Performance",
+      category: "images",
+      thumbnail: "/lovable-uploads/c4b7320d-b739-40b3-bced-47632f12e48c.png",
+      fullImage: "/lovable-uploads/c4b7320d-b739-40b3-bced-47632f12e48c.png",
+      photographer: "Festival Photography",
+    },
+    {
+      id: 406,
+      title: "Basketball Juggling on Ground",
+      category: "images",
+      thumbnail: "/lovable-uploads/06b7f860-7654-4977-8bc9-94796f7dd58e.png",
+      fullImage: "/lovable-uploads/06b7f860-7654-4977-8bc9-94796f7dd58e.png",
+      photographer: "Festival Photography",
+    },
+    {
+      id: 407,
+      title: "Street Performance with Large Crowd",
+      category: "images",
+      thumbnail: "/lovable-uploads/1b4cf809-49a1-452f-8bcf-66b24c154051.png",
+      fullImage: "/lovable-uploads/1b4cf809-49a1-452f-8bcf-66b24c154051.png",
+      photographer: "Festival Photography",
+    },
+  ],
+};
