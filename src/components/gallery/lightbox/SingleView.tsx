@@ -22,15 +22,20 @@ const SingleView = ({
   onImageSelect 
 }: SingleViewProps) => {
   return (
-    <div className="flex items-center justify-center h-full w-full px-6 bg-black">
-      <div className="relative w-full h-full flex items-center justify-center">
-        <BlurImage
+    <div className="flex items-center justify-center h-full w-full bg-black relative">
+      {/* Main image container - full viewport with proper contain behavior */}
+      <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+        <img
           src={currentImage.fullImage || currentImage.thumbnail}
           alt={currentImage.title}
-          objectFit="contain"
-          className="max-h-full max-w-full w-auto h-auto"
-          aspectRatio="auto"
-          noBg={true}
+          className="max-w-full max-h-full object-contain"
+          style={{
+            width: 'auto',
+            height: 'auto',
+            maxWidth: '100%',
+            maxHeight: '100%',
+            objectFit: 'contain'
+          }}
         />
       </div>
       
