@@ -97,7 +97,7 @@ const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceL
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-7xl max-h-[95vh] p-0 bg-black border-none [&>button]:hidden overflow-hidden">
+      <DialogContent className="w-screen h-screen max-w-none max-h-none p-0 bg-black border-none [&>button]:hidden overflow-hidden">
         <VisuallyHidden>
           <DialogTitle>{performance.name}</DialogTitle>
         </VisuallyHidden>
@@ -111,13 +111,15 @@ const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceL
             onBackToGrid={backToGrid}
           />
 
-          {/* Content - Full scrollable container */}
-          <div className="flex-1 pt-20 pb-24 min-h-0 overflow-y-auto max-h-[calc(95vh-120px)]">
+          {/* Content - Maximized for fullscreen viewing */}
+          <div className="flex-1 pt-16 pb-16 min-h-0 overflow-y-auto">
             {viewMode === 'grid' ? (
-              <GridView 
-                performance={performance} 
-                onImageClick={openSingleView} 
-              />
+              <div className="p-4">
+                <GridView 
+                  performance={performance} 
+                  onImageClick={openSingleView} 
+                />
+              </div>
             ) : (
               <SingleView
                 performance={performance}

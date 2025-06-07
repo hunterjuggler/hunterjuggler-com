@@ -22,18 +22,14 @@ const SingleView = ({
   onImageSelect 
 }: SingleViewProps) => {
   return (
-    <div className="flex items-center justify-center h-full w-full bg-black relative">
-      {/* Main image container - full viewport with proper contain behavior */}
-      <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+    <div className="flex items-center justify-center w-full h-full bg-black relative min-h-[calc(100vh-120px)]">
+      {/* Main image container - maximized for fullscreen viewing */}
+      <div className="relative w-full h-full flex items-center justify-center p-2">
         <img
           src={currentImage.fullImage || currentImage.thumbnail}
           alt={currentImage.title}
-          className="max-w-full max-h-full object-contain"
+          className="max-w-full max-h-[95vh] w-auto h-auto object-contain"
           style={{
-            width: 'auto',
-            height: 'auto',
-            maxWidth: '100%',
-            maxHeight: '100%',
             objectFit: 'contain'
           }}
         />
@@ -46,7 +42,7 @@ const SingleView = ({
             variant="ghost"
             size="icon"
             onClick={onPrev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12 z-10"
+            className="absolute left-2 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12 z-10"
           >
             <ChevronLeft className="h-8 w-8" />
           </Button>
@@ -54,7 +50,7 @@ const SingleView = ({
             variant="ghost"
             size="icon"
             onClick={onNext}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12 z-10"
+            className="absolute right-2 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12 z-10"
           >
             <ChevronRight className="h-8 w-8" />
           </Button>
