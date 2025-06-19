@@ -9,7 +9,7 @@ interface GridViewProps {
 
 const GridView = ({ performance, onImageClick }: GridViewProps) => {
   return (
-    <div className="p-6">
+    <div className="p-6 max-h-[calc(100vh-200px)] overflow-y-auto">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {performance.images.map((image, index) => (
           <button

@@ -12,7 +12,7 @@ const PerformanceTypes = () => {
           </span>
           <div>
             <p className="font-medium">Standard Performance</p>
-            <p className="text-sm text-muted-foreground">Classic 45-60 minute show featuring signature acts</p>
+            <p className="text-sm text-muted-foreground">Classic 30-45 minute show featuring signature acts</p>
           </div>
         </li>
         <li className="flex items-start">

@@ -5,16 +5,17 @@ import {
   FormLabel,
   FormControl,
   FormMessage,
-  FormDescription
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
 import { 
-  RadioGroup, 
-  RadioGroupItem 
-} from "@/components/ui/radio-group";
+  Select, 
+  SelectContent, 
+  SelectItem, 
+  SelectTrigger, 
+  SelectValue 
+} from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 
 interface PerformanceDetailsSectionProps {
   form: any;
@@ -29,28 +30,20 @@ const PerformanceDetailsSection = ({ form }: PerformanceDetailsSectionProps) => 
         control={form.control}
         name="performanceType"
         render={({ field }) => (
-          <FormItem className="space-y-4">
-            <FormLabel>Performance Type</FormLabel>
-            <FormControl>
-              <RadioGroup
-                onValueChange={field.onChange}
-                defaultValue={field.value}
-                className="grid grid-cols-1 md:grid-cols-3 gap-4"
-              >
-                <div className="flex items-center space-x-2 border border-white/10 p-3 rounded-md bg-black/30">
-                  <RadioGroupItem value="standard" id="standard" />
-                  <Label htmlFor="standard" className="cursor-pointer">Standard Show</Label>
-                </div>
-                <div className="flex items-center space-x-2 border border-white/10 p-3 rounded-md bg-black/30">
-                  <RadioGroupItem value="custom" id="custom" />
-                  <Label htmlFor="custom" className="cursor-pointer">Custom Show</Label>
-                </div>
-                <div className="flex items-center space-x-2 border border-white/10 p-3 rounded-md bg-black/30">
-                  <RadioGroupItem value="roaming" id="roaming" />
-                  <Label htmlFor="roaming" className="cursor-pointer">Roaming Entertainment / Ambience</Label>
-                </div>
-              </RadioGroup>
-            </FormControl>
+          <FormItem>
+            <FormLabel>Performance Type *</FormLabel>
+            <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <FormControl>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select performance type" />
+                </SelectTrigger>
+              </FormControl>
+              <SelectContent>
+                <SelectItem value="comedy-juggling">Comedy Juggling Show</SelectItem>
+                <SelectItem value="roaming">Roaming / Walkaround</SelectItem>
+                <SelectItem value="special-request">Special Request</SelectItem>
+              </SelectContent>
+            </Select>
             <FormMessage />
           </FormItem>
         )}

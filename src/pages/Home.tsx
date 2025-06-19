@@ -6,7 +6,6 @@ import AboutSection from "@/components/home/AboutSection";
 import SocialSection from "@/components/home/SocialSection";
 import CallToAction from "@/components/home/CallToAction";
 import ShowSection from "@/components/about/ShowSection";
-import SkillsSection from "@/components/about/SkillsSection";
 import CombinedTestimonialsSection from "@/components/home/CombinedTestimonialsSection";
 
 const HomePage = () => {
@@ -28,7 +27,6 @@ const HomePage = () => {
         <AboutSection />
         <ShowSection />
         <CombinedTestimonialsSection />
-        <SkillsSection />
         <SocialSection />
         <CallToAction />
       </div>

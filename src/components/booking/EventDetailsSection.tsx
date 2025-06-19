@@ -4,9 +4,10 @@ import {
   FormItem,
   FormLabel,
   FormControl,
-  FormMessage
+  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { 
   Select, 
   SelectContent, 
@@ -14,7 +15,6 @@ import {
   SelectTrigger, 
   SelectValue 
 } from "@/components/ui/select";
-import { Calendar, Clock, MapPin, Users } from "lucide-react";
 
 interface EventDetailsSectionProps {
   form: any;
@@ -24,6 +24,7 @@ const EventDetailsSection = ({ form }: EventDetailsSectionProps) => {
   return (
     <div className="space-y-6">
       <h3 className="text-xl font-semibold border-b border-white/20 pb-2">Event Details</h3>
+      
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <FormField
           control={form.control}
@@ -32,10 +33,7 @@ const EventDetailsSection = ({ form }: EventDetailsSectionProps) => {
             <FormItem>
               <FormLabel>Event Date *</FormLabel>
               <FormControl>
-                <div className="relative">
-                  <Calendar className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                  <Input type="date" className="pl-10" {...field} />
-                </div>
+                <Input type="date" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -49,10 +47,7 @@ const EventDetailsSection = ({ form }: EventDetailsSectionProps) => {
             <FormItem>
               <FormLabel>Event Time *</FormLabel>
               <FormControl>
-                <div className="relative">
-                  <Clock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                  <Input type="time" className="pl-10" {...field} />
-                </div>
+                <Input type="time" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -60,19 +55,39 @@ const EventDetailsSection = ({ form }: EventDetailsSectionProps) => {
         />
       </div>
       
+      <FormField
+        control={form.control}
+        name="eventLocation"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Event Location *</FormLabel>
+            <FormControl>
+              <Input placeholder="City, State/Country" {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <FormField
           control={form.control}
-          name="eventLocation"
+          name="venueType"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Event Location *</FormLabel>
-              <FormControl>
-                <div className="relative">
-                  <MapPin className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                  <Input placeholder="City, State/Country" className="pl-10" {...field} />
-                </div>
-              </FormControl>
+              <FormLabel>Venue Type</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select venue type" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="indoor">Indoor</SelectItem>
+                  <SelectItem value="outdoor">Outdoor</SelectItem>
+                  <SelectItem value="both">Both Indoor & Outdoor</SelectItem>
+                </SelectContent>
+              </Select>
               <FormMessage />
             </FormItem>
           )}
@@ -80,26 +95,21 @@ const EventDetailsSection = ({ form }: EventDetailsSectionProps) => {
         
         <FormField
           control={form.control}
-          name="venueType"
+          name="audienceSize"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Venue Type</FormLabel>
-              <Select 
-                onValueChange={field.onChange} 
-                defaultValue={field.value}
-              >
+              <FormLabel>Expected Audience Size</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select venue type" />
+                    <SelectValue placeholder="Select audience size" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="theater">Theater</SelectItem>
-                  <SelectItem value="outdoor">Outdoor Stage</SelectItem>
-                  <SelectItem value="corporate">Corporate Space</SelectItem>
-                  <SelectItem value="private">Private Venue</SelectItem>
-                  <SelectItem value="festival">Festival</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
+                  <SelectItem value="small">Small (1-50)</SelectItem>
+                  <SelectItem value="medium">Medium (51-200)</SelectItem>
+                  <SelectItem value="large">Large (201-500)</SelectItem>
+                  <SelectItem value="xlarge">Very Large (500+)</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />
@@ -108,34 +118,15 @@ const EventDetailsSection = ({ form }: EventDetailsSectionProps) => {
         />
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <FormField
-          control={form.control}
-          name="audienceSize"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Estimated Audience Size</FormLabel>
-              <FormControl>
-                <div className="relative">
-                  <Users className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                  <Input placeholder="Number of attendees" className="pl-10" {...field} />
-                </div>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-      </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <FormField
           control={form.control}
           name="stageSize"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Estimated Stage/Performance Area Dimensions *</FormLabel>
+              <FormLabel>Stage/Performance Area Size *</FormLabel>
               <FormControl>
-                <Input placeholder="Dimensions (meters or feet)" {...field} />
+                <Input placeholder="e.g., 20x20 feet" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -147,38 +138,33 @@ const EventDetailsSection = ({ form }: EventDetailsSectionProps) => {
           name="ceilingHeight"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Estimated Ceiling Height *</FormLabel>
+              <FormLabel>Ceiling Height *</FormLabel>
               <FormControl>
-                <Input placeholder="Height (meters or feet)" {...field} />
+                <Input placeholder="e.g., 12 feet" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-      </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
         <FormField
           control={form.control}
           name="performanceDuration"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Performance Duration</FormLabel>
-              <Select 
-                onValueChange={field.onChange} 
-                defaultValue={field.value}
-              >
+              <FormLabel>Performance Duration *</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
                     <SelectValue placeholder="Select duration" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
+                  <SelectItem value="10">10 minutes</SelectItem>
+                  <SelectItem value="20">20 minutes</SelectItem>
                   <SelectItem value="30">30 minutes</SelectItem>
                   <SelectItem value="45">45 minutes</SelectItem>
                   <SelectItem value="60">60 minutes</SelectItem>
-                  <SelectItem value="90">90 minutes</SelectItem>
-                  <SelectItem value="custom">Custom duration</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />
