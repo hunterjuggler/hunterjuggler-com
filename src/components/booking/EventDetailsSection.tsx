@@ -1,36 +1,20 @@
-
-import {
-  FormField,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormMessage,
-} from "@/components/ui/form";
+import { FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { 
-  Select, 
-  SelectContent, 
-  SelectItem, 
-  SelectTrigger, 
-  SelectValue 
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
-
 interface EventDetailsSectionProps {
   form: any;
 }
-
-const EventDetailsSection = ({ form }: EventDetailsSectionProps) => {
-  return (
-    <div className="space-y-6">
+const EventDetailsSection = ({
+  form
+}: EventDetailsSectionProps) => {
+  return <div className="space-y-6">
       <h3 className="text-xl font-semibold border-b border-white/20 pb-2">Event Details</h3>
       
-      <FormField
-        control={form.control}
-        name="eventType"
-        render={({ field }) => (
-          <FormItem>
+      <FormField control={form.control} name="eventType" render={({
+      field
+    }) => <FormItem>
             <FormLabel>Event Type</FormLabel>
             <Select onValueChange={field.onChange} defaultValue={field.value}>
               <FormControl>
@@ -48,60 +32,44 @@ const EventDetailsSection = ({ form }: EventDetailsSectionProps) => {
               </SelectContent>
             </Select>
             <FormMessage />
-          </FormItem>
-        )}
-      />
+          </FormItem>} />
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <FormField
-          control={form.control}
-          name="eventDate"
-          render={({ field }) => (
-            <FormItem>
+        <FormField control={form.control} name="eventDate" render={({
+        field
+      }) => <FormItem>
               <FormLabel>Event Date *</FormLabel>
               <FormControl>
                 <Input type="date" {...field} />
               </FormControl>
               <FormMessage />
-            </FormItem>
-          )}
-        />
+            </FormItem>} />
         
-        <FormField
-          control={form.control}
-          name="eventTime"
-          render={({ field }) => (
-            <FormItem>
+        <FormField control={form.control} name="eventTime" render={({
+        field
+      }) => <FormItem>
               <FormLabel>Event Time *</FormLabel>
               <FormControl>
                 <Input type="time" {...field} />
               </FormControl>
               <FormMessage />
-            </FormItem>
-          )}
-        />
+            </FormItem>} />
       </div>
       
-      <FormField
-        control={form.control}
-        name="eventLocation"
-        render={({ field }) => (
-          <FormItem>
+      <FormField control={form.control} name="eventLocation" render={({
+      field
+    }) => <FormItem>
             <FormLabel>Event Location *</FormLabel>
             <FormControl>
               <Input placeholder="City, State/Country" {...field} />
             </FormControl>
             <FormMessage />
-          </FormItem>
-        )}
-      />
+          </FormItem>} />
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <FormField
-          control={form.control}
-          name="venueType"
-          render={({ field }) => (
-            <FormItem>
+        <FormField control={form.control} name="venueType" render={({
+        field
+      }) => <FormItem>
               <FormLabel>Venue Type</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
@@ -116,15 +84,11 @@ const EventDetailsSection = ({ form }: EventDetailsSectionProps) => {
                 </SelectContent>
               </Select>
               <FormMessage />
-            </FormItem>
-          )}
-        />
+            </FormItem>} />
         
-        <FormField
-          control={form.control}
-          name="audienceSize"
-          render={({ field }) => (
-            <FormItem>
+        <FormField control={form.control} name="audienceSize" render={({
+        field
+      }) => <FormItem>
               <FormLabel>Expected Audience Size</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
@@ -140,45 +104,33 @@ const EventDetailsSection = ({ form }: EventDetailsSectionProps) => {
                 </SelectContent>
               </Select>
               <FormMessage />
-            </FormItem>
-          )}
-        />
+            </FormItem>} />
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <FormField
-          control={form.control}
-          name="stageSize"
-          render={({ field }) => (
-            <FormItem>
+        <FormField control={form.control} name="stageSize" render={({
+        field
+      }) => <FormItem>
               <FormLabel>Stage/Performance Area Size *</FormLabel>
               <FormControl>
                 <Input placeholder="e.g., 20x20 feet" {...field} />
               </FormControl>
               <FormMessage />
-            </FormItem>
-          )}
-        />
+            </FormItem>} />
         
-        <FormField
-          control={form.control}
-          name="ceilingHeight"
-          render={({ field }) => (
-            <FormItem>
+        <FormField control={form.control} name="ceilingHeight" render={({
+        field
+      }) => <FormItem>
               <FormLabel>Ceiling Height *</FormLabel>
               <FormControl>
                 <Input placeholder="e.g., 12 feet" {...field} />
               </FormControl>
               <FormMessage />
-            </FormItem>
-          )}
-        />
+            </FormItem>} />
         
-        <FormField
-          control={form.control}
-          name="performanceDuration"
-          render={({ field }) => (
-            <FormItem>
+        <FormField control={form.control} name="performanceDuration" render={({
+        field
+      }) => <FormItem>
               <FormLabel>Performance Duration *</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
@@ -195,52 +147,30 @@ const EventDetailsSection = ({ form }: EventDetailsSectionProps) => {
                 </SelectContent>
               </Select>
               <FormMessage />
-            </FormItem>
-          )}
-        />
+            </FormItem>} />
       </div>
       
-      <FormField
-        control={form.control}
-        name="soundSystemProvided"
-        render={({ field }) => (
-          <FormItem className="space-y-2">
+      <FormField control={form.control} name="soundSystemProvided" render={({
+      field
+    }) => <FormItem className="space-y-2">
             <div className="flex items-center space-x-2">
               <FormControl>
-                <Checkbox 
-                  checked={field.value} 
-                  onCheckedChange={field.onChange} 
-                />
+                <Checkbox checked={field.value} onCheckedChange={field.onChange} />
               </FormControl>
-              <FormLabel className="cursor-pointer">
-                Sound system provided
-              </FormLabel>
+              <FormLabel className="cursor-pointer">Will you provide a sound system?</FormLabel>
             </div>
             <FormMessage />
-          </FormItem>
-        )}
-      />
+          </FormItem>} />
       
-      {form.watch("soundSystemProvided") && (
-        <FormField
-          control={form.control}
-          name="soundSystemType"
-          render={({ field }) => (
-            <FormItem className="ml-6 space-y-2">
+      {form.watch("soundSystemProvided") && <FormField control={form.control} name="soundSystemType" render={({
+      field
+    }) => <FormItem className="ml-6 space-y-2">
               <FormLabel>What kind of sound system?</FormLabel>
               <FormControl>
-                <Input 
-                  placeholder="Describe your sound system" 
-                  {...field} 
-                />
+                <Input placeholder="Describe your sound system" {...field} />
               </FormControl>
               <FormMessage />
-            </FormItem>
-          )}
-        />
-      )}
-    </div>
-  );
+            </FormItem>} />}
+    </div>;
 };
-
 export default EventDetailsSection;
