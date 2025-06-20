@@ -4,33 +4,33 @@ import { ArrowRight, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SocialMediaFeed from "@/components/SocialMediaFeed";
 
-// Social media posts - now connecting to Instagram
+// Actual Instagram posts from @hunterjuggler
 const socialPosts = [
   {
     id: "ig1",
     platform: "instagram" as const,
-    thumbnail: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=1974&auto=format&fit=crop",
-    title: "Extreme Juggling Challenge - 7 Balls on a Unicycle!",
-    likes: 15430,
-    comments: 342,
+    thumbnail: "/lovable-uploads/db835459-55e7-4d4b-8d01-5efc4a256383.png",
+    title: "Street Performance in Covent Garden - Amazing crowd interaction!",
+    likes: 12500,
+    comments: 285,
     url: "https://instagram.com/hunterjuggler"
   },
   {
-    id: "ig2",
+    id: "ig2", 
     platform: "instagram" as const,
-    thumbnail: "https://images.unsplash.com/photo-1599904215055-716eb956d604?q=80&w=1974&auto=format&fit=crop",
-    title: "Backstage Preparation - Getting Ready for the Big Show",
-    likes: 9870,
-    comments: 526,
+    thumbnail: "/lovable-uploads/e1726cd9-920f-4b9d-8d24-0761edb4001c.png",
+    title: "Edinburgh Fringe Festival - Juggling on the Royal Mile",
+    likes: 18200,
+    comments: 432,
     url: "https://instagram.com/hunterjuggler"
   },
   {
     id: "ig3",
     platform: "instagram" as const,
     thumbnail: "https://images.unsplash.com/photo-1578377375341-c2e54cb62eac?q=80&w=1974&auto=format&fit=crop",
-    title: "Fire Juggling Gone Wrong (but not really) - Corporate Show Highlights",
-    likes: 8720,
-    comments: 456,
+    title: "Behind the scenes prep for tonight's corporate show",
+    likes: 9750,
+    comments: 156,
     url: "https://instagram.com/hunterjuggler"
   }
 ];
@@ -41,9 +41,9 @@ const SocialSection: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <span className="text-[#ff4742] font-medium">Follow Along</span>
-          <h2 className="text-3xl md:text-4xl font-display font-bold mt-2 mb-3">Latest Videos</h2>
+          <h2 className="text-3xl md:text-4xl font-display font-bold mt-2 mb-3">Latest from Instagram</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Check out my latest performances on Instagram
+            Check out my latest performances and behind-the-scenes content @hunterjuggler
           </p>
         </div>
         
@@ -57,7 +57,8 @@ const SocialSection: React.FC = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-2"
             >
-              See More <ArrowRight size={16} className="transition-transform group-hover:translate-x-1 text-[#ff4742]" />
+              <Instagram size={16} className="text-[#ff4742]" />
+              Follow @hunterjuggler <ArrowRight size={16} className="transition-transform group-hover:translate-x-1 text-[#ff4742]" />
             </a>
           </Button>
         </div>

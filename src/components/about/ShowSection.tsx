@@ -18,8 +18,8 @@ const ShowSection: React.FC = () => {
             className="integrated-image-container rounded-2xl overflow-hidden order-2 md:order-1"
           >
             <BlurImage 
-              src="/lovable-uploads/caccdc20-e85d-443a-93d6-8500b3024c84.png" 
-              alt="Hunter Way show performance" 
+              src="/lovable-uploads/db835459-55e7-4d4b-8d01-5efc4a256383.png" 
+              alt="Hunter Way performing with audience participation in Covent Garden" 
               className="w-full h-full object-cover integrated-image" 
               aspectRatio="auto"
             />
@@ -64,9 +64,6 @@ const ShowSection: React.FC = () => {
             </div>
 
             <div className="mb-6 space-y-3">
-              <p className="text-muted-foreground">
-                Roaming entertainment options also available.
-              </p>
               <p className="text-muted-foreground">
                 Engaging for audiences of all ages — from kids to corporate crowds.
               </p>
