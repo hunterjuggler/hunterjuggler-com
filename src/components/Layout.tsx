@@ -2,6 +2,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { motion } from "@/lib/motion";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,7 +10,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-smooth">
+    <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow">
         {children}

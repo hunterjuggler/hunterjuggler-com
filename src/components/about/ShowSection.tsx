@@ -18,7 +18,7 @@ const ShowSection: React.FC = () => {
             className="integrated-image-container rounded-2xl overflow-hidden order-2 md:order-1"
           >
             <BlurImage 
-              src="/lovable-uploads/e13a9646-7eb6-4a9a-9583-ef2856fc61fe.png" 
+              src="/lovable-uploads/caccdc20-e85d-443a-93d6-8500b3024c84.png" 
               alt="Hunter Way show performance" 
               className="w-full h-full object-cover integrated-image" 
               aspectRatio="auto"
@@ -48,26 +48,25 @@ const ShowSection: React.FC = () => {
             </p>
 
             <div className="mb-6">
-              <p className="text-muted-foreground font-medium mb-4">Perfect for:</p>
-              <div className="grid grid-cols-2 gap-3 text-muted-foreground">
-                <div className="space-y-2">
-                  <p>• Corporate events</p>
-                  <p>• Festivals</p>
-                  <p>• Private parties</p>
-                  <p>• Weddings</p>
-                  <p>• Halftime shows</p>
-                </div>
-                <div className="space-y-2">
-                  <p>• Parades</p>
-                  <p>• Cabarets</p>
-                  <p>• Street fairs</p>
-                  <p>• County and state fairs</p>
-                  <p>• Even backyard gatherings!</p>
-                </div>
-              </div>
+              <p className="text-muted-foreground font-medium mb-3">Perfect for:</p>
+              <ul className="text-muted-foreground space-y-2 ml-4">
+                <li>• Corporate events</li>
+                <li>• Festivals</li>
+                <li>• Private parties</li>
+                <li>• Weddings</li>
+                <li>• Halftime shows</li>
+                <li>• Parades</li>
+                <li>• Cabarets</li>
+                <li>• Street fairs</li>
+                <li>• County and state fairs</li>
+                <li>• Even backyard gatherings!</li>
+              </ul>
             </div>
 
             <div className="mb-6 space-y-3">
+              <p className="text-muted-foreground">
+                Roaming entertainment options also available.
+              </p>
               <p className="text-muted-foreground">
                 Engaging for audiences of all ages — from kids to corporate crowds.
               </p>

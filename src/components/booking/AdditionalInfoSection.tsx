@@ -5,6 +5,7 @@ import {
   FormLabel,
   FormControl,
   FormMessage,
+  FormDescription
 } from "@/components/ui/form";
 import { 
   Select, 
@@ -14,7 +15,6 @@ import {
   SelectValue 
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
 
 interface AdditionalInfoSectionProps {
   form: any;
@@ -23,47 +23,7 @@ interface AdditionalInfoSectionProps {
 const AdditionalInfoSection = ({ form }: AdditionalInfoSectionProps) => {
   return (
     <div className="space-y-6">
-      <h3 className="text-xl font-semibold border-b border-white/20 pb-2">Technical & Additional Information</h3>
-      
-      <FormField
-        control={form.control}
-        name="soundSystemProvided"
-        render={({ field }) => (
-          <FormItem className="space-y-2">
-            <div className="flex items-center space-x-2">
-              <FormControl>
-                <Checkbox 
-                  checked={field.value} 
-                  onCheckedChange={field.onChange} 
-                />
-              </FormControl>
-              <FormLabel className="cursor-pointer">
-                Sound system provided
-              </FormLabel>
-            </div>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-      
-      {form.watch("soundSystemProvided") && (
-        <FormField
-          control={form.control}
-          name="soundSystemType"
-          render={({ field }) => (
-            <FormItem className="ml-6 space-y-2">
-              <FormLabel>What kind of sound system?</FormLabel>
-              <FormControl>
-                <Input 
-                  placeholder="Describe your sound system" 
-                  {...field} 
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-      )}
+      <h3 className="text-xl font-semibold border-b border-white/20 pb-2">Additional Information</h3>
       
       <FormField
         control={form.control}
@@ -81,10 +41,11 @@ const AdditionalInfoSection = ({ form }: AdditionalInfoSectionProps) => {
                 </SelectTrigger>
               </FormControl>
               <SelectContent>
-                <SelectItem value="google">Google</SelectItem>
-                <SelectItem value="instagram">Instagram</SelectItem>
-                <SelectItem value="referral">Friend / Colleague</SelectItem>
-                <SelectItem value="show">Saw your show</SelectItem>
+                <SelectItem value="social">Social Media</SelectItem>
+                <SelectItem value="search">Search Engine</SelectItem>
+                <SelectItem value="referral">Personal Referral</SelectItem>
+                <SelectItem value="event">Saw a Live Performance</SelectItem>
+                <SelectItem value="media">Media/Press</SelectItem>
                 <SelectItem value="other">Other</SelectItem>
               </SelectContent>
             </Select>

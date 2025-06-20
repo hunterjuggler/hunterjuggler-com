@@ -30,19 +30,19 @@ const ContactInfoSection = () => {
           <Calendar className="w-6 h-6 text-[#ff4742] mt-1" />
           <div>
             <h3 className="font-medium">Booking Timeline</h3>
-            <p className="text-muted-foreground">Please contact at least 6–8 weeks in advance for most events, or 3+ months for major international events.</p>
+            <p className="text-muted-foreground">Please contact at least 6-8 weeks in advance for event bookings</p>
           </div>
         </div>
       </div>
       
       <div className="bg-black/40 p-6 rounded-lg border border-white/10">
-        <h3 className="font-semibold mb-3">Event Types</h3>
+        <h3 className="font-semibold mb-3">Performance Types</h3>
         <ul className="space-y-2 text-muted-foreground">
-          <li>• Corporate Events</li>
-          <li>• Festivals & Street Performances</li>
-          <li>• Private Parties</li>
-          <li>• Theatres & Cabarets</li>
-          <li>• Fairs & Public Events</li>
+          <li>• Corporate Events & Galas</li>
+          <li>• Festivals & Public Performances</li>
+          <li>• Private Celebrations</li>
+          <li>• Theater Shows & Productions</li>
+          <li>• Brand Activations & Launch Events</li>
         </ul>
       </div>
     </div>

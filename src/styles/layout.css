@@ -63,15 +63,8 @@
 
 /* Smooth background gradient for the entire page */
 .bg-gradient-smooth {
-  background: linear-gradient(135deg, 
-    rgba(0, 0, 0, 0.95) 0%, 
-    rgba(20, 20, 20, 0.9) 25%,
-    rgba(40, 40, 40, 0.85) 50%,
-    rgba(20, 20, 20, 0.9) 75%,
-    rgba(0, 0, 0, 0.95) 100%
-  );
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
   background-attachment: fixed;
-  min-height: 100vh;
 }
 
 /* Remove any potential borders or lines */
