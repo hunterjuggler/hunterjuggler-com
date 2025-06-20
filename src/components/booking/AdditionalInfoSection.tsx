@@ -1,20 +1,40 @@
-import { FormField, FormItem, FormLabel, FormControl, FormMessage, FormDescription } from "@/components/ui/form";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
+import {
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+  FormDescription
+} from "@/components/ui/form";
+import { 
+  Select, 
+  SelectContent, 
+  SelectItem, 
+  SelectTrigger, 
+  SelectValue 
+} from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
+
 interface AdditionalInfoSectionProps {
   form: any;
 }
-const AdditionalInfoSection = ({
-  form
-}: AdditionalInfoSectionProps) => {
-  return <div className="space-y-6">
+
+const AdditionalInfoSection = ({ form }: AdditionalInfoSectionProps) => {
+  return (
+    <div className="space-y-6">
+      <h3 className="text-xl font-semibold border-b border-white/20 pb-2">Additional Information</h3>
       
-      
-      <FormField control={form.control} name="referralSource" render={({
-      field
-    }) => <FormItem>
+      <FormField
+        control={form.control}
+        name="referralSource"
+        render={({ field }) => (
+          <FormItem>
             <FormLabel>How did you hear about me?</FormLabel>
-            <Select onValueChange={field.onChange} defaultValue={field.value}>
+            <Select 
+              onValueChange={field.onChange} 
+              defaultValue={field.value}
+            >
               <FormControl>
                 <SelectTrigger>
                   <SelectValue placeholder="Select an option" />
@@ -29,13 +49,21 @@ const AdditionalInfoSection = ({
               </SelectContent>
             </Select>
             <FormMessage />
-          </FormItem>} />
+          </FormItem>
+        )}
+      />
       
-      <FormField control={form.control} name="agreeToTerms" render={({
-      field
-    }) => <FormItem className="flex flex-row items-start space-x-2 pt-4">
+      <FormField
+        control={form.control}
+        name="agreeToTerms"
+        render={({ field }) => (
+          <FormItem className="flex flex-row items-start space-x-2 pt-4">
             <FormControl>
-              <Checkbox checked={field.value} onCheckedChange={field.onChange} className="mt-1" />
+              <Checkbox 
+                checked={field.value} 
+                onCheckedChange={field.onChange} 
+                className="mt-1" 
+              />
             </FormControl>
             <div className="space-y-1 leading-none">
               <FormLabel className="text-sm cursor-pointer">
@@ -45,7 +73,11 @@ const AdditionalInfoSection = ({
               </FormLabel>
               <FormMessage />
             </div>
-          </FormItem>} />
-    </div>;
+          </FormItem>
+        )}
+      />
+    </div>
+  );
 };
+
 export default AdditionalInfoSection;
