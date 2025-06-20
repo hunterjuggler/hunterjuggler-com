@@ -1,8 +1,30 @@
+
+/* Reset default styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.95) 0%, 
+    rgba(20, 20, 20, 0.9) 25%,
+    rgba(40, 40, 40, 0.85) 50%,
+    rgba(20, 20, 20, 0.9) 75%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: white;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
 .logo {
@@ -11,9 +33,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -39,4 +63,9 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Ensure proper text color inheritance */
+h1, h2, h3, h4, h5, h6, p, span, div {
+  color: inherit;
 }
