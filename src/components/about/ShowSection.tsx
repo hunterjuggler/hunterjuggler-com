@@ -18,10 +18,10 @@ const ShowSection: React.FC = () => {
             className="integrated-image-container rounded-2xl overflow-hidden order-2 md:order-1"
           >
             <BlurImage 
-              src="/lovable-uploads/2ab62991-127d-4fa9-a315-0465d98ad31b.png" 
+              src="/lovable-uploads/caccdc20-e85d-443a-93d6-8500b3024c84.png" 
               alt="Hunter Way show performance" 
-              aspectRatio="wide" 
               className="w-full h-full object-cover integrated-image" 
+              aspectRatio="auto"
             />
           </motion.div>
           

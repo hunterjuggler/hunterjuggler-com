@@ -1,12 +1,11 @@
-
 import { PerformanceCategory } from "@/types/gallery";
 
 export const edinburghMound2022: PerformanceCategory = {
   id: 7,
-  name: "Edinburgh Fringe, Mound - 2022",
+  name: "Edinburgh Fringe — The Mound (2022)",
   description: "Performance at Edinburgh Fringe Festival at The Mound",
   coverImage: "/lovable-uploads/a9cc8333-959f-444e-b27e-78e8193e9542.png",
-  photographer: "Edinburgh Fringe Photography",
+  photographer: "Kit Oates",
   images: [
     {
       id: 901,
@@ -14,7 +13,7 @@ export const edinburghMound2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/a9cc8333-959f-444e-b27e-78e8193e9542.png",
       fullImage: "/lovable-uploads/a9cc8333-959f-444e-b27e-78e8193e9542.png",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Kit Oates",
     },
     {
       id: 911,
@@ -22,7 +21,7 @@ export const edinburghMound2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/df3aee2d-f60e-4f5c-bd88-0486ccb2440e.png",
       fullImage: "/lovable-uploads/df3aee2d-f60e-4f5c-bd88-0486ccb2440e.png",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Kit Oates",
     },
     {
       id: 902,
@@ -30,7 +29,7 @@ export const edinburghMound2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/5ae5c72f-1f5a-40d1-82be-5a6b89f73581.png",
       fullImage: "/lovable-uploads/5ae5c72f-1f5a-40d1-82be-5a6b89f73581.png",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Kit Oates",
     },
     {
       id: 903,
@@ -38,7 +37,7 @@ export const edinburghMound2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/179afe08-5739-422e-b3d9-8e07ca56f175.png",
       fullImage: "/lovable-uploads/179afe08-5739-422e-b3d9-8e07ca56f175.png",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Kit Oates",
     },
     {
       id: 904,
@@ -46,7 +45,7 @@ export const edinburghMound2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/66acc7e4-bfc0-47e5-ab5b-af9023cde894.png",
       fullImage: "/lovable-uploads/66acc7e4-bfc0-47e5-ab5b-af9023cde894.png",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Kit Oates",
     },
     {
       id: 905,
@@ -54,7 +53,7 @@ export const edinburghMound2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/25611669-22ce-4c0b-9dfd-eec0757d166c.png",
       fullImage: "/lovable-uploads/25611669-22ce-4c0b-9dfd-eec0757d166c.png",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Kit Oates",
     },
     {
       id: 906,
@@ -62,7 +61,7 @@ export const edinburghMound2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/c1935a67-4a47-42f9-aa27-699661da3764.png",
       fullImage: "/lovable-uploads/c1935a67-4a47-42f9-aa27-699661da3764.png",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Kit Oates",
     },
     {
       id: 907,
@@ -70,7 +69,7 @@ export const edinburghMound2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/0be021b7-fa41-495c-845c-81213ac3e88b.png",
       fullImage: "/lovable-uploads/0be021b7-fa41-495c-845c-81213ac3e88b.png",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Kit Oates",
     },
     {
       id: 908,
@@ -78,7 +77,7 @@ export const edinburghMound2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/003512a0-8015-4772-8bcc-af50758aafa7.png",
       fullImage: "/lovable-uploads/003512a0-8015-4772-8bcc-af50758aafa7.png",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Kit Oates",
     },
     {
       id: 909,
@@ -86,7 +85,7 @@ export const edinburghMound2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/36870abc-a4f5-4538-9cfd-4f66fa0d0a86.png",
       fullImage: "/lovable-uploads/36870abc-a4f5-4538-9cfd-4f66fa0d0a86.png",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Kit Oates",
     },
     {
       id: 910,
@@ -94,7 +93,7 @@ export const edinburghMound2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/cfabb1c0-b8fe-4cf7-b5d5-89fa4a500a74.png",
       fullImage: "/lovable-uploads/cfabb1c0-b8fe-4cf7-b5d5-89fa4a500a74.png",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Kit Oates",
     },
   ],
 };

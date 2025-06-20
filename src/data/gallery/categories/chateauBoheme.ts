@@ -1,9 +1,8 @@
-
 import { PerformanceCategory } from "@/types/gallery";
 
 export const chateauBoheme: PerformanceCategory = {
   id: 4,
-  name: "Château Bohème Mighty Variety Show",
+  name: "Château Bohème Mighty Variety Show — Switzerland",
   description: "A spectacular variety show featuring circus arts and entertainment",
   coverImage: "/lovable-uploads/f8ce8caf-4911-4628-85ff-56e5a3a27125.png",
   photographer: "Show Photography",

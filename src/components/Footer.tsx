@@ -23,19 +23,18 @@ const Footer = () => {
   return (
     <footer className="bg-black/30 py-16">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-4">
           <div>
             <h3 className="text-xl font-display font-bold mb-4">Hunter Way</h3>
             <p className="text-muted-foreground max-w-sm">
-              Professional performing artist with a decade of experience in acrobatics,
-              juggling, and captivating stage performances.
+              Hunter Way is a professional comedy juggler and variety performer, known for world-class juggling, circus stunts, and audience participation at festivals and events worldwide.
             </p>
           </div>
 
           <div>
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <div className="flex space-x-6 mb-6 px-0 mx-0">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="footer-social-icon text-[#ff4742] hover:text-accent" aria-label="Instagram">
+              <a href="https://instagram.com/hunterjuggler" target="_blank" rel="noopener noreferrer" className="footer-social-icon text-[#ff4742] hover:text-accent" aria-label="Instagram">
                 <Instagram size={28} />
               </a>
               <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="footer-social-icon text-[#ff4742] hover:text-accent" aria-label="YouTube">

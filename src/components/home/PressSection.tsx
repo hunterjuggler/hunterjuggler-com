@@ -4,25 +4,25 @@ import BlurImage from "@/components/BlurImage";
 import PressKit from "@/components/PressKit";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
-// Press clippings - more subtle presentation
+// Press clippings from uploaded images
 const pressClippings = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1585241936939-be4099591252?q=80&w=1974&auto=format&fit=crop",
-    title: "Hunter Way Amazes Crowd at International Festival",
-    source: "Entertainment Weekly"
+    image: "/lovable-uploads/38c30289-7a18-46a8-bdd8-909e77dac713.png",
+    title: "Zirkus - Artisten performen im Schlossgarten",
+    source: "Freiburger Nachrichten"
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1585241936939-be4099591252?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=2",
-    title: "The Art of Balance: Interview with Hunter Way",
-    source: "Performance Arts Magazine"
+    image: "/lovable-uploads/3bd9e9d4-9c08-4a9f-b3cf-339012b2acc9.png",
+    title: "Marktredwitz – bunt und wild",
+    source: "Marktredwitz Local News"
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1585241936939-be4099591252?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=3",
-    title: "Top 10 Performers to Watch This Year",
-    source: "The Daily Telegraph"
+    image: "/lovable-uploads/af922522-4713-4ef0-b964-863d8e75ba0e.png",
+    title: "Juggling axes on fire and riding a large unicycle",
+    source: "BBC Scotland"
   }
 ];
 

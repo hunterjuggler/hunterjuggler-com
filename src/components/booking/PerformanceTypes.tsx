@@ -11,7 +11,7 @@ const PerformanceTypes = () => {
             <Theater size={16} />
           </span>
           <div>
-            <p className="font-medium">Standard Performance</p>
+            <p className="font-medium">Comedy Juggling Show</p>
             <p className="text-sm text-muted-foreground">Classic 30-45 minute show featuring signature acts</p>
           </div>
         </li>
@@ -20,8 +20,8 @@ const PerformanceTypes = () => {
             <Theater size={16} />
           </span>
           <div>
-            <p className="font-medium">Custom Show</p>
-            <p className="text-sm text-muted-foreground">Tailored performance designed for your specific event</p>
+            <p className="font-medium">Roaming / Walkaround</p>
+            <p className="text-sm text-muted-foreground">Wandering performance that creates atmosphere throughout your venue</p>
           </div>
         </li>
         <li className="flex items-start">
@@ -29,8 +29,8 @@ const PerformanceTypes = () => {
             <Theater size={16} />
           </span>
           <div>
-            <p className="font-medium">Roaming Entertainment / Ambience</p>
-            <p className="text-sm text-muted-foreground">Wandering performance that creates atmosphere throughout your venue</p>
+            <p className="font-medium">Special Request</p>
+            <p className="text-sm text-muted-foreground">Tailored performance designed for your specific event</p>
           </div>
         </li>
       </ul>

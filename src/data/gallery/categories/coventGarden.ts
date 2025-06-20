@@ -1,4 +1,3 @@
-
 import { PerformanceCategory } from "@/types/gallery";
 
 export const coventGarden: PerformanceCategory = {
