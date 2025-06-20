@@ -15,6 +15,7 @@ import {
   SelectTrigger, 
   SelectValue 
 } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 
 interface EventDetailsSectionProps {
   form: any;
@@ -24,6 +25,32 @@ const EventDetailsSection = ({ form }: EventDetailsSectionProps) => {
   return (
     <div className="space-y-6">
       <h3 className="text-xl font-semibold border-b border-white/20 pb-2">Event Details</h3>
+      
+      <FormField
+        control={form.control}
+        name="eventType"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Event Type</FormLabel>
+            <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <FormControl>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select event type" />
+                </SelectTrigger>
+              </FormControl>
+              <SelectContent>
+                <SelectItem value="corporate">Corporate Event</SelectItem>
+                <SelectItem value="festival">Festival</SelectItem>
+                <SelectItem value="private">Private Party</SelectItem>
+                <SelectItem value="theatre">Theatre / Cabaret</SelectItem>
+                <SelectItem value="fair">Fair or Public Event</SelectItem>
+                <SelectItem value="other">Other</SelectItem>
+              </SelectContent>
+            </Select>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <FormField
@@ -172,6 +199,46 @@ const EventDetailsSection = ({ form }: EventDetailsSectionProps) => {
           )}
         />
       </div>
+      
+      <FormField
+        control={form.control}
+        name="soundSystemProvided"
+        render={({ field }) => (
+          <FormItem className="space-y-2">
+            <div className="flex items-center space-x-2">
+              <FormControl>
+                <Checkbox 
+                  checked={field.value} 
+                  onCheckedChange={field.onChange} 
+                />
+              </FormControl>
+              <FormLabel className="cursor-pointer">
+                Sound system provided
+              </FormLabel>
+            </div>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      
+      {form.watch("soundSystemProvided") && (
+        <FormField
+          control={form.control}
+          name="soundSystemType"
+          render={({ field }) => (
+            <FormItem className="ml-6 space-y-2">
+              <FormLabel>What kind of sound system?</FormLabel>
+              <FormControl>
+                <Input 
+                  placeholder="Describe your sound system" 
+                  {...field} 
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+      )}
     </div>
   );
 };

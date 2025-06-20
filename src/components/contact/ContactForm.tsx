@@ -6,6 +6,13 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { 
+  Select, 
+  SelectContent, 
+  SelectItem, 
+  SelectTrigger, 
+  SelectValue 
+} from "@/components/ui/select";
 import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,6 +33,7 @@ const contactFormSchema = z.object({
   phone: z.string().optional(),
   eventType: z.enum(["corporate", "festival", "private", "other"]),
   date: z.string().optional(),
+  replyUrgency: z.string().optional(),
   message: z.string().min(10, { message: "Message must be at least 10 characters" }),
 });
 
@@ -42,6 +50,7 @@ const ContactForm = () => {
       phone: "",
       eventType: "corporate",
       date: "",
+      replyUrgency: "",
       message: ""
     },
   });
@@ -174,6 +183,30 @@ const ContactForm = () => {
                       </div>
                     </RadioGroup>
                   </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            
+            <FormField
+              control={form.control}
+              name="replyUrgency"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>How soon do you need a reply? (optional)</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger className="contact-input">
+                        <SelectValue placeholder="Select timeline" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="asap">ASAP</SelectItem>
+                      <SelectItem value="week">Within a week</SelectItem>
+                      <SelectItem value="month">Within a month</SelectItem>
+                      <SelectItem value="flexible">I'm flexible</SelectItem>
+                    </SelectContent>
+                  </Select>
                   <FormMessage />
                 </FormItem>
               )}

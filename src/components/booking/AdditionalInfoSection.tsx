@@ -41,11 +41,10 @@ const AdditionalInfoSection = ({ form }: AdditionalInfoSectionProps) => {
                 </SelectTrigger>
               </FormControl>
               <SelectContent>
-                <SelectItem value="social">Social Media</SelectItem>
-                <SelectItem value="search">Search Engine</SelectItem>
-                <SelectItem value="referral">Personal Referral</SelectItem>
-                <SelectItem value="event">Saw a Live Performance</SelectItem>
-                <SelectItem value="media">Media/Press</SelectItem>
+                <SelectItem value="google">Google</SelectItem>
+                <SelectItem value="instagram">Instagram</SelectItem>
+                <SelectItem value="friend">Friend / Colleague</SelectItem>
+                <SelectItem value="show">Saw your show</SelectItem>
                 <SelectItem value="other">Other</SelectItem>
               </SelectContent>
             </Select>
