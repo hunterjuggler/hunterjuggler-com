@@ -7,7 +7,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { 
   Select, 
   SelectContent, 
@@ -72,6 +71,32 @@ const EventDetailsSection = ({ form }: EventDetailsSectionProps) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <FormField
           control={form.control}
+          name="eventType"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Event Type</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select event type" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="corporate">Corporate Event</SelectItem>
+                  <SelectItem value="festival">Festival</SelectItem>
+                  <SelectItem value="private">Private Party</SelectItem>
+                  <SelectItem value="theatre">Theatre / Cabaret</SelectItem>
+                  <SelectItem value="fair">Fair or Public Event</SelectItem>
+                  <SelectItem value="other">Other</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        
+        <FormField
+          control={form.control}
           name="venueType"
           render={({ field }) => (
             <FormItem>
@@ -92,7 +117,9 @@ const EventDetailsSection = ({ form }: EventDetailsSectionProps) => {
             </FormItem>
           )}
         />
-        
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <FormField
           control={form.control}
           name="audienceSize"
@@ -110,6 +137,31 @@ const EventDetailsSection = ({ form }: EventDetailsSectionProps) => {
                   <SelectItem value="medium">Medium (51-200)</SelectItem>
                   <SelectItem value="large">Large (201-500)</SelectItem>
                   <SelectItem value="xlarge">Very Large (500+)</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        
+        <FormField
+          control={form.control}
+          name="performanceDuration"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Performance Duration *</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select duration" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="10">10 minutes</SelectItem>
+                  <SelectItem value="20">20 minutes</SelectItem>
+                  <SelectItem value="30">30 minutes</SelectItem>
+                  <SelectItem value="45">45 minutes</SelectItem>
+                  <SelectItem value="60">60 minutes</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />
@@ -142,31 +194,6 @@ const EventDetailsSection = ({ form }: EventDetailsSectionProps) => {
               <FormControl>
                 <Input placeholder="e.g., 12 feet" {...field} />
               </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        
-        <FormField
-          control={form.control}
-          name="performanceDuration"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Performance Duration *</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select duration" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value="10">10 minutes</SelectItem>
-                  <SelectItem value="20">20 minutes</SelectItem>
-                  <SelectItem value="30">30 minutes</SelectItem>
-                  <SelectItem value="45">45 minutes</SelectItem>
-                  <SelectItem value="60">60 minutes</SelectItem>
-                </SelectContent>
-              </Select>
               <FormMessage />
             </FormItem>
           )}

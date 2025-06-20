@@ -96,29 +96,44 @@ const PressKitPage = () => {
           <div className="mt-12">
             <h3 className="text-2xl font-display font-bold mb-6">Press Coverage</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-black/5 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-black/10 transition-colors">
-                  <BlurImage
-                    src={`https://images.unsplash.com/photo-1585241936939-be4099591252?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=${i}`}
-                    alt={`Press clipping ${i}`}
-                    aspectRatio="video"
-                    className="w-full"
-                    noBg={true}
-                  />
-                  <div className="p-4">
-                    <p className="text-xs text-accent/90 font-medium mb-1">
-                      {i === 1 ? "Entertainment Weekly" : i === 2 ? "Performance Arts Magazine" : "The Daily Telegraph"}
-                    </p>
-                    <p className="text-base font-medium line-clamp-2">
-                      {i === 1 
-                        ? "Hunter Way Amazes Crowd at International Festival" 
-                        : i === 2 
-                        ? "The Art of Balance: Interview with Hunter Way" 
-                        : "Top 10 Performers to Watch This Year"}
-                    </p>
-                  </div>
+              <div className="bg-black/5 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-black/10 transition-colors integrated-image-container">
+                <BlurImage
+                  src="/lovable-uploads/38c30289-7a18-46a8-bdd8-909e77dac713.png"
+                  alt="Zirkus - Artisten performen im Schlossgarten"
+                  className="w-full integrated-image"
+                  noBg={true}
+                />
+                <div className="p-4">
+                  <p className="text-xs text-accent/90 font-medium mb-1">Freiburger Nachrichten</p>
+                  <p className="text-base font-medium line-clamp-2">Zirkus - Artisten performen im Schlossgarten</p>
                 </div>
-              ))}
+              </div>
+              
+              <div className="bg-black/5 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-black/10 transition-colors integrated-image-container">
+                <BlurImage
+                  src="/lovable-uploads/3bd9e9d4-9c08-4a9f-b3cf-339012b2acc9.png"
+                  alt="Marktredwitz – bunt und wild"
+                  className="w-full integrated-image"
+                  noBg={true}
+                />
+                <div className="p-4">
+                  <p className="text-xs text-accent/90 font-medium mb-1">Marktredwitz Local News</p>
+                  <p className="text-base font-medium line-clamp-2">Marktredwitz – bunt und wild</p>
+                </div>
+              </div>
+              
+              <div className="bg-black/5 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-black/10 transition-colors integrated-image-container">
+                <BlurImage
+                  src="/lovable-uploads/af922522-4713-4ef0-b964-863d8e75ba0e.png"
+                  alt="Juggling axes on fire and riding a large unicycle"
+                  className="w-full integrated-image"
+                  noBg={true}
+                />
+                <div className="p-4">
+                  <p className="text-xs text-accent/90 font-medium mb-1">BBC Scotland</p>
+                  <p className="text-base font-medium line-clamp-2">Juggling axes on fire and riding a large unicycle</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

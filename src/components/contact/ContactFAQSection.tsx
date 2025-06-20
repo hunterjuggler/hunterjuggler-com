@@ -19,8 +19,7 @@ const ContactFAQSection = () => {
           >
             <h3 className="font-semibold mb-3">How far in advance should I book?</h3>
             <p className="text-muted-foreground">
-              I recommend booking 6-8 weeks in advance for most events, and 3-6 months for major
-              events or festivals to ensure availability and adequate preparation time.
+              6–8 weeks for most events, 3+ months for major international events/festivals.
             </p>
           </motion.div>
           
@@ -34,7 +33,7 @@ const ContactFAQSection = () => {
             <h3 className="font-semibold mb-3">Do you travel for performances?</h3>
             <p className="text-muted-foreground">
               Yes, I perform at events worldwide. Travel expenses are typically added to the
-              performance fee for locations outside of Los Angeles.
+              performance fee for locations outside of the Bay Area.
             </p>
           </motion.div>
           
@@ -47,8 +46,7 @@ const ContactFAQSection = () => {
           >
             <h3 className="font-semibold mb-3">What technical requirements do you have?</h3>
             <p className="text-muted-foreground">
-              Technical requirements vary by performance type. Once we discuss your event, I'll
-              provide a detailed technical rider with space, lighting, and sound requirements.
+              My show is fully self-contained. I'll provide any space, sound, or setup details once we confirm your event.
             </p>
           </motion.div>
           
@@ -61,8 +59,7 @@ const ContactFAQSection = () => {
           >
             <h3 className="font-semibold mb-3">Can you customize performances?</h3>
             <p className="text-muted-foreground">
-              Absolutely! I enjoy creating customized performances that align with event themes,
-              brand identities, or specific creative visions.
+              Absolutely — I'm happy to adapt the show for your audience, whether it's a family festival, corporate event, or special occasion.
             </p>
           </motion.div>
         </div>
