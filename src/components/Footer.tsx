@@ -1,13 +1,10 @@
-
 import { Instagram, Youtube, Mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useState } from "react";
-
 const Footer = () => {
   const [email, setEmail] = useState("");
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) {
@@ -19,16 +16,12 @@ const Footer = () => {
     toast.success("Thank you for subscribing!");
     setEmail("");
   };
-
-  return (
-    <footer className="bg-black/30 py-16">
+  return <footer className="bg-black/30 py-16">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid gap-10 md:grid-cols-4">
           <div>
             <h3 className="text-xl font-display font-bold mb-4">Hunter Way</h3>
-            <p className="text-muted-foreground max-w-sm">
-              Hunter Way is a professional comedy juggler and variety performer, known for world-class juggling, circus stunts, and audience participation at festivals and events worldwide.
-            </p>
+            <p className="text-muted-foreground max-w-sm">Professional comedy juggler and variety performer, known for world-class juggling, circus stunts, and audience participation at festivals and events worldwide.</p>
           </div>
 
           <div>
@@ -72,8 +65,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
