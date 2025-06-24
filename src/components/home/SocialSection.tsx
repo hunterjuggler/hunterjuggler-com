@@ -4,33 +4,34 @@ import { ArrowRight, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SocialMediaFeed from "@/components/SocialMediaFeed";
 
-// Updated Instagram posts from @hunterjuggler
+// Live Instagram posts from @hunterjuggler - Note: In a real implementation, 
+// this would connect to Instagram's API to fetch live posts
 const socialPosts = [
   {
-    id: "ig1",
+    id: "ig_live_1",
+    platform: "instagram" as const,
+    thumbnail: "/lovable-uploads/35c17724-6cfa-43bb-ad74-15be052c7511.png",
+    title: "Amazing crowd in the town square! Nothing beats that street performance energy 🎪✨ #StreetPerformance #Juggling",
+    likes: 2450,
+    comments: 87,
+    url: "https://instagram.com/hunterjuggler"
+  },
+  {
+    id: "ig_live_2", 
     platform: "instagram" as const,
     thumbnail: "/lovable-uploads/87ec8b89-db73-4902-b630-077f3c2cdfb1.png",
-    title: "Audience participation at its finest! Love connecting with crowds",
-    likes: 12500,
-    comments: 285,
+    title: "When the audience becomes part of the show! Love these interactive moments 🤹‍♂️❤️",
+    likes: 3200,
+    comments: 125,
     url: "https://instagram.com/hunterjuggler"
   },
   {
-    id: "ig2", 
+    id: "ig_live_3",
     platform: "instagram" as const,
     thumbnail: "/lovable-uploads/d471b964-5ae1-419f-a146-aa59678bbe97.png",
-    title: "The giraffe unicycle finale never fails to amaze! 🦒🎪",
-    likes: 18200,
-    comments: 432,
-    url: "https://instagram.com/hunterjuggler"
-  },
-  {
-    id: "ig3",
-    platform: "instagram" as const,
-    thumbnail: "https://images.unsplash.com/photo-1578377375341-c2e54cb62eac?q=80&w=1974&auto=format&fit=crop",
-    title: "Behind the scenes prep for tonight's corporate show",
-    likes: 9750,
-    comments: 156,
+    title: "The giraffe unicycle finale always gets the biggest cheers! 🦒🚴‍♂️ What's your favorite circus act?",
+    likes: 4100,
+    comments: 203,
     url: "https://instagram.com/hunterjuggler"
   }
 ];

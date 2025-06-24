@@ -1,9 +1,7 @@
 
 import { FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
 
 interface EventDetailsSectionProps {
   form: any;
@@ -12,67 +10,60 @@ interface EventDetailsSectionProps {
 const EventDetailsSection = ({
   form
 }: EventDetailsSectionProps) => {
-  return <div className="space-y-6">
+  return (
+    <div className="space-y-6">
       <h3 className="text-xl font-semibold border-b border-white/20 pb-2">Event Details</h3>
       
-      <FormField control={form.control} name="eventType" render={({
-      field
-    }) => <FormItem>
-            <FormLabel>Event Type</FormLabel>
-            <Select onValueChange={field.onChange} defaultValue={field.value}>
-              <FormControl>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select event type" />
-                </SelectTrigger>
-              </FormControl>
-              <SelectContent>
-                <SelectItem value="corporate">Corporate Event</SelectItem>
-                <SelectItem value="festival">Festival</SelectItem>
-                <SelectItem value="private">Private Party</SelectItem>
-                <SelectItem value="theatre">Theatre / Cabaret</SelectItem>
-                <SelectItem value="fair">Fair or Public Event</SelectItem>
-                <SelectItem value="other">Other</SelectItem>
-              </SelectContent>
-            </Select>
-            <FormMessage />
-          </FormItem>} />
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <FormField control={form.control} name="eventDate" render={({
-        field
-      }) => <FormItem>
+      <div className="grid md:grid-cols-2 gap-4">
+        <FormField
+          control={form.control}
+          name="eventDate"
+          render={({ field }) => (
+            <FormItem>
               <FormLabel>Event Date *</FormLabel>
               <FormControl>
                 <Input type="date" {...field} />
               </FormControl>
               <FormMessage />
-            </FormItem>} />
+            </FormItem>
+          )}
+        />
         
-        <FormField control={form.control} name="eventTime" render={({
-        field
-      }) => <FormItem>
+        <FormField
+          control={form.control}
+          name="eventTime"
+          render={({ field }) => (
+            <FormItem>
               <FormLabel>Event Time *</FormLabel>
               <FormControl>
                 <Input type="time" {...field} />
               </FormControl>
               <FormMessage />
-            </FormItem>} />
+            </FormItem>
+          )}
+        />
       </div>
       
-      <FormField control={form.control} name="eventLocation" render={({
-      field
-    }) => <FormItem>
+      <FormField
+        control={form.control}
+        name="eventLocation"
+        render={({ field }) => (
+          <FormItem>
             <FormLabel>Event Location *</FormLabel>
             <FormControl>
-              <Input placeholder="City, State/Country" {...field} />
+              <Input placeholder="Enter venue name and address" {...field} />
             </FormControl>
             <FormMessage />
-          </FormItem>} />
+          </FormItem>
+        )}
+      />
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <FormField control={form.control} name="venueType" render={({
-        field
-      }) => <FormItem>
+      <div className="grid md:grid-cols-2 gap-4">
+        <FormField
+          control={form.control}
+          name="venueType"
+          render={({ field }) => (
+            <FormItem>
               <FormLabel>Venue Type</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
@@ -81,17 +72,25 @@ const EventDetailsSection = ({
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="indoor">Indoor</SelectItem>
-                  <SelectItem value="outdoor">Outdoor</SelectItem>
-                  <SelectItem value="both">Both Indoor & Outdoor</SelectItem>
+                  <SelectItem value="indoor-theater">Indoor Theater/Auditorium</SelectItem>
+                  <SelectItem value="outdoor-stage">Outdoor Stage</SelectItem>
+                  <SelectItem value="corporate-office">Corporate Office/Conference Room</SelectItem>
+                  <SelectItem value="private-home">Private Home/Backyard</SelectItem>
+                  <SelectItem value="restaurant-bar">Restaurant/Bar</SelectItem>
+                  <SelectItem value="festival-fair">Festival/Fair</SelectItem>
+                  <SelectItem value="other">Other</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />
-            </FormItem>} />
+            </FormItem>
+          )}
+        />
         
-        <FormField control={form.control} name="audienceSize" render={({
-        field
-      }) => <FormItem>
+        <FormField
+          control={form.control}
+          name="audienceSize"
+          render={({ field }) => (
+            <FormItem>
               <FormLabel>Expected Audience Size</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
@@ -100,81 +99,96 @@ const EventDetailsSection = ({
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="small">Small (1-50)</SelectItem>
-                  <SelectItem value="medium">Medium (51-200)</SelectItem>
-                  <SelectItem value="large">Large (201-500)</SelectItem>
-                  <SelectItem value="xlarge">Very Large (500+)</SelectItem>
+                  <SelectItem value="1-25">1-25 people</SelectItem>
+                  <SelectItem value="26-50">26-50 people</SelectItem>
+                  <SelectItem value="51-100">51-100 people</SelectItem>
+                  <SelectItem value="101-250">101-250 people</SelectItem>
+                  <SelectItem value="251-500">251-500 people</SelectItem>
+                  <SelectItem value="500+">500+ people</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />
-            </FormItem>} />
+            </FormItem>
+          )}
+        />
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <FormField control={form.control} name="stageSize" render={({
-        field
-      }) => <FormItem>
-              <FormLabel>Stage/Performance Area Size *</FormLabel>
-              <FormControl>
-                <Input placeholder="e.g., 20x20 feet" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>} />
-        
-        <FormField control={form.control} name="ceilingHeight" render={({
-        field
-      }) => <FormItem>
-              <FormLabel>Ceiling Height *</FormLabel>
-              <FormControl>
-                <Input placeholder="e.g., 12 feet" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>} />
-        
-        <FormField control={form.control} name="performanceDuration" render={({
-        field
-      }) => <FormItem>
-              <FormLabel>Performance Duration *</FormLabel>
+      <div className="grid md:grid-cols-2 gap-4">
+        <FormField
+          control={form.control}
+          name="stageSize"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Performance Area Size *</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select duration" />
+                    <SelectValue placeholder="Select stage size" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="10">10 minutes</SelectItem>
-                  <SelectItem value="20">20 minutes</SelectItem>
-                  <SelectItem value="30">30 minutes</SelectItem>
-                  <SelectItem value="45">45 minutes</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
+                  <SelectItem value="small">Small (10x10 ft)</SelectItem>
+                  <SelectItem value="medium">Medium (15x15 ft)</SelectItem>
+                  <SelectItem value="large">Large (20x20 ft or bigger)</SelectItem>
+                  <SelectItem value="street">Street/Open Space</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />
-            </FormItem>} />
+            </FormItem>
+          )}
+        />
+        
+        <FormField
+          control={form.control}
+          name="ceilingHeight"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Ceiling Height *</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select ceiling height" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="12ft+">12+ feet (recommended)</SelectItem>
+                  <SelectItem value="8-12ft">8-12 feet</SelectItem>
+                  <SelectItem value="under-8ft">Under 8 feet</SelectItem>
+                  <SelectItem value="outdoor">Outdoor/No ceiling</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
       </div>
       
-      <FormField control={form.control} name="soundSystemProvided" render={({
-      field
-    }) => <FormItem className="space-y-2">
-            <div className="flex items-center space-x-2">
+      <FormField
+        control={form.control}
+        name="performanceDuration"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Performance Duration *</FormLabel>
+            <Select onValueChange={field.onChange} defaultValue={field.value}>
               <FormControl>
-                <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+                <SelectTrigger>
+                  <SelectValue placeholder="Select performance duration" />
+                </SelectTrigger>
               </FormControl>
-              <FormLabel className="cursor-pointer">Will you provide a sound system?</FormLabel>
-            </div>
+              <SelectContent>
+                <SelectItem value="45">45 min Comedy Juggling Show (recommended)</SelectItem>
+                <SelectItem value="30">30 min Comedy Juggling Show (recommended)</SelectItem>
+                <SelectItem value="20">20 min Comedy Juggling Show</SelectItem>
+                <SelectItem value="4-10">4–10 min feature / showcase spot</SelectItem>
+                <SelectItem value="other">Other</SelectItem>
+              </SelectContent>
+            </Select>
             <FormMessage />
-          </FormItem>} />
-      
-      {form.watch("soundSystemProvided") && <FormField control={form.control} name="soundSystemType" render={({
-      field
-    }) => <FormItem className="ml-6 space-y-2">
-              <FormLabel>What kind of sound system?</FormLabel>
-              <FormControl>
-                <Input placeholder="Describe your sound system" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>} />}
-    </div>;
+          </FormItem>
+        )}
+      />
+    </div>
+  );
 };
 
 export default EventDetailsSection;
