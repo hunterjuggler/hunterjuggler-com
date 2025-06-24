@@ -15,12 +15,12 @@ const ShowSection: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }} 
             transition={{ duration: 0.5 }} 
             viewport={{ once: true }} 
-            className="integrated-image-container rounded-2xl overflow-hidden order-2 md:order-1"
+            className="rounded-2xl overflow-hidden order-2 md:order-1"
           >
             <BlurImage 
               src="/lovable-uploads/87ec8b89-db73-4902-b630-077f3c2cdfb1.png" 
               alt="Hunter Way performing with audience participation" 
-              className="w-full h-full object-cover integrated-image brightness-125 contrast-110" 
+              className="w-full h-full object-cover" 
               aspectRatio="auto"
             />
           </motion.div>

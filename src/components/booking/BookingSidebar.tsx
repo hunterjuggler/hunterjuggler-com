@@ -1,6 +1,5 @@
 
 import { motion } from "@/lib/motion";
-import PerformanceTypes from "./PerformanceTypes";
 import PlanningTimeline from "./PlanningTimeline";
 
 const BookingSidebar = () => {
@@ -16,7 +15,6 @@ const BookingSidebar = () => {
       </h2>
       
       <div className="space-y-6 mb-8">
-        <PerformanceTypes />
         <PlanningTimeline />
       </div>
     </motion.div>

@@ -84,23 +84,10 @@ section, .bg-transparent {
   background-image: none !important;
 }
 
-/* Integrated image styling */
-.integrated-image {
-  opacity: 0.8;
-  mix-blend-mode: overlay;
-}
-
+/* Remove integrated image styling to show photos at full brightness */
 .integrated-image-container {
   position: relative;
   overflow: hidden;
   border: none !important;
   box-shadow: none !important;
-}
-
-.integrated-image-container::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(45deg, rgba(0, 0, 0, 0.4) 0%, transparent 50%);
-  pointer-events: none;
 }

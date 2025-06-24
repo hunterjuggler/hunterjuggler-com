@@ -10,8 +10,7 @@ const HeroSection: React.FC = () => {
   return (
     <section className="relative min-h-[100vh] flex items-center">
       <div className="absolute inset-0 z-0">
-        <BlurImage src="/lovable-uploads/35c17724-6cfa-43bb-ad74-15be052c7511.png" alt="Hunter Way performing with giraffe unicycle" className="w-full h-full object-cover hero-mask integrated-image brightness-125 contrast-110" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+        <BlurImage src="/lovable-uploads/35c17724-6cfa-43bb-ad74-15be052c7511.png" alt="Hunter Way performing with giraffe unicycle" className="w-full h-full object-cover hero-mask" />
       </div>
       
       <div className="container relative z-10 mx-auto px-4 pt-32 md:px-6">
