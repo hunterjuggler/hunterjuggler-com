@@ -43,7 +43,7 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
       });
   }, [performance.images, performance.name]);
 
-  // Crossfade cycling effect
+  // Slower, synchronized crossfade cycling effect
   useEffect(() => {
     if (!imagesLoaded || performance.images.length <= 1) return;
 
@@ -58,9 +58,9 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
       setTimeout(() => {
         setCurrentImageIndex(nextIndex);
         setIsTransitioning(false);
-      }, 1000); // 1 second crossfade
+      }, 1500); // 1.5 second crossfade for smoother transitions
       
-    }, 6000); // 6 second total cycle time
+    }, 6000); // 6 second total cycle time (synchronized timing)
 
     return () => clearInterval(interval);
   }, [imagesLoaded, performance.images.length, currentImageIndex]);
@@ -78,11 +78,11 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
       onClick={() => onClick(performance)}
     >
       <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-        {/* Image container with crossfade */}
-        <div className="relative w-full h-full">
+        {/* Image container with smooth crossfade */}
+        <div className="relative w-full h-full bg-black">
           {/* Current image */}
           <div 
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            className={`absolute inset-0 transition-opacity duration-1500 ease-in-out ${
               isTransitioning ? 'opacity-0' : 'opacity-100'
             }`}
           >
@@ -98,7 +98,7 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
           {/* Next image (for crossfade) */}
           {performance.images.length > 1 && (
             <div 
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              className={`absolute inset-0 transition-opacity duration-1500 ease-in-out ${
                 isTransitioning ? 'opacity-100' : 'opacity-0'
               }`}
             >

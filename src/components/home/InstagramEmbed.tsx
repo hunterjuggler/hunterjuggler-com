@@ -4,29 +4,38 @@ import { Instagram } from 'lucide-react';
 
 const InstagramEmbed: React.FC = () => {
   useEffect(() => {
-    // Load SociableKit script
+    // Load SnapWidget script for Instagram feed
     const script = document.createElement('script');
-    script.src = 'https://www.sociablekit.com/app/embed/instagram-hashtag/widget.js';
+    script.src = 'https://snapwidget.com/js/snapwidget.js';
     script.async = true;
-    document.body.appendChild(script);
+    document.head.appendChild(script);
 
     return () => {
       // Cleanup script on unmount
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
       }
     };
   }, []);
 
   return (
     <div className="w-full">
-      {/* SociableKit Instagram Feed */}
+      {/* SnapWidget Instagram Feed */}
       <div className="w-full flex justify-center">
-        <div 
-          className="sk-instagram-feed" 
-          data-embed-id="25463"
-          style={{ width: '100%', maxWidth: '1000px' }}
-        ></div>
+        <iframe 
+          src="https://snapwidget.com/embed/1080534" 
+          className="snapwidget-widget" 
+          allowtransparency="true" 
+          frameborder="0" 
+          scrolling="no" 
+          style={{ 
+            border: 'none', 
+            overflow: 'hidden', 
+            width: '100%', 
+            maxWidth: '1000px',
+            height: '750px' 
+          }}
+        />
       </div>
       
       {/* Fallback message */}
