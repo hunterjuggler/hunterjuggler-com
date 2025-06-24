@@ -11,9 +11,10 @@ const HeroSection: React.FC = () => {
     <section className="relative min-h-[100vh] flex items-center">
       <div className="absolute inset-0 z-0">
         <BlurImage src="/lovable-uploads/35c17724-6cfa-43bb-ad74-15be052c7511.png" alt="Hunter Way performing with giraffe unicycle" className="w-full h-full object-cover" />
-        {/* Subtle vignette overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/20"></div>
+        {/* Darker vignette overlay for depth and focus */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40"></div>
+        <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-black/50"></div>
       </div>
       
       <div className="container relative z-10 mx-auto px-4 pt-32 md:px-6">

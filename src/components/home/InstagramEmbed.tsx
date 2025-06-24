@@ -1,25 +1,32 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Instagram } from 'lucide-react';
 
 const InstagramEmbed: React.FC = () => {
+  useEffect(() => {
+    // Load SociableKit script
+    const script = document.createElement('script');
+    script.src = 'https://www.sociablekit.com/app/embed/instagram-hashtag/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
     <div className="w-full">
-      {/* Using SnapWidget as a reliable Instagram feed alternative */}
+      {/* SociableKit Instagram Feed */}
       <div className="w-full flex justify-center">
-        <script src="https://snapwidget.com/js/snapwidget.js"></script>
-        <iframe 
-          src="https://snapwidget.com/embed/1078941" 
-          className="snapwidget-widget w-full h-[400px] border-0 overflow-hidden bg-transparent"
-          style={{ 
-            width: '100%',
-            height: '400px',
-            border: '0',
-            overflow: 'hidden',
-            background: 'transparent'
-          }}
-          title="Instagram feed from @hunterjuggler"
-        />
+        <div 
+          className="sk-instagram-feed" 
+          data-embed-id="25463"
+          style={{ width: '100%', maxWidth: '1000px' }}
+        ></div>
       </div>
       
       {/* Fallback message */}
