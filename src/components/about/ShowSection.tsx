@@ -18,9 +18,9 @@ const ShowSection: React.FC = () => {
             className="integrated-image-container rounded-2xl overflow-hidden order-2 md:order-1"
           >
             <BlurImage 
-              src="/lovable-uploads/db835459-55e7-4d4b-8d01-5efc4a256383.png" 
-              alt="Hunter Way performing with audience participation in Covent Garden" 
-              className="w-full h-full object-cover integrated-image" 
+              src="/lovable-uploads/87ec8b89-db73-4902-b630-077f3c2cdfb1.png" 
+              alt="Hunter Way performing with audience participation" 
+              className="w-full h-full object-cover integrated-image brightness-110 contrast-110" 
               aspectRatio="auto"
             />
           </motion.div>
@@ -32,7 +32,7 @@ const ShowSection: React.FC = () => {
             viewport={{ once: true }} 
             className="order-1 md:order-2"
           >
-            <span className="text-accent font-medium">The Show</span>
+            <span className="text-[#ff4742] font-medium">The Show</span>
             <h2 className="text-3xl md:text-4xl font-display font-bold mt-2 mb-6">
               A Captivating Performance
             </h2>

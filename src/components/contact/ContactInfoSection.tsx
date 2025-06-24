@@ -10,7 +10,7 @@ const ContactInfoSection = () => {
       
       <div className="space-y-6 mb-8">
         <div className="flex items-start space-x-4">
-          <Mail className="w-6 h-6 text-[#ff4742] mt-1" />
+          <Mail className="w-6 h-6 text-[#ff4742] mt-1 flex-shrink-0" />
           <div>
             <h3 className="font-medium">Email</h3>
             <p className="text-muted-foreground">hunterjuggler@gmail.com</p>
@@ -18,7 +18,7 @@ const ContactInfoSection = () => {
         </div>
         
         <div className="flex items-start space-x-4">
-          <MapPin className="w-6 h-6 text-[#ff4742] mt-1" />
+          <MapPin className="w-6 h-6 text-[#ff4742] mt-1 flex-shrink-0" />
           <div>
             <h3 className="font-medium">Based in</h3>
             <p className="text-muted-foreground">Bay Area, California</p>
@@ -27,7 +27,7 @@ const ContactInfoSection = () => {
         </div>
         
         <div className="flex items-start space-x-4">
-          <Calendar className="w-6 h-6 text-[#ff4742] mt-1" />
+          <Calendar className="w-6 h-6 text-[#ff4742] mt-1 flex-shrink-0" />
           <div>
             <h3 className="font-medium">Booking Timeline</h3>
             <p className="text-muted-foreground">Please contact at least 6–8 weeks in advance for most events, or 3+ months for major international events.</p>

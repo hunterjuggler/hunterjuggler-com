@@ -1,11 +1,14 @@
+
 import { FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
+
 interface EventDetailsSectionProps {
   form: any;
 }
+
 const EventDetailsSection = ({
   form
 }: EventDetailsSectionProps) => {
@@ -143,7 +146,7 @@ const EventDetailsSection = ({
                   <SelectItem value="20">20 minutes</SelectItem>
                   <SelectItem value="30">30 minutes</SelectItem>
                   <SelectItem value="45">45 minutes</SelectItem>
-                  <SelectItem value="60">60 minutes</SelectItem>
+                  <SelectItem value="other">Other</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />
@@ -173,4 +176,5 @@ const EventDetailsSection = ({
             </FormItem>} />}
     </div>;
 };
+
 export default EventDetailsSection;

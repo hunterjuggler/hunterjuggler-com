@@ -4,13 +4,13 @@ import { ArrowRight, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SocialMediaFeed from "@/components/SocialMediaFeed";
 
-// Actual Instagram posts from @hunterjuggler
+// Updated Instagram posts from @hunterjuggler
 const socialPosts = [
   {
     id: "ig1",
     platform: "instagram" as const,
-    thumbnail: "/lovable-uploads/db835459-55e7-4d4b-8d01-5efc4a256383.png",
-    title: "Street Performance in Covent Garden - Amazing crowd interaction!",
+    thumbnail: "/lovable-uploads/87ec8b89-db73-4902-b630-077f3c2cdfb1.png",
+    title: "Audience participation at its finest! Love connecting with crowds",
     likes: 12500,
     comments: 285,
     url: "https://instagram.com/hunterjuggler"
@@ -18,8 +18,8 @@ const socialPosts = [
   {
     id: "ig2", 
     platform: "instagram" as const,
-    thumbnail: "/lovable-uploads/e1726cd9-920f-4b9d-8d24-0761edb4001c.png",
-    title: "Edinburgh Fringe Festival - Juggling on the Royal Mile",
+    thumbnail: "/lovable-uploads/d471b964-5ae1-419f-a146-aa59678bbe97.png",
+    title: "The giraffe unicycle finale never fails to amaze! 🦒🎪",
     likes: 18200,
     comments: 432,
     url: "https://instagram.com/hunterjuggler"

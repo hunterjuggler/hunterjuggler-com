@@ -57,7 +57,7 @@ const SocialMediaFeed = ({ posts }: SocialMediaFeedProps) => {
               src={post.thumbnail}
               alt={post.title}
               aspectRatio="video"
-              className="w-full integrated-image"
+              className="w-full integrated-image brightness-110 contrast-110"
               noBg={true}
             />
             <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1 flex items-center space-x-1">

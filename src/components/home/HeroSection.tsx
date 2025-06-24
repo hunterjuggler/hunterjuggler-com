@@ -10,7 +10,7 @@ const HeroSection: React.FC = () => {
   return (
     <section className="relative min-h-[100vh] flex items-center">
       <div className="absolute inset-0 z-0">
-        <BlurImage src="/lovable-uploads/e1726cd9-920f-4b9d-8d24-0761edb4001c.png" alt="Hunter Way performing on unicycle in Edinburgh" className="w-full h-full object-cover hero-mask integrated-image" />
+        <BlurImage src="/lovable-uploads/d471b964-5ae1-419f-a146-aa59678bbe97.png" alt="Hunter Way performing with giraffe unicycle" className="w-full h-full object-cover hero-mask integrated-image" />
         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
       </div>
       
@@ -22,7 +22,7 @@ const HeroSection: React.FC = () => {
           className="max-w-3xl"
         >
           <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-accent/10 text-accent mb-8">
-            International Performing Artist
+            Circus Entertainer
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-shadow-md mb-10">Hunter Way</h1>
           <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mb-12">Shows | Festivals | Events</p>

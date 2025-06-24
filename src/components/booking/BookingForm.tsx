@@ -7,11 +7,12 @@ import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Form } from "@/components/ui/form";
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 import ContactInfoSection from "./ContactInfoSection";
 import EventDetailsSection from "./EventDetailsSection";
-import PerformanceDetailsSection from "./PerformanceDetailsSection";
-import AdditionalInfoSection from "./AdditionalInfoSection";
 
 // Validation schema
 const bookingFormSchema = z.object({
@@ -28,7 +29,6 @@ const bookingFormSchema = z.object({
   stageSize: z.string().min(1, { message: "Stage size is required" }),
   ceilingHeight: z.string().min(1, { message: "Ceiling height is required" }),
   performanceDuration: z.string().min(1, { message: "Performance duration is required" }),
-  performanceType: z.string().min(1, { message: "Performance type is required" }),
   specialRequests: z.string().optional(),
   soundSystemProvided: z.boolean().default(false),
   soundSystemType: z.string().optional(),
@@ -59,7 +59,6 @@ const BookingForm = () => {
       stageSize: "",
       ceilingHeight: "",
       performanceDuration: "30",
-      performanceType: "comedy-juggling",
       specialRequests: "",
       soundSystemProvided: false,
       soundSystemType: "",
@@ -96,9 +95,77 @@ const BookingForm = () => {
           
           <EventDetailsSection form={form} />
           
-          <PerformanceDetailsSection form={form} />
+          {/* Special Requests field (without header) */}
+          <FormField
+            control={form.control}
+            name="specialRequests"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Special Requests or Theme</FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="Describe any specific themes, acts, or elements you'd like included in the performance"
+                    className="min-h-[100px]"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           
-          <AdditionalInfoSection form={form} />
+          {/* How did you hear about me field (without header) */}
+          <FormField
+            control={form.control}
+            name="referralSource"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>How did you hear about me?</FormLabel>
+                <Select 
+                  onValueChange={field.onChange} 
+                  defaultValue={field.value}
+                >
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select an option" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="google">Google</SelectItem>
+                    <SelectItem value="instagram">Instagram</SelectItem>
+                    <SelectItem value="friend">Friend / Colleague</SelectItem>
+                    <SelectItem value="show">Saw your show</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          <FormField
+            control={form.control}
+            name="agreeToTerms"
+            render={({ field }) => (
+              <FormItem className="flex flex-row items-start space-x-2 pt-4">
+                <FormControl>
+                  <Checkbox 
+                    checked={field.value} 
+                    onCheckedChange={field.onChange} 
+                    className="mt-1" 
+                  />
+                </FormControl>
+                <div className="space-y-1 leading-none">
+                  <FormLabel className="text-sm cursor-pointer">
+                    I understand that this is a booking inquiry and not a confirmed booking. 
+                    A final quote will be provided after reviewing the details, and a contract 
+                    will be required to secure the booking.
+                  </FormLabel>
+                  <FormMessage />
+                </div>
+              </FormItem>
+            )}
+          />
           
           <Button type="submit" className="w-full" disabled={isSubmitting}>
             {isSubmitting ? (
