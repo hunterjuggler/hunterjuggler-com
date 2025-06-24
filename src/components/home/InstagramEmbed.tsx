@@ -1,52 +1,43 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Instagram } from 'lucide-react';
 
 const InstagramEmbed: React.FC = () => {
-  useEffect(() => {
-    // Load the Instagram embed script
-    const script = document.createElement('script');
-    script.src = 'https://cdn.lightwidget.com/widgets/lightwidget.js';
-    script.async = true;
-    document.head.appendChild(script);
-
-    return () => {
-      // Cleanup script when component unmounts
-      if (document.head.contains(script)) {
-        document.head.removeChild(script);
-      }
-    };
-  }, []);
-
   return (
     <div className="w-full">
-      {/* LightWidget Instagram Embed */}
-      <iframe 
-        src="https://cdn.lightwidget.com/widgets/fc1f99fd36455bcfb0e68ff2103b0d29.html" 
-        scrolling="no" 
-        allowTransparency={true} 
-        className="lightwidget-widget w-full h-[600px] border-0"
-        style={{ 
-          width: '100%', 
-          border: '0', 
-          overflow: 'hidden',
-          background: 'transparent'
-        }}
-      />
+      {/* Using SnapWidget as a reliable Instagram feed alternative */}
+      <div className="w-full flex justify-center">
+        <script src="https://snapwidget.com/js/snapwidget.js"></script>
+        <iframe 
+          src="https://snapwidget.com/embed/1078941" 
+          className="snapwidget-widget w-full h-[400px] border-0 overflow-hidden bg-transparent"
+          style={{ 
+            width: '100%',
+            height: '400px',
+            border: '0',
+            overflow: 'hidden',
+            background: 'transparent'
+          }}
+          title="Instagram feed from @hunterjuggler"
+        />
+      </div>
       
-      {/* Fallback content while loading */}
-      <div className="text-center py-8 text-muted-foreground">
-        <p>Loading Instagram feed from @hunterjuggler...</p>
-        <p className="text-sm mt-2">
-          Follow{' '}
+      {/* Fallback message */}
+      <div className="text-center py-4 text-muted-foreground">
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <Instagram size={20} className="text-[#ff4742]" />
+          <span className="font-medium">@hunterjuggler</span>
+        </div>
+        <p className="text-sm">
+          Follow my latest performances and behind-the-scenes content on{' '}
           <a 
             href="https://instagram.com/hunterjuggler" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-[#ff4742] hover:underline"
+            className="text-[#ff4742] hover:underline font-medium"
           >
-            @hunterjuggler
+            Instagram
           </a>
-          {' '}for the latest updates!
         </p>
       </div>
     </div>
