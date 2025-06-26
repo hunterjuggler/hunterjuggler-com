@@ -25,8 +25,8 @@ const InstagramEmbed: React.FC = () => {
         <iframe 
           src="https://snapwidget.com/embed/1080534" 
           className="snapwidget-widget" 
-          allowtransparency="true" 
-          frameborder="0" 
+          allowTransparency={true}
+          frameBorder="0" 
           scrolling="no" 
           style={{ 
             border: 'none', 
