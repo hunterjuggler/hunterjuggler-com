@@ -28,6 +28,8 @@ const SingleView = ({
   useEffect(() => {
     // Auto-advance images with synchronized timing and slower transitions
     const interval = setInterval(() => {
+      if (performance.images.length <= 1) return;
+      
       const nextIndex = (currentImageIndex + 1) % performance.images.length;
       setNextImageIndex(nextIndex);
       setIsTransitioning(true);
@@ -35,8 +37,8 @@ const SingleView = ({
       setTimeout(() => {
         onNext();
         setIsTransitioning(false);
-      }, 1500); // Slower crossfade duration (1.5 seconds)
-    }, 6000); // Change every 6 seconds for slower pacing
+      }, 2000); // Slower crossfade duration (2 seconds)
+    }, 8000); // Change every 8 seconds for slower pacing
 
     return () => clearInterval(interval);
   }, [currentImageIndex, onNext, performance.images.length]);
@@ -52,7 +54,7 @@ const SingleView = ({
           <img
             src={currentImage.fullImage || currentImage.thumbnail}
             alt={currentImage.title}
-            className={`max-w-full max-h-[95vh] w-auto h-auto object-contain absolute inset-0 m-auto transition-opacity duration-1500 ease-in-out ${
+            className={`max-w-full max-h-[95vh] w-auto h-auto object-contain absolute inset-0 m-auto transition-opacity duration-2000 ease-in-out ${
               isTransitioning ? 'opacity-0' : 'opacity-100'
             }`}
             style={{
@@ -65,7 +67,7 @@ const SingleView = ({
             <img
               src={nextImage.fullImage || nextImage.thumbnail}
               alt={nextImage.title}
-              className={`max-w-full max-h-[95vh] w-auto h-auto object-contain absolute inset-0 m-auto transition-opacity duration-1500 ease-in-out ${
+              className={`max-w-full max-h-[95vh] w-auto h-auto object-contain absolute inset-0 m-auto transition-opacity duration-2000 ease-in-out ${
                 isTransitioning ? 'opacity-100' : 'opacity-0'
               }`}
               style={{
@@ -89,7 +91,7 @@ const SingleView = ({
               setTimeout(() => {
                 onPrev();
                 setIsTransitioning(false);
-              }, 750);
+              }, 1000);
             }}
             className="absolute left-2 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12 z-10"
           >
@@ -105,7 +107,7 @@ const SingleView = ({
               setTimeout(() => {
                 onNext();
                 setIsTransitioning(false);
-              }, 750);
+              }, 1000);
             }}
             className="absolute right-2 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12 z-10"
           >

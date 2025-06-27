@@ -35,6 +35,7 @@ const InstagramEmbed: React.FC = () => {
             maxWidth: '1000px',
             height: '750px' 
           }}
+          title="Instagram Feed"
         />
       </div>
       

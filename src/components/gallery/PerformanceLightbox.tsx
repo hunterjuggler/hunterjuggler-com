@@ -3,10 +3,12 @@ import { useState, useEffect, useCallback } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { PerformanceCategory } from "@/types/gallery";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { useIsMobile } from "@/hooks/use-mobile";
 import LightboxHeader from "./lightbox/LightboxHeader";
 import GridView from "./lightbox/GridView";
 import SingleView from "./lightbox/SingleView";
 import LightboxFooter from "./lightbox/LightboxFooter";
+import MobileCarousel from "./MobileCarousel";
 
 interface PerformanceLightboxProps {
   isOpen: boolean;
@@ -17,6 +19,7 @@ interface PerformanceLightboxProps {
 const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceLightboxProps) => {
   const [viewMode, setViewMode] = useState<'grid' | 'single'>('grid');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const isMobile = useIsMobile();
 
   // Reset when performance changes
   useEffect(() => {
@@ -115,10 +118,18 @@ const PerformanceLightbox = ({ isOpen, onOpenChange, performance }: PerformanceL
           <div className="flex-1 pt-16 pb-16 min-h-0 overflow-y-auto">
             {viewMode === 'grid' ? (
               <div className="p-4">
-                <GridView 
-                  performance={performance} 
-                  onImageClick={openSingleView} 
-                />
+                {isMobile ? (
+                  <MobileCarousel
+                    performance={performance}
+                    currentImageIndex={currentImageIndex}
+                    onImageChange={selectImage}
+                  />
+                ) : (
+                  <GridView 
+                    performance={performance} 
+                    onImageClick={openSingleView} 
+                  />
+                )}
               </div>
             ) : (
               <SingleView
