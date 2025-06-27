@@ -4,9 +4,9 @@ import { Instagram } from 'lucide-react';
 
 const InstagramEmbed: React.FC = () => {
   useEffect(() => {
-    // Load SnapWidget script
+    // Load Elfsight script
     const script = document.createElement('script');
-    script.src = 'https://snapwidget.com/js/snapwidget.js';
+    script.src = 'https://static.elfsight.com/platform/platform.js';
     script.async = true;
     document.body.appendChild(script);
 
@@ -30,14 +30,10 @@ const InstagramEmbed: React.FC = () => {
             onClick={handleInstagramClick}
             className="cursor-pointer transition-transform hover:scale-[1.02]"
           >
-            <iframe 
-              src="https://snapwidget.com/embed/1100951" 
-              className="snapwidget-widget w-full h-96 border-none overflow-hidden rounded-lg" 
-              allowTransparency={true}
-              frameBorder="0" 
-              scrolling="no" 
-              title="Posts from Instagram"
-            />
+            <div 
+              className="elfsight-app-18dfd03d-ae41-4c21-b271-4c83a7707d36" 
+              data-elfsight-app-lazy
+            ></div>
           </div>
         </div>
       </div>
