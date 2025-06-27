@@ -2,7 +2,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import BlurImage from "@/components/BlurImage";
 import { motion } from "@/lib/motion";
 import { ArrowRight } from "lucide-react";
 
@@ -10,11 +9,11 @@ const HeroSection: React.FC = () => {
   return (
     <section className="relative min-h-[100vh] flex items-center">
       <div className="absolute inset-0 z-0">
-        <BlurImage 
+        <img 
           src="/lovable-uploads/a8b2440c-f48c-4e36-abfb-ca53b475c3ae.png" 
           alt="Hunter Way performing" 
-          className="w-full h-full object-cover" 
-          objectFit="cover"
+          className="w-full h-full object-cover"
+          style={{ objectFit: 'cover' }}
         />
         {/* Enhanced darker vignette overlay for depth and focus */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-black/80"></div>
