@@ -33,7 +33,7 @@ const InstagramEmbed: React.FC = () => {
             <iframe 
               src="https://snapwidget.com/embed/1100951" 
               className="snapwidget-widget w-full h-96 border-none overflow-hidden rounded-lg" 
-              allowTransparency="true"
+              allowTransparency={true}
               frameBorder="0" 
               scrolling="no" 
               title="Posts from Instagram"
