@@ -26,15 +26,11 @@ const InstagramEmbed: React.FC = () => {
     <div className="w-full">
       <div className="w-full flex justify-center mb-6">
         <div className="w-full max-w-4xl">
+          {/* Remove click override to allow default widget behavior */}
           <div 
-            onClick={handleInstagramClick}
-            className="cursor-pointer transition-transform hover:scale-[1.02]"
-          >
-            <div 
-              className="elfsight-app-18dfd03d-ae41-4c21-b271-4c83a7707d36" 
-              data-elfsight-app-lazy
-            ></div>
-          </div>
+            className="elfsight-app-18dfd03d-ae41-4c21-b271-4c83a7707d36" 
+            data-elfsight-app-lazy
+          ></div>
         </div>
       </div>
       

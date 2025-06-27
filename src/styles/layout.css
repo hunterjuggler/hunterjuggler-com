@@ -61,6 +61,11 @@
   background: radial-gradient(circle at center, white 0%, hsl(var(--accent)) 100%);
 }
 
+/* Radial gradient for hero section - brightens center while keeping dark edges */
+.bg-gradient-radial {
+  background: radial-gradient(ellipse at center, transparent 20%, rgba(0, 0, 0, 0.3) 70%);
+}
+
 /* Smooth background gradient for the entire page */
 .bg-gradient-smooth {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);

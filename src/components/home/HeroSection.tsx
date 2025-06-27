@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -19,8 +18,8 @@ const HeroSection: React.FC = () => {
             objectFit: 'cover'
           }}
         />
-        {/* Light overlay for text readability - much lighter than before */}
-        <div className="absolute inset-0 bg-black/30"></div>
+        {/* Radial gradient overlay - brightens center while keeping dark edges */}
+        <div className="absolute inset-0 bg-gradient-radial from-black/20 via-black/40 to-black/70"></div>
       </div>
       
       <div className="container relative z-10 mx-auto px-4 pt-32 md:px-6">

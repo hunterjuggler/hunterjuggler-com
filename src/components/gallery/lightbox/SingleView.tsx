@@ -22,60 +22,36 @@ const SingleView = ({
   onPrev, 
   onImageSelect 
 }: SingleViewProps) => {
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [nextImageIndex, setNextImageIndex] = useState(0);
 
   useEffect(() => {
-    // Auto-advance images with crossfade transitions
+    // Auto-advance images with smooth crossfade
     const interval = setInterval(() => {
       if (performance.images.length <= 1) return;
-      
-      const nextIndex = (currentImageIndex + 1) % performance.images.length;
-      setNextImageIndex(nextIndex);
-      setIsTransitioning(true);
-      
-      // Crossfade transition
-      setTimeout(() => {
-        onNext();
-        setIsTransitioning(false);
-      }, 500); // 500ms fade duration
-    }, 3000); // Change every 3 seconds
+      onNext();
+    }, 4000); // 4 second cycle time
 
     return () => clearInterval(interval);
   }, [currentImageIndex, onNext, performance.images.length]);
-
-  const nextImage = performance.images[nextImageIndex] || currentImage;
 
   return (
     <div className="flex items-center justify-center w-full h-full bg-black relative min-h-[calc(100vh-120px)]">
       {/* Main image container with crossfade transition */}
       <div className="relative w-full h-full flex items-center justify-center p-2">
         <div className="relative w-full h-full flex items-center justify-center">
-          {/* Current image */}
-          <img
-            src={currentImage.fullImage || currentImage.thumbnail}
-            alt={currentImage.title}
-            className={`absolute max-w-full max-h-[95vh] w-auto h-auto object-contain transition-opacity duration-500 ${
-              isTransitioning ? 'opacity-0' : 'opacity-100'
-            }`}
-            style={{
-              objectFit: 'contain'
-            }}
-          />
-          
-          {/* Next image for crossfade */}
-          {performance.images.length > 1 && (
+          {/* Render all images with crossfade transitions */}
+          {performance.images.map((image, index) => (
             <img
-              src={nextImage.fullImage || nextImage.thumbnail}
-              alt={nextImage.title}
-              className={`absolute max-w-full max-h-[95vh] w-auto h-auto object-contain transition-opacity duration-500 ${
-                isTransitioning ? 'opacity-100' : 'opacity-0'
+              key={image.thumbnail}
+              src={image.fullImage || image.thumbnail}
+              alt={image.title}
+              className={`absolute max-w-full max-h-[95vh] w-auto h-auto object-contain transition-opacity duration-[1500ms] ease-in-out ${
+                index === currentImageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
               }`}
               style={{
                 objectFit: 'contain'
               }}
             />
-          )}
+          ))}
         </div>
       </div>
       
@@ -86,7 +62,7 @@ const SingleView = ({
             variant="ghost"
             size="icon"
             onClick={onPrev}
-            className="absolute left-2 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12 z-10"
+            className="absolute left-2 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12 z-20"
           >
             <ChevronLeft className="h-8 w-8" />
           </Button>
@@ -94,7 +70,7 @@ const SingleView = ({
             variant="ghost"
             size="icon"
             onClick={onNext}
-            className="absolute right-2 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12 z-10"
+            className="absolute right-2 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12 z-20"
           >
             <ChevronRight className="h-8 w-8" />
           </Button>
