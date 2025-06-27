@@ -23,7 +23,7 @@ const InstagramEmbed: React.FC = () => {
       <div className="w-full flex justify-center mb-6">
         <div className="w-full max-w-4xl">
           <iframe 
-            src="https://snapwidget.com/embed/1100950" 
+            src="https://snapwidget.com/embed/1100951" 
             className="snapwidget-widget w-full h-96 border-none overflow-hidden rounded-lg" 
             allowTransparency={true} 
             frameBorder="0" 
