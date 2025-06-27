@@ -37,8 +37,8 @@ const SingleView = ({
       setTimeout(() => {
         onNext();
         setIsTransitioning(false);
-      }, 2000); // Slower crossfade duration (2 seconds)
-    }, 8000); // Change every 8 seconds for slower pacing
+      }, 5000); // Updated to 5 seconds crossfade duration
+    }, 10000); // Change every 10 seconds for slower pacing
 
     return () => clearInterval(interval);
   }, [currentImageIndex, onNext, performance.images.length]);
@@ -54,7 +54,7 @@ const SingleView = ({
           <img
             src={currentImage.fullImage || currentImage.thumbnail}
             alt={currentImage.title}
-            className={`max-w-full max-h-[95vh] w-auto h-auto object-contain absolute inset-0 m-auto transition-opacity duration-2000 ease-in-out ${
+            className={`max-w-full max-h-[95vh] w-auto h-auto object-contain absolute inset-0 m-auto transition-opacity duration-5000 ease-in-out ${
               isTransitioning ? 'opacity-0' : 'opacity-100'
             }`}
             style={{
@@ -67,7 +67,7 @@ const SingleView = ({
             <img
               src={nextImage.fullImage || nextImage.thumbnail}
               alt={nextImage.title}
-              className={`max-w-full max-h-[95vh] w-auto h-auto object-contain absolute inset-0 m-auto transition-opacity duration-2000 ease-in-out ${
+              className={`max-w-full max-h-[95vh] w-auto h-auto object-contain absolute inset-0 m-auto transition-opacity duration-5000 ease-in-out ${
                 isTransitioning ? 'opacity-100' : 'opacity-0'
               }`}
               style={{
@@ -91,7 +91,7 @@ const SingleView = ({
               setTimeout(() => {
                 onPrev();
                 setIsTransitioning(false);
-              }, 1000);
+              }, 2500);
             }}
             className="absolute left-2 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12 z-10"
           >
@@ -107,7 +107,7 @@ const SingleView = ({
               setTimeout(() => {
                 onNext();
                 setIsTransitioning(false);
-              }, 1000);
+              }, 2500);
             }}
             className="absolute right-2 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12 z-10"
           >

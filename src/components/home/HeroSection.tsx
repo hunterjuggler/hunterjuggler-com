@@ -11,7 +11,7 @@ const HeroSection: React.FC = () => {
     <section className="relative min-h-[100vh] flex items-center">
       <div className="absolute inset-0 z-0">
         <BlurImage 
-          src="/lovable-uploads/35c17724-6cfa-43bb-ad74-15be052c7511.png" 
+          src="/lovable-uploads/a8b2440c-f48c-4e36-abfb-ca53b475c3ae.png" 
           alt="Hunter Way performing with giraffe unicycle" 
           className="w-full h-full object-cover" 
         />

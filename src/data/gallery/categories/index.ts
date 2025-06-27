@@ -7,7 +7,6 @@ import { chateauBoheme } from "./chateauBoheme";
 import { edinburghHunterSquare2023 } from "./edinburghHunterSquare2023";
 import { edinburghHighStreet2022 } from "./edinburghHighStreet2022";
 import { edinburghMound2022 } from "./edinburghMound2022";
-import { crowdsFromAroundTheWorld } from "./crowdsFromAroundTheWorld";
 
 export const performanceCategories: PerformanceCategory[] = [
   coventGarden,
@@ -17,5 +16,4 @@ export const performanceCategories: PerformanceCategory[] = [
   edinburghHunterSquare2023,
   edinburghHighStreet2022,
   edinburghMound2022,
-  crowdsFromAroundTheWorld,
 ];

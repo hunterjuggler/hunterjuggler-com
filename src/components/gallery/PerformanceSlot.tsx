@@ -58,9 +58,9 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
       setTimeout(() => {
         setCurrentImageIndex(nextIndex);
         setIsTransitioning(false);
-      }, 2000); // 2 second crossfade for smoother transitions
+      }, 5000); // 5 second crossfade for smoother transitions
       
-    }, 8000); // 8 second total cycle time (synchronized timing)
+    }, 10000); // 10 second total cycle time (synchronized timing)
 
     return () => clearInterval(interval);
   }, [imagesLoaded, performance.images.length, currentImageIndex]);
@@ -82,7 +82,7 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
         <div className="relative w-full h-full bg-black">
           {/* Current image */}
           <div 
-            className={`absolute inset-0 transition-opacity duration-2000 ease-in-out ${
+            className={`absolute inset-0 transition-opacity duration-5000 ease-in-out ${
               isTransitioning ? 'opacity-0' : 'opacity-100'
             }`}
           >
@@ -98,7 +98,7 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
           {/* Next image (for crossfade) */}
           {performance.images.length > 1 && (
             <div 
-              className={`absolute inset-0 transition-opacity duration-2000 ease-in-out ${
+              className={`absolute inset-0 transition-opacity duration-5000 ease-in-out ${
                 isTransitioning ? 'opacity-100' : 'opacity-0'
               }`}
             >
