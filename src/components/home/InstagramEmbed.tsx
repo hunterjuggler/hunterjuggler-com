@@ -10,21 +10,6 @@ const InstagramEmbed: React.FC = () => {
     script.async = true;
     document.body.appendChild(script);
 
-    // Add click handler to make posts clickable
-    const handlePostClick = () => {
-      window.open('https://instagram.com/hunterjuggler', '_blank', 'noopener,noreferrer');
-    };
-
-    // Add event listener after script loads
-    script.onload = () => {
-      setTimeout(() => {
-        const iframe = document.querySelector('.snapwidget-widget');
-        if (iframe) {
-          iframe.addEventListener('click', handlePostClick);
-        }
-      }, 1000);
-    };
-
     return () => {
       // Cleanup script on unmount
       if (document.body.contains(script)) {
@@ -48,7 +33,7 @@ const InstagramEmbed: React.FC = () => {
             <iframe 
               src="https://snapwidget.com/embed/1100951" 
               className="snapwidget-widget w-full h-96 border-none overflow-hidden rounded-lg" 
-              allowTransparency={true} 
+              allowTransparency="true"
               frameBorder="0" 
               scrolling="no" 
               title="Posts from Instagram"

@@ -9,12 +9,14 @@ const HeroSection: React.FC = () => {
   return (
     <section className="relative min-h-[100vh] flex items-center">
       <div className="absolute inset-0 z-0">
-        <div 
-          className="w-full h-full bg-cover bg-center bg-no-repeat"
+        <img 
+          src="/lovable-uploads/f427474a-e0b2-47cd-be36-a497c94634b8.png"
+          alt="Hunter Way performing"
+          className="w-full h-full object-cover"
           style={{ 
-            backgroundImage: 'url(/lovable-uploads/f427474a-e0b2-47cd-be36-a497c94634b8.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            minHeight: '100vh',
+            width: '100%',
+            objectFit: 'cover'
           }}
         />
         {/* Enhanced darker vignette overlay for depth and focus */}
