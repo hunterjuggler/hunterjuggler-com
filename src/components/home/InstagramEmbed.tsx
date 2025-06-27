@@ -10,6 +10,21 @@ const InstagramEmbed: React.FC = () => {
     script.async = true;
     document.body.appendChild(script);
 
+    // Add click handler to make posts clickable
+    const handlePostClick = () => {
+      window.open('https://instagram.com/hunterjuggler', '_blank', 'noopener,noreferrer');
+    };
+
+    // Add event listener after script loads
+    script.onload = () => {
+      setTimeout(() => {
+        const iframe = document.querySelector('.snapwidget-widget');
+        if (iframe) {
+          iframe.addEventListener('click', handlePostClick);
+        }
+      }, 1000);
+    };
+
     return () => {
       // Cleanup script on unmount
       if (document.body.contains(script)) {
@@ -18,18 +33,27 @@ const InstagramEmbed: React.FC = () => {
     };
   }, []);
 
+  const handleInstagramClick = () => {
+    window.open('https://instagram.com/hunterjuggler', '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className="w-full">
       <div className="w-full flex justify-center mb-6">
         <div className="w-full max-w-4xl">
-          <iframe 
-            src="https://snapwidget.com/embed/1100951" 
-            className="snapwidget-widget w-full h-96 border-none overflow-hidden rounded-lg" 
-            allowTransparency={true} 
-            frameBorder="0" 
-            scrolling="no" 
-            title="Posts from Instagram"
-          />
+          <div 
+            onClick={handleInstagramClick}
+            className="cursor-pointer transition-transform hover:scale-[1.02]"
+          >
+            <iframe 
+              src="https://snapwidget.com/embed/1100951" 
+              className="snapwidget-widget w-full h-96 border-none overflow-hidden rounded-lg" 
+              allowTransparency={true} 
+              frameBorder="0" 
+              scrolling="no" 
+              title="Posts from Instagram"
+            />
+          </div>
         </div>
       </div>
       

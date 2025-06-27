@@ -12,7 +12,7 @@ const HeroSection: React.FC = () => {
         <div 
           className="w-full h-full bg-cover bg-center bg-no-repeat"
           style={{ 
-            backgroundImage: 'url(/lovable-uploads/a8b2440c-f48c-4e36-abfb-ca53b475c3ae.png)',
+            backgroundImage: 'url(/lovable-uploads/f427474a-e0b2-47cd-be36-a497c94634b8.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
