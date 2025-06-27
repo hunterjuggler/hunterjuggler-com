@@ -12,8 +12,6 @@ interface PerformanceSlotProps {
 
 const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [nextImageIndex, setNextImageIndex] = useState(1);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   // Preload all images
@@ -43,30 +41,20 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
       });
   }, [performance.images, performance.name]);
 
-  // Slower, synchronized crossfade cycling effect
+  // Instant cycling effect
   useEffect(() => {
     if (!imagesLoaded || performance.images.length <= 1) return;
 
     const interval = setInterval(() => {
-      setIsTransitioning(true);
-      
-      // Calculate next image index
+      // Instant transition to next image
       const nextIndex = (currentImageIndex + 1) % performance.images.length;
-      setNextImageIndex(nextIndex);
-      
-      // After transition duration, update current index
-      setTimeout(() => {
-        setCurrentImageIndex(nextIndex);
-        setIsTransitioning(false);
-      }, 5000); // 5 second crossfade for smoother transitions
-      
-    }, 10000); // 10 second total cycle time (synchronized timing)
+      setCurrentImageIndex(nextIndex);
+    }, 3000); // 3 second cycle time
 
     return () => clearInterval(interval);
   }, [imagesLoaded, performance.images.length, currentImageIndex]);
 
   const currentImage = performance.images[currentImageIndex];
-  const nextImage = performance.images[nextImageIndex];
 
   return (
     <motion.div
@@ -78,39 +66,15 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
       onClick={() => onClick(performance)}
     >
       <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-        {/* Image container with smooth crossfade */}
+        {/* Image container with instant transition */}
         <div className="relative w-full h-full bg-black">
-          {/* Current image */}
-          <div 
-            className={`absolute inset-0 transition-opacity duration-5000 ease-in-out ${
-              isTransitioning ? 'opacity-0' : 'opacity-100'
-            }`}
-          >
-            <BlurImage
-              src={currentImage.thumbnail}
-              alt={currentImage.title}
-              aspectRatio="auto"
-              objectFit="cover"
-              className="h-full w-full transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-          
-          {/* Next image (for crossfade) */}
-          {performance.images.length > 1 && (
-            <div 
-              className={`absolute inset-0 transition-opacity duration-5000 ease-in-out ${
-                isTransitioning ? 'opacity-100' : 'opacity-0'
-              }`}
-            >
-              <BlurImage
-                src={nextImage.thumbnail}
-                alt={nextImage.title}
-                aspectRatio="auto"
-                objectFit="cover"
-                className="h-full w-full transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-          )}
+          <BlurImage
+            src={currentImage.thumbnail}
+            alt={currentImage.title}
+            aspectRatio="auto"
+            objectFit="cover"
+            className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+          />
         </div>
         
         {/* Overlay */}
