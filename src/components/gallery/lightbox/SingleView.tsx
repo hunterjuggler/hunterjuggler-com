@@ -26,7 +26,7 @@ const SingleView = ({
   const [nextImageIndex, setNextImageIndex] = useState(0);
 
   useEffect(() => {
-    // Auto-advance images with instant transitions
+    // Auto-advance images with crossfade transitions
     const interval = setInterval(() => {
       if (performance.images.length <= 1) return;
       
@@ -34,11 +34,11 @@ const SingleView = ({
       setNextImageIndex(nextIndex);
       setIsTransitioning(true);
       
-      // Instant transition
+      // Crossfade transition
       setTimeout(() => {
         onNext();
         setIsTransitioning(false);
-      }, 0);
+      }, 500); // 500ms fade duration
     }, 3000); // Change every 3 seconds
 
     return () => clearInterval(interval);
@@ -48,18 +48,34 @@ const SingleView = ({
 
   return (
     <div className="flex items-center justify-center w-full h-full bg-black relative min-h-[calc(100vh-120px)]">
-      {/* Main image container with instant transition */}
+      {/* Main image container with crossfade transition */}
       <div className="relative w-full h-full flex items-center justify-center p-2">
         <div className="relative w-full h-full flex items-center justify-center">
           {/* Current image */}
           <img
             src={currentImage.fullImage || currentImage.thumbnail}
             alt={currentImage.title}
-            className="max-w-full max-h-[95vh] w-auto h-auto object-contain"
+            className={`absolute max-w-full max-h-[95vh] w-auto h-auto object-contain transition-opacity duration-500 ${
+              isTransitioning ? 'opacity-0' : 'opacity-100'
+            }`}
             style={{
               objectFit: 'contain'
             }}
           />
+          
+          {/* Next image for crossfade */}
+          {performance.images.length > 1 && (
+            <img
+              src={nextImage.fullImage || nextImage.thumbnail}
+              alt={nextImage.title}
+              className={`absolute max-w-full max-h-[95vh] w-auto h-auto object-contain transition-opacity duration-500 ${
+                isTransitioning ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{
+                objectFit: 'contain'
+              }}
+            />
+          )}
         </div>
       </div>
       

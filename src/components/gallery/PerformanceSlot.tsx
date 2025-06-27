@@ -12,6 +12,8 @@ interface PerformanceSlotProps {
 
 const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [nextImageIndex, setNextImageIndex] = useState(1);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   // Preload all images
@@ -41,20 +43,27 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
       });
   }, [performance.images, performance.name]);
 
-  // Instant cycling effect
+  // Crossfade cycling effect
   useEffect(() => {
     if (!imagesLoaded || performance.images.length <= 1) return;
 
     const interval = setInterval(() => {
-      // Instant transition to next image
       const nextIndex = (currentImageIndex + 1) % performance.images.length;
-      setCurrentImageIndex(nextIndex);
+      setNextImageIndex(nextIndex);
+      setIsTransitioning(true);
+
+      // Start fade transition
+      setTimeout(() => {
+        setCurrentImageIndex(nextIndex);
+        setIsTransitioning(false);
+      }, 500); // 500ms fade duration
     }, 3000); // 3 second cycle time
 
     return () => clearInterval(interval);
   }, [imagesLoaded, performance.images.length, currentImageIndex]);
 
   const currentImage = performance.images[currentImageIndex];
+  const nextImage = performance.images[nextImageIndex];
 
   return (
     <motion.div
@@ -66,15 +75,31 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
       onClick={() => onClick(performance)}
     >
       <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-        {/* Image container with instant transition */}
+        {/* Image container with crossfade effect */}
         <div className="relative w-full h-full bg-black">
+          {/* Current image */}
           <BlurImage
             src={currentImage.thumbnail}
             alt={currentImage.title}
             aspectRatio="auto"
             objectFit="cover"
-            className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+            className={`absolute inset-0 h-full w-full transition-all duration-500 group-hover:scale-105 ${
+              isTransitioning ? 'opacity-0' : 'opacity-100'
+            }`}
           />
+          
+          {/* Next image for crossfade */}
+          {performance.images.length > 1 && (
+            <BlurImage
+              src={nextImage.thumbnail}
+              alt={nextImage.title}
+              aspectRatio="auto"
+              objectFit="cover"
+              className={`absolute inset-0 h-full w-full transition-all duration-500 group-hover:scale-105 ${
+                isTransitioning ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+          )}
         </div>
         
         {/* Overlay */}
