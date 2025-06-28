@@ -34,19 +34,35 @@ const GalleryPage = () => {
       
       <GalleryHero />
       
-      <section className="py-2">
+      <section className="py-16">
         <div className="container mx-auto px-4 md:px-6">
           <Tabs defaultValue="images" className="w-full">
             <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto mb-8">
-              <TabsTrigger value="images">Images</TabsTrigger>
-              <TabsTrigger value="videos">Videos</TabsTrigger>
+              <TabsTrigger value="images" className="text-foreground">Images</TabsTrigger>
+              <TabsTrigger value="videos" className="text-foreground">Videos</TabsTrigger>
             </TabsList>
             
             <TabsContent value="images" className="space-y-8">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-display font-bold mb-4 text-foreground">
+                  Performance Categories
+                </h2>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
+                  Click on any category to view the full collection of images from that performance or event.
+                </p>
+              </div>
               <GalleryGrid performances={performanceCategories} onPerformanceClick={openLightbox} />
             </TabsContent>
             
             <TabsContent value="videos" className="space-y-8">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-display font-bold mb-4 text-foreground">
+                  Performance Videos
+                </h2>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
+                  Watch highlights from various performances and events around the world.
+                </p>
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {videos.map((video, index) => (
                   <GalleryItemComponent 

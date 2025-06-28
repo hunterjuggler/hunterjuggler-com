@@ -41,7 +41,7 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
       });
   }, [performance.images, performance.name]);
 
-  // Smooth cycling effect with 1.5s fade duration
+  // Smooth cycling effect with proper crossfade
   useEffect(() => {
     if (!imagesLoaded || performance.images.length <= 1) return;
 
@@ -62,23 +62,22 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
       onClick={() => onClick(performance)}
     >
       <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-        {/* Image container with smooth crossfade */}
+        {/* Image container with smooth crossfade using proper CSS transitions */}
         <div className="relative w-full h-full bg-black">
           {performance.images.map((image, imageIndex) => (
-            <div
+            <img
               key={image.thumbnail}
-              className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
-                imageIndex === currentImageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              src={image.thumbnail}
+              alt={image.title}
+              className={`absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-300 ${
+                imageIndex === currentImageIndex 
+                  ? 'opacity-100 z-10' 
+                  : 'opacity-0 z-0'
               }`}
-            >
-              <BlurImage
-                src={image.thumbnail}
-                alt={image.title}
-                aspectRatio="auto"
-                objectFit="cover"
-                className="h-full w-full group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
+              style={{
+                transition: 'opacity 1.5s ease-in-out, transform 0.3s ease-in-out'
+              }}
+            />
           ))}
         </div>
         
@@ -101,12 +100,12 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
           </div>
         )}
 
-        {/* Performance label */}
-        <div className="absolute bottom-4 right-4 text-right">
-          <h3 className="text-white font-semibold text-lg leading-tight">
+        {/* Performance label - ensuring it's visible */}
+        <div className="absolute bottom-4 right-4 text-right z-20">
+          <h3 className="text-white font-semibold text-lg leading-tight drop-shadow-lg">
             {performance.name}
           </h3>
-          <p className="text-white/80 text-sm">
+          <p className="text-white/90 text-sm drop-shadow-md">
             {performance.images.length} {performance.images.length === 1 ? 'photo' : 'photos'}
           </p>
         </div>
