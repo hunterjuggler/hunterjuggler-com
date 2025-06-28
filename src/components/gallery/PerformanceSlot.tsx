@@ -62,7 +62,7 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
       onClick={() => onClick(performance)}
     >
       <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-        {/* Image container with smooth crossfade using proper CSS transitions */}
+        {/* Image container with smooth crossfade using slower CSS transitions */}
         <div className="relative w-full h-full bg-black">
           {performance.images.map((image, imageIndex) => (
             <img
@@ -75,7 +75,7 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
                   : 'opacity-0 z-0'
               }`}
               style={{
-                transition: 'opacity 1.5s ease-in-out, transform 0.3s ease-in-out'
+                transition: 'opacity 2.5s ease-in-out, transform 0.3s ease-in-out'
               }}
             />
           ))}
@@ -90,7 +90,7 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
             {performance.images.map((_, dotIndex) => (
               <div
                 key={dotIndex}
-                className={`w-2 h-2 rounded-full transition-all duration-1500 ${
+                className={`w-2 h-2 rounded-full transition-all duration-2500 ${
                   dotIndex === currentImageIndex 
                     ? "bg-white scale-110" 
                     : "bg-white/50"

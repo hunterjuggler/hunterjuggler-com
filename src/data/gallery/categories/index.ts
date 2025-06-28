@@ -8,8 +8,10 @@ import { edinburghHunterSquare2023 } from "./edinburghHunterSquare2023";
 import { edinburghHighStreet2022 } from "./edinburghHighStreet2022";
 import { edinburghMound2022 } from "./edinburghMound2022";
 import { edinburghFringe2024 } from "./edinburghFringe2024";
+import { theBestOfHunter } from "./theBestOfHunter";
 
 export const performanceCategories: PerformanceCategory[] = [
+  theBestOfHunter,
   edinburghFringe2024,
   coventGarden,
   buntesPflaster,

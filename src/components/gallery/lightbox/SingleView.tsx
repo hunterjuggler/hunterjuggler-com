@@ -38,13 +38,13 @@ const SingleView = ({
       {/* Main image container with crossfade transition */}
       <div className="relative w-full h-full flex items-center justify-center p-2">
         <div className="relative w-full h-full flex items-center justify-center">
-          {/* Render all images with crossfade transitions */}
+          {/* Render all images with slower crossfade transitions */}
           {performance.images.map((image, index) => (
             <img
               key={image.thumbnail}
               src={image.fullImage || image.thumbnail}
               alt={image.title}
-              className={`absolute max-w-full max-h-[95vh] w-auto h-auto object-contain transition-opacity duration-[1500ms] ease-in-out ${
+              className={`absolute max-w-full max-h-[95vh] w-auto h-auto object-contain transition-opacity duration-[2500ms] ease-in-out ${
                 index === currentImageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
               }`}
               style={{

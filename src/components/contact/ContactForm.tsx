@@ -59,29 +59,34 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Create mailto link with form data
-      const subject = encodeURIComponent(`Contact Form Submission - ${values.eventType}`);
-      const body = encodeURIComponent(`
-Name: ${values.name}
-Email: ${values.email}
-Phone: ${values.phone || 'Not provided'}
-Inquiry Type: ${values.eventType}
-Event Date: ${values.date || 'Not specified'}
-Reply Urgency: ${values.replyUrgency || 'Not specified'}
+      // Use Formspree endpoint for form submission
+      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          phone: values.phone || 'Not provided',
+          eventType: values.eventType,
+          date: values.date || 'Not specified',
+          replyUrgency: values.replyUrgency || 'Not specified',
+          message: values.message,
+          _replyto: values.email,
+          _subject: `Contact Form Submission - ${values.eventType}`,
+        }),
+      });
 
-Message:
-${values.message}
-      `);
-      
-      const mailtoLink = `mailto:hunterjuggler@gmail.com?subject=${subject}&body=${body}`;
-      
-      // Open email client
-      window.location.href = mailtoLink;
-      
-      toast.success("Your email client should open now. If it doesn't, please email hunterjuggler@gmail.com directly.");
-      form.reset();
+      if (response.ok) {
+        toast.success("Thank you! Your message has been sent successfully. I'll get back to you soon!");
+        form.reset();
+      } else {
+        throw new Error("Failed to send message");
+      }
     } catch (error) {
-      toast.error("There was an error. Please email hunterjuggler@gmail.com directly.");
+      console.error("Form submission error:", error);
+      toast.error("There was an error sending your message. Please try again or email hunterjuggler@gmail.com directly.");
     } finally {
       setIsSubmitting(false);
     }
@@ -254,7 +259,7 @@ ${values.message}
           <Button type="submit" className="w-full" disabled={isSubmitting}>
             {isSubmitting ? (
               <span className="flex items-center">
-                Opening Email Client
+                Sending Message
                 <span className="ml-2 animate-pulse">...</span>
               </span>
             ) : (

@@ -80,63 +80,60 @@ const BookingForm = () => {
       agreeToTerms: false
     }
   });
+
   const onSubmit = async (values: BookingFormValues) => {
     setIsSubmitting(true);
     try {
-      // Create mailto link with booking form data
-      const subject = encodeURIComponent(`Booking Request - ${values.eventType} - ${values.eventDate}`);
-      const body = encodeURIComponent(`
-BOOKING REQUEST
+      // Use Formspree endpoint for form submission
+      const response = await fetch("https://formspree.io/f/YOUR_BOOKING_FORM_ID", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          organization: values.organization || 'Not provided',
+          eventType: values.eventType || 'Not specified',
+          eventDate: values.eventDate,
+          eventTime: values.eventTime,
+          eventLocation: values.eventLocation,
+          venueType: values.venueType || 'Not specified',
+          audienceSize: values.audienceSize || 'Not specified',
+          stageSize: values.stageSize,
+          ceilingHeight: values.ceilingHeight,
+          performanceDuration: values.performanceDuration,
+          specialRequests: values.specialRequests || 'None',
+          soundSystemProvided: values.soundSystemProvided ? 'Yes' : 'No',
+          soundSystemType: values.soundSystemType || 'Not specified',
+          referralSource: values.referralSource || 'Not specified',
+          _replyto: values.email,
+          _subject: `Booking Request - ${values.eventType} - ${values.eventDate}`,
+        }),
+      });
 
-Contact Information:
-Name: ${values.name}
-Email: ${values.email}
-Phone: ${values.phone}
-Organization: ${values.organization || 'Not provided'}
-
-Event Details:
-Event Type: ${values.eventType || 'Not specified'}
-Date: ${values.eventDate}
-Time: ${values.eventTime}
-Location: ${values.eventLocation}
-Venue Type: ${values.venueType || 'Not specified'}
-Audience Size: ${values.audienceSize || 'Not specified'}
-
-Technical Requirements:
-Stage Size: ${values.stageSize}
-Ceiling Height: ${values.ceilingHeight}
-Performance Duration: ${values.performanceDuration} minutes
-Sound System Provided: ${values.soundSystemProvided ? 'Yes' : 'No'}
-Sound System Type: ${values.soundSystemType || 'Not specified'}
-
-Special Requests:
-${values.specialRequests || 'None'}
-
-How they heard about me: ${values.referralSource || 'Not specified'}
-
-Terms agreed to: Yes
-      `);
-      const mailtoLink = `mailto:hunterjuggler@gmail.com?subject=${subject}&body=${body}`;
-
-      // Open email client
-      window.location.href = mailtoLink;
-      toast.success("Your email client should open now with your booking request. If it doesn't, please email hunterjuggler@gmail.com directly.");
-      form.reset();
+      if (response.ok) {
+        toast.success("Thank you! Your booking request has been submitted successfully. I'll review the details and get back to you with a quote soon!");
+        form.reset();
+      } else {
+        throw new Error("Failed to send booking request");
+      }
     } catch (error) {
-      toast.error("There was an error. Please email hunterjuggler@gmail.com directly with your booking details.");
+      console.error("Booking form submission error:", error);
+      toast.error("There was an error submitting your booking request. Please try again or email hunterjuggler@gmail.com directly.");
     } finally {
       setIsSubmitting(false);
     }
   };
-  return <motion.div initial={{
-    opacity: 0,
-    y: 20
-  }} animate={{
-    opacity: 1,
-    y: 0
-  }} transition={{
-    duration: 0.6
-  }} className="lg:col-span-2">
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }} 
+      animate={{ opacity: 1, y: 0 }} 
+      transition={{ duration: 0.6 }} 
+      className="lg:col-span-2"
+    >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 bg-black/30 p-8 rounded-xl shadow-sm border border-white/10">
           <ContactInfoSection form={form} />
@@ -193,16 +190,22 @@ Terms agreed to: Yes
               </FormItem>} />
           
           <Button type="submit" className="w-full" disabled={isSubmitting}>
-            {isSubmitting ? <span className="flex items-center">
-                Opening Email Client
+            {isSubmitting ? (
+              <span className="flex items-center">
+                Submitting Request
                 <span className="ml-2 animate-pulse">...</span>
-              </span> : <span className="flex items-center">
+              </span>
+            ) : (
+              <span className="flex items-center">
                 Submit Booking Request
                 <Send className="ml-2 h-4 w-4" />
-              </span>}
+              </span>
+            )}
           </Button>
         </form>
       </Form>
-    </motion.div>;
+    </motion.div>
+  );
 };
+
 export default BookingForm;
