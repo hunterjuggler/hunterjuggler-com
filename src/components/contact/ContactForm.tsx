@@ -55,16 +55,36 @@ const ContactForm = () => {
     },
   });
   
-  const onSubmit = (values: ContactFormValues) => {
+  const onSubmit = async (values: ContactFormValues) => {
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      toast.success("Thank you for your message! I'll get back to you soon.");
-      // Reset form after successful submission
+    try {
+      // Create mailto link with form data
+      const subject = encodeURIComponent(`Contact Form Submission - ${values.eventType}`);
+      const body = encodeURIComponent(`
+Name: ${values.name}
+Email: ${values.email}
+Phone: ${values.phone || 'Not provided'}
+Inquiry Type: ${values.eventType}
+Event Date: ${values.date || 'Not specified'}
+Reply Urgency: ${values.replyUrgency || 'Not specified'}
+
+Message:
+${values.message}
+      `);
+      
+      const mailtoLink = `mailto:hunterjuggler@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+      
+      toast.success("Your email client should open now. If it doesn't, please email hunterjuggler@gmail.com directly.");
       form.reset();
+    } catch (error) {
+      toast.error("There was an error. Please email hunterjuggler@gmail.com directly.");
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -234,7 +254,7 @@ const ContactForm = () => {
           <Button type="submit" className="w-full" disabled={isSubmitting}>
             {isSubmitting ? (
               <span className="flex items-center">
-                Sending
+                Opening Email Client
                 <span className="ml-2 animate-pulse">...</span>
               </span>
             ) : (

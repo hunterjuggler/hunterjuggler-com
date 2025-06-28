@@ -60,18 +60,14 @@ const GalleryPage = () => {
                   Performance Videos
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Watch highlights from various performances and events around the world.
+                  Performance videos are coming soon! Check back later for highlights from various performances and events.
                 </p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {videos.map((video, index) => (
-                  <GalleryItemComponent 
-                    key={video.id} 
-                    item={video} 
-                    index={index} 
-                    onClick={handleVideoClick} 
-                  />
-                ))}
+              <div className="flex justify-center items-center min-h-[300px]">
+                <div className="text-center p-8 bg-black/20 rounded-lg border border-white/10">
+                  <h3 className="text-xl font-semibold mb-2 text-foreground">Coming Soon</h3>
+                  <p className="text-muted-foreground">Performance videos will be available here soon.</p>
+                </div>
               </div>
             </TabsContent>
           </Tabs>

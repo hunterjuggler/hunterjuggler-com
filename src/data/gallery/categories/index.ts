@@ -7,8 +7,10 @@ import { chateauBoheme } from "./chateauBoheme";
 import { edinburghHunterSquare2023 } from "./edinburghHunterSquare2023";
 import { edinburghHighStreet2022 } from "./edinburghHighStreet2022";
 import { edinburghMound2022 } from "./edinburghMound2022";
+import { edinburghFringe2024 } from "./edinburghFringe2024";
 
 export const performanceCategories: PerformanceCategory[] = [
+  edinburghFringe2024,
   coventGarden,
   buntesPflaster,
   radomFestival,

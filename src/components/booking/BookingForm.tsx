@@ -67,16 +67,56 @@ const BookingForm = () => {
     },
   });
   
-  const onSubmit = (values: BookingFormValues) => {
+  const onSubmit = async (values: BookingFormValues) => {
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      toast.success("Thank you for your booking request! I'll review your details and get back to you within 48 hours.");
-      // Reset form after successful submission
+    try {
+      // Create mailto link with booking form data
+      const subject = encodeURIComponent(`Booking Request - ${values.eventType} - ${values.eventDate}`);
+      const body = encodeURIComponent(`
+BOOKING REQUEST
+
+Contact Information:
+Name: ${values.name}
+Email: ${values.email}
+Phone: ${values.phone}
+Organization: ${values.organization || 'Not provided'}
+
+Event Details:
+Event Type: ${values.eventType || 'Not specified'}
+Date: ${values.eventDate}
+Time: ${values.eventTime}
+Location: ${values.eventLocation}
+Venue Type: ${values.venueType || 'Not specified'}
+Audience Size: ${values.audienceSize || 'Not specified'}
+
+Technical Requirements:
+Stage Size: ${values.stageSize}
+Ceiling Height: ${values.ceilingHeight}
+Performance Duration: ${values.performanceDuration} minutes
+Sound System Provided: ${values.soundSystemProvided ? 'Yes' : 'No'}
+Sound System Type: ${values.soundSystemType || 'Not specified'}
+
+Special Requests:
+${values.specialRequests || 'None'}
+
+How they heard about me: ${values.referralSource || 'Not specified'}
+
+Terms agreed to: Yes
+      `);
+      
+      const mailtoLink = `mailto:hunterjuggler@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+      
+      toast.success("Your email client should open now with your booking request. If it doesn't, please email hunterjuggler@gmail.com directly.");
       form.reset();
+    } catch (error) {
+      toast.error("There was an error. Please email hunterjuggler@gmail.com directly with your booking details.");
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -170,7 +210,7 @@ const BookingForm = () => {
           <Button type="submit" className="w-full" disabled={isSubmitting}>
             {isSubmitting ? (
               <span className="flex items-center">
-                Submitting Request
+                Opening Email Client
                 <span className="ml-2 animate-pulse">...</span>
               </span>
             ) : (
