@@ -47,12 +47,10 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
 
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % performance.images.length);
-    }, 4000); // 4 second cycle time (1.5s fade + 2.5s display)
+    }, 4000); // 4 second cycle time
 
     return () => clearInterval(interval);
   }, [imagesLoaded, performance.images.length]);
-
-  const currentImage = performance.images[currentImageIndex];
 
   return (
     <motion.div
@@ -67,16 +65,20 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
         {/* Image container with smooth crossfade */}
         <div className="relative w-full h-full bg-black">
           {performance.images.map((image, imageIndex) => (
-            <BlurImage
+            <div
               key={image.thumbnail}
-              src={image.thumbnail}
-              alt={image.title}
-              aspectRatio="auto"
-              objectFit="cover"
-              className={`absolute inset-0 h-full w-full transition-all duration-[1500ms] ease-in-out group-hover:scale-105 ${
+              className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
                 imageIndex === currentImageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
               }`}
-            />
+            >
+              <BlurImage
+                src={image.thumbnail}
+                alt={image.title}
+                aspectRatio="auto"
+                objectFit="cover"
+                className="h-full w-full group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
           ))}
         </div>
         

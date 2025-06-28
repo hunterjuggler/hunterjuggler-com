@@ -43,14 +43,11 @@ const GalleryPage = () => {
             </TabsList>
             
             <TabsContent value="images" className="space-y-8">
-              {/* Enhanced scrollable container for category grid */}
-              <div className="overflow-y-auto max-h-screen">
-                <GalleryGrid performances={performanceCategories} onPerformanceClick={openLightbox} />
-              </div>
+              <GalleryGrid performances={performanceCategories} onPerformanceClick={openLightbox} />
             </TabsContent>
             
             <TabsContent value="videos" className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-y-auto max-h-screen">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {videos.map((video, index) => (
                   <GalleryItemComponent 
                     key={video.id} 
