@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Menu, X, Sparkles } from "lucide-react";
@@ -38,15 +39,15 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "py-3 bg-background/90 backdrop-blur-lg shadow-md border-b border-primary/10"
-          : "py-5 bg-transparent"
+          ? "py-3 bg-background/95 backdrop-blur-lg shadow-md border-b border-primary/10"
+          : "py-5 bg-background/80 backdrop-blur-sm"
       )}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <NavLink
             to="/"
-            className="text-xl font-display font-bold tracking-tight transition-opacity hover:opacity-90 red-gradient-text"
+            className="text-xl font-display font-bold tracking-tight transition-opacity hover:opacity-90 red-gradient-text relative z-50"
           >
             Hunter Way
           </NavLink>
@@ -77,7 +78,7 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden text-foreground p-2"
+            className="md:hidden text-foreground p-2 relative z-50"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -86,47 +87,40 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation - Updated to fixed position that covers the screen */}
+      {/* Mobile Navigation - Fixed positioning and proper z-index */}
       <div
         className={cn(
-          "fixed inset-0 bg-background/95 backdrop-blur-lg z-40 md:hidden transition-transform duration-300 ease-in-out overflow-auto pt-20",
-          isOpen ? "translate-x-0" : "translate-x-full"
+          "fixed inset-0 bg-background/98 backdrop-blur-lg z-40 md:hidden transition-all duration-300 ease-in-out",
+          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
         )}
       >
-        <nav className="flex flex-col items-center space-y-4 p-4">
+        <div className="flex flex-col items-center justify-center h-full space-y-8 p-8">
           {navItems.map((item) => (
-            <Button
+            <NavLink
               key={item.path}
-              asChild
-              variant="gradient"
-              rounded="pill"
-              className="w-full max-w-xs shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125]"
+              to={item.path}
+              className={({ isActive }) =>
+                cn(
+                  "text-2xl font-medium transition-colors py-2",
+                  isActive ? "text-primary font-bold" : "text-foreground hover:text-primary"
+                )
+              }
             >
-              <NavLink
-                to={item.path}
-                className={({ isActive }) =>
-                  cn(
-                    "w-full py-3 text-center",
-                    isActive ? "font-bold" : ""
-                  )
-                }
-              >
-                {item.name}
-              </NavLink>
-            </Button>
+              {item.name}
+            </NavLink>
           ))}
           <Button 
             asChild 
             variant="gradient" 
             rounded="pill"
-            className="w-full max-w-xs shine-effect shimmer-animation mt-4 shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125]"
+            className="mt-8 px-8 py-3 text-lg shine-effect shimmer-animation shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125]"
           >
-            <NavLink to="/booking" className="flex items-center justify-center gap-1 py-3">
-              <Sparkles className="h-4 w-4" />
+            <NavLink to="/booking" className="flex items-center gap-2">
+              <Sparkles className="h-5 w-5" />
               Book Now
             </NavLink>
           </Button>
-        </nav>
+        </div>
       </div>
     </header>
   );

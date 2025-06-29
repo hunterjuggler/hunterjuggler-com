@@ -68,7 +68,7 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
             <img
               key={image.thumbnail}
               src={image.thumbnail}
-              alt={image.title}
+              alt=""
               className={`absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-300 ${
                 imageIndex === currentImageIndex 
                   ? 'opacity-100 z-10' 

@@ -4,9 +4,9 @@ import { PerformanceCategory } from "@/types/gallery";
 export const edinburghFringe2024: PerformanceCategory = {
   id: 8,
   name: "Edinburgh Fringe — (2024)",
-  description: "Street performances at the world's largest arts festival in Edinburgh, Scotland - August 2024",
+  description: "Street performances at the world's largest arts festival in Edinburgh, Scotland - August 2024. Photos by Andrew Murray and Arch White.",
   coverImage: "/lovable-uploads/b50b7e3f-e132-46d9-9f6a-61b59dc9600d.png",
-  photographer: "Andrew Murray",
+  photographer: "Andrew Murray & Arch White",
   images: [
     {
       id: 801,

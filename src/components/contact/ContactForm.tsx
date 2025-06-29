@@ -107,7 +107,7 @@ const ContactForm = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Name</FormLabel>
+                    <FormLabel>Name *</FormLabel>
                     <FormControl>
                       <Input 
                         placeholder="Your name" 
@@ -125,7 +125,7 @@ const ContactForm = () => {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>Email *</FormLabel>
                     <FormControl>
                       <Input 
                         type="email" 
@@ -183,7 +183,7 @@ const ContactForm = () => {
               name="eventType"
               render={({ field }) => (
                 <FormItem className="space-y-2">
-                  <FormLabel>Reason for Contact</FormLabel>
+                  <FormLabel>Reason for Contact *</FormLabel>
                   <FormControl>
                     <RadioGroup 
                       onValueChange={field.onChange} 
@@ -242,7 +242,7 @@ const ContactForm = () => {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Message</FormLabel>
+                  <FormLabel>Message *</FormLabel>
                   <FormControl>
                     <Textarea 
                       placeholder="How can I help you?" 
