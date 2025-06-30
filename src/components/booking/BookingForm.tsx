@@ -7,13 +7,11 @@ import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
+import { Form } from "@/components/ui/form";
 import ContactInfoSection from "./ContactInfoSection";
 import EventDetailsSection from "./EventDetailsSection";
+import PerformanceDetailsSection from "./PerformanceDetailsSection";
+import SpecialRequestsSection from "./SpecialRequestsSection";
 
 // Validation schema
 const bookingFormSchema = z.object({
@@ -88,7 +86,6 @@ const BookingForm = () => {
   const onSubmit = async (values: BookingFormValues) => {
     setIsSubmitting(true);
     try {
-      // Use your specific Formspree endpoint for booking form
       const response = await fetch("https://formspree.io/f/mgvydegl", {
         method: "POST",
         headers: {
@@ -140,127 +137,9 @@ const BookingForm = () => {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 bg-black/30 p-8 rounded-xl shadow-sm border border-white/10">
           <ContactInfoSection form={form} />
-          
           <EventDetailsSection form={form} />
-          
-          {/* Performance Details Section */}
-          <div className="space-y-6">
-            <h3 className="text-xl font-semibold text-foreground">Performance Details</h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <FormField control={form.control} name="stageSize" render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Stage Size *</FormLabel>
-                  <FormControl>
-                    <Input placeholder="e.g., 20ft x 15ft" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )} />
-              
-              <FormField control={form.control} name="ceilingHeight" render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Ceiling Height *</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select ceiling height" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="20+ ft">20+ ft</SelectItem>
-                      <SelectItem value="15–20 ft">15–20 ft</SelectItem>
-                      <SelectItem value="12–15 ft">12–15 ft</SelectItem>
-                      <SelectItem value="Under 12 ft">Under 12 ft</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )} />
-            </div>
-
-            {watchCeilingHeight === "Under 12 ft" && (
-              <FormField control={form.control} name="exactCeilingHeight" render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Please specify the exact ceiling height:</FormLabel>
-                  <FormControl>
-                    <Input placeholder="e.g., 10 ft 6 inches" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )} />
-            )}
-
-            <FormField control={form.control} name="performanceDuration" render={({ field }) => (
-              <FormItem>
-                <FormLabel>Performance Duration (minutes) *</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select duration" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="15">15 minutes</SelectItem>
-                    <SelectItem value="30">30 minutes</SelectItem>
-                    <SelectItem value="45">45 minutes</SelectItem>
-                    <SelectItem value="60">60 minutes</SelectItem>
-                    <SelectItem value="custom">Custom duration</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )} />
-          </div>
-          
-          {/* Special Requests field */}
-          <FormField control={form.control} name="specialRequests" render={({ field }) => (
-            <FormItem>
-              <FormLabel>Special Requests or Additional Information</FormLabel>
-              <FormControl>
-                <Textarea placeholder="Describe any specific themes, acts, or elements you'd like included in the performance" className="min-h-[100px]" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )} />
-          
-          {/* How did you hear about me field */}
-          <FormField control={form.control} name="referralSource" render={({ field }) => (
-            <FormItem>
-              <FormLabel>How did you hear about me?</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select an option" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value="google">Google</SelectItem>
-                  <SelectItem value="instagram">Instagram</SelectItem>
-                  <SelectItem value="friend">Friend / Colleague</SelectItem>
-                  <SelectItem value="show">Saw your show</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
-          )} />
-          
-          <FormField control={form.control} name="agreeToTerms" render={({ field }) => (
-            <FormItem className="flex flex-row items-start space-x-2 pt-4">
-              <FormControl>
-                <Checkbox checked={field.value} onCheckedChange={field.onChange} className="mt-1" />
-              </FormControl>
-              <div className="space-y-1 leading-none">
-                <FormLabel className="text-sm cursor-pointer">
-                  I understand that this is a booking inquiry and not a confirmed booking. 
-                  A final quote will be provided after reviewing the details, and a contract 
-                  will be required to secure the booking.
-                </FormLabel>
-                <FormMessage />
-              </div>
-            </FormItem>
-          )} />
+          <PerformanceDetailsSection form={form} watchCeilingHeight={watchCeilingHeight} />
+          <SpecialRequestsSection form={form} />
           
           <Button type="submit" className="w-full" disabled={isSubmitting}>
             {isSubmitting ? (

@@ -1,96 +1,82 @@
 
 import { FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface PerformanceDetailsSectionProps {
   form: any;
+  watchCeilingHeight: string;
 }
 
-const PerformanceDetailsSection = ({
-  form
-}: PerformanceDetailsSectionProps) => {
+const PerformanceDetailsSection = ({ form, watchCeilingHeight }: PerformanceDetailsSectionProps) => {
   return (
     <div className="space-y-6">
-      <h3 className="text-xl font-semibold border-b border-white/20 pb-2">Performance Details</h3>
+      <h3 className="text-xl font-semibold text-foreground">Performance Details</h3>
       
-      <FormField
-        control={form.control}
-        name="performanceType"
-        render={({ field }) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <FormField control={form.control} name="stageSize" render={({ field }) => (
           <FormItem>
-            <FormLabel>Performance Type</FormLabel>
+            <FormLabel>Stage Size *</FormLabel>
+            <FormControl>
+              <Input placeholder="e.g., 20ft x 15ft" {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )} />
+        
+        <FormField control={form.control} name="ceilingHeight" render={({ field }) => (
+          <FormItem>
+            <FormLabel>Ceiling Height *</FormLabel>
             <Select onValueChange={field.onChange} defaultValue={field.value}>
               <FormControl>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select performance type" />
+                  <SelectValue placeholder="Select ceiling height" />
                 </SelectTrigger>
               </FormControl>
               <SelectContent>
-                <SelectItem value="comedy-juggling">Comedy Juggling Show</SelectItem>
-                <SelectItem value="walkaround">Walkaround Performance</SelectItem>
-                <SelectItem value="special-request">Special Request</SelectItem>
+                <SelectItem value="20+ ft">20+ ft</SelectItem>
+                <SelectItem value="15–20 ft">15–20 ft</SelectItem>
+                <SelectItem value="12–15 ft">12–15 ft</SelectItem>
+                <SelectItem value="Under 12 ft">Under 12 ft</SelectItem>
               </SelectContent>
             </Select>
             <FormMessage />
           </FormItem>
-        )}
-      />
-      
-      <FormField
-        control={form.control}
-        name="specialRequests"
-        render={({ field }) => (
+        )} />
+      </div>
+
+      {watchCeilingHeight === "Under 12 ft" && (
+        <FormField control={form.control} name="exactCeilingHeight" render={({ field }) => (
           <FormItem>
-            <FormLabel>Special Requests or Theme</FormLabel>
+            <FormLabel>Please specify the exact ceiling height:</FormLabel>
             <FormControl>
-              <Textarea
-                placeholder="Describe any specific themes, acts, or elements you'd like included in the performance"
-                className="min-h-[100px]"
-                {...field}
-              />
+              <Input placeholder="e.g., 10 ft 6 inches" {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>
-        )}
-      />
-      
-      <FormField
-        control={form.control}
-        name="soundSystemProvided"
-        render={({ field }) => (
-          <FormItem className="space-y-2">
-            <div className="flex items-center space-x-2">
-              <FormControl>
-                <Checkbox
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                />
-              </FormControl>
-              <FormLabel>Will you provide a sound system?</FormLabel>
-            </div>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-      
-      {form.watch("soundSystemProvided") && (
-        <FormField
-          control={form.control}
-          name="soundSystemType"
-          render={({ field }) => (
-            <FormItem className="ml-6 space-y-2">
-              <FormLabel>What kind of sound system?</FormLabel>
-              <FormControl>
-                <Input placeholder="Describe your sound system" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        )} />
       )}
+
+      <FormField control={form.control} name="performanceDuration" render={({ field }) => (
+        <FormItem>
+          <FormLabel>Performance Duration (minutes) *</FormLabel>
+          <Select onValueChange={field.onChange} defaultValue={field.value}>
+            <FormControl>
+              <SelectTrigger>
+                <SelectValue placeholder="Select duration" />
+              </SelectTrigger>
+            </FormControl>
+            <SelectContent>
+              <SelectItem value="15">15 minutes</SelectItem>
+              <SelectItem value="30">30 minutes</SelectItem>
+              <SelectItem value="45">45 minutes</SelectItem>
+              <SelectItem value="60">60 minutes</SelectItem>
+              <SelectItem value="custom">Custom duration</SelectItem>
+            </SelectContent>
+          </Select>
+          <FormMessage />
+        </FormItem>
+      )} />
     </div>
   );
 };
