@@ -2,6 +2,7 @@
 import { FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import EventTimeSection from "./EventTimeSection";
 
 interface EventDetailsSectionProps {
   form: any;
@@ -29,19 +30,7 @@ const EventDetailsSection = ({
           )}
         />
         
-        <FormField
-          control={form.control}
-          name="eventTime"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Event Time *</FormLabel>
-              <FormControl>
-                <Input type="time" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        <EventTimeSection form={form} />
       </div>
       
       <FormField

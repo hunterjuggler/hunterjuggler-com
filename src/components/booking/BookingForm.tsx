@@ -10,7 +10,6 @@ import { z } from "zod";
 import { Form } from "@/components/ui/form";
 import ContactInfoSection from "./ContactInfoSection";
 import EventDetailsSection from "./EventDetailsSection";
-import PerformanceDetailsSection from "./PerformanceDetailsSection";
 import SpecialRequestsSection from "./SpecialRequestsSection";
 
 // Validation schema
@@ -81,8 +80,6 @@ const BookingForm = () => {
     }
   });
 
-  const watchCeilingHeight = form.watch("ceilingHeight");
-
   const onSubmit = async (values: BookingFormValues) => {
     setIsSubmitting(true);
     try {
@@ -138,7 +135,6 @@ const BookingForm = () => {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 bg-black/30 p-8 rounded-xl shadow-sm border border-white/10">
           <ContactInfoSection form={form} />
           <EventDetailsSection form={form} />
-          <PerformanceDetailsSection form={form} watchCeilingHeight={watchCeilingHeight} />
           <SpecialRequestsSection form={form} />
           
           <Button type="submit" className="w-full" disabled={isSubmitting}>

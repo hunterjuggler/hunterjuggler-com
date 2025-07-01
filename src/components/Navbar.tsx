@@ -30,7 +30,6 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Gallery", path: "/gallery" },
-    { name: "Press Kit", path: "/press-kit" },
     { name: "Contact", path: "/contact" },
   ];
 
