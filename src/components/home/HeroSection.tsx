@@ -9,8 +9,8 @@ const HeroSection: React.FC = () => {
     <section className="relative min-h-[100vh] flex items-center">
       <div className="absolute inset-0 z-0">
         <img 
-          src="/lovable-uploads/f427474a-e0b2-47cd-be36-a497c94634b8.png"
-          alt="Hunter Way performing"
+          src="/lovable-uploads/hero-crowd-performance.jpg"
+          alt="Hunter Way performing in front of a large crowd"
           className="w-full h-full object-cover"
           style={{ 
             minHeight: '100vh',
