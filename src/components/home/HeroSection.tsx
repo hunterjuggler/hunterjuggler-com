@@ -11,11 +11,12 @@ const HeroSection: React.FC = () => {
         <img 
           src="/lovable-uploads/hero-crowd-performance.jpg"
           alt="Hunter Way performing in front of a large crowd"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-right"
           style={{ 
             minHeight: '100vh',
             width: '100%',
-            objectFit: 'cover'
+            objectFit: 'cover',
+            objectPosition: 'right'
           }}
         />
         {/* Radial gradient overlay - brightens center while keeping dark edges */}
