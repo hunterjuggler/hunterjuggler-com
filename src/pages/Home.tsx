@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import HeroSection from "@/components/home/HeroSection";
+import PromoVideoSection from "@/components/home/PromoVideoSection";
 import AboutSection from "@/components/home/AboutSection";
 import SocialSection from "@/components/home/SocialSection";
 import CallToAction from "@/components/home/CallToAction";
@@ -24,6 +25,7 @@ const HomePage = () => {
       
       <div className="flex flex-col">
         <HeroSection />
+        <PromoVideoSection />
         <AboutSection />
         <ShowSection />
         <CombinedTestimonialsSection />
