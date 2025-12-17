@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { performanceCategories } from "@/data/gallery/performanceCategories";
-import { videos } from "@/data/gallery/videos";
+// import { videos } from "@/data/gallery/videos";
 import { PerformanceCategory, GalleryItem } from "@/types/gallery";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import GalleryHero from "@/components/gallery/GalleryHero";
@@ -19,10 +19,10 @@ const GalleryPage = () => {
     setIsLightboxOpen(true);
   };
 
-  const handleVideoClick = (video: GalleryItem) => {
-    // Handle video click - could open in modal or redirect to video
-    console.log("Video clicked:", video);
-  };
+  // const handleVideoClick = (video: GalleryItem) => {
+  //   // Handle video click - could open in modal or redirect to video
+  //   console.log("Video clicked:", video);
+  // };
 
   return (
     <div className="pt-20 w-full">
@@ -36,6 +36,20 @@ const GalleryPage = () => {
       
       <section className="py-16">
         <div className="container mx-auto px-4 md:px-6">
+          {/* Images Section - Videos tab hidden for now, uncomment Tabs below to re-enable */}
+          <div className="space-y-8">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-display font-bold mb-4 text-foreground">
+                Performance Categories
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Click on any category to view the full collection of images from that performance or event.
+              </p>
+            </div>
+            <GalleryGrid performances={performanceCategories} onPerformanceClick={openLightbox} />
+          </div>
+          
+          {/* VIDEOS TAB - Uncomment this entire Tabs section to re-enable videos
           <Tabs defaultValue="images" className="w-full">
             <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto mb-8">
               <TabsTrigger value="images" className="text-foreground">Images</TabsTrigger>
@@ -71,6 +85,7 @@ const GalleryPage = () => {
               </div>
             </TabsContent>
           </Tabs>
+          */}
         </div>
       </section>
       
