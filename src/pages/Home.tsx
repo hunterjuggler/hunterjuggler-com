@@ -7,7 +7,7 @@ import AboutSection from "@/components/home/AboutSection";
 import SocialSection from "@/components/home/SocialSection";
 import CallToAction from "@/components/home/CallToAction";
 import ShowSection from "@/components/about/ShowSection";
-import CombinedTestimonialsSection from "@/components/home/CombinedTestimonialsSection";
+// import CombinedTestimonialsSection from "@/components/home/CombinedTestimonialsSection";
 
 const HomePage = () => {
   // Add scroll to top effect when component mounts
@@ -28,7 +28,7 @@ const HomePage = () => {
         <PromoVideoSection />
         <AboutSection />
         <ShowSection />
-        <CombinedTestimonialsSection />
+        {/* <CombinedTestimonialsSection /> */}
         <SocialSection />
         <CallToAction />
       </div>
