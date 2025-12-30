@@ -96,7 +96,7 @@ const Navbar = () => {
           isOpen ? "opacity-100 visible" : "opacity-0 invisible"
         )}
       >
-        <div className="flex flex-col items-center justify-center h-full pt-16 space-y-4 p-8">
+        <div className="flex flex-col items-center h-full pt-24 space-y-4 p-8">
           {navItems.map((item) => (
             <NavLink
               key={item.path}
