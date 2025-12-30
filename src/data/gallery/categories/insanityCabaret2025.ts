@@ -61,6 +61,51 @@ export const insanityCabaret2025: PerformanceCategory = {
       fullImage: "/lovable-uploads/insanity-cabaret-6.jpeg",
       photographer: "",
       orientation: "portrait"
+    },
+    {
+      id: 907,
+      title: "Basketball Spinning",
+      category: "images",
+      thumbnail: "/lovable-uploads/insanity-cabaret-7.jpeg",
+      fullImage: "/lovable-uploads/insanity-cabaret-7.jpeg",
+      photographer: "",
+      orientation: "portrait"
+    },
+    {
+      id: 908,
+      title: "Double Basketball Balance",
+      category: "images",
+      thumbnail: "/lovable-uploads/insanity-cabaret-8.jpeg",
+      fullImage: "/lovable-uploads/insanity-cabaret-8.jpeg",
+      photographer: "",
+      orientation: "portrait"
+    },
+    {
+      id: 909,
+      title: "Unicycle Performance",
+      category: "images",
+      thumbnail: "/lovable-uploads/insanity-cabaret-9.jpeg",
+      fullImage: "/lovable-uploads/insanity-cabaret-9.jpeg",
+      photographer: "",
+      orientation: "portrait"
+    },
+    {
+      id: 910,
+      title: "Unicycle Skipping with Audience",
+      category: "images",
+      thumbnail: "/lovable-uploads/insanity-cabaret-10.jpeg",
+      fullImage: "/lovable-uploads/insanity-cabaret-10.jpeg",
+      photographer: "",
+      orientation: "landscape"
+    },
+    {
+      id: 911,
+      title: "Unicycle Jump Rope",
+      category: "images",
+      thumbnail: "/lovable-uploads/insanity-cabaret-11.jpeg",
+      fullImage: "/lovable-uploads/insanity-cabaret-11.jpeg",
+      photographer: "",
+      orientation: "portrait"
     }
   ]
 };
