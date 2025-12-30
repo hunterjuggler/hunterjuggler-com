@@ -106,6 +106,60 @@ export const insanityCabaret2025: PerformanceCategory = {
       fullImage: "/lovable-uploads/insanity-cabaret-11.jpeg",
       photographer: "",
       orientation: "portrait"
+    },
+    {
+      id: 912,
+      title: "Unicycle Skipping Wide Shot",
+      category: "images",
+      thumbnail: "/lovable-uploads/insanity-cabaret-12.jpeg",
+      fullImage: "/lovable-uploads/insanity-cabaret-12.jpeg",
+      photographer: "",
+      orientation: "landscape"
+    },
+    {
+      id: 913,
+      title: "Jump Rope Action",
+      category: "images",
+      thumbnail: "/lovable-uploads/insanity-cabaret-13.jpeg",
+      fullImage: "/lovable-uploads/insanity-cabaret-13.jpeg",
+      photographer: "",
+      orientation: "landscape"
+    },
+    {
+      id: 914,
+      title: "Unicycle Skipping Reaction",
+      category: "images",
+      thumbnail: "/lovable-uploads/insanity-cabaret-14.jpeg",
+      fullImage: "/lovable-uploads/insanity-cabaret-14.jpeg",
+      photographer: "",
+      orientation: "landscape"
+    },
+    {
+      id: 915,
+      title: "Victory Celebration",
+      category: "images",
+      thumbnail: "/lovable-uploads/insanity-cabaret-15.jpeg",
+      fullImage: "/lovable-uploads/insanity-cabaret-15.jpeg",
+      photographer: "",
+      orientation: "landscape"
+    },
+    {
+      id: 916,
+      title: "Audience Hug",
+      category: "images",
+      thumbnail: "/lovable-uploads/insanity-cabaret-16.jpeg",
+      fullImage: "/lovable-uploads/insanity-cabaret-16.jpeg",
+      photographer: "",
+      orientation: "landscape"
+    },
+    {
+      id: 917,
+      title: "Finale Pose",
+      category: "images",
+      thumbnail: "/lovable-uploads/insanity-cabaret-17.jpeg",
+      fullImage: "/lovable-uploads/insanity-cabaret-17.jpeg",
+      photographer: "",
+      orientation: "landscape"
     }
   ]
 };
