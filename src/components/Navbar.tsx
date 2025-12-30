@@ -76,13 +76,15 @@ const Navbar = () => {
           </nav>
 
           {/* Mobile menu button */}
-          <button
-            className="md:hidden text-foreground p-2 relative z-50"
+          <Button
+            variant="gradient"
+            rounded="pill"
+            className="md:hidden relative z-50 p-2 h-10 w-10 shine-effect"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </Button>
         </div>
       </div>
 
