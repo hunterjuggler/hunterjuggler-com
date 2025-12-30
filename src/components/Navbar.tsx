@@ -79,7 +79,7 @@ const Navbar = () => {
           <Button
             variant="gradient"
             rounded="pill"
-            className="md:hidden relative z-50 p-2 h-10 w-10 shine-effect"
+            className="md:hidden relative z-50 h-10 w-10 p-0 flex items-center justify-center shine-effect"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -89,21 +89,24 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Navigation - Fixed positioning and proper z-index */}
+      {/* Mobile Navigation - Fixed positioning and proper z-index */}
       <div
         className={cn(
           "fixed inset-0 bg-background/98 backdrop-blur-lg z-40 md:hidden transition-all duration-300 ease-in-out",
           isOpen ? "opacity-100 visible" : "opacity-0 invisible"
         )}
       >
-        <div className="flex flex-col items-center justify-center h-full space-y-8 p-8">
+        <div className="flex flex-col items-center justify-center h-full pt-16 space-y-4 p-8">
           {navItems.map((item) => (
             <NavLink
               key={item.path}
               to={item.path}
               className={({ isActive }) =>
                 cn(
-                  "text-2xl font-medium transition-colors py-2",
-                  isActive ? "text-primary font-bold" : "text-foreground hover:text-primary"
+                  "text-xl font-medium transition-all py-3 px-8 rounded-full",
+                  isActive 
+                    ? "bg-primary text-primary-foreground font-bold shadow-lg" 
+                    : "bg-muted/50 text-foreground hover:bg-muted"
                 )
               }
             >
@@ -114,7 +117,7 @@ const Navbar = () => {
             asChild 
             variant="gradient" 
             rounded="pill"
-            className="mt-8 px-8 py-3 text-lg shine-effect shimmer-animation shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125]"
+            className="mt-6 px-8 py-3 text-lg shine-effect shimmer-animation shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125]"
           >
             <NavLink to="/booking" className="flex items-center gap-2">
               <Sparkles className="h-5 w-5" />
