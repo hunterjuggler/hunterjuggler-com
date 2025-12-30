@@ -100,14 +100,16 @@ const PerformanceSlot = ({ performance, index, onClick }: PerformanceSlotProps) 
           </div>
         )}
 
-        {/* Performance label - ensuring it's visible */}
+        {/* Performance label - with background for visibility */}
         <div className="absolute bottom-4 right-4 text-right z-20">
-          <h3 className="text-white font-semibold text-lg leading-tight drop-shadow-lg">
-            {performance.name}
-          </h3>
-          <p className="text-white/90 text-sm drop-shadow-md">
-            {performance.images.length} {performance.images.length === 1 ? 'photo' : 'photos'}
-          </p>
+          <div className="bg-black/60 backdrop-blur-sm rounded-full px-4 py-2">
+            <h3 className="text-white font-semibold text-lg leading-tight">
+              {performance.name}
+            </h3>
+            <p className="text-white/90 text-sm">
+              {performance.images.length} {performance.images.length === 1 ? 'photo' : 'photos'}
+            </p>
+          </div>
         </div>
       </div>
     </motion.div>
