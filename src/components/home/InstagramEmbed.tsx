@@ -31,21 +31,15 @@ const InstagramEmbed: React.FC = () => {
       {/* Direct link to Instagram with container */}
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center py-4 text-muted-foreground">
-          <div className="flex items-center justify-center gap-2 mb-2">
+          <a 
+            href="https://instagram.com/hunterjuggler" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity"
+          >
             <Instagram size={20} className="text-[#ff4742]" />
             <span className="font-medium">@hunterjuggler</span>
-          </div>
-          <p className="text-sm">
-            Follow my latest performances and behind-the-scenes content on{' '}
-            <a 
-              href="https://instagram.com/hunterjuggler" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-[#ff4742] hover:underline font-medium"
-            >
-              Instagram
-            </a>
-          </p>
+          </a>
         </div>
       </div>
     </div>

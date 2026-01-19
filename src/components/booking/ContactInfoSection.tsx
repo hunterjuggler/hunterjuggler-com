@@ -55,9 +55,32 @@ const ContactInfoSection = ({ form }: ContactInfoSectionProps) => {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Phone *</FormLabel>
-              <FormControl>
-                <Input placeholder="Your phone number" {...field} />
-              </FormControl>
+              <div className="flex gap-2">
+                <FormControl>
+                  <Input 
+                    placeholder="+1" 
+                    className="w-20 flex-shrink-0" 
+                    onChange={(e) => {
+                      const countryCode = e.target.value;
+                      const currentPhone = field.value || '';
+                      const phoneNumber = currentPhone.includes(' ') ? currentPhone.split(' ').slice(1).join(' ') : currentPhone;
+                      field.onChange(countryCode + (phoneNumber ? ' ' + phoneNumber : ''));
+                    }}
+                  />
+                </FormControl>
+                <FormControl>
+                  <Input 
+                    placeholder="Phone number" 
+                    className="flex-1" 
+                    onChange={(e) => {
+                      const phoneNumber = e.target.value;
+                      const currentPhone = field.value || '';
+                      const countryCode = currentPhone.includes(' ') ? currentPhone.split(' ')[0] : '';
+                      field.onChange((countryCode || '+1') + ' ' + phoneNumber);
+                    }}
+                  />
+                </FormControl>
+              </div>
               <FormMessage />
             </FormItem>
           )}
