@@ -169,6 +169,33 @@ export const edinburghFringe2025: PerformanceCategory = {
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-18.jpg",
       photographer: "Edinburgh Fringe Photography",
       orientation: "landscape" as const
+    },
+    {
+      id: 919,
+      title: "Knife Juggling Action",
+      category: "images",
+      thumbnail: "/lovable-uploads/edinburgh-fringe-2025-19.jpg",
+      fullImage: "/lovable-uploads/edinburgh-fringe-2025-19.jpg",
+      photographer: "Edinburgh Fringe Photography",
+      orientation: "landscape" as const
+    },
+    {
+      id: 920,
+      title: "High Above the Crowd",
+      category: "images",
+      thumbnail: "/lovable-uploads/edinburgh-fringe-2025-20.jpg",
+      fullImage: "/lovable-uploads/edinburgh-fringe-2025-20.jpg",
+      photographer: "Edinburgh Fringe Photography",
+      orientation: "landscape" as const
+    },
+    {
+      id: 921,
+      title: "Giraffe Unicycle Back View",
+      category: "images",
+      thumbnail: "/lovable-uploads/edinburgh-fringe-2025-21.jpg",
+      fullImage: "/lovable-uploads/edinburgh-fringe-2025-21.jpg",
+      photographer: "Edinburgh Fringe Photography",
+      orientation: "portrait" as const
     }
   ]
 };
