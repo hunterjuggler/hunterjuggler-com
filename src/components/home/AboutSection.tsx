@@ -18,10 +18,16 @@ const AboutSection: React.FC = () => {
             <span className="text-[#ff4742] font-medium">About Me</span>
             <h2 className="text-5xl md:text-6xl font-display font-bold mt-2 mb-6">What I Do</h2>
             <p className="text-muted-foreground mb-6">
-              With over two decades of circus arts experience and more than a decade performing professionally, I've dedicated my life to creating unforgettable live shows that wow audiences around the world.
+              I'm a high-skill circus entertainer with the energy of a golden retriever who got really good at juggling different things.
+            </p>
+            <p className="text-muted-foreground mb-6">
+              With over two decades in circus arts and more than a decade performing professionally, my shows blend real technical skill with earnest, slightly ridiculous comedy. I'm not trying to be cool or intimidating. I'm the performer who's genuinely excited to be there, rooting for the audience as much as they're rooting for me.
+            </p>
+            <p className="text-muted-foreground mb-6">
+              Expect award-winning juggling, big stunts, and a lot of smiling through the chaos. I lean into playful confidence, self-aware humor, and honest audience connection, the kind where people feel like they're part of the show, not just watching it.
             </p>
             <p className="text-muted-foreground mb-8">
-              Blending award-winning juggling, daring stunts, big laughs, and audience interaction, my performances bring high-energy entertainment to festivals, corporate events, theaters, and street stages alike.
+              The result is high-energy entertainment that feels impressive without ever feeling distant, and funny without being mean, whether it's on the street or a theater stage.
             </p>
             
             {/* Media mentions - Now with diamond icons */}
