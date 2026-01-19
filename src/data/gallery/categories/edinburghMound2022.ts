@@ -2,7 +2,7 @@ import { PerformanceCategory } from "@/types/gallery";
 
 export const edinburghMound2022: PerformanceCategory = {
   id: 7,
-  name: "Edinburgh Fringe — The Mound (2022)",
+  name: "Edinburgh Fringe: The Mound (2022)",
   description: "Performance at Edinburgh Fringe Festival at The Mound",
   coverImage: "/lovable-uploads/a9cc8333-959f-444e-b27e-78e8193e9542.png",
   photographer: "Kit Oates",

@@ -38,12 +38,12 @@ const ShowSection: React.FC = () => {
             </h2>
             <p className="text-muted-foreground mb-6">
               Get ready for a fast-paced, laugh-out-loud comedy juggling show with big stunts and audience participation. 
-              Blending sharp humor with high-level circus skills — and topped with a spectacular giraffe unicycle finale — 
+              Blending sharp humor with high-level circus skills and topped with a spectacular giraffe unicycle finale, 
               this show keeps crowds of all ages entertained from start to finish.
             </p>
             
             <p className="text-muted-foreground mb-6">
-              Customizable for any event, performances can run from 10 to 60 minutes, and are tailored to suit the vibe — 
+              Customizable for any event, performances can run from 10 to 60 minutes, and are tailored to suit the vibe, 
               from family-friendly fun to cheeky adult humor.
             </p>
 

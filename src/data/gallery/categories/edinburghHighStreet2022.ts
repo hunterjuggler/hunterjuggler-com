@@ -2,7 +2,7 @@ import { PerformanceCategory } from "@/types/gallery";
 
 export const edinburghHighStreet2022: PerformanceCategory = {
   id: 6,
-  name: "Edinburgh Fringe — High Street (2022)",
+  name: "Edinburgh Fringe: High Street (2022)",
   description: "Performance at Edinburgh Fringe Festival on High Street",
   coverImage: "/lovable-uploads/c9596d25-45ca-49bf-9018-43ed6cdbbc25.png",
   photographer: "Edinburgh Fringe Photography",

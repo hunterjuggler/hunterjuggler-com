@@ -18,7 +18,7 @@ const AboutSection: React.FC = () => {
             <span className="text-[#ff4742] font-medium">About Me</span>
             <h2 className="text-5xl md:text-6xl font-display font-bold mt-2 mb-6">What I Do</h2>
             <p className="text-muted-foreground mb-6">
-              With over two decades of circus arts experience — and more than a decade performing professionally — I've dedicated my life to creating unforgettable live shows that wow audiences around the world.
+              With over two decades of circus arts experience and more than a decade performing professionally, I've dedicated my life to creating unforgettable live shows that wow audiences around the world.
             </p>
             <p className="text-muted-foreground mb-8">
               Blending award-winning juggling, daring stunts, big laughs, and audience interaction, my performances bring high-energy entertainment to festivals, corporate events, theaters, and street stages alike.
