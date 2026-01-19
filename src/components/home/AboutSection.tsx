@@ -15,19 +15,19 @@ const AboutSection: React.FC = () => {
             transition={{ duration: 0.5 }} 
             viewport={{ once: true }}
           >
-            <span className="text-[#ff4742] font-medium">About Me</span>
-            <h2 className="text-5xl md:text-6xl font-display font-bold mt-2 mb-6">What I Do</h2>
+            <span className="text-[#ff4742] font-medium">About Hunter</span>
+            <h2 className="text-5xl md:text-6xl font-display font-bold mt-2 mb-6">What He Does</h2>
             <p className="text-muted-foreground mb-6">
-              I'm a high-skill circus entertainer with the energy of a golden retriever who got really good at juggling different things.
+              Hunter is a high-skill circus entertainer with golden retriever energy and over twenty years of experience, combining enthusiasm with world-class juggling and visual stunts.
             </p>
             <p className="text-muted-foreground mb-6">
-              With over two decades in circus arts and more than a decade performing professionally, my shows blend real technical skill with earnest, slightly ridiculous comedy. I'm not trying to be cool or intimidating. I'm the performer who's genuinely excited to be there, rooting for the audience as much as they're rooting for me.
+              His shows blend real technical skill with earnest, slightly ridiculous comedy. He's genuinely excited to be there, rooting for the audience as much as they're rooting for him.
             </p>
             <p className="text-muted-foreground mb-6">
-              Expect award-winning juggling, big stunts, and a lot of smiling through the chaos. I lean into playful confidence, self-aware humor, and honest audience connection, the kind where people feel like they're part of the show, not just watching it.
+              Expect award-winning juggling, big tricks, and a lot of smiling through the chaos. He leans into playful confidence, self-aware humor, and honest audience connection, the kind where people feel like they're part of the show, not just watching it.
             </p>
             <p className="text-muted-foreground mb-8">
-              The result is high-energy entertainment that feels impressive without ever feeling distant, and funny without being mean, whether it's on the street or a theater stage.
+              The result is high-energy entertainment that feels impressive without ever feeling distant, and funny without being mean, built on joy, skill, and connection.
             </p>
             
             {/* Media mentions - Now with diamond icons */}
