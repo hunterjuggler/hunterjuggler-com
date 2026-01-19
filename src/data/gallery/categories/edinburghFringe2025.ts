@@ -88,6 +88,87 @@ export const edinburghFringe2025: PerformanceCategory = {
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-09.jpg",
       photographer: "Edinburgh Fringe Photography",
       orientation: "portrait" as const
+    },
+    {
+      id: 910,
+      title: "Unicycle Balance",
+      category: "images",
+      thumbnail: "/lovable-uploads/edinburgh-fringe-2025-10.jpg",
+      fullImage: "/lovable-uploads/edinburgh-fringe-2025-10.jpg",
+      photographer: "Edinburgh Fringe Photography",
+      orientation: "portrait" as const
+    },
+    {
+      id: 911,
+      title: "Wide Crowd Shot",
+      category: "images",
+      thumbnail: "/lovable-uploads/edinburgh-fringe-2025-11.jpg",
+      fullImage: "/lovable-uploads/edinburgh-fringe-2025-11.jpg",
+      photographer: "Edinburgh Fringe Photography",
+      orientation: "landscape" as const
+    },
+    {
+      id: 912,
+      title: "Knife Juggling High",
+      category: "images",
+      thumbnail: "/lovable-uploads/edinburgh-fringe-2025-12.jpg",
+      fullImage: "/lovable-uploads/edinburgh-fringe-2025-12.jpg",
+      photographer: "Edinburgh Fringe Photography",
+      orientation: "portrait" as const
+    },
+    {
+      id: 913,
+      title: "Machete Juggling",
+      category: "images",
+      thumbnail: "/lovable-uploads/edinburgh-fringe-2025-13.jpg",
+      fullImage: "/lovable-uploads/edinburgh-fringe-2025-13.jpg",
+      photographer: "Edinburgh Fringe Photography",
+      orientation: "landscape" as const
+    },
+    {
+      id: 914,
+      title: "Dangerous Objects",
+      category: "images",
+      thumbnail: "/lovable-uploads/edinburgh-fringe-2025-14.jpg",
+      fullImage: "/lovable-uploads/edinburgh-fringe-2025-14.jpg",
+      photographer: "Edinburgh Fringe Photography",
+      orientation: "portrait" as const
+    },
+    {
+      id: 915,
+      title: "Sword and Ball",
+      category: "images",
+      thumbnail: "/lovable-uploads/edinburgh-fringe-2025-15.jpg",
+      fullImage: "/lovable-uploads/edinburgh-fringe-2025-15.jpg",
+      photographer: "Edinburgh Fringe Photography",
+      orientation: "landscape" as const
+    },
+    {
+      id: 916,
+      title: "Unicycle Silhouette",
+      category: "images",
+      thumbnail: "/lovable-uploads/edinburgh-fringe-2025-16.jpg",
+      fullImage: "/lovable-uploads/edinburgh-fringe-2025-16.jpg",
+      photographer: "Edinburgh Fringe Photography",
+      orientation: "landscape" as const
+    },
+    {
+      id: 917,
+      title: "Crowd View from Behind",
+      category: "images",
+      thumbnail: "/lovable-uploads/edinburgh-fringe-2025-17.jpg",
+      fullImage: "/lovable-uploads/edinburgh-fringe-2025-17.jpg",
+      photographer: "Edinburgh Fringe Photography",
+      orientation: "landscape" as const
+    },
+    {
+      id: 918,
+      title: "Parliament Square Performance",
+      category: "images",
+      thumbnail: "/lovable-uploads/edinburgh-fringe-2025-18.jpg",
+      fullImage: "/lovable-uploads/edinburgh-fringe-2025-18.jpg",
+      photographer: "Edinburgh Fringe Photography",
+      orientation: "landscape" as const
     }
   ]
 };
