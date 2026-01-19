@@ -23,15 +23,7 @@ const SingleView = ({
   onImageSelect 
 }: SingleViewProps) => {
 
-  useEffect(() => {
-    // Auto-advance images with smooth crossfade
-    const interval = setInterval(() => {
-      if (performance.images.length <= 1) return;
-      onNext();
-    }, 4000); // 4 second cycle time
-
-    return () => clearInterval(interval);
-  }, [currentImageIndex, onNext, performance.images.length]);
+  // Auto-advance removed - full image view is now static until user manually navigates
 
   return (
     <div className="flex items-center justify-center w-full h-full bg-black relative min-h-[calc(100vh-120px)]">

@@ -68,7 +68,7 @@ const ShowSection: React.FC = () => {
                 Engaging for audiences of all ages, from kids to corporate crowds.
               </p>
               <p className="text-muted-foreground">
-                Fully self-contained and flexible. Indoor or outdoor capable, with or without amplification.
+                Fully self-contained and flexible. Indoor or outdoor capable, can provide my own amplification.
               </p>
               <p className="text-muted-foreground">
                 Fully insured, fire performance available by request (subject to venue approval and safety requirements). Certificates available on request.
