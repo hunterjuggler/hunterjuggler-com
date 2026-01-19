@@ -37,7 +37,7 @@ const HeroSection: React.FC = () => {
             Circus Entertainer
           </span>
           <h1 className="text-7xl md:text-8xl lg:text-9xl font-display font-bold tracking-tight text-shadow-md mb-10">Hunter Way</h1>
-          <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mb-12">Shows | Festivals | Events</p>
+          <p className="text-lg md:text-xl text-black/90 max-w-2xl mb-12" style={{ textShadow: '1px 1px 3px rgba(255,255,255,0.5)' }}>Shows | Festivals | Events</p>
           <div className="flex flex-wrap gap-4">
             <Button asChild size="lg" variant="gradient" rounded="pill" className="shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all duration-300">
               <Link to="/gallery">Explore Performances</Link>

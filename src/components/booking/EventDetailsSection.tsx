@@ -64,8 +64,6 @@ const EventDetailsSection = ({
                   <SelectItem value="indoor-theater">Indoor Theater/Auditorium</SelectItem>
                   <SelectItem value="outdoor-stage">Outdoor Stage</SelectItem>
                   <SelectItem value="corporate-office">Corporate Office/Conference Room</SelectItem>
-                  <SelectItem value="private-home">Private Home/Backyard</SelectItem>
-                  <SelectItem value="restaurant-bar">Restaurant/Bar</SelectItem>
                   <SelectItem value="festival-fair">Festival/Fair</SelectItem>
                   <SelectItem value="other">Other</SelectItem>
                 </SelectContent>

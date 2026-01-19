@@ -50,8 +50,8 @@ const SpecialRequestsSection = ({ form }: SpecialRequestsSectionProps) => {
           <div className="space-y-1 leading-none">
             <FormLabel className="text-sm cursor-pointer">
               I understand that this is a booking inquiry and not a confirmed booking. 
-              A final quote will be provided after reviewing the details, and a contract 
-              will be required to secure the booking.
+              A final quote will be provided after reviewing the details. A signed contract 
+              and non-refundable deposit will be required to secure the booking.
             </FormLabel>
             <FormMessage />
           </div>
