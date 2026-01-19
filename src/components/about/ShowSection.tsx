@@ -64,13 +64,13 @@ const ShowSection: React.FC = () => {
 
             <div className="mb-6 space-y-3">
               <p className="text-muted-foreground">
-                Engaging for audiences of all ages — from kids to corporate crowds.
+                Engaging for audiences of all ages, from kids to corporate crowds.
               </p>
               <p className="text-muted-foreground">
-                Fully self-contained and flexible — can be performed indoors or outdoors, with or without amplification.
+                Fully self-contained and flexible. Can be performed indoors or outdoors, with or without amplification.
               </p>
               <p className="text-muted-foreground">
-                Fully insured — certificates available on request.
+                Fully insured with certificates available on request.
               </p>
             </div>
             
