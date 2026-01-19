@@ -2,7 +2,7 @@ import { PerformanceCategory } from "@/types/gallery";
 
 export const edinburghHunterSquare2023: PerformanceCategory = {
   id: 5,
-  name: "Edinburgh Fringe — Hunter Square (2023)",
+  name: "Edinburgh Fringe: Hunter Square (2023)",
   description: "Performance at Edinburgh Fringe Festival in Hunter Square",
   coverImage: "/lovable-uploads/0d437c58-2bad-47a8-beba-c9127462b42c.png",
   photographer: "Edinburgh Fringe Photography",

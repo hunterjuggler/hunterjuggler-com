@@ -19,7 +19,7 @@ const ContactFAQSection = () => {
           >
             <h3 className="font-semibold mb-3">How far in advance should I book?</h3>
             <p className="text-muted-foreground">
-              6–8 weeks for most events, 3+ months for major international events/festivals.
+              6 to 8 weeks for most events, 3+ months for major international events and festivals.
             </p>
           </motion.div>
           
@@ -59,7 +59,7 @@ const ContactFAQSection = () => {
           >
             <h3 className="font-semibold mb-3">Can you customize performances?</h3>
             <p className="text-muted-foreground">
-              Absolutely — I'm happy to adapt the show for your audience, whether it's a family festival, corporate event, or special occasion.
+              Absolutely! I'm happy to adapt the show for your audience, whether it's a family festival, corporate event, or special occasion.
             </p>
           </motion.div>
         </div>

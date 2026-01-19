@@ -2,8 +2,8 @@ import { PerformanceCategory } from "@/types/gallery";
 
 export const radomFestival: PerformanceCategory = {
   id: 3,
-  name: "Radom International Street Festival — Poland",
-  description: "Międzynarodowy Festiwal Artystów Ulicznych — Radom",
+  name: "Radom International Street Festival, Poland",
+  description: "Międzynarodowy Festiwal Artystów Ulicznych, Radom",
   coverImage: "/lovable-uploads/118aafe3-1b9b-4ad0-a046-dad8c6705161.png",
   photographer: "Szymon Wykrota/Cozadzień",
   images: [

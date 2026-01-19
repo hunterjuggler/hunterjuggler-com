@@ -2,8 +2,8 @@ import { PerformanceCategory } from "@/types/gallery";
 
 export const buntesPflaster: PerformanceCategory = {
   id: 2,
-  name: "Marktredwitz Street Festival — Germany",
-  description: "Buntes Pflaster — Marktredwitz",
+  name: "Marktredwitz Street Festival, Germany",
+  description: "Buntes Pflaster, Marktredwitz",
   coverImage: "/lovable-uploads/b51aa999-8b8e-4790-b903-1282b178782f.png",
   photographer: "Festival Photography",
   images: [
