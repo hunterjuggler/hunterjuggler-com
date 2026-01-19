@@ -36,7 +36,7 @@ const ContactFAQSection = () => {
             viewport={{ once: true }}
             className="bg-black/30 rounded-lg p-6 shadow-sm border border-white/10"
           >
-            <h3 className="font-semibold mb-3">Does Hunter travel for performances?</h3>
+            <h3 className="font-semibold mb-3">Do you travel for performances?</h3>
             <p className="text-muted-foreground">
               Yes, Hunter performs at events worldwide. Travel expenses are typically added to the
               performance fee for locations outside of the Bay Area.
