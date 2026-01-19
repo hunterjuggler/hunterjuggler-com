@@ -30,7 +30,7 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }} 
           className="max-w-3xl"
         >
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-accent/10 text-accent mb-8">
+          <span className="inline-block px-4 py-2 rounded-full text-xl md:text-2xl font-display tracking-wider bg-accent/10 text-accent mb-8">
             Circus Entertainer
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-shadow-md mb-10">Hunter Way</h1>

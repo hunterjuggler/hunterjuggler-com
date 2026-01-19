@@ -59,7 +59,6 @@ const ShowSection: React.FC = () => {
                 <li>• Cabarets</li>
                 <li>• Street fairs</li>
                 <li>• County and state fairs</li>
-                <li>• Even backyard gatherings!</li>
               </ul>
             </div>
 
