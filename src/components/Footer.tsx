@@ -1,24 +1,10 @@
 import { Instagram, Youtube, Mail } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
-import { useState } from "react";
-const Footer = () => {
-  const [email, setEmail] = useState("");
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) {
-      toast.error("Please enter your email");
-      return;
-    }
 
-    // In a real app, we would submit to a backend
-    toast.success("Thank you for subscribing!");
-    setEmail("");
-  };
-  return <footer className="bg-black/30 py-16">
+const Footer = () => {
+  return (
+    <footer className="bg-black/30 py-16">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid gap-10 md:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-3">
           <div>
             <h3 className="text-xl font-display font-bold mb-4">Hunter Way</h3>
             <p className="text-muted-foreground max-w-sm">Professional comedy juggler and variety performer, known for world-class juggling, circus stunts, and audience participation at festivals and events worldwide.</p>
@@ -41,13 +27,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Subscribe to Newsletter</h4>
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <Input type="email" placeholder="Enter your email" className="contact-input bg-black/30" value={email} onChange={e => setEmail(e.target.value)} />
-              <Button type="submit" className="w-full custom-button" variant="default" rounded="pill">
-                Subscribe
-              </Button>
-            </form>
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <div className="flex flex-col space-y-2">
+              <a href="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</a>
+              <a href="/gallery" className="text-muted-foreground hover:text-foreground transition-colors">Gallery</a>
+              <a href="/booking" className="text-muted-foreground hover:text-foreground transition-colors">Book a Show</a>
+              <a href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a>
+            </div>
           </div>
         </div>
 
@@ -65,6 +51,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
