@@ -11,6 +11,9 @@ import { Form } from "@/components/ui/form";
 import ContactInfoSection from "./ContactInfoSection";
 import EventDetailsSection from "./EventDetailsSection";
 import SpecialRequestsSection from "./SpecialRequestsSection";
+import TurnstileWidget from "@/components/TurnstileWidget";
+import { useTurnstile } from "@/hooks/useTurnstile";
+import { supabase } from "@/integrations/supabase/client";
 
 // Validation schema
 const bookingFormSchema = z.object({
@@ -57,6 +60,15 @@ type BookingFormValues = z.infer<typeof bookingFormSchema>;
 
 const BookingForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { 
+    turnstileToken, 
+    turnstileError, 
+    onTurnstileVerify, 
+    onTurnstileError, 
+    onTurnstileExpire,
+    resetTurnstile 
+  } = useTurnstile();
+
   const form = useForm<BookingFormValues>({
     resolver: zodResolver(bookingFormSchema),
     defaultValues: {
@@ -81,14 +93,15 @@ const BookingForm = () => {
   });
 
   const onSubmit = async (values: BookingFormValues) => {
+    if (!turnstileToken) {
+      toast.error("Please complete the security verification.");
+      return;
+    }
+
     setIsSubmitting(true);
     try {
-      const response = await fetch("https://formspree.io/f/mgvydegl", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+      const { data, error } = await supabase.functions.invoke('submit-booking-form', {
+        body: {
           name: values.name,
           email: values.email,
           phone: values.phone,
@@ -96,29 +109,40 @@ const BookingForm = () => {
           eventType: values.eventType || 'Not specified',
           eventDate: values.eventDate,
           eventTime: values.eventTime,
+          eventTimeAmPm: '', // Will be parsed from eventTime if needed
           eventLocation: values.eventLocation,
           venueType: values.venueType || 'Not specified',
-          audienceSize: values.audienceSize || 'Not specified',
-          stageSize: values.stageSize,
+          stageSpace: values.stageSize,
           ceilingHeight: values.ceilingHeight,
-          exactCeilingHeight: values.exactCeilingHeight || 'Not specified',
+          ceilingHeightUnit: 'ft',
+          outdoorCeiling: values.ceilingHeight === 'unlimited' ? 'unlimited' : undefined,
           performanceDuration: values.performanceDuration,
           specialRequests: values.specialRequests || 'None',
           referralSource: values.referralSource || 'Not specified',
-          _replyto: values.email,
-          _subject: `Booking Request - ${values.eventType} - ${values.eventDate}`,
-        }),
+          agreeToTerms: values.agreeToTerms,
+          turnstileToken: turnstileToken,
+        },
       });
 
-      if (response.ok) {
-        toast.success("Thank you! Your booking request has been submitted successfully. Hunter will review the details and get back to you with a quote soon!");
-        form.reset();
-      } else {
-        throw new Error("Failed to send booking request");
+      if (error) {
+        throw new Error(error.message || "Failed to send booking request");
       }
+
+      if (data?.error) {
+        throw new Error(data.error);
+      }
+
+      toast.success("Thank you! Your booking request has been submitted successfully. Hunter will review the details and get back to you with a quote soon!");
+      form.reset();
+      resetTurnstile();
     } catch (error) {
       console.error("Booking form submission error:", error);
-      toast.error("There was an error submitting your booking request. Please try again or email hunterjuggler@gmail.com directly.");
+      const errorMessage = error instanceof Error ? error.message : "Unknown error";
+      if (errorMessage.includes("Security verification failed")) {
+        toast.error("Security verification failed. Please refresh the page and try again.");
+      } else {
+        toast.error("There was an error submitting your booking request. Please try again or email hunterjuggler@gmail.com directly.");
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -137,7 +161,23 @@ const BookingForm = () => {
           <EventDetailsSection form={form} />
           <SpecialRequestsSection form={form} />
           
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
+          <TurnstileWidget
+            onVerify={onTurnstileVerify}
+            onError={onTurnstileError}
+            onExpire={onTurnstileExpire}
+          />
+          
+          {turnstileError && (
+            <p className="text-red-500 text-sm text-center">
+              Security verification failed. Please refresh and try again.
+            </p>
+          )}
+          
+          <Button 
+            type="submit" 
+            className="w-full" 
+            disabled={isSubmitting || !turnstileToken}
+          >
             {isSubmitting ? (
               <span className="flex items-center">
                 Submitting Request
