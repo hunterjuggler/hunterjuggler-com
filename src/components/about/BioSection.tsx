@@ -15,7 +15,7 @@ const BioSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <span className="text-accent font-medium">My Story</span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold mt-2 mb-6">
+            <h2 className="text-4xl md:text-5xl font-display font-bold mt-2 mb-6">
               A Decade of Dedication to the Art of Performance
             </h2>
             <p className="text-muted-foreground mb-6">
