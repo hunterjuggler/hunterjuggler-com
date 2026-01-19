@@ -22,10 +22,10 @@ export default {
 			}
 		},
 		extend: {
-			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				display: ['Manrope', 'sans-serif'],
-			},
+		fontFamily: {
+			sans: ['Inter', 'sans-serif'],
+			display: ['"Bebas Neue"', 'sans-serif'],
+		},
 			backgroundImage: {
 				'gradient-to-center': 'radial-gradient(circle, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 100%)',
 			},
