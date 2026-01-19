@@ -16,7 +16,7 @@ const AboutSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <span className="text-[#ff4742] font-medium">About Me</span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mt-2 mb-6">What I Do</h2>
+            <h2 className="text-5xl md:text-6xl font-display font-bold mt-2 mb-6">What I Do</h2>
             <p className="text-muted-foreground mb-6">
               With over two decades of circus arts experience — and more than a decade performing professionally — I've dedicated my life to creating unforgettable live shows that wow audiences around the world.
             </p>

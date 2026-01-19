@@ -33,7 +33,7 @@ const ShowSection: React.FC = () => {
             className="order-1 md:order-2"
           >
             <span className="text-[#ff4742] font-medium">The Show</span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mt-2 mb-6">
+            <h2 className="text-5xl md:text-6xl font-display font-bold mt-2 mb-6">
               A Captivating Performance
             </h2>
             <p className="text-muted-foreground mb-6">

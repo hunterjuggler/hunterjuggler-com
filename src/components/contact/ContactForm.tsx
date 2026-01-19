@@ -63,7 +63,7 @@ const ContactForm = () => {
 
   return (
     <div>
-      <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+      <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
         Send a Message
       </h2>
       

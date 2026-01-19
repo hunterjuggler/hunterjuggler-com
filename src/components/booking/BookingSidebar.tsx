@@ -10,7 +10,7 @@ const BookingSidebar = () => {
       transition={{ duration: 0.6 }} 
       className="lg:col-span-1"
     >
-      <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+      <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
         Booking Information
       </h2>
       

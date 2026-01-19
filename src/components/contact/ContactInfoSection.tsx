@@ -4,7 +4,7 @@ import { Mail, MapPin, Calendar } from "lucide-react";
 const ContactInfoSection = () => {
   return (
     <div className="space-y-6 mb-8">
-      <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+      <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
         Get in Touch
       </h2>
       
