@@ -12,7 +12,7 @@ const SocialSection: React.FC = () => {
         <div className="text-center">
           <span className="text-[#ff4742] font-medium">Follow Along</span>
           <h2 className="text-5xl md:text-6xl font-display font-bold mt-2 mb-3">Latest from Instagram</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">Check out my latest performances, tricks, and behind-the-scenes content @hunterjuggler</p>
+          <p className="text-muted-foreground max-w-2xl mx-auto">Check out Hunter's latest performances, tricks, and behind-the-scenes content @hunterjuggler</p>
         </div>
       </div>
       

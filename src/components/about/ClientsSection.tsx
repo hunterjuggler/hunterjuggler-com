@@ -15,10 +15,10 @@ const ClientsSection: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-5xl md:text-6xl font-display font-bold mb-4">
-              My Diverse Clientele
+              Diverse Clientele
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              I've had the pleasure of working with a wide range of clients, each with unique needs.
+              Hunter has had the pleasure of working with a wide range of clients, each with unique needs.
             </p>
           </motion.div>
         </div>

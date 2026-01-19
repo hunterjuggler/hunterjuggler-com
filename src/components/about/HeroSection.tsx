@@ -18,8 +18,8 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }} 
           className="max-w-3xl"
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-shadow-md mb-6">About Me</h1>
-          <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mb-8">A brief look into my journey, skills, and passion for performance arts.</p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-shadow-md mb-6">About Hunter</h1>
+          <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mb-8">A brief look into Hunter's journey, skills, and passion for performance arts.</p>
         </motion.div>
       </div>
     </section>

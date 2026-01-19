@@ -174,7 +174,7 @@ const ContactFormFields = ({ form }: ContactFormFieldsProps) => {
                 <SelectItem value="asap">ASAP</SelectItem>
                 <SelectItem value="week">Within a week</SelectItem>
                 <SelectItem value="month">Within a month</SelectItem>
-                <SelectItem value="flexible">I'm flexible</SelectItem>
+                <SelectItem value="flexible">Flexible</SelectItem>
               </SelectContent>
             </Select>
             <FormMessage />
@@ -190,7 +190,7 @@ const ContactFormFields = ({ form }: ContactFormFieldsProps) => {
             <FormLabel>Message *</FormLabel>
             <FormControl>
               <Textarea 
-                placeholder="How can I help you?" 
+                placeholder="How can Hunter help you?" 
                 className="contact-input min-h-[120px]" 
                 {...field} 
               />

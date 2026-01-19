@@ -23,7 +23,7 @@ const SpecialRequestsSection = ({ form }: SpecialRequestsSectionProps) => {
       
       <FormField control={form.control} name="referralSource" render={({ field }) => (
         <FormItem>
-          <FormLabel>How did you hear about me?</FormLabel>
+          <FormLabel>How did you hear about Hunter?</FormLabel>
           <Select onValueChange={field.onChange} defaultValue={field.value}>
             <FormControl>
               <SelectTrigger>
@@ -34,7 +34,7 @@ const SpecialRequestsSection = ({ form }: SpecialRequestsSectionProps) => {
               <SelectItem value="google">Google</SelectItem>
               <SelectItem value="instagram">Instagram</SelectItem>
               <SelectItem value="friend">Friend / Colleague</SelectItem>
-              <SelectItem value="show">Saw your show</SelectItem>
+              <SelectItem value="show">Saw the show</SelectItem>
               <SelectItem value="other">Other</SelectItem>
             </SelectContent>
           </Select>

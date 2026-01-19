@@ -14,7 +14,7 @@ const BookingHero = () => {
             Book a Performance
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Fill out the form below with your event details, and I'll create a custom performance that will leave your audience amazed.
+            Fill out the form below with your event details, and Hunter will create a custom performance that will leave your audience amazed.
           </p>
         </motion.div>
       </div>

@@ -12,7 +12,7 @@ const CallToAction: React.FC = () => {
             Ready to Bring Your Event to Life?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Let's discuss how I can create a memorable and captivating performance for your audience.
+            Get in touch to discuss how Hunter can create a memorable and captivating performance for your audience.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" variant="default" rounded="pill" className="custom-button">
