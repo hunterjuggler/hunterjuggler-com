@@ -39,7 +39,7 @@ const GalleryPage = () => {
           {/* Images Section - Videos tab hidden for now, uncomment Tabs below to re-enable */}
           <div className="space-y-8">
             <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-foreground">
+              <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 text-foreground">
                 Performance Categories
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -58,7 +58,7 @@ const GalleryPage = () => {
             
             <TabsContent value="images" className="space-y-8">
               <div className="text-center mb-8">
-                <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-foreground">
+                <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 text-foreground">
                   Performance Categories
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">

@@ -8,7 +8,7 @@ const CallToAction: React.FC = () => {
     <section className="py-20 bg-transparent">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+          <h2 className="text-5xl md:text-6xl font-display font-bold mb-6">
             Ready to Create an Unforgettable Experience?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">

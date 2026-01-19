@@ -30,7 +30,7 @@ const TestimonialsSection: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <span className="text-accent font-medium">Client Testimonials</span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mt-2">What People Say</h2>
+          <h2 className="text-5xl md:text-6xl font-display font-bold mt-2">What People Say</h2>
         </div>
         
         <RotatingTestimonials testimonials={testimonials} interval={7000} />
