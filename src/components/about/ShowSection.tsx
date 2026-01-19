@@ -71,7 +71,10 @@ const ShowSection: React.FC = () => {
                 Fully self-contained and flexible. Indoor or outdoor capable, Hunter can provide his own amplification.
               </p>
               <p className="text-muted-foreground">
-                Fully insured, fire performance available by request (subject to venue approval and safety requirements). Certificates available on request.
+                Fully insured with Public Liability Insurance (PLI). Certificates available on request.
+              </p>
+              <p className="text-muted-foreground">
+                Fire performance available by request, subject to venue approval and safety requirements.
               </p>
             </div>
             
