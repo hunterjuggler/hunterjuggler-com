@@ -46,7 +46,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <NavLink
             to="/"
-            className="text-xl font-display font-bold tracking-tight transition-opacity hover:opacity-90 red-gradient-text relative z-50"
+            className="text-3xl md:text-4xl font-display font-bold tracking-tight transition-opacity hover:opacity-90 red-gradient-text relative z-50"
           >
             Hunter Way
           </NavLink>

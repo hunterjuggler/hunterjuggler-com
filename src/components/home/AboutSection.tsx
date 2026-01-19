@@ -42,7 +42,7 @@ const AboutSection: React.FC = () => {
                 <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
                   <FunIcon name="diamond" className="text-[#ff4742]" />
                 </div>
-                <p className="font-medium">As seen on BBC, Guardian, and more</p>
+                <p className="font-medium">As seen on BBC, The Guardian, and more</p>
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
