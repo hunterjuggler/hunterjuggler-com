@@ -14,18 +14,18 @@ const BioSection: React.FC = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <span className="text-accent font-medium">My Story</span>
+            <span className="text-accent font-medium">The Story</span>
             <h2 className="text-5xl md:text-6xl font-display font-bold mt-2 mb-6">
               A Decade of Dedication to the Art of Performance
             </h2>
             <p className="text-muted-foreground mb-6">
-              From a young age, I was captivated by the magic of live performance. I began my journey
+              From a young age, Hunter was captivated by the magic of live performance. He began his journey
               exploring various disciplines, from acrobatics to juggling, always seeking to push the boundaries
               of what's possible on stage.
             </p>
             <p className="text-muted-foreground mb-8">
-              Over the past decade, I've had the privilege of performing for audiences around the world,
-              honing my skills and developing a unique style that blends technical precision with artistic expression.
+              Over the past decade, Hunter has had the privilege of performing for audiences around the world,
+              honing his skills and developing a unique style that blends technical precision with artistic expression.
             </p>
           </motion.div>
           

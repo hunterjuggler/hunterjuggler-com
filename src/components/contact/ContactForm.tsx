@@ -48,7 +48,7 @@ const ContactForm = () => {
       });
 
       if (response.ok) {
-        toast.success("Thank you! Your message has been sent successfully. I'll get back to you soon!");
+        toast.success("Thank you! Your message has been sent successfully. Hunter will get back to you soon!");
         form.reset();
       } else {
         throw new Error("Failed to send message");

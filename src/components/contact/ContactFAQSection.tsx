@@ -18,8 +18,14 @@ const ContactFAQSection = () => {
             className="bg-black/30 rounded-lg p-6 shadow-sm border border-white/10"
           >
             <h3 className="font-semibold mb-3">How far in advance should I book?</h3>
+            <p className="text-muted-foreground mb-3">
+              Most events should be booked at least 4 weeks in advance.
+            </p>
+            <p className="text-muted-foreground mb-3">
+              Major international events and festivals should be booked 2+ months in advance to allow for travel and planning.
+            </p>
             <p className="text-muted-foreground">
-              6 to 8 weeks for most events, 3+ months for major international events and festivals.
+              If your event falls inside these time frames, please still get in touch. Availability sometimes opens up, and last-minute bookings may be possible depending on location and schedule.
             </p>
           </motion.div>
           
@@ -30,9 +36,9 @@ const ContactFAQSection = () => {
             viewport={{ once: true }}
             className="bg-black/30 rounded-lg p-6 shadow-sm border border-white/10"
           >
-            <h3 className="font-semibold mb-3">Do you travel for performances?</h3>
+            <h3 className="font-semibold mb-3">Does Hunter travel for performances?</h3>
             <p className="text-muted-foreground">
-              Yes, I perform at events worldwide. Travel expenses are typically added to the
+              Yes, Hunter performs at events worldwide. Travel expenses are typically added to the
               performance fee for locations outside of the Bay Area.
             </p>
           </motion.div>
@@ -44,9 +50,9 @@ const ContactFAQSection = () => {
             viewport={{ once: true }}
             className="bg-black/30 rounded-lg p-6 shadow-sm border border-white/10"
           >
-            <h3 className="font-semibold mb-3">What technical requirements do you have?</h3>
+            <h3 className="font-semibold mb-3">What technical requirements are there?</h3>
             <p className="text-muted-foreground">
-              My show is fully self-contained. I'll provide any space, sound, or setup details once we confirm your event.
+              The show is fully self-contained. Space, sound, and setup details will be provided once the event is confirmed.
             </p>
           </motion.div>
           
@@ -57,9 +63,9 @@ const ContactFAQSection = () => {
             viewport={{ once: true }}
             className="bg-black/30 rounded-lg p-6 shadow-sm border border-white/10"
           >
-            <h3 className="font-semibold mb-3">Can you customize performances?</h3>
+            <h3 className="font-semibold mb-3">Can performances be customized?</h3>
             <p className="text-muted-foreground">
-              Absolutely! I'm happy to adapt the show for your audience, whether it's a family festival, corporate event, or special occasion.
+              Absolutely! Hunter is happy to adapt the show for any audience, whether it's a family festival, corporate event, or special occasion.
             </p>
           </motion.div>
         </div>

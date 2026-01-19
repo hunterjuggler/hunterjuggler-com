@@ -15,7 +15,7 @@ const ContactHero = () => {
             Let's Create Something Extraordinary
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
-            Whether you have questions or just want to say hello, I'd love to hear from you.
+            Whether you have questions or just want to say hello, Hunter would love to hear from you.
           </p>
           
           <p className="text-base text-foreground/90 mb-8">

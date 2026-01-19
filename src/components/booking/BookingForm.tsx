@@ -111,7 +111,7 @@ const BookingForm = () => {
       });
 
       if (response.ok) {
-        toast.success("Thank you! Your booking request has been submitted successfully. I'll review the details and get back to you with a quote soon!");
+        toast.success("Thank you! Your booking request has been submitted successfully. Hunter will review the details and get back to you with a quote soon!");
         form.reset();
       } else {
         throw new Error("Failed to send booking request");

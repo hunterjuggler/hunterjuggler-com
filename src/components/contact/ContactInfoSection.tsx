@@ -1,5 +1,5 @@
 
-import { Mail, MapPin, Calendar } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 const ContactInfoSection = () => {
   return (
@@ -26,13 +26,6 @@ const ContactInfoSection = () => {
           </div>
         </div>
         
-        <div className="flex items-start space-x-4">
-          <Calendar className="w-6 h-6 text-[#ff4742] mt-1 flex-shrink-0" />
-          <div>
-            <h3 className="font-medium">Booking Timeline</h3>
-            <p className="text-muted-foreground">Please contact at least 6–8 weeks in advance for most events, or 3+ months for major international events.</p>
-          </div>
-        </div>
       </div>
       
       <div className="bg-black/40 p-6 rounded-lg border border-white/10">

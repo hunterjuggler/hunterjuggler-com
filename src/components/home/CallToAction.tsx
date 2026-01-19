@@ -13,7 +13,7 @@ const CallToAction: React.FC = () => {
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Whether you're planning a corporate event, festival, or private celebration,
-            let's collaborate to create a performance that will leave your audience amazed.
+            Hunter can create a performance that will leave your audience amazed.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" variant="gradient" rounded="pill" className="shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all duration-300">

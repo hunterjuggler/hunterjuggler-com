@@ -1,6 +1,5 @@
 
 import { motion } from "@/lib/motion";
-import PlanningTimeline from "./PlanningTimeline";
 
 const BookingSidebar = () => {
   return (
@@ -13,10 +12,6 @@ const BookingSidebar = () => {
       <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
         Booking Information
       </h2>
-      
-      <div className="space-y-6 mb-8">
-        <PlanningTimeline />
-      </div>
     </motion.div>
   );
 };
