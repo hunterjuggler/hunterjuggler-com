@@ -37,14 +37,15 @@ const ShowSection: React.FC = () => {
               A Captivating Performance
             </h2>
             <p className="text-muted-foreground mb-6">
-              Get ready for a fast-paced, laugh-out-loud comedy juggling show with big stunts and audience participation. 
-              Blending sharp humor with high-level circus skills and topped with a spectacular giraffe unicycle finale, 
-              this show keeps crowds of all ages entertained from start to finish.
+              This is a fast-paced comedy juggling show built for momentum and sustained crowd focus.
             </p>
             
             <p className="text-muted-foreground mb-6">
-              Customizable for any event, performances can run from 10 to 60 minutes, and are tailored to suit the vibe, 
-              from family-friendly fun to cheeky adult humor.
+              The show combines high-level circus skills with self-aware, sometimes ironic humor, delivered with adaptable, controlled pacing designed to keep attention locked in from the first moment to the final stunt. No two shows are exactly the same, each performance responding to the audience and environment while maintaining a tight structure that builds toward a show-stopping giraffe unicycle finale.
+            </p>
+
+            <p className="text-muted-foreground mb-6">
+              Performances run from 10 to 60 minutes and are customized to fit the event, from family-friendly shows to cheeky adult humor.
             </p>
 
             <div className="mb-6">
@@ -67,10 +68,10 @@ const ShowSection: React.FC = () => {
                 Engaging for audiences of all ages, from kids to corporate crowds.
               </p>
               <p className="text-muted-foreground">
-                Fully self-contained and flexible. Can be performed indoors or outdoors, with or without amplification.
+                Fully self-contained and flexible. Indoor or outdoor capable, with or without amplification.
               </p>
               <p className="text-muted-foreground">
-                Fully insured with certificates available on request.
+                Fully insured, fire performance available by request (subject to venue approval and safety requirements). Certificates available on request.
               </p>
             </div>
             
