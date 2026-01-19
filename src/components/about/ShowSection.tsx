@@ -41,7 +41,7 @@ const ShowSection: React.FC = () => {
             </p>
             
             <p className="text-muted-foreground mb-6">
-              The show combines high-level circus skills with self-aware, sometimes ironic humor, delivered with adaptable, controlled pacing designed to keep attention locked in from the first moment to the final stunt. No two shows are exactly the same, each performance responding to the audience and environment while maintaining a tight structure that builds toward a show-stopping giraffe unicycle finale.
+              The show combines high-level circus skills with self-aware, sometimes ironic humor and is delivered with adaptable, controlled pacing designed to keep attention locked in from the first moment to the final stunt. No two shows are exactly the same. Each performance responds to the audience and environment while maintaining a tight structure that builds toward a show-stopping giraffe unicycle finale, where Hunter juggles dangerous objects high above the crowd and keeps audiences on the edge of their seats.
             </p>
 
             <p className="text-muted-foreground mb-6">

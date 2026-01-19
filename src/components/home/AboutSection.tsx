@@ -18,7 +18,7 @@ const AboutSection: React.FC = () => {
             <span className="text-[#ff4742] font-medium">About Hunter</span>
             <h2 className="text-5xl md:text-6xl font-display font-bold mt-2 mb-6">What He Does</h2>
             <p className="text-muted-foreground mb-6">
-              Hunter is a high-skill circus entertainer with golden retriever energy and over twenty years of experience, combining enthusiasm with world-class juggling and visual stunts.
+              Hunter is a versatile circus entertainer with golden retriever energy and over twenty years of experience, combining enthusiasm and creativity with world-class juggling and visual stunts.
             </p>
             <p className="text-muted-foreground mb-6">
               His shows blend real technical skill with earnest, slightly ridiculous comedy. He's genuinely excited to be there, rooting for the audience as much as they're rooting for him.
