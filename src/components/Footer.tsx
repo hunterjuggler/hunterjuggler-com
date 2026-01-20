@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <h3 className="text-xl font-display font-bold mb-4">Hunter Way</h3>
-            <p className="text-muted-foreground max-w-sm">Professional comedy juggler and variety performer, known for world-class juggling, circus stunts, and audience participation at festivals and events worldwide.</p>
+            <p className="text-muted-foreground max-w-sm">High-skill circus entertainer delivering world-class juggling, big tricks, and tightly paced comedy for events and festivals worldwide.</p>
           </div>
 
           <div>
