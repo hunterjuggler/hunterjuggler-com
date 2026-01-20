@@ -10,6 +10,7 @@ import { AnimatePresence } from "framer-motion";
 import Layout from "./components/Layout";
 import Loading from "./components/Loading";
 import PageTransition from "./components/PageTransition";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Lazy load pages for better performance
 const HomePage = lazy(() => import("./pages/Home"));
@@ -22,8 +23,10 @@ const AnimatedRoutes = () => {
   const location = useLocation();
 
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
+    <>
+      <ScrollToTop />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
         <Route path="/gallery" element={<PageTransition><GalleryPage /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
@@ -32,7 +35,8 @@ const AnimatedRoutes = () => {
         <Route path="/about" element={<Navigate to="/" replace />} />
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
-    </AnimatePresence>
+      </AnimatePresence>
+    </>
   );
 };
 
