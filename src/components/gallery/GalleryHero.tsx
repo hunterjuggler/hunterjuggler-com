@@ -14,8 +14,7 @@ const GalleryHero = () => {
             Performance Gallery
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Browse through a collection of images and videos showcasing performances from various 
-            events, festivals, and venues around the world.
+            Browse a collection of images showcasing performances from events, festivals, and venues around the world. Click an album to explore the full collection.
           </p>
         </motion.div>
       </div>
