@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import HeroSection from "@/components/home/HeroSection";
 import PromoVideoSection from "@/components/home/PromoVideoSection";
 import AboutSection from "@/components/home/AboutSection";
-import SocialSection from "@/components/home/SocialSection";
+// import SocialSection from "@/components/home/SocialSection";
 import CallToAction from "@/components/home/CallToAction";
 import ShowSection from "@/components/about/ShowSection";
 // import CombinedTestimonialsSection from "@/components/home/CombinedTestimonialsSection";
@@ -29,7 +29,7 @@ const HomePage = () => {
         <AboutSection />
         <ShowSection />
         {/* <CombinedTestimonialsSection /> */}
-        <SocialSection />
+        {/* <SocialSection /> */}
         <CallToAction />
       </div>
     </div>
