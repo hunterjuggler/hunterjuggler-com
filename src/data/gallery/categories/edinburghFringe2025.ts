@@ -6,7 +6,7 @@ export const edinburghFringe2025: PerformanceCategory = {
   name: "Edinburgh Fringe (2025)",
   description: "Street performances at the Edinburgh Festival Fringe 2025, featuring basketball spinning, juggling, and giraffe unicycle stunts on the Royal Mile.",
   coverImage: "/lovable-uploads/edinburgh-fringe-2025-04.jpg",
-  photographer: "Edinburgh Fringe Photography",
+  photographer: "Sheila Johnston",
   images: [
     {
       id: 901,
@@ -14,7 +14,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-01.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-01.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "landscape" as const
     },
     {
@@ -23,7 +23,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-02.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-02.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "portrait" as const
     },
     {
@@ -32,7 +32,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-03.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-03.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "portrait" as const
     },
     {
@@ -41,7 +41,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-04.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-04.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "landscape" as const
     },
     {
@@ -50,7 +50,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-05.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-05.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "portrait" as const
     },
     {
@@ -59,7 +59,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-06.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-06.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "portrait" as const
     },
     {
@@ -68,7 +68,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-07.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-07.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "portrait" as const
     },
     {
@@ -77,7 +77,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-08.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-08.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "portrait" as const
     },
     {
@@ -86,7 +86,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-09.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-09.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "portrait" as const
     },
     {
@@ -95,7 +95,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-10.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-10.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "portrait" as const
     },
     {
@@ -104,7 +104,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-11.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-11.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "landscape" as const
     },
     {
@@ -113,7 +113,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-12.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-12.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "portrait" as const
     },
     {
@@ -122,7 +122,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-13.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-13.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "landscape" as const
     },
     {
@@ -131,7 +131,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-14.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-14.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "portrait" as const
     },
     {
@@ -140,7 +140,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-15.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-15.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "landscape" as const
     },
     {
@@ -149,7 +149,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-16.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-16.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "landscape" as const
     },
     {
@@ -158,7 +158,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-17.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-17.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "landscape" as const
     },
     {
@@ -167,7 +167,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-18.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-18.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "landscape" as const
     },
     {
@@ -176,7 +176,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-19.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-19.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "landscape" as const
     },
     {
@@ -185,7 +185,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-20.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-20.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "landscape" as const
     },
     {
@@ -194,7 +194,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-21.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-21.jpg",
-      photographer: "Edinburgh Fringe Photography",
+      photographer: "Sheila Johnston",
       orientation: "portrait" as const
     }
   ]
