@@ -103,10 +103,11 @@ const Navbar = () => {
               to={item.path}
               className={({ isActive }) =>
                 cn(
-                  "text-xl font-medium transition-all py-3 px-8 rounded-full",
+                  // Mobile nav: larger, opaque pills that read as real buttons
+                  "w-full max-w-sm text-center text-2xl font-medium transition-all py-4 px-10 rounded-full",
                   isActive 
                     ? "bg-primary text-primary-foreground font-bold shadow-lg" 
-                    : "bg-muted/50 text-foreground hover:bg-muted"
+                    : "bg-muted text-foreground hover:bg-muted/80"
                 )
               }
             >
@@ -117,7 +118,8 @@ const Navbar = () => {
             asChild 
             variant="gradient" 
             rounded="pill"
-            className="mt-6 px-8 py-3 text-lg shine-effect shimmer-animation shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125]"
+            // Biggest mobile CTA
+            className="mt-8 w-full max-w-sm px-10 py-5 text-2xl shine-effect shimmer-animation shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125]"
           >
             <NavLink to="/booking" className="flex items-center gap-2">
               <Sparkles className="h-5 w-5" />
