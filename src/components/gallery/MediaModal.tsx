@@ -44,9 +44,7 @@ const MediaModal = ({ isOpen, onOpenChange, selectedItem }: MediaModalProps) => 
             )}
             <div className="p-4 border-t bg-background flex justify-between items-center flex-shrink-0">
               <h3 className="text-lg font-medium">{selectedItem.title}</h3>
-              <p className="text-sm text-muted-foreground">
-                {selectedItem.category === "videos" ? "Video" : "Photo"}: {selectedItem.photographer}
-              </p>
+              <p className="text-sm text-muted-foreground">{selectedItem.category === "videos" ? "Video" : "Photo"}</p>
             </div>
           </>
         )}

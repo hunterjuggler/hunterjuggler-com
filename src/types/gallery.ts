@@ -6,7 +6,7 @@ export interface GalleryItem {
   thumbnail: string;
   fullImage?: string;
   videoUrl?: string;
-  photographer: string;
+  photographer?: string;
   orientation?: 'portrait' | 'landscape';
 }
 
