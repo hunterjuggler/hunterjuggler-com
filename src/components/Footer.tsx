@@ -23,7 +23,7 @@ const Footer = () => {
               </a>
               <a href="mailto:contact@hunterjuggler.com" className="flex items-center text-[#ff4742] hover:text-accent transition-colors">
                 <Mail className="w-5 h-5 flex-shrink-0 mr-2" />
-                contact@hunterjuggler.com
+                Email
               </a>
             </div>
           </div>
@@ -32,7 +32,7 @@ const Footer = () => {
             <img 
               src="/lovable-uploads/hunter-chicken-logo.png" 
               alt="Hunter Juggler Logo" 
-              className="w-32 h-auto"
+              className="w-48 h-auto"
             />
           </div>
         </div>
