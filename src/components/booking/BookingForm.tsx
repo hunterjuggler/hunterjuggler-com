@@ -153,7 +153,7 @@ const BookingForm = () => {
       initial={{ opacity: 0, y: 20 }} 
       animate={{ opacity: 1, y: 0 }} 
       transition={{ duration: 0.6 }} 
-      className="lg:col-span-2"
+      className="w-full max-w-4xl mx-auto"
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 bg-black/30 p-8 rounded-xl shadow-sm border border-white/10">

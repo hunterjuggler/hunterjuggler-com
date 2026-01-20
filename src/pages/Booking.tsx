@@ -1,6 +1,5 @@
 
 import BookingHero from "@/components/booking/BookingHero";
-import BookingSidebar from "@/components/booking/BookingSidebar";
 import BookingForm from "@/components/booking/BookingForm";
 
 const BookingPage = () => {
@@ -12,10 +11,7 @@ const BookingPage = () => {
       {/* Booking Form Section */}
       <section className="py-16 bg-black/20">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid lg:grid-cols-3 gap-12">
-            <BookingSidebar />
-            <BookingForm />
-          </div>
+          <BookingForm />
         </div>
       </section>
     </div>
