@@ -3,8 +3,8 @@ import { Instagram, Youtube, Mail } from "lucide-react";
 const Footer = () => {
   return (
     <footer className="bg-black/30 py-16">
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-        <div className="grid gap-10 md:grid-cols-3 md:justify-items-stretch">
+      <div className="w-full mx-auto px-8 md:px-16 lg:px-24 xl:px-32">
+        <div className="grid gap-10 md:grid-cols-3 justify-items-center md:justify-items-center">
           <div>
             <h3 className="text-xl font-display font-bold mb-4">Hunter Way</h3>
             <p className="text-muted-foreground max-w-sm">High-skill circus entertainer delivering world-class juggling, big tricks, and tightly paced comedy for events and festivals worldwide.</p>
