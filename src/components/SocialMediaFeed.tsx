@@ -43,14 +43,16 @@ const SocialMediaFeed = ({ posts }: SocialMediaFeedProps) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {posts.map((post, index) => (
-        <motion.div
+        <motion.a
           key={post.id}
-          className="bg-black/20 backdrop-blur-sm rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer integrated-image-container"
+          href={post.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-black/20 backdrop-blur-sm rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer integrated-image-container block"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
           viewport={{ once: true }}
-          onClick={() => window.open(post.url, "_blank", "noopener,noreferrer")}
         >
           <div className="relative">
             <BlurImage
@@ -78,7 +80,7 @@ const SocialMediaFeed = ({ posts }: SocialMediaFeedProps) => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.a>
       ))}
     </div>
   );
