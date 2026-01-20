@@ -83,7 +83,7 @@ const Navbar = () => {
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X size={40} /> : <Menu size={40} />}
+            {isOpen ? <X size={48} /> : <Menu size={48} />}
           </Button>
         </div>
       </div>
