@@ -1,5 +1,6 @@
 
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import HeroSection from "@/components/about/HeroSection";
 import BioSection from "@/components/about/BioSection";
 import ShowSection from "@/components/about/ShowSection";
@@ -15,6 +16,10 @@ const AboutPage = () => {
   
   return (
     <div className="pt-20 w-full">
+      <Helmet>
+        <title>About Hunter Way | Professional Comedy Juggler & Circus Entertainer</title>
+        <meta name="description" content="Meet Hunter Way, a professional comedy juggler and unicyclist with over twenty years of experience. Delivering high-energy, family-friendly entertainment for corporate events, festivals, and private celebrations." />
+      </Helmet>
       <HeroSection />
       <BioSection />
       <ShowSection />

@@ -1,0 +1,8 @@
+# Robots.txt for Hunter Way
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://hunterjuggler-com.lovable.app/sitemap.xml
+
+# Disallow admin or private paths (none currently)

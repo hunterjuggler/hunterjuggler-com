@@ -62,7 +62,7 @@ const AboutSection: React.FC = () => {
           >
             <BlurImage 
               src="/lovable-uploads/caccdc20-e85d-443a-93d6-8500b3024c84.png" 
-              alt="Hunter Way performing" 
+              alt="Hunter Way juggling during a live comedy circus performance" 
               aspectRatio="portrait" 
               className="w-full h-full object-cover" 
             />
