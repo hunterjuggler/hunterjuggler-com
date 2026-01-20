@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-black/30 py-16">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-3 md:justify-items-center">
           <div>
             <h3 className="text-xl font-display font-bold mb-4">Hunter Way</h3>
             <p className="text-muted-foreground max-w-sm">High-skill circus entertainer delivering world-class juggling, big tricks, and tightly paced comedy for events and festivals worldwide.</p>
@@ -28,7 +28,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-center md:justify-end">
+          <div className="flex items-center justify-center">
             <img 
               src="/lovable-uploads/hunter-chicken-logo.png" 
               alt="Hunter Juggler Logo" 
