@@ -83,7 +83,7 @@ const Navbar = () => {
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            {isOpen ? <X size={40} /> : <Menu size={40} />}
           </Button>
         </div>
       </div>
@@ -119,7 +119,7 @@ const Navbar = () => {
             variant="gradient" 
             rounded="pill"
             // Biggest mobile CTA
-            className="mt-8 w-full max-w-sm px-12 py-6 text-3xl shine-effect shimmer-animation shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125]"
+            className="mt-8 w-full max-w-sm px-12 py-8 text-3xl shine-effect shimmer-animation shadow-[0_-12px_6px_inset_#ADCFFF] hover:bg-amber-300 hover:shadow-[0_-6px_8px_inset_#FF6314] hover:scale-[1.125]"
           >
             <NavLink to="/booking" className="flex items-center gap-2">
               <Sparkles className="h-6 w-6" />
