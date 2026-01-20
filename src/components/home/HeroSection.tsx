@@ -42,8 +42,8 @@ const HeroSection: React.FC = () => {
             <Button asChild size="lg" variant="gradient" rounded="pill" className="shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all duration-300">
               <Link to="/gallery">Explore Performances</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" rounded="pill" className="group border-2 hover:border-accent">
-              <Link to="/booking">
+            <Button asChild size="lg" variant="gradient" rounded="pill" className="shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all duration-300">
+              <Link to="/booking" className="flex items-center">
                 Book a Show
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
