@@ -11,29 +11,29 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Connect</h4>
-            <div className="flex space-x-6 mb-6 px-0 mx-0">
-              <a href="https://instagram.com/hunterjuggler" target="_blank" rel="noopener noreferrer" className="footer-social-icon text-[#ff4742] hover:text-accent" aria-label="Instagram">
-                <Instagram size={28} />
+            <h4 className="text-lg font-display font-semibold mb-4">Connect</h4>
+            <div className="flex flex-col space-y-3">
+              <a href="https://instagram.com/hunterjuggler" target="_blank" rel="noopener noreferrer" className="flex items-center text-[#ff4742] hover:text-accent transition-colors">
+                <Instagram className="w-5 h-5 flex-shrink-0 mr-2" />
+                Instagram
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="footer-social-icon text-[#ff4742] hover:text-accent" aria-label="YouTube">
-                <Youtube size={28} />
+              <a href="https://youtube.com/@hunterjuggler" target="_blank" rel="noopener noreferrer" className="flex items-center text-[#ff4742] hover:text-accent transition-colors">
+                <Youtube className="w-5 h-5 flex-shrink-0 mr-2" />
+                YouTube
+              </a>
+              <a href="mailto:contact@hunterjuggler.com" className="flex items-center text-[#ff4742] hover:text-accent transition-colors">
+                <Mail className="w-5 h-5 flex-shrink-0 mr-2" />
+                contact@hunterjuggler.com
               </a>
             </div>
-            <a href="mailto:hunterjuggler@gmail.com" className="flex items-center text-base text-[#ff4742] hover:text-accent transition-colors">
-              <Mail className="w-5 h-5 flex-shrink-0 mr-2" />
-              hunterjuggler@gmail.com
-            </a>
           </div>
 
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <div className="flex flex-col space-y-2">
-              <a href="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</a>
-              <a href="/gallery" className="text-muted-foreground hover:text-foreground transition-colors">Gallery</a>
-              <a href="/booking" className="text-muted-foreground hover:text-foreground transition-colors">Book a Show</a>
-              <a href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a>
-            </div>
+          <div className="flex items-center justify-center md:justify-end">
+            <img 
+              src="/lovable-uploads/hunter-chicken-logo.png" 
+              alt="Hunter Juggler Logo" 
+              className="w-32 h-auto"
+            />
           </div>
         </div>
 

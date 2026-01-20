@@ -13,7 +13,7 @@ const ContactInfoSection = () => {
           <Mail className="w-6 h-6 text-[#ff4742] mt-1 flex-shrink-0" />
           <div>
             <h3 className="font-medium">Email</h3>
-            <p className="text-muted-foreground">hunterjuggler@gmail.com</p>
+            <p className="text-muted-foreground">contact@hunterjuggler.com</p>
           </div>
         </div>
         

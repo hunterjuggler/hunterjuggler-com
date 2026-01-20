@@ -141,7 +141,7 @@ const BookingForm = () => {
       if (errorMessage.includes("Security verification failed")) {
         toast.error("Security verification failed. Please refresh the page and try again.");
       } else {
-        toast.error("There was an error submitting your booking request. Please try again or email hunterjuggler@gmail.com directly.");
+        toast.error("There was an error submitting your booking request. Please try again or email contact@hunterjuggler.com directly.");
       }
     } finally {
       setIsSubmitting(false);
