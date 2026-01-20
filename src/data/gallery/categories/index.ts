@@ -12,8 +12,8 @@ import { edinburghFringe2025 } from "./edinburghFringe2025";
 import { insanityCabaret2025 } from "./insanityCabaret2025";
 
 export const performanceCategories: PerformanceCategory[] = [
-  insanityCabaret2025,
   edinburghFringe2025,
+  insanityCabaret2025,
   coventGarden,
   edinburghFringe2024,
   buntesPflaster,
