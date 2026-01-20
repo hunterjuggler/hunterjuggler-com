@@ -1,37 +1,37 @@
-
 import React from 'react';
 import { motion } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import BlurImage from "@/components/BlurImage";
-
 const ShowSection: React.FC = () => {
-  return (
-    <section className="py-20 bg-black/10">
+  return <section className="py-20 bg-black/10">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }} 
-            whileInView={{ opacity: 1, scale: 1 }} 
-            transition={{ duration: 0.5 }} 
-            viewport={{ once: true }} 
-            className="rounded-2xl overflow-hidden order-2 md:order-1"
-          >
-            <BlurImage 
-              src="/lovable-uploads/87ec8b89-db73-4902-b630-077f3c2cdfb1.png" 
-              alt="Comedy juggler Hunter Way engaging the crowd during a live show" 
-              className="w-full h-full object-cover" 
-              aspectRatio="auto"
-            />
+          <motion.div initial={{
+          opacity: 0,
+          scale: 0.95
+        }} whileInView={{
+          opacity: 1,
+          scale: 1
+        }} transition={{
+          duration: 0.5
+        }} viewport={{
+          once: true
+        }} className="rounded-2xl overflow-hidden order-2 md:order-1">
+            <BlurImage src="/lovable-uploads/87ec8b89-db73-4902-b630-077f3c2cdfb1.png" alt="Comedy juggler Hunter Way engaging the crowd during a live show" className="w-full h-full object-cover" aspectRatio="auto" />
           </motion.div>
           
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }} 
-            whileInView={{ opacity: 1, x: 0 }} 
-            transition={{ duration: 0.5 }} 
-            viewport={{ once: true }} 
-            className="order-1 md:order-2"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          x: 20
+        }} whileInView={{
+          opacity: 1,
+          x: 0
+        }} transition={{
+          duration: 0.5
+        }} viewport={{
+          once: true
+        }} className="order-1 md:order-2">
             <span className="text-[#ED1C24] font-medium">The Show</span>
             <h2 className="text-5xl md:text-6xl font-display font-bold mt-2 mb-6">
               A Captivating Performance
@@ -67,9 +67,7 @@ const ShowSection: React.FC = () => {
               <p className="text-muted-foreground">
                 Engaging for audiences of all ages, from kids to corporate crowds.
               </p>
-              <p className="text-muted-foreground">
-                Fully self-contained and flexible. Indoor or outdoor capable, Hunter can provide his own amplification.
-              </p>
+              <p className="text-muted-foreground">Self-contained and flexible. Indoor or outdoor capable, Hunter can provide his own amplification.</p>
               <p className="text-muted-foreground">
                 Fully insured with Public Liability Insurance (PLI). Certificates available on request.
               </p>
@@ -84,8 +82,6 @@ const ShowSection: React.FC = () => {
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ShowSection;
