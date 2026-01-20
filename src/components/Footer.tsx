@@ -6,12 +6,12 @@ const Footer = () => {
       <div className="w-full mx-auto px-8 md:px-16 lg:px-24 xl:px-32">
         <div className="grid gap-10 md:grid-cols-3 justify-items-center md:justify-items-center">
           <div>
-            <h3 className="text-xl font-display font-bold mb-4">Hunter Way</h3>
+            <h3 className="text-2xl md:text-4xl font-display font-bold mb-4">Hunter Way</h3>
             <p className="text-muted-foreground max-w-sm">High-skill circus entertainer delivering world-class juggling, big tricks, and tightly paced comedy for events and festivals worldwide.</p>
           </div>
 
           <div>
-            <h4 className="text-lg font-display font-semibold mb-4">Connect</h4>
+            <h4 className="text-xl md:text-2xl font-display font-semibold mb-4">Connect</h4>
             <div className="flex flex-col space-y-3">
               <a href="https://instagram.com/hunterjuggler" target="_blank" rel="noopener noreferrer" className="flex items-center text-[#ED1C24] hover:text-accent transition-colors">
                 <Instagram className="w-5 h-5 flex-shrink-0 mr-2" />
