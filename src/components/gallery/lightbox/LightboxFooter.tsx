@@ -30,7 +30,9 @@ const LightboxFooter = ({
         // Single view footer
         <div className="text-white">
           <h3 className="text-lg font-medium mb-1">{currentImage?.title}</h3>
-          <p className="text-white/80 text-sm">Photo: {currentImage?.photographer}</p>
+          {performance.photographer && (
+            <p className="text-white/80 text-sm">Photography: {performance.photographer}</p>
+          )}
           
           {/* Thumbnail strip */}
           {performance.images.length > 1 && (

@@ -5,7 +5,7 @@ export const edinburghHighStreet2022: PerformanceCategory = {
   name: "Edinburgh Fringe: High Street (2022)",
   description: "Performance at Edinburgh Fringe Festival on High Street",
   coverImage: "/lovable-uploads/c9596d25-45ca-49bf-9018-43ed6cdbbc25.png",
-  photographer: "Edinburgh Fringe Photography",
+  photographer: "Arch White",
   images: [
     {
       id: 801,
@@ -13,7 +13,6 @@ export const edinburghHighStreet2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/c9596d25-45ca-49bf-9018-43ed6cdbbc25.png",
       fullImage: "/lovable-uploads/c9596d25-45ca-49bf-9018-43ed6cdbbc25.png",
-      photographer: "Edinburgh Fringe Photography",
     },
     {
       id: 802,
@@ -21,7 +20,6 @@ export const edinburghHighStreet2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/f6070826-2d2e-440e-b2bd-bb4d218d75b2.png",
       fullImage: "/lovable-uploads/f6070826-2d2e-440e-b2bd-bb4d218d75b2.png",
-      photographer: "Edinburgh Fringe Photography",
     },
     {
       id: 803,
@@ -29,7 +27,6 @@ export const edinburghHighStreet2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/0b7ec57f-2514-4d77-9201-cd804e527ee3.png",
       fullImage: "/lovable-uploads/0b7ec57f-2514-4d77-9201-cd804e527ee3.png",
-      photographer: "Edinburgh Fringe Photography",
     },
     {
       id: 804,
@@ -37,7 +34,6 @@ export const edinburghHighStreet2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/c1fa222a-4dda-4bfc-9286-23b32fced1f6.png",
       fullImage: "/lovable-uploads/c1fa222a-4dda-4bfc-9286-23b32fced1f6.png",
-      photographer: "Edinburgh Fringe Photography",
     },
     {
       id: 805,
@@ -45,7 +41,6 @@ export const edinburghHighStreet2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/3ae3914f-5f5d-4869-b382-a9def29497bf.png",
       fullImage: "/lovable-uploads/3ae3914f-5f5d-4869-b382-a9def29497bf.png",
-      photographer: "Edinburgh Fringe Photography",
     },
     {
       id: 806,
@@ -53,7 +48,6 @@ export const edinburghHighStreet2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/ad5fd504-aaf9-4d78-8a97-1f07335923b3.png",
       fullImage: "/lovable-uploads/ad5fd504-aaf9-4d78-8a97-1f07335923b3.png",
-      photographer: "Edinburgh Fringe Photography",
     },
     {
       id: 807,
@@ -61,7 +55,6 @@ export const edinburghHighStreet2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/3037e903-2ded-4f5b-98d5-e70a2f2d800d.png",
       fullImage: "/lovable-uploads/3037e903-2ded-4f5b-98d5-e70a2f2d800d.png",
-      photographer: "Edinburgh Fringe Photography",
     },
     {
       id: 808,
@@ -69,7 +62,6 @@ export const edinburghHighStreet2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/1e130f5a-edb4-472d-ba9d-4143d1af04ea.png",
       fullImage: "/lovable-uploads/1e130f5a-edb4-472d-ba9d-4143d1af04ea.png",
-      photographer: "Edinburgh Fringe Photography",
     },
     {
       id: 809,
@@ -77,7 +69,6 @@ export const edinburghHighStreet2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/06ef1c9e-ac24-4ed0-a59f-f72d53c5057b.png",
       fullImage: "/lovable-uploads/06ef1c9e-ac24-4ed0-a59f-f72d53c5057b.png",
-      photographer: "Edinburgh Fringe Photography",
     },
     {
       id: 810,
@@ -85,7 +76,6 @@ export const edinburghHighStreet2022: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/b926a357-9363-4eb0-b0a9-7d1ab8cfdf29.png",
       fullImage: "/lovable-uploads/b926a357-9363-4eb0-b0a9-7d1ab8cfdf29.png",
-      photographer: "Edinburgh Fringe Photography",
     },
   ],
 };

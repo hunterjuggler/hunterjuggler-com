@@ -6,7 +6,6 @@ export const crowdsFromAroundTheWorld: PerformanceCategory = {
   name: "Crowds From Around The World",
   description: "Spectacular crowds gathered to watch street performances from various international locations",
   coverImage: "/lovable-uploads/e47a60ba-d02b-4dad-b277-3f70c84845c1.png",
-  photographer: "Various Photographers",
   images: [
     {
       id: 1001,
@@ -14,7 +13,6 @@ export const crowdsFromAroundTheWorld: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/e47a60ba-d02b-4dad-b277-3f70c84845c1.png",
       fullImage: "/lovable-uploads/e47a60ba-d02b-4dad-b277-3f70c84845c1.png",
-      photographer: "Performance Photography",
     },
     {
       id: 1002,
@@ -22,7 +20,6 @@ export const crowdsFromAroundTheWorld: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/10ee7202-8fee-4fc5-8561-3730fa45eeb7.png",
       fullImage: "/lovable-uploads/10ee7202-8fee-4fc5-8561-3730fa45eeb7.png",
-      photographer: "Performance Photography",
     },
     {
       id: 1003,
@@ -30,7 +27,6 @@ export const crowdsFromAroundTheWorld: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/df83e133-1ab1-452d-9008-cc1d68ff624c.png",
       fullImage: "/lovable-uploads/df83e133-1ab1-452d-9008-cc1d68ff624c.png",
-      photographer: "Performance Photography",
     },
     {
       id: 1004,
@@ -38,7 +34,6 @@ export const crowdsFromAroundTheWorld: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/e35ea8f6-02ce-4f32-8d11-600ce9a8eb5d.png",
       fullImage: "/lovable-uploads/e35ea8f6-02ce-4f32-8d11-600ce9a8eb5d.png",
-      photographer: "Performance Photography",
     },
     {
       id: 1005,
@@ -46,7 +41,6 @@ export const crowdsFromAroundTheWorld: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/d994d755-6be0-46f8-bc1b-980717f2a556.png",
       fullImage: "/lovable-uploads/d994d755-6be0-46f8-bc1b-980717f2a556.png",
-      photographer: "Performance Photography",
     },
     {
       id: 1006,
@@ -54,7 +48,6 @@ export const crowdsFromAroundTheWorld: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/138a1bf9-0629-44de-a497-302a5420be89.png",
       fullImage: "/lovable-uploads/138a1bf9-0629-44de-a497-302a5420be89.png",
-      photographer: "Performance Photography",
     },
     {
       id: 1007,
@@ -62,7 +55,6 @@ export const crowdsFromAroundTheWorld: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/fce89104-59da-4f9e-abfe-7dd833eb7930.png",
       fullImage: "/lovable-uploads/fce89104-59da-4f9e-abfe-7dd833eb7930.png",
-      photographer: "Performance Photography",
     },
     {
       id: 1008,
@@ -70,7 +62,6 @@ export const crowdsFromAroundTheWorld: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/efdbdc6e-f2d6-480b-a1e7-1250516acd1c.png",
       fullImage: "/lovable-uploads/efdbdc6e-f2d6-480b-a1e7-1250516acd1c.png",
-      photographer: "Performance Photography",
     },
     {
       id: 1009,
@@ -78,7 +69,6 @@ export const crowdsFromAroundTheWorld: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/fa920ce7-7215-4eed-b225-6d543cfe8f5c.png",
       fullImage: "/lovable-uploads/fa920ce7-7215-4eed-b225-6d543cfe8f5c.png",
-      photographer: "Performance Photography",
     },
   ],
 };

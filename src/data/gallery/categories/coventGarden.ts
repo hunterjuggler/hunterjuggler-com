@@ -13,7 +13,6 @@ export const coventGarden: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/41fead9f-bc5c-4f84-911d-a8f0c76006de.png",
       fullImage: "/lovable-uploads/41fead9f-bc5c-4f84-911d-a8f0c76006de.png",
-      photographer: "Rex Boyd",
     },
     {
       id: 303,
@@ -21,7 +20,6 @@ export const coventGarden: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/f61ccdd5-555b-4a29-b7ce-0754a787bbfe.png",
       fullImage: "/lovable-uploads/f61ccdd5-555b-4a29-b7ce-0754a787bbfe.png",
-      photographer: "Rex Boyd",
     },
     {
       id: 304,
@@ -29,7 +27,6 @@ export const coventGarden: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/b09e6f74-6e01-47ec-a26f-2a60180afa8f.png",
       fullImage: "/lovable-uploads/b09e6f74-6e01-47ec-a26f-2a60180afa8f.png",
-      photographer: "Rex Boyd",
     },
     {
       id: 301,
@@ -37,7 +34,6 @@ export const coventGarden: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/bb546db1-2235-47af-b9fc-21e23a0b3bac.png",
       fullImage: "/lovable-uploads/bb546db1-2235-47af-b9fc-21e23a0b3bac.png",
-      photographer: "Rex Boyd",
     },
     {
       id: 305,
@@ -45,7 +41,6 @@ export const coventGarden: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/c8391b5c-50bc-4dab-b16f-084a3f50542e.png",
       fullImage: "/lovable-uploads/c8391b5c-50bc-4dab-b16f-084a3f50542e.png",
-      photographer: "Rex Boyd",
     },
     {
       id: 306,
@@ -53,7 +48,6 @@ export const coventGarden: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/705644ad-0868-4128-b8d9-25196496f718.png",
       fullImage: "/lovable-uploads/705644ad-0868-4128-b8d9-25196496f718.png",
-      photographer: "Rex Boyd",
     },
     {
       id: 307,
@@ -61,7 +55,6 @@ export const coventGarden: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/c4a457ae-b16a-492a-8fd1-9f61711b29e1.png",
       fullImage: "/lovable-uploads/c4a457ae-b16a-492a-8fd1-9f61711b29e1.png",
-      photographer: "Rex Boyd",
     },
     {
       id: 308,
@@ -69,7 +62,6 @@ export const coventGarden: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/ae89beea-8524-4d61-9d4b-6968a0ea3cfb.png",
       fullImage: "/lovable-uploads/ae89beea-8524-4d61-9d4b-6968a0ea3cfb.png",
-      photographer: "Rex Boyd",
     },
     {
       id: 309,
@@ -77,7 +69,6 @@ export const coventGarden: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/d18d638c-3954-460c-ad13-f59d2d7a83e8.png",
       fullImage: "/lovable-uploads/d18d638c-3954-460c-ad13-f59d2d7a83e8.png",
-      photographer: "Rex Boyd",
     },
     {
       id: 310,
@@ -85,7 +76,6 @@ export const coventGarden: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/f184eb9f-144c-498a-a60f-bb62f519ffb6.png",
       fullImage: "/lovable-uploads/f184eb9f-144c-498a-a60f-bb62f519ffb6.png",
-      photographer: "Rex Boyd",
     },
   ],
 };

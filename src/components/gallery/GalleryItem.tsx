@@ -38,7 +38,7 @@ const GalleryItem = ({ item, index, onClick }: GalleryItemProps) => {
           </div>
         )}
         <div className="absolute bottom-2 right-2 bg-black/70 px-2 py-1 text-xs rounded">
-          {item.category === "videos" ? "Video" : "Photo"}: {item.photographer}
+          {item.category === "videos" ? "Video" : "Photo"}
         </div>
       </div>
     </motion.div>
