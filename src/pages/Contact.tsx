@@ -1,5 +1,6 @@
 
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "@/lib/motion";
 import ContactHero from "@/components/contact/ContactHero";
 import ContactInfoSection from "@/components/contact/ContactInfoSection";
@@ -14,6 +15,11 @@ const ContactPage = () => {
   
   return (
     <div className="pt-20 w-full">
+      <Helmet>
+        <title>Contact Hunter Way | Entertainment Inquiries</title>
+        <meta name="description" content="Get in touch with Hunter Way for entertainment inquiries. Professional comedy juggler available for corporate events, festivals, weddings, and private celebrations. Quick response guaranteed." />
+      </Helmet>
+      
       {/* Hero Section */}
       <ContactHero />
 

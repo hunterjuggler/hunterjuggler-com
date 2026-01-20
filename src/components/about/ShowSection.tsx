@@ -19,7 +19,7 @@ const ShowSection: React.FC = () => {
           >
             <BlurImage 
               src="/lovable-uploads/87ec8b89-db73-4902-b630-077f3c2cdfb1.png" 
-              alt="Hunter Way performing with audience participation" 
+              alt="Comedy juggler Hunter Way engaging the crowd during a live show" 
               className="w-full h-full object-cover" 
               aspectRatio="auto"
             />

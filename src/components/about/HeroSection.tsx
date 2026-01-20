@@ -7,7 +7,7 @@ const HeroSection: React.FC = () => {
   return (
     <section className="relative min-h-[50vh] flex items-center">
       <div className="absolute inset-0 z-0">
-        <BlurImage src="https://images.unsplash.com/photo-1556085253-77543049e818?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Hunter Way performing" className="w-full h-full object-cover" />
+        <BlurImage src="https://images.unsplash.com/photo-1556085253-77543049e818?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Circus performer juggling on stage under bright lights" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
       </div>
       
