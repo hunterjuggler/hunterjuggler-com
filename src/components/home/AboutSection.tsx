@@ -15,7 +15,7 @@ const AboutSection: React.FC = () => {
             transition={{ duration: 0.5 }} 
             viewport={{ once: true }}
           >
-            <span className="text-[#ff4742] font-medium">About Hunter</span>
+            <span className="text-[#ED1C24] font-medium">About Hunter</span>
             <h2 className="text-5xl md:text-6xl font-display font-bold mt-2 mb-6">What He Does</h2>
             <p className="text-muted-foreground mb-6">
               Hunter is a versatile circus entertainer with over twenty years of experience, combining golden retriever energy with world-class juggling and visual stunts to create a high-energy comedy circus show.
@@ -34,19 +34,19 @@ const AboutSection: React.FC = () => {
             <div className="flex flex-col gap-4 mb-8">
               <div className="flex items-center gap-4">
                 <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
-                  <FunIcon name="diamond" className="text-[#ff4742]" />
+                  <FunIcon name="diamond" className="text-[#ED1C24]" />
                 </div>
                 <p className="font-medium">11M+ views on YouTube</p>
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
-                  <FunIcon name="diamond" className="text-[#ff4742]" />
+                  <FunIcon name="diamond" className="text-[#ED1C24]" />
                 </div>
                 <p className="font-medium">As seen on BBC, The Guardian, and more</p>
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
-                  <FunIcon name="diamond" className="text-[#ff4742]" />
+                  <FunIcon name="diamond" className="text-[#ED1C24]" />
                 </div>
                 <p className="font-medium">1,000+ shows across 8 countries</p>
               </div>

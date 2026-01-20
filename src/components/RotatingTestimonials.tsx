@@ -100,7 +100,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
         transition={{ duration: 0.5 }}
         className="bg-black/30 rounded-2xl p-8 shadow-sm border border-white/10"
       >
-        <div className="flex text-[#ff4742] mb-4">
+        <div className="flex text-[#ED1C24] mb-4">
           {[...Array(5)].map((_, i) => (
             <Star key={i} size={16} fill="currentColor" />
           ))}
@@ -125,7 +125,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
                 }, 500);
               }}
               className={`w-2 h-2 rounded-full ${
-                index === currentIndex ? "bg-[#ff4742]" : "bg-white/20"
+                index === currentIndex ? "bg-[#ED1C24]" : "bg-white/20"
               }`}
               aria-label={`View testimonial ${index + 1}`}
             />
@@ -138,7 +138,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
         variant="gradient"
         size="icon"
         rounded="pill"
-        className="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 shadow-[0_-12px_6px_inset_#ff4742] hover:bg-transparent hover:shadow-[0_-6px_8px_inset_#ff4742] hover:scale-[1.125] z-10"
+        className="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 shadow-[0_-12px_6px_inset_#ED1C24] hover:bg-transparent hover:shadow-[0_-6px_8px_inset_#ED1C24] hover:scale-[1.125] z-10"
         onClick={goToPrevious}
         aria-label="Previous testimonial"
       >
@@ -149,7 +149,7 @@ const RotatingTestimonials = ({ testimonials, interval = 5000 }: RotatingTestimo
         variant="gradient"
         size="icon"
         rounded="pill"
-        className="absolute top-1/2 -right-4 md:-right-12 transform -translate-y-1/2 shadow-[0_-12px_6px_inset_#ff4742] hover:bg-transparent hover:shadow-[0_-6px_8px_inset_#ff4742] hover:scale-[1.125] z-10"
+        className="absolute top-1/2 -right-4 md:-right-12 transform -translate-y-1/2 shadow-[0_-12px_6px_inset_#ED1C24] hover:bg-transparent hover:shadow-[0_-6px_8px_inset_#ED1C24] hover:scale-[1.125] z-10"
         onClick={goToNext}
         aria-label="Next testimonial"
       >

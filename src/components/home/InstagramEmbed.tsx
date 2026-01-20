@@ -37,7 +37,7 @@ const InstagramEmbed: React.FC = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
-            <Instagram size={20} className="text-[#ff4742]" />
+            <Instagram size={20} className="text-[#ED1C24]" />
             <span className="font-medium">@hunterjuggler</span>
           </a>
         </div>

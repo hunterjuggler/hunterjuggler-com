@@ -32,7 +32,7 @@ const ShowSection: React.FC = () => {
             viewport={{ once: true }} 
             className="order-1 md:order-2"
           >
-            <span className="text-[#ff4742] font-medium">The Show</span>
+            <span className="text-[#ED1C24] font-medium">The Show</span>
             <h2 className="text-5xl md:text-6xl font-display font-bold mt-2 mb-6">
               A Captivating Performance
             </h2>

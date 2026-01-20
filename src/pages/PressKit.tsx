@@ -59,7 +59,7 @@ const PressKitPage = () => {
                   asChild
                 >
                   <a href="/hunter-way-press-kit.pdf" download>
-                    <FileDown className="h-4 w-4 text-[#ff4742]" />
+                    <FileDown className="h-4 w-4 text-[#ED1C24]" />
                     <span>Download Press Kit</span>
                   </a>
                 </Button>

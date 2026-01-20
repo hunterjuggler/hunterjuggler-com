@@ -10,7 +10,7 @@ const ContactInfoSection = () => {
       
       <div className="space-y-6 mb-8">
         <div className="flex items-start space-x-4">
-          <Mail className="w-6 h-6 text-[#ff4742] mt-1 flex-shrink-0" />
+          <Mail className="w-6 h-6 text-[#ED1C24] mt-1 flex-shrink-0" />
           <div>
             <h3 className="font-medium">Email</h3>
             <p className="text-muted-foreground">contact@hunterjuggler.com</p>
@@ -18,7 +18,7 @@ const ContactInfoSection = () => {
         </div>
         
         <div className="flex items-start space-x-4">
-          <MapPin className="w-6 h-6 text-[#ff4742] mt-1 flex-shrink-0" />
+          <MapPin className="w-6 h-6 text-[#ED1C24] mt-1 flex-shrink-0" />
           <div>
             <h3 className="font-medium">Based in</h3>
             <p className="text-muted-foreground">Bay Area, California</p>
