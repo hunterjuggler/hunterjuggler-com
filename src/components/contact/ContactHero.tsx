@@ -22,7 +22,7 @@ const ContactHero = () => {
             For full booking inquiries, please go to the{' '}
             <Link 
               to="/booking" 
-              className="text-[#ff4742] hover:underline font-medium"
+              className="text-[#ED1C24] hover:underline font-medium"
             >
               Book Now page
             </Link>

@@ -35,6 +35,9 @@
     --ring: 240 4.9% 83.9%;
 
     --radius: 0.5rem;
+    
+    /* Brand red - matches chicken logo */
+    --brand-red: #ED1C24;
 
     --sidebar-background: 20 14.3% 4.1%;
     --sidebar-foreground: 0 0% 95%;

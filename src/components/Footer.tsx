@@ -13,15 +13,15 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-display font-semibold mb-4">Connect</h4>
             <div className="flex flex-col space-y-3">
-              <a href="https://instagram.com/hunterjuggler" target="_blank" rel="noopener noreferrer" className="flex items-center text-[#ff4742] hover:text-accent transition-colors">
+              <a href="https://instagram.com/hunterjuggler" target="_blank" rel="noopener noreferrer" className="flex items-center text-[#ED1C24] hover:text-accent transition-colors">
                 <Instagram className="w-5 h-5 flex-shrink-0 mr-2" />
                 Instagram
               </a>
-              <a href="https://youtube.com/@hunterjuggler" target="_blank" rel="noopener noreferrer" className="flex items-center text-[#ff4742] hover:text-accent transition-colors">
+              <a href="https://youtube.com/@hunterjuggler" target="_blank" rel="noopener noreferrer" className="flex items-center text-[#ED1C24] hover:text-accent transition-colors">
                 <Youtube className="w-5 h-5 flex-shrink-0 mr-2" />
                 YouTube
               </a>
-              <a href="mailto:contact@hunterjuggler.com" className="flex items-center text-[#ff4742] hover:text-accent transition-colors">
+              <a href="mailto:contact@hunterjuggler.com" className="flex items-center text-[#ED1C24] hover:text-accent transition-colors">
                 <Mail className="w-5 h-5 flex-shrink-0 mr-2" />
                 Email
               </a>

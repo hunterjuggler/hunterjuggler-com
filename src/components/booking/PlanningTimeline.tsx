@@ -7,7 +7,7 @@ const PlanningTimeline = () => {
       <h3 className="font-semibold text-lg mb-4">Planning Timeline</h3>
       <ul className="space-y-3">
         <li className="flex items-start">
-          <span className="bg-accent/20 p-1 rounded text-[#ff4742] mr-3 mt-0.5">
+          <span className="bg-accent/20 p-1 rounded text-[#ED1C24] mr-3 mt-0.5">
             <Clock size={16} />
           </span>
           <div>
@@ -16,7 +16,7 @@ const PlanningTimeline = () => {
           </div>
         </li>
         <li className="flex items-start">
-          <span className="bg-accent/20 p-1 rounded text-[#ff4742] mr-3 mt-0.5">
+          <span className="bg-accent/20 p-1 rounded text-[#ED1C24] mr-3 mt-0.5">
             <Clock size={16} />
           </span>
           <div>
@@ -25,7 +25,7 @@ const PlanningTimeline = () => {
           </div>
         </li>
         <li className="flex items-start">
-          <span className="bg-accent/20 p-1 rounded text-[#ff4742] mr-3 mt-0.5">
+          <span className="bg-accent/20 p-1 rounded text-[#ED1C24] mr-3 mt-0.5">
             <Clock size={16} />
           </span>
           <div>

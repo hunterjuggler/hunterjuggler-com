@@ -32,7 +32,7 @@ const ClientsSection: React.FC = () => {
             className="bg-black/30 rounded-xl p-5 shadow-sm border border-white/10"
           >
             <div className="flex items-center justify-center h-14 mb-3">
-              <Globe className="w-7 h-7 text-[#ff4742]" />
+              <Globe className="w-7 h-7 text-[#ED1C24]" />
             </div>
             <h3 className="font-semibold text-base mb-1 text-center">International Festivals</h3>
             <p className="text-muted-foreground text-xs text-center">
@@ -48,7 +48,7 @@ const ClientsSection: React.FC = () => {
             className="bg-black/30 rounded-xl p-5 shadow-sm border border-white/10"
           >
             <div className="flex items-center justify-center h-14 mb-3">
-              <Award className="w-7 h-7 text-[#ff4742]" />
+              <Award className="w-7 h-7 text-[#ED1C24]" />
             </div>
             <h3 className="font-semibold text-base mb-1 text-center">Corporate Events</h3>
             <p className="text-muted-foreground text-xs text-center">
@@ -64,7 +64,7 @@ const ClientsSection: React.FC = () => {
             className="bg-black/30 rounded-xl p-5 shadow-sm border border-white/10"
           >
             <div className="flex items-center justify-center h-14 mb-3">
-              <Star className="w-7 h-7 text-[#ff4742]" />
+              <Star className="w-7 h-7 text-[#ED1C24]" />
             </div>
             <h3 className="font-semibold text-base mb-1 text-center">Private Celebrations</h3>
             <p className="text-muted-foreground text-xs text-center">
@@ -80,7 +80,7 @@ const ClientsSection: React.FC = () => {
             className="bg-black/30 rounded-xl p-5 shadow-sm border border-white/10"
           >
             <div className="flex items-center justify-center h-14 mb-3">
-              <Clock className="w-7 h-7 text-[#ff4742]" />
+              <Clock className="w-7 h-7 text-[#ED1C24]" />
             </div>
             <h3 className="font-semibold text-base mb-1 text-center">Themed Events</h3>
             <p className="text-muted-foreground text-xs text-center">

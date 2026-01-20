@@ -45,7 +45,7 @@ const FunIcon: React.FC<FunIconProps> = ({ name, className = "" }) => {
         );
       case "diamond":
         return (
-          <svg viewBox="0 0 24 24" className={`w-full h-full text-[#ff4742]`} fill="currentColor" stroke="none">
+          <svg viewBox="0 0 24 24" className={`w-full h-full text-[#ED1C24]`} fill="currentColor" stroke="none">
             <path d="M12 2L19 12L12 22L5 12L12 2z" 
               style={{ 
                 animation: "pulse-subtle 12s ease-in-out infinite",

@@ -31,7 +31,7 @@ const HeroSection: React.FC = () => {
           className="max-w-3xl"
         >
           <span 
-            className="inline-block px-5 py-3 rounded-full text-2xl md:text-3xl font-display tracking-wider bg-black/50 text-[#ff4742] mb-8"
+            className="inline-block px-5 py-3 rounded-full text-2xl md:text-3xl font-display tracking-wider bg-black/50 text-[#ED1C24] mb-8"
             style={{ WebkitTextStroke: '1px black', textShadow: '2px 2px 4px rgba(0,0,0,0.9)' }}
           >
             Circus Entertainer
