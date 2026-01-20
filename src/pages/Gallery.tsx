@@ -27,9 +27,8 @@ const GalleryPage = () => {
   return (
     <div className="pt-20 w-full">
       <Helmet>
-        <title>Performance Gallery | Hunter Way - Professional Comedy Juggler & Unicyclist</title>
-        <meta name="description" content="Browse stunning performances by Hunter Way, professional comedy juggler and unicyclist. Available for hire for corporate events, festivals, and private celebrations." />
-        <meta name="keywords" content="professional comedy juggler, unicyclist entertainer for events, circus performer for hire, festival entertainment, corporate event juggler" />
+        <title>Performance Gallery | Hunter Way</title>
+        <meta name="description" content="Browse performance photos from Hunter Way's circus entertainment shows at festivals, corporate events, and private celebrations." />
       </Helmet>
       
       <GalleryHero />
