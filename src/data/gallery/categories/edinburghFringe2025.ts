@@ -14,7 +14,6 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-01.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-01.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
       orientation: "landscape" as const
     },
     {
@@ -23,7 +22,6 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-02.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-02.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
       orientation: "portrait" as const
     },
     {
@@ -32,7 +30,6 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-04.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-04.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
       orientation: "landscape" as const
     },
     {
@@ -41,7 +38,6 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-03.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-03.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
       orientation: "portrait" as const
     },
     {
@@ -50,16 +46,6 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-05.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-05.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
-      orientation: "portrait" as const
-    },
-    {
-      id: 906,
-      title: "Crowd Interaction",
-      category: "images",
-      thumbnail: "/lovable-uploads/edinburgh-fringe-2025-06.jpg",
-      fullImage: "/lovable-uploads/edinburgh-fringe-2025-06.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
       orientation: "portrait" as const
     },
     {
@@ -68,7 +54,6 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-07.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-07.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
       orientation: "portrait" as const
     },
     {
@@ -77,7 +62,6 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-08.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-08.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
       orientation: "portrait" as const
     },
     {
@@ -86,7 +70,6 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-09.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-09.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
       orientation: "portrait" as const
     },
     {
@@ -95,7 +78,6 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-10.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-10.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
       orientation: "portrait" as const
     },
     {
@@ -104,7 +86,6 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-11.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-11.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
       orientation: "landscape" as const
     },
     {
@@ -113,17 +94,7 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-12.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-12.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
       orientation: "portrait" as const
-    },
-    {
-      id: 913,
-      title: "Machete Juggling",
-      category: "images",
-      thumbnail: "/lovable-uploads/edinburgh-fringe-2025-13.jpg",
-      fullImage: "/lovable-uploads/edinburgh-fringe-2025-13.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
-      orientation: "landscape" as const
     },
     {
       id: 914,
@@ -131,7 +102,6 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-14.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-14.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
       orientation: "portrait" as const
     },
     {
@@ -140,7 +110,6 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-15.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-15.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
       orientation: "landscape" as const
     },
     {
@@ -149,7 +118,6 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-16.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-16.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
       orientation: "landscape" as const
     },
     {
@@ -158,7 +126,6 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-17.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-17.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
       orientation: "landscape" as const
     },
     {
@@ -167,16 +134,6 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-18.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-18.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
-      orientation: "landscape" as const
-    },
-    {
-      id: 919,
-      title: "Knife Juggling Action",
-      category: "images",
-      thumbnail: "/lovable-uploads/edinburgh-fringe-2025-19.jpg",
-      fullImage: "/lovable-uploads/edinburgh-fringe-2025-19.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
       orientation: "landscape" as const
     },
     {
@@ -185,16 +142,14 @@ export const edinburghFringe2025: PerformanceCategory = {
       category: "images",
       thumbnail: "/lovable-uploads/edinburgh-fringe-2025-20.jpg",
       fullImage: "/lovable-uploads/edinburgh-fringe-2025-20.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
       orientation: "landscape" as const
     },
     {
-      id: 921,
-      title: "Giraffe Unicycle Back View",
+      id: 922,
+      title: "Ball Juggling at Parliament Square",
       category: "images",
-      thumbnail: "/lovable-uploads/edinburgh-fringe-2025-21.jpg",
-      fullImage: "/lovable-uploads/edinburgh-fringe-2025-21.jpg",
-      photographer: "Iain Gardner and Sheila Johnston",
+      thumbnail: "/lovable-uploads/edinburgh-fringe-2025-22.jpg",
+      fullImage: "/lovable-uploads/edinburgh-fringe-2025-22.jpg",
       orientation: "portrait" as const
     }
   ]
