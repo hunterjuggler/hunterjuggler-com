@@ -86,6 +86,78 @@ export const pier39SanFrancisco: PerformanceCategory = {
       thumbnail: "/lovable-uploads/pier39-sf-10.jpg",
       fullImage: "/lovable-uploads/pier39-sf-10.jpg",
       orientation: "landscape" as const
+    },
+    {
+      id: 1111,
+      title: "Unicycle Triumph",
+      category: "images",
+      thumbnail: "/lovable-uploads/pier39-sf-11.jpg",
+      fullImage: "/lovable-uploads/pier39-sf-11.jpg",
+      orientation: "landscape" as const
+    },
+    {
+      id: 1112,
+      title: "Tall Unicycle Performance",
+      category: "images",
+      thumbnail: "/lovable-uploads/pier39-sf-12.jpg",
+      fullImage: "/lovable-uploads/pier39-sf-12.jpg",
+      orientation: "landscape" as const
+    },
+    {
+      id: 1113,
+      title: "Axe Juggling on Unicycle",
+      category: "images",
+      thumbnail: "/lovable-uploads/pier39-sf-13.jpg",
+      fullImage: "/lovable-uploads/pier39-sf-13.jpg",
+      orientation: "landscape" as const
+    },
+    {
+      id: 1114,
+      title: "Unicycle Juggling Wide Shot",
+      category: "images",
+      thumbnail: "/lovable-uploads/pier39-sf-14.jpg",
+      fullImage: "/lovable-uploads/pier39-sf-14.jpg",
+      orientation: "landscape" as const
+    },
+    {
+      id: 1115,
+      title: "Knife Juggling on Unicycle",
+      category: "images",
+      thumbnail: "/lovable-uploads/pier39-sf-15.jpg",
+      fullImage: "/lovable-uploads/pier39-sf-15.jpg",
+      orientation: "landscape" as const
+    },
+    {
+      id: 1116,
+      title: "Club Juggling Close-up",
+      category: "images",
+      thumbnail: "/lovable-uploads/pier39-sf-16.jpg",
+      fullImage: "/lovable-uploads/pier39-sf-16.jpg",
+      orientation: "landscape" as const
+    },
+    {
+      id: 1117,
+      title: "Sword Juggling on Unicycle",
+      category: "images",
+      thumbnail: "/lovable-uploads/pier39-sf-17.jpg",
+      fullImage: "/lovable-uploads/pier39-sf-17.jpg",
+      orientation: "landscape" as const
+    },
+    {
+      id: 1118,
+      title: "Crowd Tips and Laughter",
+      category: "images",
+      thumbnail: "/lovable-uploads/pier39-sf-18.jpg",
+      fullImage: "/lovable-uploads/pier39-sf-18.jpg",
+      orientation: "landscape" as const
+    },
+    {
+      id: 1119,
+      title: "Stage Portrait",
+      category: "images",
+      thumbnail: "/lovable-uploads/pier39-sf-19.jpg",
+      fullImage: "/lovable-uploads/pier39-sf-19.jpg",
+      orientation: "portrait" as const
     }
   ]
 };

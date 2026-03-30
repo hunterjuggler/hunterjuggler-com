@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="relative min-h-[100vh] flex items-center">
+    <section className="relative min-h-[100vh] flex items-end md:items-center">
       <div className="absolute inset-0 z-0">
         <img 
           src="/lovable-uploads/hero-crowd-performance.jpg"
@@ -23,7 +23,7 @@ const HeroSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-radial from-black/20 via-black/40 to-black/70"></div>
       </div>
       
-      <div className="container relative z-10 mx-auto px-4 pt-32 md:px-6">
+      <div className="container relative z-10 mx-auto px-4 pb-16 md:pb-0 md:pt-32 md:px-6">
         <motion.div 
           initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 
