@@ -88,14 +88,6 @@ export const pier39SanFrancisco: PerformanceCategory = {
       orientation: "landscape" as const
     },
     {
-      id: 1111,
-      title: "Unicycle Triumph",
-      category: "images",
-      thumbnail: "/lovable-uploads/pier39-sf-11.jpg",
-      fullImage: "/lovable-uploads/pier39-sf-11.jpg",
-      orientation: "landscape" as const
-    },
-    {
       id: 1112,
       title: "Tall Unicycle Performance",
       category: "images",
