@@ -88,14 +88,6 @@ export const pier39SanFrancisco: PerformanceCategory = {
       orientation: "landscape" as const
     },
     {
-      id: 1111,
-      title: "Unicycle Triumph",
-      category: "images",
-      thumbnail: "/lovable-uploads/pier39-sf-11.jpg",
-      fullImage: "/lovable-uploads/pier39-sf-11.jpg",
-      orientation: "landscape" as const
-    },
-    {
       id: 1112,
       title: "Tall Unicycle Performance",
       category: "images",
@@ -151,13 +143,5 @@ export const pier39SanFrancisco: PerformanceCategory = {
       fullImage: "/lovable-uploads/pier39-sf-18.jpg",
       orientation: "landscape" as const
     },
-    {
-      id: 1119,
-      title: "Stage Portrait",
-      category: "images",
-      thumbnail: "/lovable-uploads/pier39-sf-19.jpg",
-      fullImage: "/lovable-uploads/pier39-sf-19.jpg",
-      orientation: "portrait" as const
-    }
   ]
 };
