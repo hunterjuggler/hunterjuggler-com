@@ -143,13 +143,5 @@ export const pier39SanFrancisco: PerformanceCategory = {
       fullImage: "/lovable-uploads/pier39-sf-18.jpg",
       orientation: "landscape" as const
     },
-    {
-      id: 1119,
-      title: "Stage Portrait",
-      category: "images",
-      thumbnail: "/lovable-uploads/pier39-sf-19.jpg",
-      fullImage: "/lovable-uploads/pier39-sf-19.jpg",
-      orientation: "portrait" as const
-    }
   ]
 };
