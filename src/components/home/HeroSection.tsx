@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="relative min-h-[100vh] flex items-center">
+    <section className="relative min-h-[100vh] flex items-end md:items-center">
       <div className="absolute inset-0 z-0">
         <img 
           src="/lovable-uploads/hero-crowd-performance.jpg"
