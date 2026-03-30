@@ -10,8 +10,10 @@ import { edinburghMound2022 } from "./edinburghMound2022";
 import { edinburghFringe2024 } from "./edinburghFringe2024";
 import { edinburghFringe2025 } from "./edinburghFringe2025";
 import { insanityCabaret2025 } from "./insanityCabaret2025";
+import { pier39SanFrancisco } from "./pier39SanFrancisco";
 
 export const performanceCategories: PerformanceCategory[] = [
+  pier39SanFrancisco,
   edinburghFringe2025,
   insanityCabaret2025,
   coventGarden,
