@@ -28,15 +28,15 @@ const HeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 
           transition={{ duration: 0.8, delay: 0.2 }} 
-          className="max-w-3xl"
+          className="max-w-3xl flex flex-col items-start"
         >
+          <h1 className="text-7xl md:text-8xl lg:text-9xl font-display font-bold tracking-tight text-shadow-md mb-4">Hunter Way</h1>
           <span 
             className="inline-block px-5 py-3 rounded-full text-2xl md:text-3xl font-display tracking-wider bg-black/50 text-[#ED1C24] mb-8"
             style={{ WebkitTextStroke: '1px black', textShadow: '2px 2px 4px rgba(0,0,0,0.9)' }}
           >
             Circus Entertainer
           </span>
-          <h1 className="text-7xl md:text-8xl lg:text-9xl font-display font-bold tracking-tight text-shadow-md mb-10">Hunter Way</h1>
           
           <div className="flex flex-wrap gap-4">
             <Button asChild size="lg" variant="gradient" rounded="pill" className="shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all duration-300">
