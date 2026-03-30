@@ -46,6 +46,46 @@ export const pier39SanFrancisco: PerformanceCategory = {
       thumbnail: "/lovable-uploads/pier39-sf-05.jpg",
       fullImage: "/lovable-uploads/pier39-sf-05.jpg",
       orientation: "landscape" as const
+    },
+    {
+      id: 1106,
+      title: "Ball Juggling at Pier 39",
+      category: "images",
+      thumbnail: "/lovable-uploads/pier39-sf-06.jpg",
+      fullImage: "/lovable-uploads/pier39-sf-06.jpg",
+      orientation: "landscape" as const
+    },
+    {
+      id: 1107,
+      title: "Knife Juggling with Volunteer",
+      category: "images",
+      thumbnail: "/lovable-uploads/pier39-sf-07.jpg",
+      fullImage: "/lovable-uploads/pier39-sf-07.jpg",
+      orientation: "landscape" as const
+    },
+    {
+      id: 1108,
+      title: "Juggling with the Crowd",
+      category: "images",
+      thumbnail: "/lovable-uploads/pier39-sf-08.jpg",
+      fullImage: "/lovable-uploads/pier39-sf-08.jpg",
+      orientation: "landscape" as const
+    },
+    {
+      id: 1109,
+      title: "Finale Pose",
+      category: "images",
+      thumbnail: "/lovable-uploads/pier39-sf-09.jpg",
+      fullImage: "/lovable-uploads/pier39-sf-09.jpg",
+      orientation: "landscape" as const
+    },
+    {
+      id: 1110,
+      title: "Unicycle Balance",
+      category: "images",
+      thumbnail: "/lovable-uploads/pier39-sf-10.jpg",
+      fullImage: "/lovable-uploads/pier39-sf-10.jpg",
+      orientation: "landscape" as const
     }
   ]
 };
